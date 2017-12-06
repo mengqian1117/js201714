@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            height: 200px;
+            width: 200px;
+            border: 1px solid green;
+            text-align: center;
+            line-height: 200px;
+            color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<div id="box">0</div>
+
+
+</body>
+</html>
+<script>
+    var btn1=document.getElementById("btn1");
+    var btn2=document.getElementById("btn2");
+    var btn3=document.getElementById("btn3");
+    var box=document.getElementById("box");
+
+    function change(color,num) {
+        //只有颜色不是红色说明这是第一次点击或者是从其他按钮切换过来的
+        if(box.style.color!=color){
+            box.innerHTML=0;
+            box.style.color=color;
+            return;//return后面的带不执行
+        }
+        //当让内容变成0的是先不执行这一条语句box.innerHTML++
+        box.innerHTML=Number(box.innerHTML)+num;
+    }
+
+    btn1.onclick=function () {
+       change("red",1);
+    };
+
+    btn2.onclick=function () {
+        change("green",2);
+    };
+
+    btn3.onclick=function () {
+       change("yellow",3);
+    }
+</script>

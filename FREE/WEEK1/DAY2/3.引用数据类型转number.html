@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //Number()
+
+    //数组-数字
+    //先将数组->字符串->数字
+    console.log(Number([]));//[]->""->0
+    console.log(Number([1]));//[1]->"1"->1
+    console.log(Number([1,2]));//[1,2]->"1,2"->NaN
+
+
+    //对象-数字
+    //对象->字符串->数字
+    //"[object Object]"->NaN
+    console.log(Number({a: "zf"}));
+
+    //正则-数字
+    //正则->字符串->数字
+    //"//"->NaN
+    console.log(Number(/\d+/));
+
+    //时间-数字
+    //默认将其时间调用getTime()转为毫秒数
+    //计算机的起始时间是1970/1/1 00:00:00
+    console.log(Number(new Date()));
+    console.log(new Date().getTime());
+
+
+    parseInt([]);//[]->""->NaN
+    parseInt([1]);//[1]->"1"->1
+
+    //注意时间在这是不转为毫秒的 结果NaN
+    console.log(parseInt(new Date()));
+
+</script>

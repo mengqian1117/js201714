@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<ul id="list">
+
+</ul>
+<div id="box"></div>
+</body>
+</html>
+<!--
+//获取
+innerHTML:可以将标签一起获取出来
+innerText:只能获取文本内容
+
+//设置
+元素.innerHTML="可以识别标签"
+元素.innerText="不可以识别标签,只会将它看成普通文本内容"
+
+//所以以后处理元素内容的时候可以直接使用innerHTML即可
+-->
+<script type="text/javascript">
+    //通过ID名获取元素
+    var list=document.getElementById("list");
+    //console.log(list.innerHTML);//"<li>苹果</li>"
+    //console.log(list.innerText);//"苹果"
+
+
+//    list.innerHTML="<li>苹果</li><li>苹果</li><li>苹果</li><li>苹果</li><li>苹果</li>";
+    //list.innerText="<li>苹果</li><li>苹果</li><li>苹果</li><li>苹果</li>";
+
+
+    var apple="苹果";
+    var banana="香蕉";
+    var peach="桃子";
+    var pineapple="菠萝";
+
+
+    list.innerHTML="<li>"+apple+"</li>"+"<li>"+banana+"</li>"+"<li>"+peach+"</li>"+"<li>"+pineapple+"</li>";
+
+
+
+    var a1="大草原";
+    var a2="牛";
+    var a3="马";
+    var a4="羊";
+    //"我的家乡是美丽的 大草原 ,那里有 牛 , 马 , 羊 "
+    var str="我的家乡是美丽的" +a1+ ",那里有" +a2+ "," +a3+ "," +a4 ;
+
+
+
+    //在box这个盒子中加上一个图片,img的src的地址是这个变量imgSrc的值
+    var  imgSrc="img/1.png";
+
+    box.innerHTML="<img src='"+imgSrc+"' alt=''/>"
+</script>

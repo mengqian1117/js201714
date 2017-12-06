@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //1.null,undefined  转布尔都是false
+    //2.null==undefined
+    //3.null,undefined都没有toString方法,当遇到字符串拼接时候直接拼上即可
+    "1"+null;//"1null"
+
+
+    //null Number->0
+    //null typeof->"Object"
+    //一般可以初始化一个变量  var a=null
+    var a=0; //0+1=1
+    var a=null;//Number(null)->0 0+1=1
+    var a;//undefined+1=NaN
+    a++;
+    //清空一个对象
+    var obj={name:"珠峰"};
+    obj=null;
+
+    //undefined
+    //1.一个变量只声明不定义是undefined
+    //2.一个对象没有某个属性的时候
+    //3.一个函数没有返回值结果为undefined
+
+
+</script>

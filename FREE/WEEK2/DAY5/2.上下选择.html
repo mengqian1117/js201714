@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <style>
+        html,body,div{
+            margin: 0;
+            padding: 0;
+        }
+        .list{
+            width: 200px;
+            height: 280px;
+            margin: 20px 30px;
+            float: left;
+            /*滤镜: blur()模糊度*/
+            filter: blur(3px);
+        }
+        .clear{
+            clear: both;
+        }
+        .select{
+            width: 200px;
+            height: 280px;
+            margin: 5px auto;
+        }
+        #prev{
+            position: relative;
+            left: 300px;
+            top: -200px;
+        }
+        #next{
+            position: relative;
+            left: 920px;
+            top: -200px;
+        }
+        .list img,.select img{
+            width: 100%;
+            height: 100%;
+        }
+        .sel{
+            filter: blur(0);
+        }
+
+        #btn{
+            display: block;
+            width: 100px;
+            height:40px;
+            margin: 0 auto;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="list">-->
+    <!--<img src="img/person1.jpg" alt="">-->
+<!--</div>-->
+<!--<div class="list"></div>-->
+<!--<div class="list"></div>-->
+<!--<div class="list"></div>-->
+<!--<div class="list"></div>-->
+<!--<div class="list"></div>-->
+<div class="clear"></div>
+<div class="select"></div>
+<button id="prev">上一个</button>
+<button id="next">下一个</button>
+<button id="btn">选择</button>
+
+</body>
+</html>
+<script>
+
+    var clear=document.getElementsByClassName("clear")[0];
+    var select=document.getElementsByClassName("select")[0];
+    var next=document.getElementById("next");
+    var prev=document.getElementById("prev");
+    var btn=document.getElementById("btn");
+
+    var ary=[{img:"person1.jpg"},{img:"person2.jpg"},{img:"person3.jpg"},{img:"person4.jpg"},{img:"person5.jpg"}];
+    //循环绑定数据
+    for(var i=0;i<ary.length;i++){
+        //1.动态创建一个div
+        var oDiv=document.createElement("div");
+        //2.给这个div加一个class名
+        oDiv.className="list";
+        //3.给这个div加一个img标签(通过innerHTML)
+        oDiv.innerHTML=`<img src="img/${ary[i].img}"/>`;
+        //4.将这个div元素放到clear前面
+        document.body.insertBefore(oDiv,clear)
+    }
+    var list=document.getElementsByClassName("list");
+
+
+
+
+</script>

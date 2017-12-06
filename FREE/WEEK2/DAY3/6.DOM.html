@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+</head>
+<body>
+<div id="box" b="BBB">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+<div id="div1" class="box1 box2 box3"></div>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    //通过.这种方式设置或者修改属性值,如果是内置属性可以显示在HTML结构上,但是自定义属性不可以显示在HTML结构上
+    box.className="box";
+    box.index="珠峰";
+
+    //设置:元素.setAttribute("属性名",属性值)
+    //不管是什么属性都可以显示在HTML结构上
+    box.setAttribute("index","珠峰");
+    box.setAttribute("class","box1");
+
+
+    //获取:元素.getAttribute("属性名")
+    //getAttribute获取属性值的时候
+    //1)只能获取写在标签结构上的属性的值
+    //2)能显示在标签结构上:内置属性,setAttribute设置的
+    box.a="AA";
+    console.log(box.getAttribute("a"));//null
+    box.setAttribute("a","AA");
+    console.log(box.getAttribute("a"));//"AA
+    console.log(box.getAttribute("b"));//"BB"
+
+
+    var div1=document.getElementById("div1");
+    console.log(div1.className);//"box1 box2 box3"
+    div1.className+=" bxo4";
+
+    console.log(div1.classList);
+   // 元素.classList  类名集合 是一个类数组,length,有索引
+
+    //add()增加一个或者多个类名
+    div1.classList.add("box5","box6","box7");
+    //remove()删除一个或者多个类名
+    div1.classList.remove("box1","box2");
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function showtext1()
+        {
+            var mychar1 = document.getElementById("box1").style.display ="block";
+
+        }
+
+        function showtext2()
+        {
+            var mychar = document.getElementById("box2").style.display ="block";
+
+        }
+        function showtext3()
+        {
+            var mychar = document.getElementById("box3").style.display ="block";
+
+        }
+
+    </script>
+</head>
+<body >
+<h1>齐宏旭</h1>
+<form>
+    <input type="button" onclick="showtext1()" value="红色" />
+    <input type="button" onclick="showtext2()" value="绿色" />
+    <input type="button" onclick="showtext3()" value="黄色" />
+</form>
+<input type="submit" value="点我增加红色数字" onclick="document.getElementById('box1').innerHTML++">
+<input type="submit" value="点我增加绿色数字" onclick="document.getElementById('box2').innerHTML+=2"
+>
+
+<input type="submit" value="点我增加黄色数字" onclick="document.getElementById('box3').innerHTML+=3">
+<div id="box">
+<div id="box1"  style=" display: none; width:220px;height: 220px;background-color: red"></div>
+<div id="box2"  style=" display: none;width:220px;height: 220px;background-color: green"></div>
+<div id="box3"  style=" display: none;width:220px;height: 220px;background-color: yellow"></div>
+</div>
+
+</body>
+</html>

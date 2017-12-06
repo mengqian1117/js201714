@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            margin: 80px auto;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">变</button>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    var ary = ["red", "orange", "yellow", "green", "greenyellow", "blue", "purple"];
+
+    //给btn绑定onclick事件
+    var index=0;//代表当前变化的颜色的索引
+//    btn.onclick=function () {
+//        //做临界值判断当 index==ary.length 立马让index=0
+//        if(index==ary.length){
+//            index=0;
+//        }
+//        box.style.backgroundColor=ary[index++]
+//    }
+
+    //定时器
+    //window.setInterval(执行的函数,频率(事件间隔,单位是毫秒))
+
+    function change () {
+        //做临界值判断当 index==ary.length 立马让index=0
+        if(index==ary.length){
+            index=0;
+        }
+        box.style.backgroundColor=ary[index++]
+    }
+
+    window.setInterval(change,300);
+    //每隔1秒钟执行一次change函数
+    //一定要注意:第一个参数是函数的定义部分例如这里写的是个函数名
+</script>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #h1 {
+            /*进账用户选中文字/内容*/
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<h1 id="h1">0</h1>
+</body>
+</html>
+<script type="text/javascript">
+    //无序的键值对组合
+    //键:属性名 字符串
+    //值:属性值
+
+    //获取属性值
+    //对象.属性名
+    //对象["属性名"]
+
+    var a = "b";
+    var obj = {a: "AA", b: "BB"};
+
+    console.log(obj[a]);//obj["b"]-->"BB"
+    console.log(obj.a);//"AA"
+
+    var obj = {
+        //写在对象里面的时候[a]中的a也是变量
+        //[变量]
+        //["属性名"]
+        //[可以写简单的表达式]
+        [a]: "哈哈",
+        ["x" + a]: "嘻嘻",//["x"+"b"]->["xb"]
+        a: "嘿嘿"
+    };
+    console.log(obj);
+
+    //遍历对象
+    for (var key in obj) {
+        //key:属性名
+        //obj[key]:属性值
+    }
+
+
+    var obj2 = {n: "苹果", m: "香蕉", x: "杏", y: "桃子", z: "柚子"};
+    //将这个对象中的属性值都存到一个数组Fruits中
+    var Fruits = [];
+    //数组.push(m):向数组的末尾添加一项m
+    var index = 0;
+    for (var key in obj2) {
+        //Fruits[index++]=obj2[key];
+        Fruits.push(obj2[key]);
+    }
+    console.log(Fruits);
+
+
+    h1.onclick = function () {
+        h1.innerHTML++;//默认转为数字相加
+    }
+
+</script>
+<script>
+
+    //升级版的
+    var obj1 = {age1: 18, age2: 19, name1: "刘治兵", name2: "齐宏旭", name3: "王宪忠", age3: 20};
+    var nameAry = [];//属性值是string类型的
+    var ageAry = [];//属性值是number类型的
+    for (var key in obj1) {
+        //判断属性值 obj1[key]是什么数据类型的
+        if (typeof obj1[key] == "string") {
+            nameAry.push(obj1[key]);
+        } else if (typeof obj1[key] == "number") {
+            ageAry.push(obj1[key]);
+        }
+    }
+
+    //扩展 判断属性名中含有"age"或者"name"
+    //判断一个字符串中有没有指定字符
+    //字符串.includes("指定字符")->true有/false没有
+
+
+    var str="zhufeng";
+    console.log(str.includes("zhu"));
+    console.log(str.includes("zhou"));
+
+    var obj1 = {age1: 18, age2: 19, name1: "刘治兵", name2: "齐宏旭", name3: "王宪忠", age3: 20};
+    var nameAry = [];//属性名中有"name"
+    var ageAry = [];//属性名中有"age"
+    for (var key in obj1){
+        //判断key中是否有"age"/"name"
+        if(key.includes("age")){
+           //属性名中含有"age"时候
+            ageAry.push(obj1[key])
+        }else if(key.includes("name")){
+            nameAry.push(obj1[key])
+        }
+    }
+    console.log(nameAry);
+    console.log(ageAry);
+
+</script>

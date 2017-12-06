@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //每一道题是独立的，假设报错了可以继续执行
+    //1.
+    console.log(a);
+    var a = 13;
+    function fn() {
+        console.log(a);
+        var a = 1;
+    }
+    fn();
+    console.log(a);
+    //2.
+    console.log(a);
+    var a = 13;
+    function fn1() {
+        console.log(a);
+        a = 1;
+    }
+    console.log(a);
+    //3.
+    //console.log(a);
+    a = 13;
+    function fn() {
+        console.log(a);
+        a = 1;
+    }
+    fn();
+    console.log(a);
+    //4.
+    var foo = 1;
+    function bar() {
+        if (!foo) {
+            var foo = 10
+        }
+        console.log(foo);
+    }
+    bar();
+    //5.
+    function f5() {
+        f=ff();
+        return f;
+        function ff() {
+            return "f" in window;
+        };
+        var f;
+    }
+    console.log(f5());
+    //6.
+    var a = b = c = [1, 2, 3, 4];//a=b=c=xxxfff111
+    b = 9;
+    a[1] = 0;
+    console.log(b[0]);
+    a = [1, 2, 3, 4];
+    c = [1, 2, 3, 4];
+    a[0] = b;
+    console.log(c);
+    console.log(a);
+    //7.
+    var ary = [1, 2, 3, 4];
+    function ff(ary) {
+        ary[0] = 0;
+        ary = [0];
+        ary[0] = 100;
+        return ary
+    }
+    var s = ff(ary);
+    console.log(ary);
+    console.log(s);
+    //8.
+    var a = 10, b = 11, c = 12;
+    function test(a) {
+        a = 1;
+        var b = 2;
+        c = 3;
+    }
+    test(10);
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    //9.
+    if (!("aa" in window)) {
+        var aa = 1;
+        function aa() {
+            console.log(aa)
+        }
+    }
+    console.log(aa);
+    //10.
+    var a = 4;
+    function b(x, y, b) {
+        console.log(a);
+        arguments[2] = 10;
+        console.log(a);
+    }
+    a = b(1, 2, 3);
+    console.log(a);
+    //11.
+    var fs = "hello";
+    (function (fs) {
+        console.log(fs);
+        var fs = fs || "world";
+        console.log(fs);
+    })(fs);
+    console.log(fs);
+    //12.
+    var a = 9;
+    function ss() {
+        a = 0;
+        return function (b) {
+            return b + (a++)
+        }
+    }
+    var f = ss();
+    var m = f(5);
+    console.log(m);
+    var n = ss()(5);
+    console.log(n);
+    var x = f(5);
+    console.log(x);
+    console.log(a);
+
+</script>
+</body>
+</html>

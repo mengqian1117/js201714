@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #list li{
+            height:30px;
+            border: 2px solid yellowgreen;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    var oLis=document.getElementById("list").getElementsByTagName("li");
+    /*
+    for (var i=0;i<oLis.length;i++){
+        oLis[i].onclick=(function (i) {
+            return function () {
+                console.log(i);
+            }
+        })(i)
+    }
+    console.log(i);//6
+    */
+
+    for (let i=0;i<oLis.length;i++){
+        oLis[i].onclick=function () {
+            console.log(i);
+        }
+    }
+
+    //i=0   { i=0}
+    //i=1   { i=1}
+    //....
+</script>
+<script>
+    var i=1,a=2;
+    for (let i=0;i<3;i++){
+        var a=10;
+        let b=20;
+        a++;
+        b++
+    }
+    console.log(a,b,i);
+</script>

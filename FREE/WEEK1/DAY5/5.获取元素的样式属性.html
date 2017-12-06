@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            /*background-color: yellowgreen;*/
+        }
+
+    </style>
+</head>
+<body>
+<div id="box" style="">我是box</div>
+</body>
+</html>
+<script type="text/javascript">
+    //元素.style.样式属性
+    //只能获取行内样式
+    var box=document.getElementById("box");
+    console.log(box.style.width);//""
+    console.log(box.style.color);//"red"
+
+    //设置样式也是写在行内
+    box.style.fontSize="50px";
+
+    //getComputedStyle()获取经过浏览器计算后的样式
+    //不管是写在哪里的样式他都可以获取到
+    //颜色是经过浏览器计算的颜色值变成了rgb格式的
+    //只能获取不可以修改
+    //没有设置的样式属性值获取出来是有默认值的
+    console.log(window.getComputedStyle(box).color);
+
+    console.log(window.getComputedStyle(box).backgroundColor);
+    console.log(window.getComputedStyle(box).color);
+    console.log(window.getComputedStyle(box).margin);
+
+</script>

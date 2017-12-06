@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="Zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>问题</title>
+</head>
+<body>
+<button id="btn1">按钮1</button>
+<button id="btn2">按钮2</button>
+<button id="btn3">按钮3</button>
+<h1 id="box">0</h1>
+<script>
+    let btn1 = document.getElementById('btn1');
+        btn2 = document.getElementById('btn2');
+        btn3 = document.getElementById('btn3');
+        box = document.getElementById('box');
+
+    btn1.onclick = function () {
+        if(box.style.color === 'red'){
+            box.innerHTML = Number(box.innerHTML) + 1;
+        } else {
+            box.style.color = 'red';
+            box.innerHTML = 1;
+        }
+    };
+    btn2.onclick = function () {
+        if(box.style.color === 'green'){
+            box.innerHTML = Number(box.innerHTML) + 2;
+        } else {
+            box.style.color = 'green';
+            box.innerHTML = 2;
+        }
+    };
+    btn3.onclick = function () {
+        if(box.style.color === 'yellow'){
+            box.innerHTML = Number(box.innerHTML) + 3;
+        } else {
+            box.style.color = 'yellow';
+            box.innerHTML = 3;
+        }
+    };
+
+    // 思考题
+
+    // 1. 写一个函数判断传进来的值是不是一个普通对象 {}
+
+    function isObj(obj) {
+        return obj.toString() === '[object Object]'
+    }
+    console.log(isObj("1"));
+
+    // 2.写一个方法,返回传进来的值的数据类型,使用typeof就可以
+
+    function typeIs(type) {
+        return typeof type
+    }
+    console.log(typeIs(111));
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #list li{
+            background-color: yellowgreen;
+            height: 50px;
+            margin: 10px 0;
+            font-size: 30px;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+
+<button id="btn" >显示</button>
+
+<div id="box"style="display: none"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+    var list=document.getElementById("list");
+    var oLis=list.getElementsByTagName("li");
+
+
+
+    //循环绑定事件的时候注意的问题
+    for (var i=0;i<oLis.length;i++){
+        //将每一个元素的索引存起来,存在一个自定义属性(不是天生自带的属性,你自己给他起的名字)上
+        oLis[i].a=i;
+        oLis[i].onclick=function () {
+            //this :给谁绑定的事件this就是谁
+            console.log(this.a);
+        };
+    }
+
+
+    //ES6的块级作用问题
+    for(let i=0;i<oLis.length;i++){
+        oLis[i].onclick=function () {
+            console.log(i);
+        }
+    }
+
+
+
+
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+    btn.isBlock=true;
+    btn.onclick=function () {
+        if(this.isBlock){
+            box.style.display="block";
+            this.isBlock=false;
+            this.innerHTML="隐藏";
+        }else {
+            box.style.display="none";
+            this.isBlock=true;
+            this.innerHTML="显示";
+        }
+    }
+</script>

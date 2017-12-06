@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //思考题:
+    // 1.写一个函数判断传进来的值是不是一个普通对象 {}
+   function isObject(num) {
+        if (num.toString()=="[object Object]"){
+            return "true";
+        }else {
+            return "false";
+        }
+   }
+    console.log(isObject(1));//false
+    console.log(isObject([]));//false
+    console.log(isObject({name: "yezi"}));//true
+
+    // 2.写一个方法,返回传进来的值的数据类型,使用typeof就可以
+    //数字，字符串，null，undefined，Boolean=》"number","string","null","undefined","boolean".
+    //对象，函数=》"object","function".
+
+function istype(num1) {
+    if (typeof num1=="number"){
+        return "number";
+    }else if(typeof num1=="string"){
+        return "string";
+    }
+    else if(typeof num1=="null"){
+        return "null";
+    } else if(typeof num1=="undefined"){
+        return "undefined";
+    }
+    else if(typeof num1=="boolean"){
+        return "boolean";
+    }
+    else if(typeof num1=="object"){
+        return "object";
+    }
+    else if(typeof num1=="function"){
+        return "function";
+    }else{
+        return("你到底是啥？");
+    }
+}
+    console.log(istype(1));
+    console.log(istype("1as"));
+    console.log(istype([]));
+    console.log(istype(function fn(){}));
+    console.log(istype(true));
+    console.log(istype(null));
+    console.log(istype(undefined));
+
+
+</script>

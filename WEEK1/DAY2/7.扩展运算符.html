@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box" class="box1 box2 box3"></div>
+</body>
+</html>
+<script type="text/javascript">
+    //...
+    //1)将数组变成非数组
+    //2)将非数组(有length,有索引:字符串,arguments,元素集合,classList类名集合,Set,Map)变成数组
+
+    var ary=[1,2,3,4,5];
+    var ary1=[6,7,8,9];
+    console.log(...ary);
+    console.log(ary.concat(ary1));
+    console.log([...ary, ...ary1]);
+    console.log(Math.max(...ary1));
+
+    var str="12345";
+    console.log(str.split(""));
+    console.log([...str]);
+
+    function sum() {
+        return eval([...arguments].join("+"))
+    }
+
+    console.log(sum(1, 2, 3, 4, 5, 6, 7));
+
+
+    console.log(box.classList.add("box4","box5"));
+    console.log(box.classList.remove("box4"));
+</script>

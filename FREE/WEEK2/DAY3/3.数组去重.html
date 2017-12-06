@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary1 = [1, 2, 1, 2, 1, 23, 4, 1, 23, 24, 4, 5, 2, 3, 6, 7];
+    var arr=[];
+    //第一种方案
+    //for循环,includes,push
+    for(var i=0;i<ary1.length;i++){
+        if(!arr.includes(ary1[i])){
+            //也可以使用:arr.indexOf(ary1[i]))==-1来判断
+            //判断arr中有没有ary[i],没有的时候才往里面放
+            arr.push(ary1[i]);
+        }
+    }
+    console.log(arr);
+
+    //第二种
+    var ary1 = [1, 2, 1, 2, 1, 23, 4, 1, 23, 24, 4, 5, 2, 3, 6, 7];
+    //查看数组的每一项,看他的indexOf和lastIndexOf是否相等,如果不相等说明至少出现两次,我们删除第一个....
+    for (var i=0;i<ary1.length;i++){
+        if(ary1.indexOf(ary1[i])!=ary1.lastIndexOf(ary1[i])){
+            //删除数组的某一项  splice(i,1)
+            ary1.splice(i,1);
+            //一定要注意,循环遍历数组的每一项的时候,如果删除数组的当前项,为了防止数组塌陷,一定要记住让i--,
+            i--;
+        }
+    }
+    console.log(ary1);
+
+    //第三种:使用filter实现数组去重
+    var ary1 = [1, 2, 1, 2, 1, 23, 4, 1, 23, 24, 4, 5, 2, 3, 6, 7];
+    var arr=ary1.filter(function (item,index) {
+        //每拿到一项,然后去看之前组成的数组中有没有这一项,如果有不留下,没有的话留下
+        return !(ary1.slice(0,index).includes(item));
+    });
+    console.log(arr);
+
+    //第四种,对象的特点,属性名不可以重复,后面会覆盖前面的
+    //实现了去重排序
+    var obj={};
+    var arr=[];
+    for (var  key in ary1){
+        obj[ary1[key]]=ary1[key]
+    }
+    for(var key in obj){
+        arr.push(obj[key])
+    }
+    console.log(arr);
+
+
+</script>

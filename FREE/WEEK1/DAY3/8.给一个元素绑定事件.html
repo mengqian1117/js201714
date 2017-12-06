@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<h1 class="title" id="title" onclick="alert(1)">点我呀</h1>
+<h2 id="h2" >点我呀</h2>
+</body>
+</html>
+<script type="text/javascript">
+
+    //onclick是元素天生自带的属性,就跟class,id一样是元素的属性,就算你不给他赋值,这属性也存在,只不过没有值
+
+
+    //你可以通过详细打印在控制台看一下都有那些天生自带的属性(内置属性)
+    //获取h2标签,通过ID名获取元素
+    var h2=document.getElementById("h2");
+    console.dir(h2);
+
+
+    //给一个元素绑定的是点击事件(onclick)
+    ///元素.onclick=function () {}
+    h2.onclick=function () {
+        //当用户触发h2的点击事件时候,才会执行这个函数
+        console.log("我是h2");
+        h2.style.color="red";
+        document.body.style.backgroundColor="yellow";
+    }
+
+    //改变一个元素的样式属性
+    //元素.style.color="颜色值"
+
+    //获取body  document.body
+    //backgroundColor  只能写成这样的形式不可以 background-color
+</script>

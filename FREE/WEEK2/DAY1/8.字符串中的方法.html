@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str = "zhufeng";
+    console.log(String.prototype);
+
+    //1.charAt(索引) 通过索引获取指定字符
+    //最常用的是:str[索引]
+    console.log(str.charAt(0));
+
+    //2.concat("字符串") 拼接字符串
+    //可以传多个参数,使用逗号隔开,结果按顺序拼接
+    //最常用的还是 +拼接字符串:
+    console.log(str.concat("JS"));//"zhufengJS"
+    console.log(str.concat("JS", "CSS", "HTML"));//"zhufengJS"
+
+    //3.includes("字符") 判断字符串中有没有指定字符
+    //返回值:true/false
+    console.log(str.includes("zhu"));
+
+    //4.indexOf("指定字符",num):指定字符在字符串中第一次出现的索引
+    //num第二个参数(可选的),默认值是0:开始查找的索引
+    //返回值数字
+    //有的话:索引,没有的话返回值是:-1
+    var str = "zzzffff";
+    console.log(str.indexOf("z"));//0
+    console.log(str.indexOf("e"));//-1
+    console.log(str.indexOf("z", 4));//-1
+    console.log(str.indexOf("z", 2));//2
+
+    //5.lastIndexOf("指定字符",num) :指定字符在字符串中最后一次出现的索引
+    //跟上面的indexOf方法一样用
+    //查找的时候从后面找,但是索引还是从前面数
+    var str = "abcdeaaa123abc";
+    console.log(str.lastIndexOf("a"));
+    console.log(str.lastIndexOf("f"));
+    console.log(str.lastIndexOf("d"));
+
+    //6.split("字符")将字符串按照指定字符拆分数组
+    //返回值是一个数组,数组的每一项都是字符串
+    var str = "1*2*3*4*5";
+    console.log(str.split("*"));
+    //当按照""拆分字符串的时候,字符串中每一个字符就是数组中的每一项
+    var str="123456";
+    console.log(str.split(""));
+
+    //7.replace("字符1","字符2") 将字符串中的字符1替换成字符2
+    //一次只能替换一个
+    var str="1*2*3*4*5";
+    console.log(str.replace("*", "+"));
+    //console.log(str.replace(/\*/g, "+"));
+    //如何全部替换
+    while (str.includes("*")){
+        str=str.replace("*","+")
+    }
+    console.log(str);
+
+    //8.search("指定字符"),出现的索引,没有就是-1
+    var str="asdf";
+    console.log(str.search("f"));
+
+    //9.slice(n,m) 找从索引n到索引m(不包括m)
+    //slice(n) 从索引n到最后
+    //slice(-n) 最后一个是-1,倒数第二个-2,,,,,
+    var str="asdfghjkl";
+    console.log(str.slice(2, 4));
+    console.log(str.slice(5));
+    console.log(str.slice(-3));
+
+    //10.subStr(n,m) 从索引n开始找m个
+    var str="12345678";
+    console.log(str.substr(3, 4));
+
+    //11.subString(n,m) 跟slice意思一样但是不可以传负数
+    console.log(str.substring(1,5));
+
+    //12.repeat(n) 将字符串重复n次
+    //注意:小数向下取整
+    //负数:报错
+    //-0.7: 0
+    var str="ab";
+    console.log(str.repeat(-0.7));//""
+
+    //13.toUpperCase(),转大写
+
+    //14.toLowerCase(),转小写
+
+    //15.startsWith("指定字符",num) 判断一个字符串是不是以指定字符作为开头
+    //true/false
+    //num第二个参数,选填的,开始查找的索引
+    var str="asd";
+    console.log(str.startsWith("a",2));
+    console.log(str.startsWith("d",2));
+    //16.endsWith("指定字符")  判断一个字符串是不是以指定字符作为结尾
+    console.log(str.endsWith("d"));
+
+    //17.localeCompare()
+    console.log("a".localeCompare("b"));//-1
+    console.log("b".localeCompare("a"));//1
+    console.log("g".localeCompare("w"));//-1
+    console.log("zhufeng".localeCompare("zhumu"));//-1
+    //汉字的是反过来
+    console.log("张华男".localeCompare("王力民"));//-1
+
+    //ES7中的
+    //18.padStart(length,"指定字符")
+    console.log("hh".padStart(6, "ab"));//"ababhh"
+    console.log("hh".padStart(7, "ab"));//"ababahh"
+    console.log("hh".padStart(8, "ab"));//"abababhh"
+    console.log("hh".padStart(5, "abcdef"));//"abchh"
+
+
+    //ES7中的
+    //19.padEnd()
+    console.log("hh".padEnd(5, "gk"));//"hhgkg"
+    console.log("hh".padEnd(5, "gklop"));//"hhgkl"
+
+    //20.match() 正则时候使用的
+</script>
+<script>
+
+    //split()
+    //replace()
+    //includes()
+    //indexOf()/lastIndexOf()
+    //match()
+    //slice()
+    //subStr()/subString()
+    //toUpperCase()/toLowerCase()
+    //localeCompare()
+    //startsWith()/endsWith()
+    //padStart()/padEnd()
+
+
+</script>

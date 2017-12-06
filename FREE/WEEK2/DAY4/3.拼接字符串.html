@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <style>
+        html, body, div, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        img {
+            border: none;
+        }
+
+        #banner {
+            position: relative;
+            width: 800px;
+            height: 300px;
+            margin: 50px auto;
+        }
+
+        .bannerInner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bannerInner img {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bannerInner img.select {
+            display: inline-block;
+        }
+
+        .bannerTip {
+            position: absolute;
+            z-index: 10;
+            bottom: 15px;
+            right: 50px;
+            overflow: hidden;
+        }
+
+        .bannerTip li {
+            float: left;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: gainsboro;
+            cursor: pointer;
+            font-size: 12px;
+            text-align: center;
+            line-height: 15px;
+            color: #999;
+        }
+
+        .bannerTip li.bg {
+            background-color: orangered;
+            color: white;
+        }
+
+        #banner a{
+            position: absolute;
+            width: 35px;
+            height: 45px;
+            z-index: 10;
+            top:50%;
+            margin-top: -20px;
+            opacity: .5;
+            background: url("img/pre.png");
+        }
+        #banner a.bannerLeft{
+            left: 20px;
+            background-position: 0 0;
+        }
+        #banner a.bannerRight{
+            right: 20px;
+            background-position:-50px 0 ;
+        }
+        #banner a:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="banner">
+    <div class="bannerInner">
+    </div>
+    <ul class="bannerTip">
+    </ul>
+    <a href="javascript:;" class="bannerLeft"></a>
+    <a href="javascript:;" class="bannerRight"></a>
+</div>
+</body>
+</html>
+<script>
+    var dataAry=[{img:"img/0.jpg"},{img:"img/1.jpg"},{img:"img/2.jpg"},{img:"img/3.jpg"},{img:"img/4.jpg"}];
+
+    var banner=document.getElementById("banner");
+    var bannerInner=banner.getElementsByClassName("bannerInner")[0];
+    var bannerTip=banner.getElementsByClassName("bannerTip")[0];
+    var str1=``,str2=``;
+    for (var i=0;i<dataAry.length;i++){
+        if(i==0){
+            str1+=`<img class="select" src="${dataAry[i].img}" alt="">`;
+            str2+=`<li class="bg">${i+1}</li>`;
+        }else {
+            str1+=`<img src="${dataAry[i].img}" alt="">`;
+            str2+=`<li>${i+1}</li>`;
+        };
+    }
+
+    bannerInner.innerHTML=str1;
+    bannerTip.innerHTML=str2;
+
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    for(var i=0;i<3;i++){
+        console.log(i);
+    }
+    //var i=0;第一次先执行的,只会执行一次
+    //i<10;判断条件 只要条件成立就会执行{}中的代码
+    //i++;先执行{}中的内容再执行i++
+
+    //上面的循环可以写成这样的注意i<3 后面的;必须加上
+    for (var i=0;i<3;){
+        console.log(i);
+        i++;
+    }
+
+    // continue  结束本次循环进入下一次循环
+    // break 终止循环
+
+
+    for (var i=0;i<6;i++){
+        if(i%2){
+            continue;
+        }
+        console.log(i);
+    }
+
+    for (var i=0;i<10;i++){
+        if (i===2){
+            break;
+        }
+        console.log(i);
+    }
+
+
+
+    var ary=[1,2,3,4,5];
+    //将数组的每一项都*10
+    for(var i=0;i<ary.length;i++){
+       ary[i]*=10;
+    }
+    console.log(ary);
+
+
+
+</script>
+<script>
+    function sum() {
+        var total=0;
+        for(var i=0;i<arguments.length;i++){
+            total+=Number(arguments[i])
+        }
+        return total;
+    }
+
+    console.log(sum(1, 2, 3, 4, 5));
+    console.log(sum(1, 2, 3, 4, 5, 6, "7"));
+
+    //思考题
+    //任意数求和,过滤掉NaN,只求出有效数字的和
+</script>

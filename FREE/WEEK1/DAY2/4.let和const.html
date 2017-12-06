@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    //var
+    var a;
+    //只声明没有定义(赋值),这时候a就是undefined
+    console.log(a);//undefined
+
+    //var声明变量的时候可以重复声明
+    var a = 2;
+    console.log(a);
+
+    //在全局中使用var声明过的变量,就相当于给window(全局对象)增加一个属性就是这个变量
+    console.log(window.a);
+
+    //es6 中   let和 const
+
+    //let 声明的变量不会给window增加属性
+    let b ;
+    console.log(window.b);//undefined
+
+    // let是不可以重复声明的(不管之前是用什么声明都不可以重复)
+    // let b;
+    // 报错'b' has already been declared
+
+    //const定义静态变量
+    //const一旦声明必须定义(必须赋值)
+    //const c;//Missing initializer in const declaration
+
+    const c=1;
+
+    //这个值以后不可以修改
+    //c=2;//报错 Assignment to constant variable
+
+
+
+
+</script>

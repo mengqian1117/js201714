@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+//字符串中所的方法都不会改变原字符串
+var str="abcd";
+var str1=str.replace("a","A");
+console.log(str);
+console.log(str1);
+
+
+var str="1+2+3+4+5+6";
+//将字符串中的”+”全都变成”*”
+//replace()
+while (str.includes("+")){
+    str=str.replace("+","*");
+}
+console.log(str);
+
+
+var str="12345678" ;
+//得到一个数组[1,2,3,4,5,6,7,8]
+//注意:数组中每一项都是数字不是字符串
+    var ary=str.split("");
+    for(var i=0;i<ary.length;i++){
+        ary[i]=Number(ary[i])
+    }
+console.log(ary);
+</script>
+<script>
+    var str="www.zhufengpeixun.com?a=1&b=2&c=3";
+    //1)将上面字符串得到一个数组[“a=1”,”b=2”,”c=3”];
+    //2)将上面字符串得到2个数组[“a”,”b”,”c”]和[“1”,”2”,”3”];
+    //将上面字符串得到一个对象{a:1,b:2,c:3};
+
+    //"www.zhufengpeixun.com?a=1&b=2&c=3"对他处理,有用的地方是?后面的内容
+    //获取/拿到?后面的部分
+
+    str=str.split("?")[1];//"a=1&b=2&c=3"
+    var ary1=str.split("&");//["a=1","b=2","c=3"]
+
+    //循环遍历ary1,将每一项按照"="拆分为数组,第一项放在第一个数组中,第二项放在第二个数组中
+    var arr1=[],arr2=[];
+    for(var i=0;i<ary1.length;i++){
+        //"a=1","b=2","c=3"
+        var cur=ary1[i].split("=");
+        //["a","1"], ["b","2"],["c","3"]
+        arr1.push(cur[0]);//"a"   "b"    "c"
+        arr2.push(cur[1]);//"1"   "2"    "3"
+    }
+
+
+    var obj={};
+    for(var i=0;i<ary1.length;i++){
+        //ary1[i]    "a=1","b=2","c=3"
+        var cur=ary1[i].split("=");
+        //cur     ["a","1"], ["b","2"],["c","3"]
+        obj[cur[0]]=cur[1];
+    }
+    console.log(obj);
+</script>
+<script>
+
+    var str='asdfaaassdddfffssss';
+    //1)找出出现次数最多的字符并求出他的次数
+    //2)得出每个字符出现的次数(可以放在一个对象中)
+    //3)得出去除重复后的字符串  对象的属性名
+
+    //循环字符串str,将字符串中的每一个字符当做对象的属性名属性值初始值为1,然后继续循环,每一个字符先判断这个对象之前有没有这个属性名名,有的话属性值加一,没有的话将这字符变成属性名,属性值是1
+    var str='asdfaaassdddfffssss';
+    var obj={};
+    for(var i=0;i<str.length;i++){
+        if(str[i] in obj){
+            obj[str[i]]++;
+        }else {
+            obj[str[i]]=1
+        }
+    }
+    console.log(obj);
+</script>

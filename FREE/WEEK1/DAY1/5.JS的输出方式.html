@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<h1 id="h1">珠峰培训</h1>
+
+</body>
+</html>
+<script type="text/javascript">
+    //alert()
+    //弹窗的形式弹出
+    //1.弹出的是字符串,如果写的不是字符串会默认调用toString方法转为字符串
+    //alert(1);
+    //alert([1,2,3]);//"1,2,3"
+    //将[1,2,3]使用toString方法转为字符串
+    //console.log([1, 2, 3].toString());
+    //alert({name:"珠峰"});//"[object Object]"
+    //2.阻止页面的加载(不管写在哪里)
+    //3.只有一个确定按钮,没有返回值 undefined
+    //console.log(alert(1));
+
+
+    //confirm()
+    //1.弹出的是字符串,如果写的不是字符串会默认调用toString方法转为字符串
+    //2.阻止页面的加载(不管写在哪里)
+    //console.log(confirm("确定删除吗"));
+    //3.两个按钮 确定/取消
+    //确定:返回值true,取消/叉号返回值是false
+
+    //var flg=confirm("确定转换吗");
+//    if(flg){
+//        h1.innerHTML="zhufengpeixun"
+//    }
+
+    //prompt()
+    //3.弹窗中可以输入,有个输入框,俩个按钮
+    //确定的时候:返回值是你输入的内容
+    //取消的时候:null
+    //console.log(prompt("请输入~"));
+
+
+    //在控制打印/在控制台输出
+    //console  window.console
+    // 简单输出 console.log(想要在控制台输出的内容);
+    console.log(1);
+    console.log([1,2,3]);
+    console.log({name:"珠峰"});
+
+    console.log(h1);
+    // 详细输出
+    console.dir(h1);
+
+    //以表格的形式输出
+    console.table([{name:"zf",age:12},{name:"zf",age:12}]);
+
+    console.group("第一组");
+    console.log(1);
+    console.log(2);
+    console.log(3);
+    console.groupEnd();
+
+    //占位符 %s
+    //打印多个值使用逗号隔开即可
+    console.log("第一个","第二个","第三个");
+
+    //如果%s的位置有内容就是这个内容,没有就是本身%s
+     console.log("我是%s,我是%s","范冰冰","李晨","李冰冰");
+
+
+</script>

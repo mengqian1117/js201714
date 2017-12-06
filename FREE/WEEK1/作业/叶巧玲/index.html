@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{padding: 100px 100px}
+        button{
+            height: 30px;
+            width: 150px;
+            background-color: #999999;
+            font-size:14px;
+            color: #fff;
+            list-style-type:none;
+            border:0;
+            float: left;
+            font-weight: bold;
+        }
+        #btn1{
+            background-color: red;
+        }
+        #btn2{
+            background-color: green;
+        }
+        #btn3{
+            background-color:yellow;
+            color: darkslategrey;
+        }
+        #box{
+            width: 450px;
+            height: 100px;
+            background-color: #999999;
+            color: aquamarine;
+            font-size:42px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="btn1">每次点击+1</button>
+<button id="btn2">每次点击+2</button>
+<button id="btn3">每次点击+3</button>
+<div style="clear: both"></div>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+   var btn2=document.getElementById("btn2");
+   var btn3=document.getElementById("btn3");
+   var btn1=document.getElementById("btn1");
+   var box=document.getElementById("box");
+   document.getElementById("box").innerHTML="0";//初始值为0；
+
+   var mystr1 =0;
+   btn1.onclick= function f1(){
+       if (Number(box.style.color=="red")==0){
+           mystr1=0;
+       }
+       mystr1=Number(mystr1)+1;
+       box.style.color="red";
+       box.innerHTML=mystr1;
+   }
+
+   var mystr2 =0;
+   btn2.onclick= function f2(){
+       if (Number(box.style.color=="green")==0){
+           mystr2=0;
+       }
+       mystr2=Number(mystr2)+2;
+       box.style.color="green";
+       box.innerHTML=mystr2;
+   }
+
+   var mystr3 =0;
+   btn3.onclick= function f1(){
+       if (Number(box.style.color=="yellow")==0){
+           mystr3=0;
+       }
+       mystr3=Number(mystr3)+3;
+       box.style.color="yellow";
+       box.innerHTML=mystr3;
+   }
+
+</script>

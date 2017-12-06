@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<style>
+    button{
+        width: 200px;
+        height: 100px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        border: 1px solid;
+        margin-left: 200px;
+        font-size: 23px;
+        background: white;
+    }
+    div{
+        width:200px;
+        height: 100px;
+        margin: 100px auto;
+        border:2px solid blue;
+        font-size: 30px;
+        text-align: center;
+        line-height: 100px;
+    }
+</style>
+<body>
+<!--样式自己写-->
+    <button id="btn1">1</button>
+    <button id="btn2">2</button>
+    <button id="btn3">3</button>
+    <div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+    var btn1=document.getElementById("btn1");
+    var btn2=document.getElementById("btn2");
+    var btn3=document.getElementById("btn3");
+    var box=document.getElementById("box");
+    var a=0; var b=0; var c=0;
+    btn1.onclick=function () {
+        if(box.style.color == "red"){
+            box.innerHTML=++a;
+        }else{
+            a=0;
+            box.innerHTML=0;
+            box.style.color = "red";
+
+        }
+    }
+    btn2.onclick=function () {
+        if(box.style.color=="green") {
+            b=b+2;
+            box.innerHTML=b;
+        }else{
+            box.innerHTML=b=0;
+            box.style.color="green";
+        }
+    }
+    btn3.onclick=function () {
+        if(box.style.color=="yellow") {
+            c=c+3;
+            box.innerHTML=c;
+        }else{
+            box.innerHTML=c=0;
+            box.style.color="yellow";
+        }
+    }
+
+</script>

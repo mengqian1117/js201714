@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+    var obj={name:"珠峰",age:9};
+
+    //删除name属性的属性值
+    obj.name=null;
+
+    //删除属性
+
+    delete obj.name;
+    console.log(obj);
+
+    console.log("name" in obj);//false
+
+
+    //清空一个对象
+    obj=null;
+</script>
+<script>
+
+    var ary=[{name:"杨幂",dist:"三生三世十里桃花"},{name:"杨洋",dist:"微微一笑很倾城"},{name:"郑爽",dist:"一起来看流星雨"},{name:"杨紫",dist:"家有儿女"},{name:"赵薇",dist:"还珠格格"}];
+
+    var str=``;
+    for (var i=0;i<ary.length;i++){
+        str+=`<p>演员是:${ary[i].name},代表作:<< ${ary[i].dist} >> </p>`;
+    }
+    box.innerHTML=str;
+
+
+</script>

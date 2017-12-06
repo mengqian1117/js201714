@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zuoye</title>
+    <style>
+        ul{
+            width: 1060px;
+            text-align: center;
+            list-style: none ;
+            height: 100px;
+            margin:0 auto 100px;
+        }
+        ul li{
+            float: left;
+            width: 200px;
+            height: 100px;
+            margin-left: 100px;
+            border: 2px solid #000000;
+            margin-bottom: 200px;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000000;
+            margin: 0 auto;
+        }
+        div h2#herd{
+            margin-left: 100px;
+            height: 300px;
+            line-height: 100px;
+            font-size: 50px;
+            color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li id="lift1" >btn1</li>
+    <li id="lift2">btn2</li>
+    <li id="lift3">btn3</li>
+</ul>
+<div>
+    <h2 id="herd">0</h2>
+
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    //董新
+
+    var lift1=document.getElementById("lift1");
+    var lift2=document.getElementById("lift2");
+    var lift3=document.getElementById("lift3");
+    var herd=document.getElementById("herd");
+    var a=1;
+    var b=0;
+    lift1.onclick=function () {
+        if(herd.style.color=="red"){
+            herd.innerHTML=++a;
+        }else {
+            herd.innerHTML=a=0;
+            herd.style.color="red";
+        }
+
+
+    };
+    lift2.onclick=function () {
+        if(herd.style.color=="green"){
+
+            herd.innerHTML=b+=2;
+        }else {
+            herd.innerHTML=b=0;
+            herd.style.color="green";
+        }
+
+
+
+
+    };
+    lift3.onclick=function () {
+
+        if(herd.style.color=="yellow"){
+
+            herd.innerHTML=b+=3;
+        }else {
+            herd.innerHTML=b=0;
+
+            herd.style.color="yellow";
+        }
+
+    }
+    herd.onclick=function () {
+        if (herd.style.color=="#000000"){
+        herd.innerHTML=b=0;
+        herd.innerHTML=a=0;
+        }else {
+        herd.style.color="#000000";
+            herd.innerHTML=b=0;
+            herd.innerHTML=a=0;
+        }
+
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<!--
+1.NaN是number数据类型的
+2.isNaN ->true/false
+3.Number()  ->数字/NaN
+4.parseInt()  ->数字/NaN
+5.parseFloat()   ->数字/NaN
+
+-->
+</body>
+</html>
+<script type="text/javascript">
+    console.log(typeof NaN);//"number"
+    //isNaN("2")-->Number("2")-->2 -->false
+
+    console.log(Number());//"0"
+    //"","  "-->0
+    //true-->1
+    //false-->0
+    //null-->0
+    //new Date-->毫秒
+    //[]-->0
+
+    console.log(parseInt());//NaN
+    //"","  "-->NaN
+    //true/false-->NaN
+    //null-->NaN
+    //new Date -->NaN
+    //[]-->NaN
+
+
+    //数学运算
+    //当数学运算不是数字的默认使用Number转为数字
+    //遇到引用数据类型是先转字符串在转数字,那么就得注意了,+的时候就是字符串拼接
+    //任何值跟NaN运算都是NaN
+
+
+    console.log(NaN + 2);
+    console.log([] + null);
+    //=""+null
+    //="null"
+    console.log([] *null);
+    console.log(undefined+true);//NaN
+    console.log(null+true);//0+1=1
+
+
+
+</script>

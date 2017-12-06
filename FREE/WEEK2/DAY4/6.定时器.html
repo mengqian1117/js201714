@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+            left: 10px;
+            top:10px;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box" style="font-size: 50px"></div>
+<div id="box1"></div>
+</body>
+</html>
+<script type="text/javascript">
+//    function fn() {
+//        console.log(1);
+//    }
+    //执行一次
+    //window.setTimeout(fn,1000);
+    //无限次
+    //window.setInterval(fn,1000);
+
+//    var timer=0;
+//    function ff() {
+//        console.log("我是定时器");
+//        clearTimeout(timer);
+//        timer= setTimeout(ff, 1000);
+//    }
+//    ff();
+
+
+    //1.定时器是有返回值的,是一个数字,这个数字代表他是第几个定时器
+//    window.setTimeout(function () {
+//        console.log("我是定时器1");
+//    }, 1000);
+//    window.setTimeout(function () {
+//        console.log("我是定时器2");
+//    }, 1000);
+//    window.setTimeout(function () {
+//        console.log("我是定时器3");
+//    }, 1000);
+
+    //window.clearTimeout(第几个定时器)
+//    window.setInterval(function () {
+//        console.log("我是定时器");
+//    }, 1000);
+//    window.clearInterval(1);
+
+
+   var str="威廉王子回应弟弟婚讯：愿他别再找我蹭吃喝";
+//   box.innerHTML+=str[0];
+//   box.innerHTML+=str[1];
+//   box.innerHTML+=str[2];
+//   box.innerHTML+=str[3];
+//   box.innerHTML+=str[4];
+   //...
+
+    //str.length-1
+//    var index=0;
+//    var timer=setInterval(function () {
+//        box.innerHTML+=str[index++];
+//        //临界值判断,文字输完了就清除定时器
+//        if(index==str.length){
+//            clearInterval(timer);
+//        }
+//    },500)
+    var t=setInterval(function () {
+        //window.getComputedStyle(box1).left是"10px"
+//        var num=parseFloat(window.getComputedStyle(box1).left);
+//        box1.style.left=num+2+"px";
+//        if(num>1200){
+//            clearInterval(t);
+//        }
+        var op=parseFloat(getComputedStyle(box1).opacity);
+        box1.style.opacity=op+0.005;
+        if(op==1){
+            clearInterval(t);
+        }
+        console.log(1);
+    },17);
+
+
+</script>

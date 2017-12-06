@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 200px;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">显示/隐藏</button>
+<div id="box" style="display: none"></div>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    //需求:当你点击btn时候,让box显示出来
+    //1.将btn和box获取出来,通过ID名
+    var btn=document.getElementById("btn")  ;
+    var box= document.getElementById("box") ;
+
+    //2.给btn绑定onclick事件
+    btn.onclick=function () {
+        //让box显示,就是让他的display变成"block"
+        //元素.style.样式属性  只能获取行内样式
+        if(box.style.display=="none"){
+            //如果样式是"none",让他变成"block"
+            box.style.display="block";
+        }else {
+            //否则变成"none"
+            box.style.display="none";
+        }
+    }
+</script>

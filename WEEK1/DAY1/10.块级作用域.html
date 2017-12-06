@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //只要是{}包起来的都是块级作用域
+   //注意function(){} 私有作用域
+    //{},if(){},for{},while(){}
+    function fn() {
+        var a=1;
+    }
+    //console.log(a);
+    //注意1)在块级作用域中使用var和function定义的变量不可以重名的
+    {
+        var b=10;
+        //function b() {};//'b' has already been declared
+    }
+    console.log(b);
+    if(1){
+        var c=0;
+        //function c() {};//'c' has already been declared
+    }
+
+    //块级作用域针对 let const就相当于私有作用域,里面声明的变量外界是拿不到的
+    {
+        let zf="珠峰";
+    }
+    //console.log(zf);
+    if(2){
+        let bb="嘿嘿";
+    }
+    //console.log(bb);// bb is not defined
+
+    for(let i=0;i<4;i++){
+        console.log(i);
+    }
+    //console.log(i);
+
+
+    if(5){
+        //暂时性死区:在块级作用域下,不可以提前使用未被声明的(使用let和const声明的)变量
+        console.log(a);
+        let a=0;
+    }
+</script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            height: 200px;
+            width: 200px;
+            border: 1px solid green;
+            text-align: center;
+            line-height: 200px;
+            color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<div id="box">0</div>
+
+
+</body>
+</html>
+<script>
+    var btn1=document.getElementById("btn1")
+    var btn2=document.getElementById("btn2")
+    var btn3=document.getElementById("btn3")
+    var box=document.getElementById("box")
+    var num=0
+
+
+
+
+    btn1.onclick=function () {
+        if (box.style.color!="red"){
+            box.style.color="red"
+            num=0
+            box.innerText=0
+
+        }else{
+            box.style.color="red"
+            num+=1
+            box.innerText=num
+        }
+    }
+    btn2.onclick=function () {
+        if (box.style.color!="green"){
+            box.style.color="green"
+            box.innerText=0
+            num=0
+        }else{
+            box.style.color="green"
+            num+=2
+            box.innerText=num
+        }
+    }
+    btn3.onclick=function () {
+        if (box.style.color!="yellow"){
+            box.style.color="yellow"
+            box.innerText=0
+            num=0
+        }else{
+            box.style.color="yellow"
+            num+=3
+            box.innerText=num
+        }
+    }
+
+</script>

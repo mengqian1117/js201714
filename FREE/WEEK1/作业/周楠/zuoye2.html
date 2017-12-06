@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{height:50px;width:50px;}
+        div{height:100px;width:100px;}
+        button,div{border:3px solid black;margin-top: 30px;}
+    </style>
+</head>
+<body>
+<button id="btn1"><p id="num1">1</p></button>
+<button id="btn2"><p id="num2">2</p></button>
+<button id="btn3"><p id="num3">3</p></button>
+<div id="box">0</div>
+</body>
+</html>
+<script>
+    var btn1=document.getElementById("btn1");
+    var btn2=document.getElementById("btn2");
+    var btn3=document.getElementById("btn3");
+    var box=document.getElementById("box");
+    var p1=num1
+    var p2=num2
+    var p3=num3
+
+    btn1.onclick=function () {box.style.color="red";
+p1="num1+1"
+
+    }
+    btn2.onclick=function () {box.style.color="green"
+        p2="num2+2"
+    }
+    btn3.onclick=function () {box.style.color="yellow"
+        p2="num3+3"
+    }
+    box.onclick=function () {btn1.innerText=btn2.innerText=btn3.innerText="0"
+
+    }
+
+</script>

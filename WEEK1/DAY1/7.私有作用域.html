@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //私有作用域:一个函数执行就会形成一个私有作用域,一个函数可执行多次,每一次都会形成一个私有作用域,每一个作用域都没有关系
+
+    //闭包: 一个私有作用域保护里面的私有变量不受外界干扰
+    //私有变量:
+    //1)在私有作用域下声明过的变量:使用var ,function let const这些关键字声明过的变量
+    //2)形参
+
+    //函数执行的过程
+    //1)函数执行形成私有作用域
+    //2)变量提声
+    //3)给形参赋值
+    //4)代码执行
+    var a = 10;
+
+    function fn(c) {
+        var a = 1;
+        console.log(c);
+    }
+
+    fn(2);
+    console.log(a);
+    console.log(c);
+
+</script>
+<script>
+    var a = 1;
+    var x1 = 10;
+    function FF(a, b) {
+        var x1 = 12;
+        var x2 = 13;
+        console.log(a + b);
+        a=x2;
+    }
+    FF(20, 30);
+    console.log(x1);
+    console.log(a);
+
+
+    //在私有作用域下遇到变量了,先看是不是自己的私有变量,如果是就使用自己的私有变量,如果不是,往上一级找,没有继续找一直找到全局作用域为止,还找不到那就报错了,这个查找的过程就叫做作用域链
+</script>
+<script>
+
+    var a=1;
+    var b=2;
+    function AA(a) {
+        a++;//a=NaN
+        b++;//b=3
+        console.log(a);//NaN
+        console.log(b);//3
+        console.log(c);//报错;
+    }
+    AA();
+    console.log(a);//1
+    console.log(b);//3
+    //全:a,b,AA
+    //私有:a
+
+
+</script>

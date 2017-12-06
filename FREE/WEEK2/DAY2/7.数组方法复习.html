@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var ary=[1,2,3];
+    console.log(ary);
+    console.log(ary.valueOf());
+    console.log(ary.slice());//[1,2,3]
+    console.log(ary.splice());//[]
+
+    ary.splice(2, 0, "哈哈");
+    console.log(ary);
+
+
+    var ary=[1,2,3,4,5];
+    ary.fill(0,0,3);
+    console.log(ary);
+
+    //copyWithin()
+
+    ary=[1,2,3,4,5,6,7,8];
+    console.log(ary.copyWithin(2, 4, 7));//5,6,7
+    //[1, 2, 5, 6, 7, 6, 7, 8]
+    ary=[1,2,3,4,5,6,7,8];
+    console.log(ary.copyWithin(6, 4, 7));
+    ary=[1,2,3,4,5,6,7,8];
+    console.log(ary.copyWithin(4, 2, 5));
+    //[1, 2, 3, 4, 3, 4, 5, 8]
+</script>

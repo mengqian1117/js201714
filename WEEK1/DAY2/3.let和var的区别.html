@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //1.
+//    let a=1;
+//    var a=1;
+//    console.log(a);
+
+    //2.
+    let b=1;
+    if("b" in window){
+        b++;
+        console.log(b);
+    }
+    console.log(b);
+
+    //3.
+    if("c" in window){
+        var c=1;
+        let d=10;
+    }
+    console.log(self.c);//1
+    console.log(self.d);//undefined
+    console.log(self == window);
+    //4
+    var s="SSS";
+    {
+        var s="ss";
+        let ss="哈哈";
+    }
+    console.log(s);//"ss"
+    console.log(ss);//报错
+</script>

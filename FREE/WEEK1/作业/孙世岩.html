@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,html{
+            width: 100%;
+            background-color: pink;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .top ul {
+            width: 906px;
+            height: 200px;
+            margin: 200px auto 0;
+        }
+
+        .top ul li {
+
+            width: 300px;
+            height: 50px;
+            border: 1px solid black;
+            border-radius: 5px;
+            list-style: none;
+            float: left;
+            /*margin-left: 150px;*/
+
+        }
+
+        .top ul li p {
+            line-height: 50px;
+            text-align: center;
+            margin: 0;
+
+        }
+        .bot{
+            width: 1000px;
+            margin: 50px auto 0;
+        }
+        .bot .hhe{
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid black;
+            width: 250px;
+            height: 200px;
+            line-height: 200px;
+        }
+        .bot .hhe p{
+            margin: 0px;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+    <ul>
+        <li id="list1">
+            <p>btn1</p>
+        </li>
+        <li id="list2">
+            <p>btn2</p>
+        </li>
+        <li id="list3">
+            <p>btn3</p>
+        </li>
+    </ul>
+</div>
+<div class="bot">
+    <div class="hhe">
+        <p id="list4">0</p>
+    </div>
+</div>
+</body>
+</html>
+<script>
+
+    var list1=document.getElementById("list1")
+    var list2=document.getElementById("list2")
+    var list3=document.getElementById("list3")
+    var list4=document.getElementById("list4")
+    var a=0
+
+    list1.onclick=function () {
+        if(list4.style.color=="red"){
+            list4.innerHTML=++a;
+        }
+        else{
+            list4.innerHTML=a=0;
+            list4.style.color="red";
+        }
+    }
+    list2.onclick=function () {
+        if(list4.style.color=="green"){
+            list4.innerHTML=a+=2;
+        }
+        else{
+            list4.innerHTML=a=0;
+            list4.style.color="green";
+        }
+    }
+    list3.onclick=function () {
+        if(list4.style.color=="yellow"){
+            list4.innerHTML=a+=3;
+        }
+        else{
+            list4.innerHTML=a=0;
+            list4.style.color="yellow";
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>

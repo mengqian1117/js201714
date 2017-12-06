@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //数字:正值,负值,0,小数...NaN
+    //NaN :not a Number
+
+
+    //isNaN()方法:判断是不是一个数字
+    //isNaN(判断的内容)
+    //返回值: true:不是一个数 ; false:是一个数
+
+    /*
+    console.log(isNaN(1));//false
+    console.log(isNaN(0.7));//false
+    console.log(isNaN(NaN));//true
+    console.log(isNaN({a:1}));//true
+    console.log(isNaN([1,2,3,4]));//true
+
+    console.log(isNaN("1"));//false
+
+    //在使用isNaN这个方法判断的时候.默认调用了一个方法Number()做了一次转换
+    //Number(转换的内容),
+    //返回值 要么是个NaN,要么是一个数字;
+
+    Number(1);//1
+    Number(0.7);//0.7
+    Number(NaN);//NaN
+
+    //Number(数字)->数字  会自动补全有效数字,自动去除无效数字
+    console.log(Number(.7));//0.7
+    console.log(Number(1.00));//1
+    console.log(Number(NaN));//NaN
+
+    //Number(布尔值)->数字
+    console.log(Number(true));//1
+    console.log(Number(false));//0
+
+    //Number(null)
+
+    console.log(Number(null));//0
+
+    //Number(undefined)
+    console.log(Number(undefined));//NaN
+    //isNaN(undefined)true
+
+    //Number(字符串)->数字
+    console.log(Number(""));//0
+    console.log(Number("  "));//0
+    //空字符串"",字符串中只有空格"    ",结果为0
+    //从第一个非空格字符到最后一个非空格字符,中间如果出现非数字的内容就是NaN,没有非数字结果就是所有非空格的字符
+    console.log(Number("123"));//123
+    console.log(Number("1 23"));//NaN
+    console.log(Number("1px"));//NaN
+    console.log(Number("1  "));//1
+    console.log(Number("   1  "));//1
+    Number("1 0");//NaN
+    Number("0  ");//0
+    Number(".1");//0.1
+    Number(". 1");//NaN
+    Number("1.0px");//NaN
+
+    isNaN("1 0");
+    console.log(Number("1.2.3"));//NaN
+
+   */
+
+    //parseInt()  取整,只保留整数部分
+    //parseFloat() 保留小数
+    //返回值:NaN,是一个数
+
+    //数字
+    //parseFloat 注意1.0 去除无效数字
+    console.log(parseInt(1.9));
+    console.log(parseInt(.9));
+    console.log(parseInt(1.0));
+    console.log(parseFloat(1.2));
+    console.log(parseFloat(1.0));
+    console.log(parseInt(NaN));
+
+
+    // parseInt(布尔)
+    console.log(parseInt(true));//NaN
+    console.log(parseInt(false));//NaN
+
+    //parseInt(null)
+    console.log(parseInt(null));//NaN
+
+    //parseInt(undefined)
+    parseInt(undefined);//NaN
+
+    //parseInt("字符串")
+
+    //从第一个字符开始查找,遇到非数字停止查找,找不到就是NaN,找到了返回
+    console.log(parseInt(""));//NaN
+    console.log(parseInt("  "));//NaN
+    console.log(parseInt("1px"));//1
+    console.log(parseInt("1 1"));//1
+    console.log(parseInt("  1px 1"));//1
+    console.log(parseInt("1.2px"));//1
+    console.log(parseFloat("1.2px"));//1.2
+
+</script>

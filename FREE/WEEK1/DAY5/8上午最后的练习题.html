@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #list{
+            width: 500px;
+            background-color: #fff9fe;
+            border: 2px dashed #ddd;
+            margin: 10px auto;
+        }
+        #list .lis{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            color: red;
+        }
+        .bg0{
+            background-color: yellowgreen;
+        }
+        .bg1{
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">点击加上文字</button>
+<button id="btn2">点击加上样式</button>
+<button id="btn3">点击加上隔行变色</button>
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    //获取需要操作的元素
+    var btn1=document.getElementById("btn1");
+    var btn2=document.getElementById("btn2");
+    var btn3=document.getElementById("btn3");
+    var lis=document.getElementById("list").getElementsByTagName("li");
+
+    //给btn1绑定onclick事件
+    btn1.onclick=function () {
+        //循环所有的li增加innerHTML的值
+        //注意 i是索引,第几个就是i+1
+        for (var i=0;i<lis.length;i++){
+            lis[i].innerHTML=`我是第${i+1}个li`;
+        }
+    };
+    
+    //给btn2绑定onclick事件
+    btn2.onclick=function () {
+        //给每一个li加上一个class名
+        //元素.className="类名"
+        for(var i=0;i<lis.length;i++){
+            lis[i].className="lis"
+        }
+    };
+
+    //给btn3绑定onclick事件
+    btn3.onclick=function () {
+        //实现隔行变色  索引是偶数的时候加上"bg0"这个类名,索引是奇数的时候就是"bg1"这个类名
+        //注意加类名的时候,因为之前加上了一个类名叫lis ,我们想再加一个就是元素.className+=" 新的类名";为了防止出问题,中间多加一个空格
+        for (var i=0;i<lis.length;i++){
+            //判断索引i的值
+//            if(i%2){
+//                lis[i].className+=" bg1";
+//            }else {
+//                lis[i].className+=" bg0";
+//            }
+            //i%2的值要么是1要么是0,此时正好跟"bg"后面的数字对应,所以可以写成下面的形式
+            lis[i].className+=" bg"+(i%2)
+        }
+    }
+</script>
+
+<script>
+   //补充的知识点:
+   //给一个元素加类名
+    //  之前没有直接   元素.className="类名"
+    //  之前有但是不想修改之前的
+    // 元素.className += " 类名"  最好加一个空格
+</script>

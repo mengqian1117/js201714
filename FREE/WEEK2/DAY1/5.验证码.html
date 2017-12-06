@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #code{
+            user-select: none;
+            -webkit-user-select: none;
+            width: 120px;
+            height: 60px;
+            font-size: 35px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 60px;
+            margin: 50px auto  10px;
+            border: 1px solid salmon;
+            /*linear-gradient:线性渐变,to left top:从右下角到左上角*/
+            background: linear-gradient(to left top,red,orange,yellow,green,blue,darkgreen,purple);
+            background: -webkit-linear-gradient(to left top,red,orange,yellow,green,blue,darkgreen,purple);
+            padding: 0 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+        #change{
+            user-select: none;
+            -webkit-user-select: none;
+            display: block;
+            width: 120px;
+            margin: 0 auto;
+            cursor: pointer;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+原价:<del>9999$</del>
+<div id="code"></div>
+<span id="change">看不清,换一个</span>
+</body>
+</html>
+<script>
+    var str="abcdefghigklmnopqrstuvwxyz"+"0123456789"+"abcdefghigklmnopqrstuvwxyz".toUpperCase();
+    //索引:0-61
+    //随机获取一个字符,从0-61中随机获取一个整数作为索引即可
+    //toUpperCase():将小写字母变成大写字母
+    //随机获取四个字符:就是获取四次
+    var code=document.getElementById("code");
+    var change=document.getElementById("change");
+    function changeCode() {
+        //准备一个空字符串
+        var strCode="";
+        for (var i=0;i<4;i++){
+            //Math.round(Math.random()*(61)) 获取0-61随机的索引
+            strCode+=str[Math.round(Math.random()*(61))];
+        }
+        code.innerHTML=strCode;
+    }
+    changeCode();
+    //当用户点击change时候再去执行一次changeCode函数即可
+    change.onclick=changeCode;
+</script>

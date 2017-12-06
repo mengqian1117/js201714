@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的十三个方法</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //数组与对象的区别 object(ary,regExp,Date,Math...)
+    //数组的特殊地方
+    //1.属性名是依次递增的数字属性名,并且增加length属性
+    //2.单独独立出来,就可以增加相应的方法和功能
+    //console.dir(ary);
+
+    //从四个维度记忆数组的方法
+    //1.方法是干什么的?
+    //2.方法是否需要传参数
+    //3.方法的返回值是什么?
+    //4.原有数组是否发生改变
+
+    //原有数组发生改变
+    var ary = [20, 5, 1, 13, 6];
+    //1.push() 往数组的末尾添加内容  参数:添加的内容 返回值:增加内容后数组的长度
+    //    var result = ary.push(55,66);
+    //    console.log(ary);
+    //    console.log(result);
+
+    //2.unshift()   往数组的起始位置添加内容  参数:添加的内容 返回值:增加内容后数组的长度
+    //    var result  = ary.unshift(33);
+    //    console.log(ary);
+    //    console.log(result);
+
+    //3. pop() 删除最后一项 参数:无 返回值:删除的内容
+    //    var result = ary.pop();
+    //    console.log(ary);
+    //    console.log(result);
+
+    //4.shift() 删除数组的第一项 参数:无 返回值:删除的内容
+    //    var result = ary.shift();
+    //    console.log(ary);
+    //    console.log(result);
+
+
+    //删除数组的最后一项  ary.length--;
+    //往数组的最后一项添加一项内容  ary[ary.length] = 20
+
+    //5.splice(n) 从索引n(包含)开始删除到最后 返回值:删除的内容放一个新数组里返回
+    //    var result = ary.splice(1);
+    //    console.log(ary);
+    //    console.log(result);
+
+    //splice(n,m)//从索引n开始删除m个
+    //    var ary = [20, 5, 1, 13, 6];
+    //    var result = ary.splice(1,3);
+    //    console.log(ary);//[20, 6]
+    //    console.log(result);// [5, 1, 13]
+
+    //splice(n,m,x) //从索引n开始删除m个,用x(新增的内容)替换删除的内容
+    //    var result = ary.splice(1,3,88,99) ;
+    //    console.log(ary);//[20,88,99,6]
+    //    console.log(result);//[5, 1, 13]
+
+    //splice(n,0,x) //把x的内容添加到索引n的前面
+    //var result = ary.splice(1, 0, 88, 99);
+    //    console.log(ary);//[20, 88, 99, 5, 1, 13, 6]
+    //    console.log(result);//[]
+
+    //reverse() 将数组反向排列 参数:无 返回值:排列后的数组
+    var ary = [20, 5, 1, 13, 6];
+    //    var result = ary.reverse();
+    //    console.log(ary);
+    //    console.log(result);
+
+    //sort()  实现排序  参数:不传或者传一个函数 返回值:排列后的数组
+    //var ary = [20, 5, 1, 13, 6];
+    //        var result = ary.sort(); //不传参数只会10以的数字排序起作用
+    //        console.log(ary);
+    //        console.log(result);
+
+    //通过传参自定义排列的规则 从小到大(return a-b) 或 从大到小(return b-a)
+    // var result = ary.sort(function (a, b) {
+    //        return b - a
+    //    });
+    //    console.log(ary);
+    //    console.log(result)
+
+    //原有数组不发生改变
+    var ary = [20, 5, 1, 13, 6];
+    //1.toString() 把数组转换字符串
+    var result = ary.toString();
+    //console.log(result);//"20,5,1,13,6"
+
+    //2.join("+") 按照指定的字符将数组转换成字符串  参数:指定的字符
+    /*var result = ary.join("+")//"20+5+1+13+6";
+    console.log(result);
+    console.log(eval(result));*///把字符串转换成js表达式 eval不是数组的方法
+    //var result = ary.join();//按照数组默认的分隔符拼接在一起
+    //console.log(result);//"20, 5, 1, 13, 6"
+    var result = ary.join(""); //把数组每一项靠一起返回
+    console.log(result);//"2051136"
+
+    //3.concat() 合并数组
+    var ary1 = [10,20,3];
+    var ary2 = [45,15,60];
+    //var result = ary1.concat(ary2);//[10, 20, 3, 45, 15, 60]
+    //var result = [].concat(ary1,ary2);//[10, 20, 3, 45, 15, 60]
+    //var result = [].concat({"a":1},ary1);
+    var result  = [].concat(ary1);//克隆ary1
+    console.log(result);
+
+   //4.slice(n,m) 从索引n截取索引m,(n<m)包前不包后 返回值:截取后的内容
+    var ary = [20, 5, 1, 13, 6];
+    //var result = ary.slice(0);//[20, 5, 1, 13, 6] 克隆
+    //var   result = ary.slice(2);
+    //var result  = ary.slice(1,3);//[5,1]
+    //可以是负数索引
+    var result  = ary.slice(-1,-3);//[]
+    var result  = ary.slice(-3,-1);//[1,13] 倒数第几个,负数索引 = 负数索引+数组的长度 2,4
+    console.log(result);
+
+    //5  判断数组中是否有这一项,有返回这一项索引 ,没有返回-1 数组这边ie6~ie8不兼容
+    // indexOf() 从左往右查找
+    // lastIndexOf() 从右往左查找
+    var ary = [20, 5, 1, 13,5, 6];
+    var result  = ary.indexOf(5);//1
+    var result = ary.lastIndexOf(5)//4
+    console.log(result);
+    //课后扩展es5迭代方法 forEach ,map,every,some,filter,reduce,reduceRight
+
+
+</script>

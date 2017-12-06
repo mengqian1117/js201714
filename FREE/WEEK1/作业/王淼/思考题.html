@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            border:6px solid deepskyblue;
+            font-size: 40px;
+            margin:0 auto;
+            margin-top:200px;
+        }
+        button{
+            height: 60px;
+            width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn1">1</button>
+<button id="btn2">2</button>
+<button id="btn3">3</button>
+<div id="box">0</div>
+</body>
+</html>
+    <script type="text/javascript">
+        var btn1=document.getElementById("btn1");
+        var btn2=document.getElementById("btn2");
+        var btn3=document.getElementById("btn3");
+        var div=document.getElementById("box");
+        var i;
+        var num=0;
+        btn1.onclick=function () {
+            div.style.color="red";
+            if(btn1===i){
+                num+=1;
+                div.innerText=num;
+            }else{
+                num=0;
+                i=btn1;
+                div.innerText=num;
+            }
+        }
+        btn2.onclick=function () {
+            div.style.color = "green";
+
+            if (btn2===i) {
+                num += 2;
+                div.innerText = num;
+
+            } else {
+                i=btn2;
+                num = 0;
+                div.innerText=num;
+            }
+        }
+        btn3.onclick=function () {
+            div.style.color="yellow";
+            if(btn3===i){
+                num+=3;
+                div.innerText=num;
+            }else{
+                i=btn3;
+                num=0;
+                div.innerText=num;
+            }
+        }
+
+
+    </script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<script src="js/1.js" async></script>
+<script src="js/1.js" defer></script>
+<!--async  defer只适用于外链式-->
+
+<script type="text/javascript">
+    window.onload=function () {
+        //当页面资源(html+CSS)都加载完成之后执行的
+        var box=document.getElementById("box");
+        box.onclick=function () {};
+        console.dir(box);
+    }
+</script>
+<body>
+<!--
+js作用:
+
+1.获取DOM,操作DOM元素
+2.交互数据   ajax 表单提交,表单验证
+3.动态绑定数据    模板引擎
+
+
+-->
+<div id="box">123</div>
+</body>
+</html>

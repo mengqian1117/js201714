@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //给函数形参赋值的时候,遇到变量先看是不是自己小括号中的,如果是就使用自己的,不是往上一级找
+    var m=2,x=10;
+    function fn(y=x) {
+        var m=1,x=10;
+        console.log(x);
+        console.log(y);
+    }
+    fn()
+</script>

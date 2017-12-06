@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 130px;
+            color: #fff9f9;
+            font-size: 40px;
+            padding: 8px 0;
+            margin: 50px auto;
+            background: linear-gradient(to left top ,red,darkblue,darkcyan,yellow,saddlebrown,purple);
+            text-align: center;
+            font-weight: bold;
+            opacity: .8;
+            border-radius:5px;
+            cursor: pointer;
+            -webkit-user-select: none;
+        }
+        #box1{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">eb22</div>
+<div id="box1"></div>
+</body>
+</html>
+<script>
+    var str="abcdefghigklmnopqrstuvwxyz"+"0123456789"+"abcdefghigklmnopqrstuvwxyz".toUpperCase();
+    //我们想获取四位不重复的验证码,
+    var box=document.getElementById("box");
+    var strCode='';
+    //只要是strCode不够四位我们继续找
+    while (strCode.length<4){
+        //随机获取一个字符
+        var str1=str[Math.round(Math.random()*61)];
+        //如果strCode中没有str1这个字符的时候我们才往里面加
+        if(!strCode.includes(str1)){
+            strCode+=str1;
+        }
+    }
+    box.innerHTML=strCode;
+</script>
+<script>
+    //includes:ES6中的方法,判断字符串中有没有指定字符
+    //语法:字符串.includes("指定字符")
+    var str="abcd";
+    console.log(str.includes("ab"));
+
+    //获取随机颜色值
+    //rgba(0-255,0-255,0-255,0-1)
+    window.setInterval(function () {
+        box1.style.backgroundColor=`rgba(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.random()})`
+    },100)
+</script>

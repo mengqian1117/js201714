@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //上一级作用域,当前的作用域的地址在哪一个作用域下定义的,那么上一级作用域就是谁
+    var a=10;
+    function fn() {
+        var a=1;
+        return fn;
+        function fn() {
+            console.log(a);
+        }
+    }
+    var f=fn();
+    f();
+
+</script>
+<script>
+    var zf="珠峰";
+    function B() {
+        console.log(zf);
+    }
+    function A(b) {
+        var zf="zf";
+        b=B;
+        return b
+    }
+    B();
+    var b=A(B);
+    b();
+</script>

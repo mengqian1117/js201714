@@ -1,0 +1,28 @@
+
+589814744
+
+isNaN(null);  false
+parseInt(null); NaN
+Number(null); 0
+parseInt(""); NaN
+Number(""); 0
+isNaN(NaN); true
+parseInt(NaN); NaN
+Number(NaN); NaN
+isNaN(parseInt("")); true
+isNaN(Number("1px")); true
+parseInt("1px"); 1
+isNaN("NaN"); true
+isNaN(parseInt("1px")); false
+isNaN(parseInt(undefined)); true
+isNaN(Number(undefined)); true
+isNaN("1 1"); true
+parseInt("1.2px"); 1
+parseFloat("1.2px"); 1.2
+
+typeof isNaN("1px"); "boolean"
+typeof parseInt(null); "number"
+
+parseInt([]); NaN
+Number([]); 0
+isNaN(parseInt(typeof NaN)); true

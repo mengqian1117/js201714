@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //冒泡排序:小的往前排,大的往后排
+    //数组两两比较,每次都把最大的值排到最后
+    var ary  = [34,12,5,7];
+    for(var i = 0;i<ary.length-1-0;i++){
+        //ary[i] 前一项  ary[i+1] 后一项
+        if(ary[i]>ary[i+1]){
+            //它俩交换位置,需要借助中间变量
+            var temp = null;
+            temp = ary[i];
+            ary[i] = ary[i+1];
+            ary[i+1] = temp;
+        }
+    }
+    console.log(ary);
+
+    for(var i = 0;i<ary.length-1-1;i++){
+        //ary[i] 前一项  ary[i+1] 后一项
+        if(ary[i]>ary[i+1]){
+            //它俩交换位置,需要借助中间变量
+            var temp = null;
+            temp = ary[i];
+            ary[i] = ary[i+1];
+            ary[i+1] = temp;
+        }
+    }
+    console.log(ary);
+
+    for(var i = 0;i<ary.length-1-2;i++){
+        //ary[i] 前一项  ary[i+1] 后一项
+        if(ary[i]>ary[i+1]){
+            //它俩交换位置,需要借助中间变量
+            var temp = null;
+            temp = ary[i];
+            ary[i] = ary[i+1];
+            ary[i+1] = temp;
+        }
+    }
+    console.log(ary);
+
+
+
+</script>
+<script>
+    //冒泡排序:小的往前排,大的往后排
+    //数组两两比较,每次都把最大的值排到最后
+    var ary  = [34,12,5,7];
+    for(var j = 0;j<ary.length-1;j++){//轮数
+        for(var i = 0;i<ary.length-1-j;i++){//次数
+            //ary[i] 前一项  ary[i+1] 后一项
+            if(ary[i]>ary[i+1]){
+                //它俩交换位置,需要借助中间变量
+                var temp = null;
+                temp = ary[i];
+                ary[i] = ary[i+1];
+                ary[i+1] = temp;
+            }
+        }
+    }
+
+    console.log(ary);
+
+
+
+
+</script>

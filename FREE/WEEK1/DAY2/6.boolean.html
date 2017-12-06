@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //布尔值,true/false
+    //只有五个是false:  0, NaN, "" , null , undefined
+    console.log("        ".length);//8
+
+
+    //Boolean()
+
+    console.log(Boolean(0));//false
+    console.log(Boolean(null));//false
+    console.log(Boolean(isNaN(null)));//false
+    console.log(Boolean(parseInt([])));
+    //[]->""->NaN->false
+    console.log(Boolean([]));//true
+
+
+
+    //!  !!
+    //!   先转布尔再取反
+    //!!  转布尔
+
+    console.log(![]);//false
+
+    console.log(!!parseInt([]));//false
+
+    console.log(isNaN(parseInt(!NaN)));
+    //isNaN(parseInt(true))
+    //isNaN(NaN)
+    //true
+
+</script>
+<script>
+    //1
+    !(! "Number(undefined)");
+    //2
+    isNaN(parseInt(new Date())) + Number([1])+typeof undefined;
+    //3
+    Boolean(Number(""))+!isNaN(Number(null))+Boolean("parseInt([])")+ typeof!(null);
+    //4
+    parseFloat("1.6"+"px")+parseInt("1.2"+"px")+typeof parseInt(null);
+    //5
+    isNaN(Number(!!Number(parseInt("0.8"))));
+    //6
+    console.log(1+ "2"+"2");
+    console.log(1+ +"2"+"2");
+    console.log("A"- "B"+"2");
+    console.log("A"- "B"+2);
+    //7
+    !typeof parseFloat("0");
+    //8
+    Number("");
+    //9
+    typeof "parseInt(null)"+12+!!Number(NaN);
+    //10
+    !typeof(isNaN(""))+parseInt(NaN);
+    //11
+    typeof !parseInt(null) + !isNaN(null);
+    //12
+    Number(!Boolean(typeof  function a(){})+isNaN(parseFloat("xiaoxiaobai"))+isNaN(Number({Name:"zf"})).toString);
+
+</script>

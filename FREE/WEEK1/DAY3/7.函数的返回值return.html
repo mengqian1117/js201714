@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //return的内容就是函数的返回值,也就是一个函数的执行结果
+    //一个函数没有return执行结果为undefined
+    function fn() {
+        return "珠峰";
+    }
+
+    console.log(fn);//不加括号是定义部分
+    console.log(fn());//加上括号才是执行
+
+    function f1(m) {
+        return m+"洗干净了";
+    }
+
+    var temp=f1("脏衣服");//将f1的执行结果赋值给了temp
+    var temp=f1;//将f1这个函数本身赋值给了temp
+
+
+
+    function ff(m) {
+        //m=3
+        return ++m;//4
+    }
+    var f=ff(3);//f=4
+    console.log(f);
+
+
+    function f2(m) {
+        m++;
+    }
+    var f3=f2(10);//f2()执行的时候没有返回值,所以就是undefined
+    console.log(f3);
+
+
+
+
+    //函数return后面的代码不执行,你写了也不会执行
+    //函数执行的时候代码从上到下依次执行,遇到return,返回内容,执行结束
+    function get() {
+        return "珠峰";
+        console.log("哈哈");
+    }
+    get();
+
+    var a=1;
+    function add() {
+        a++;
+        return a;
+        a++;
+        a++;
+    }
+    add();
+    console.log(a);
+
+</script>
+
+
+
+<script>
+    
+    //实现一个函数,有个形参,判断这个形参是不是5的倍数,是返回true,不是返回false
+    //知识点:  %,  if判断,return
+    function isFiveMultiple(num) {
+//        if(num%5===0){
+//            return true;
+//        }else {
+//            return false;
+//        }
+        return num%5===0;
+    }
+
+    console.log(isFiveMultiple(12));
+    console.log(isFiveMultiple(15));
+
+
+    //实现一个方法 isNumber ,判断传进来的值是不是一个数,是个数返回true,不是数返回false
+    //提示:结合isNaN来判断
+    function isNumber(num) {
+//        if(isNaN(num)){
+//            return false
+//        }else {
+//            return true
+//        }
+
+        return !isNaN(num);
+    }
+
+    console.log(isNumber("1px"));//false
+    console.log(isNumber("1"));//true
+
+
+    //思考题:
+    // 1.写一个函数判断传进来的值是不是一个普通对象 {}
+
+    // 2.写一个方法,返回传进来的值的数据类型,使用typeof就可以
+
+</script>

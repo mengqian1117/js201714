@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html,body,ul,li,img{
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+        }
+        ul,li{
+            list-style: none;
+        }
+        img{
+            border: none;
+        }
+        #list{
+            width: 1200px;
+            margin: 30px auto;
+            border: 1px solid #ddd ;
+            font-size: 0;
+            /*
+            transform-style: preserve-3d;告诉浏览器这个是3d效果
+            一般会给父级加
+            */
+            transform-style: preserve-3d;
+        }
+        #list li{
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            filter: blur(10px);
+            /* transition过渡: transform（只要是transform值发生改变就会触发这个过渡效果） 0.8s（动画效果的执行时间）;*/
+            transition: transform .8s;
+        }
+        #list li img{
+            width: 100%;
+            height: 100%;
+
+        }
+        #list li:hover{
+            filter: blur(0px);
+            /*transform 变形，rotateY（度数deg）：绕着Y轴旋转*/
+            -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <!--<li><img src="img/0.jpg" alt=""></li>-->
+    <!--<li><img src="img/1.jpg" alt=""></li>-->
+    <!--<li><img src="img/2.jpg" alt=""></li>-->
+    <!--<li><img src="img/3.jpg" alt=""></li>-->
+    <!--<li><img src="img/4.jpg" alt=""></li>-->
+    <!--<li><img src="img/5.jpg" alt=""></li>-->
+    <!--<li><img src="img/6.jpg" alt=""></li>-->
+    <!--<li><img src="img/7.jpg" alt=""></li>-->
+    <!--<li><img src="img/8.jpg" alt=""></li>-->
+    <!--<li><img src="img/9.jpg" alt=""></li>-->
+
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    var ary=["0.jpg","1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg"];
+
+    //1.数组通过索引来获取某一项的值 ary[0]
+    //2.遍历一个数组 for in遍历
+    //3.拼接字符串
+    //4.innerHTML
+
+
+
+    //1.获取想要操作的元素
+    var list=document.getElementById("list");
+    //我们需要拼接一个很长的字符串str,最终将拼接好的字符串赋值给list的innerHTML
+    //2.提前准备一个空字符串
+    var str="";
+    //3.循环遍历数组ary拼接str
+    for(var index in ary){
+        //index变量代表的是每一个的索引,那么数组的每一项怎么表示?
+        //ary[index]:数组的每一项
+        //str+='<li><img src="img/数组的每一项" alt=""></li>';
+        str+='<li><img src="img/'+ary[index]+'" alt=""></li>';
+    }
+    //4.给list的innerHTML赋值,赋的值就是拼接好的字符串str
+    list.innerHTML=str;
+</script>

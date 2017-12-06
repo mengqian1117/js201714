@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<h1>我是页面1</h1>
+<a href="BOM1.html">跳转页面</a>
+<button onclick="history.go(-1)">回退</button>
+</body>
+</html>
+<script type="text/javascript">
+    //history.go(正数/负数)
+    //正数:前进
+    //负数:后退
+    //history.go(-1);
+    history.back();//后退
+    history.forward();//前进
+
+    //获取当前URL地址
+    //http://localhost:63342/js14/BOM.html?_ijt=2tdllf6v210nsblgee5u1jl7a9
+    console.log(location.href);
+    console.log(window == self);
+</script>

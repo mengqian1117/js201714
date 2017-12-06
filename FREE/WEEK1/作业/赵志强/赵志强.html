@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #btn1{
+            display: inline-block;
+            border-radius: 15px;
+            width:100px;
+            height:50px;
+            background: red;
+            margin-left: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px #fff;
+        }
+        #btn2{
+            display: inline-block;
+            border-radius: 15px;
+            width:100px;
+            height:50px;
+            background: green;
+            margin-left: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px #fff;
+        }
+        #btn3{
+            display: inline-block;
+            border-radius: 15px;
+            width:100px;
+            height:50px;
+            background: yellow;
+            margin-left: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px #fff;
+        }
+        #box{
+            margin: 10px;
+            width:300px;
+            height:200px;
+            border:1px solid deepskyblue;
+            box-shadow: 0 0 10px deepskyblue;
+            background-color: deepskyblue;
+            color: #ffffff;
+            overflow: auto;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            text-shadow: 0 0 10px #fff;
+            transition: all 3s;
+            position: relative;
+        }
+        #box1{
+            width:300px;
+            height: 200px;
+            position: absolute;
+            top:-200px;
+            background: deeppink;
+            transition: all .7s;
+        }
+        #box2{
+            width:300px;
+            height: 200px;
+            position: absolute;
+            top:-200px;
+            background:greenyellow;
+            transition: all .7s;
+        }
+        #box3{
+            width:300px;
+            height: 200px;
+            position: absolute;
+            top:-200px;
+            background:linen;
+            transition: all .7s;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">加一</button>
+<button id="btn2">加二</button>
+<button id="btn3">加三</button>
+
+
+<div id="box">
+    0
+    <div id="box1">
+        0
+    </div>
+    <div id="box2">
+        0
+    </div>
+    <div id="box3">
+        0
+    </div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+
+   var btn1 = document.getElementById("btn1");
+   var btn2 = document.getElementById("btn2");
+   var btn3 = document.getElementById("btn3");
+   var box = document.getElementById("box");
+   var box1 = document.getElementById("box1");
+   var box2 = document.getElementById("box2");
+   var box3 = document.getElementById("box3");
+    var a = 0;
+    btn1.onclick = function () {
+        box1.innerHTML=++a;
+        box.style.backgroundColor = "orange";
+        box1.style.color = "red";
+        if (box1.style.color = "red"){
+            box2.style.top = "-200px"
+        }
+        if (box1.style.color = "red"){
+            box3.style.top = "-200px"
+        }
+        if (box.style.backgroundColor == "orange"){
+            box1.style.top = "0";
+        }
+
+        if (box.style.color != "green"){
+            v = 0;
+            t = 0;
+        }
+        if (box.style.color != "yellow"){
+            u = 0;
+            m = 0;
+            b = 0;
+        }
+    };
+    var t = 0;
+    var v =0;
+    btn2.onclick = function () {
+        box2.innerHTML=++v+(++t);
+        box.style.backgroundColor = "red";
+        box2.style.color = "green";
+        if (box2.style.color == "green"){
+            box1.style.top = "-200px"
+        }
+        if (box2.style.color == "green"){
+            box3.style.top = "-200px"
+        }
+        if (box.style.backgroundColor == "red"){
+            box2.style.top = "0";
+        }
+
+        if (box.style.color != "red"){
+            a = 0;
+        }
+        if (box.style.color != "yellow"){
+             u = 0;
+             m = 0;
+             b = 0;
+        }
+    };
+    var u = 0;
+    var m = 0;
+    var b = 0;
+    btn3.onclick = function () {
+       box3.innerHTML=++b+(++u)+(++m);
+       box.style.backgroundColor = "blue";
+       box3.style.color = "yellow";
+
+        if (box.style.backgroundColor = "blue"){
+            box3.style.top = "0";
+        }
+        if (box3.style.color == "yellow"){
+            box1.style.top = "-200px"
+        }
+        if (box3.style.color = "yellow"){
+            box2.style.top = "-200px"
+        }
+
+        if (box.style.color != "red"){
+            a = 0;
+        }
+        if (box.style.color != "green"){
+            t = 0;
+            v = 0;
+        }
+    };
+</script>
+
+<script type="text/javascript">
+    // 1.写一个函数判断传进来的值是不是一个普通对象 {}
+    function run(num) {
+        if (num.toString() == "[object Object]" ){
+            console.log(num.toString());
+        }else {
+            console.log("Not is object");
+        }
+    }
+    run({a:"1",b:"2"});
+    run([1,2,3]);
+
+
+</script>
+<script type="text/javascript">
+    // 2.写一个方法,返回传进来的值的数据类型,使用typeof就可以
+    function run(num){
+        return typeof num;
+    }
+
+    console.log(run({a: "b", c: "d"}));
+    console.log(run(1));
+    console.log(run("1"));
+    console.log(run(NaN));
+    console.log(run([1,2,3]));
+    console.log(run(true));
+    console.log(run());
+
+
+
+</script>

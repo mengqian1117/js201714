@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+   // for in
+    //in  : 判断一个对象中有没有某个属性
+   var obj={name:"珠峰",a:"aa",b:"bb" ,2:"嘿嘿",c:"cc",1:"哈哈"};
+
+   //"属性名" in 对象  返回值 true/false
+   //console.log("name" in obj);
+   //console.log("age" in obj);
+
+
+
+   for(var key in obj){
+       //对象有几个键值对,就会执行几次
+       //变量 key:属性名
+       //obj:遍历的对象
+       //console.log(typeof key);//"string"
+       console.log("属性名:"+key,"属性值:"+obj[key]);
+
+   }
+
+   //记住:for in遍历对象的时候如果属性名有数字,会先将数字遍历出来而且是按照从小到大的顺序遍历的,剩下的按照书写的顺序遍历
+</script>

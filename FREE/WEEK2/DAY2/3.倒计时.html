@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <style>
+        #box {
+            width: 800px;
+            height: 60px;
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 60px;
+            margin: 50px auto 10px;
+            border: 1px solid salmon;
+            background: linear-gradient(to left top, red, orange, gold, green, peachpuff, darkgreen, purple,yellowgreen,teal);
+            padding: 7px 10px;
+            color: #fff9f9;
+            text-shadow: 1px 2px 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+ var box=document.getElementById("box");
+ var targetTime=new Date("2018 1 1 20:30:00");
+ var str="";
+ function changeDate() {
+     var nowTime=new Date();
+     //获取时间差  单位是毫秒
+     var different=targetTime-nowTime;
+     //console.log(different);
+     var d=Math.floor(different/(1000*60*60*24));
+     var h=Math.floor(different%(1000*60*60*24)/(1000*60*60));
+     var m=Math.floor(different%(1000*60*60*24)%(1000*60*60)/(1000*60));
+     var s=Math.floor(different%(1000*60*60*24)%(1000*60*60)%(1000*60)/1000);
+     str=d+"天"+h+"小时"+m+"分钟"+s+"秒";
+     box.innerHTML=str;
+ }
+
+ changeDate();
+ window.setInterval(changeDate,1000)
+</script>

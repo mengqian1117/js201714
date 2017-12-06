@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //eval("字符串");将字符串变成代码,可以理解为将引号去掉即可
+    eval("var a=1");
+    console.log(a);
+
+    function fn() {
+        console.log("我是函数");
+    }
+
+    eval("fn()");
+
+    eval('({name:"珠峰",age:12})');
+
+
+
+    var str="http://www.baidu.com?name=zf&age=6&study=js";
+    str=str.split("?")[1];
+    //    "name=zf&age=6&study=js"
+    // {   =-->:"   &-->",  "}
+    //obj={name:"zf",age:"6",study:"js"};
+    //name:'zf',age:'6',study:'js
+    eval("({"+str.replace(/=/g, ":'").replace(/&/g,"',")+"'})");
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    //1.null和undefined,没有这个方法
+    //2.对象-->"[object Object]"
+
+
+    // 1.写一个函数判断传进来的值是不是一个普通对象 {}
+
+    function isObject(obj) {
+        //注意:因为null和undefined没有toString,这么写obj.toString()就会报错,所有只有保证obj是true
+        if(obj){
+            return obj.toString()=="[object Object]"
+        }else {
+            return false;
+        }
+
+        //return obj&&obj.toString()=="[object Object]"?true:false;
+    };
+
+    isObject([1,2]);//false
+</script>

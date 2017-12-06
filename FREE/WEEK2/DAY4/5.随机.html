@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            background-color: #fff9fe;
+        }
+        div{
+            position: absolute;
+            /*border-radius: 50%;*/
+            transition: all 1s ;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //页面随机生成100个球
+    //宽高 30-120
+    //位置 left 0-1200,top:0-500
+    //颜色随机的
+
+    function getRandom(n,m) {
+       return Math.round(Math.random()*(m-n)+n)
+    }
+    var str='';
+    for (var i=0;i<50;i++){
+        str+="<div></div>"
+    }
+    document.body.innerHTML+=str;
+
+    var oDivs=document.getElementsByTagName("div");
+    for (var i=0;i<oDivs.length;i++){
+        oDivs[i].style.width=oDivs[i].style.height=getRandom(30,120)+"px";
+        oDivs[i].style.left=getRandom(0,1200)+"px";
+        oDivs[i].style.top=getRandom(0,500)+"px";
+        oDivs[i].style.backgroundColor=`rgb(${getRandom(0,255)},${getRandom(0,255)},${getRandom(0,255)})`;
+        oDivs[i].onclick=function () {
+//            this.style.top="560px";
+            this.style.opacity=0;
+            this.style.transform="rotate(180deg)"
+        }
+    }
+</script>

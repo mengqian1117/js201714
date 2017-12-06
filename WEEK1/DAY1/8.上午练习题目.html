@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+
+    var a = 3;
+    function A(a, b) {
+        b++;
+        console.log(a);
+        var a;
+        return b + a;
+    }
+    var b = A(a, a++);
+    console.log(a, b);
+</script>
+<script>
+    var code = null;
+    function fn1(n) {
+        n = n || code++;
+        return ++code;
+    }
+    var n = fn1();
+    console.log(n);
+    n = fn1(n);
+    console.log(n);
+</script>
+<script>
+    n=f2(m);
+    var m = 0;
+    function f2(n) {
+        n = isNaN(n);
+        return n
+    }
+    console.log(window.n);
+</script>
+<script>
+    var obj={
+        name:name1,
+        age:f3()
+    };
+    var name1="QQ";
+    var age=18;
+    function f3() {
+        return ++age
+    }
+    console.log(obj);
+</script>
+<script>
+    function X() {
+        console.log("XX");
+        return X;
+    }
+    var X=X();
+    X();
+</script>
+<script>
+    var ary=[1,2,3];
+    function FF(ary) {
+        ary.push(100);
+        ary.shift();
+        ary=ary[ary.length-1];
+        return ary
+    }
+    console.log(FF(ary));
+    console.log(ary);
+
+</script>

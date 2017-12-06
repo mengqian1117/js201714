@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    function sum() {
+        var total=null;
+        for(var i=0;i<arguments.length;i++){
+            if (!isNaN(arguments[i])){
+                total+=Number(arguments[i]);
+            }
+            //total+=!isNaN(arguments[i])?Number(arguments[i]):0;
+
+        }
+        return total
+    }
+
+    sum(1,2,[],'',{a:1},true)
+</script>
+<script>
+
+    var ary=['1','2','3','4','5'];
+
+    for (var i=0;i<ary.length;i++){
+        ary[i]=Number(ary[i]);
+    }
+
+    for (var i=0;i<ary.length;i++){
+        ary[i]+="0";
+    }
+</script>
+<script>
+    var str='abcd*sssa*MSAJ*';
+    //找出字符串中第一个”*”出现的位置(索引)
+    //字符串也可以通过索引获取字符串中的某一项
+    //console.log(str[1]);//"b"
+    //可以循环字符串
+    for (var i=0;i<str.length;i++){
+        //可以通过判断str[i]是不是"*"即可,如果是就终止循环
+        if(str[i]=="*") {
+            console.log(i);
+            break;
+        }
+    }
+
+    //求出"*"的个数
+    var code=0;
+    for(var i=0;i<str.length;i++){
+        if(str[i]=="*"){
+            code++;
+        }
+    }
+    console.log(code);
+
+    //思考作业
+    str="aaaabbbccccaaaaddddssssasaaa";
+    // {a:12,b:3,c:2,d:4,s:5}
+
+
+
+
+</script>

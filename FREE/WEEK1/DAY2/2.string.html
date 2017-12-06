@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //只要是使用单引号或者是双引号包起来的就是字符串,字符串没有什么特殊意义你写成什么就是什么
+    // [1,2,3];
+    //'[1,2,3]';
+    //注意
+    // 1.单双引号混用的时候,外面使用单引号,里面就可以使用双引号,否则反之
+    "他说:'我喜欢你'";
+
+    console.log("I'm a student");
+    //2.转义问题,如果单引号同时使用 ,可是使用转义字符\将其转为本身意义的字符
+    console.log('I\'m a student');
+    //字符串中\n就代表换行
+    console.log("I'm a \n student");
+
+    //3.字符串中的加好+,表示的是字符串的拼接
+    console.log(1 + 1);
+    //"1"+"1"->"11" 字符串的拼接
+    //只要是加好遇到字符串就是字符串的拼接
+    //"1"+1->"11"
+
+    console.log("1" + true);//"1true"
+    console.log("1" + [1,2,3]);//"11,2,3"
+    console.log("1" + {1:1});//"1[object Object]"
+    console.log("1" + new Date());
+
+    //注意:null和undefined虽然没有toString方法但是遇到字符串拼接的时候直接拼接上
+    console.log("1" + null);
+    console.log("1" + undefined);
+
+
+    console.log(1 + 2 + "3");//3+"3"->"33"
+
+</script>

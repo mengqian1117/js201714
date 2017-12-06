@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //typeof 检测数据类型
+    //用法:typeof 要检测的内容
+    //返回值:是个字符串"数据类型"
+
+    //可以详细检测基本数据类型,但是null检测结果为"object"
+    //对于引用数据类型不可以详细检测,只有俩结果"object"和"function"
+    var num=1;
+    console.log(typeof num);//"number"
+    console.log(1);
+    console.log("1");
+    console.log(typeof "123");//"string"
+    console.log(typeof null);//"object"
+    console.log(typeof undefined);//"undefined"
+    console.log(typeof true);//"boolean"
+    console.log(typeof false);//"boolean"
+    console.log(typeof NaN);//"number"
+
+
+
+    console.log(typeof {a: "a"});//"object"
+    console.log(typeof [1,2,3]);//"object"
+    console.log(typeof /\d+/);//"object"
+    console.log(typeof new Date());//"object"
+
+    function fn() {
+
+    }
+    console.log(typeof fn);//"function"
+
+
+    //面试题:使用两个及两个以上的typeof检测时候结果为"string"
+
+    console.log(typeof typeof true);//typeof "boolean"->"string"
+
+    console.log(typeof typeof typeof {a: "1234"});
+</script>

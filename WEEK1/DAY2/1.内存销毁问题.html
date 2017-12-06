@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<!--
+内存:
+堆内存  存储引用数据类型的
+栈内存  作用域
+
+
+堆内存释放:当地某个堆内存的地址不再被变量占用,此时浏览器会在空闲的时候将其销毁
+注意:以后开发中后期不再使用的引用数据类型手动将其赋值为null
+
+
+栈内存的释放:
+全局作用域:当关闭浏览器的时候全局作用域销毁
+私有作用域:
+销毁:一个作用域没有被外界占用的内容,此时就销毁了
+不销毁:当一个私有作用域返回一个地址被外界占用了,此时这个作用域就不销毁
+-->
+<script type="text/javascript">
+
+    var ary=[1,2,3,4];//ary=xxxfff000==>[1,2,3,4]
+    ary=[1,2,3];//ary=xxxfff111==>[1,2,3]
+    //当前地址xxxfff000不再被变量占用此时浏览器会在空闲的时候将其销毁
+    var obj={name:"珠峰"};
+    obj=null;
+
+    function fn() {
+        var a=1;
+        console.log(a);
+    };
+    fn();
+
+    function ff() {
+        var a=1;
+        return function () {//xxxfff111
+            console.log(a);
+        }
+    }
+    var f=ff();//f=xxxfff111
+    f();
+
+
+    var a=10;
+    var f=(function (a) {
+        //私有:a=10
+        return function () {
+            console.log(++a);
+        }
+    })(a);
+    f();
+
+
+
+
+</script>

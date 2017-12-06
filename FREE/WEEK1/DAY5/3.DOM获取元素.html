@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box">我是真的</div>
+<div id="box">我是假的</div>
+<p class="p1">p1</p>
+<p class="p1">p1</p>
+<p class="p2">p2</p>
+
+
+<div class="box">
+    <p class="p1">我是box的孩子</p>
+    <p class="p1">我是box的孩子</p>
+</div>
+
+
+<form id="form">
+    <input type="text" name="name">
+    <input type="text" name="name">
+    <input type="text" name="age">
+    <input type="text" name="sex">
+    <input type="date">
+    <input type="color">
+    <input type="password">
+    <input type="email">
+    <input type="number" max="10" min="4" step="3">
+    <input type="submit">
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    //1.通过ID名获取一个元素
+    //上下文.getElementById()
+    //上下文必须是document
+    //假如id重复了,获取的是第一个
+    var box=document.getElementById("box");
+    console.log(box);
+
+    //2.通过class名获取一组元素,得到是一个集合
+    //元素集合不是数组,可以叫他类数组(类似数组的对象),有索引有length
+    //上下文可以是你自己定义的,一般都是父级/爷爷辈,最好不要超过3级以上,
+    var ps= document.getElementsByClassName("p1");
+    console.log(ps[0]);
+    console.log(ps[1]);
+    //注意：如果class只有一个,获取出来的任然是一个集合只不过这个集合中只有一个元素,此时想要获取这个元素必须加一个[0]才可以拿到
+    var p2=document.getElementsByClassName("p2")[0];
+    console.log(p2);
+
+    var box1=document.getElementsByClassName("box")[0];
+    //这个错误:box1.getElementsByClassName is not a function,box1不是一个元素,去检测(console.log(box1))一下你的box1是不是获取的一个集合
+    var pList=box1.getElementsByClassName("p1");
+    console.log(pList);
+
+    console.log(document.getElementsByClassName("bb"));
+
+    //3.通过标签名获取一组元素
+    //上下文可以是你自己定义的,一般都是父级/爷爷辈,最好不要超过3级以上,
+    var oDivs=document.getElementsByTagName("div");
+    console.log(oDivs);
+
+
+    //一般给表单元素加上name属性
+    //4.通过Name获取一组元素
+    //上下文必须是document
+    var names=document.getElementsByName("name");
+    console.log(names);
+</script>

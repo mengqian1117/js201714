@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<!--
+
+###forEach()
+- 作用:数组每个元素都执行一次回调函数。
+
+###map()
+- 作用:通过指定函数处理数组的每个元素，并返回处理后的数组。
+
+###filter()
+- 作用:检测数值元素，并返回符合条件所有元素的数组。
+
+
+###find()
+- 作用:返回符合传入测试（函数）条件的数组元素。
+
+###findIndex()
+- 作用:返回符合传入测试（函数）条件的数组元素索引。
+
+###reduce()
+- 作用:将数组元素计算为一个值（从左到右）。
+
+###reduceRight()
+- 作用:将数组元素计算为一个值（从右到左）。
+
+###some()
+- 作用:检测数组元素中是否有元素符合指定条件。
+
+###every()
+- 作用:检测数值元素的每个元素是否都符合条件。
+-->
+<script type="text/javascript">
+
+   var ary=[1,2,"哈哈","1px",true];
+
+   //第二个参数(可选的):是用来给第一个参数函数改变this用的
+   ary.forEach(function (item, index, arr) {
+       //数组有几项这个函数就执行几次,每一次都会默认传三个参数
+       //item:当前项
+       //index:当前项的索引
+       //arr:原数组
+      // console.log(item, index, arr);
+       console.log(this);
+   },ary);
+   //map有返回值,返回值是里面的函数每一次执行的返回值组成的新数组
+   console.log(ary.map(function (item, index, arr) {
+       return typeof item
+   }));
+
+   var ary=[1,2,"哈哈","1px",true];
+
+   console.log(ary.filter(function (item, index, arr) {
+       return typeof item=="number";
+   }));
+
+
+</script>

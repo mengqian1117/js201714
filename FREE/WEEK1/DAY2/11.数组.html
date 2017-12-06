@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //数组是个有序的排列
+    //有序:有索引(序号),索引从零开始
+    //有一个属性叫length:数组的长度
+    //[第一项,第二项,,,]
+
+    var ary=[1,2,3,4,5,6];
+    console.log(ary);
+
+    //获取数组某一项的值
+    //数组[索引]
+    console.log(ary[1]);
+    console.log(ary[ary.length - 1]);
+    //假如你写的索引没有结果为 undefined
+    console.log(ary[10]);
+
+
+    //修改/增加
+    //没有就是增加,有就是修改
+    ary[2]="哈哈";
+    ary[10]="嘿嘿";//[1, 2, "哈哈", 4, 5, 6, empty × 4, "嘿嘿"]
+    //empty*4 4个空位
+    console.log(ary);
+
+
+    console.log(Array(1, 2, 3, 4));//[1,2,3,4]
+
+    //Array(7)->[7] 不对
+    //Array(只有一个值),这个值就是数组的长度length
+    console.log(Array(7));//[empty × 7] 一个有7个空位的数组
+    console.log([, , , , , , ,]);//有几个逗号就有几个空位
+
+
+
+    console.log(Array(7).fill(1));
+
+    //记住:数组的索引也是字符串数据类型的
+    //for in即可以遍历对象也可以遍历数组
+
+    var arr=["哈哈","嘿嘿","呵呵","嘻嘻","嗯嗯"];
+    for (var index in arr){
+        //console.log(typeof index);
+        console.log(index,arr[index]);
+    }
+</script>

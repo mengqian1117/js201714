@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--meta:vp Tab键-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>珠峰培训2017-14JS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<ul id="news">
+
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    var data=[{img:"img/zf1.png",title:"珠峰成长的秘密:",news:"兴盛衰败一挥间，长留慈悲在心念;"},{img:"img/zf2.jpg",title:"担心逻辑差，学不会：",news:"我们都是珠峰培训的骄傲----23岁切图小妹工资翻倍"},{img:"img/zf3.jpg",title:"在线学习靠谱吗？",news:"珠峰培训帮我实现外企梦—上海姑娘徐米米的故事"},{img:"img/zf4.jpg",title:"我担心年龄大了学了也没有用",news:"：30岁改行学进新浪，我不悔选择"},{img:"img/zf5.jpg",title:"还没毕业学能找到工作吗：",news:"从应届生到百度的距离有多远"},{img:"img/zf1.png",title:"珠峰成长的秘密:",news:"兴盛衰败一挥间，长留慈悲在心念;"},{img:"img/zf2.jpg",title:"担心逻辑差，学不会：",news:"我们都是珠峰培训的骄傲----23岁切图小妹工资翻倍"},{img:"img/zf3.jpg",title:"在线学习靠谱吗？",news:"珠峰培训帮我实现外企梦—上海姑娘徐米米的故事"},{img:"img/zf4.jpg",title:"我担心年龄大了学了也没有用",news:"：30岁改行学进新浪，我不悔选择"},{img:"img/zf5.jpg",title:"还没毕业学能找到工作吗：",news:"从应届生到百度的距离有多远"}];
+    var news=document.getElementById("news");
+    var more=news.getElementsByClassName("more");
+    function load() {
+        var strHTML=``;
+        data.forEach(function (item) {
+            strHTML+=`<li>
+        <div>
+            <img src="${item.img}" alt="">
+        </div>
+        <div>
+            <h2>${item.title}</h2>
+            <p>${item.news}</p>
+        </div>
+    </li>`;
+        });
+        //需要保留之前的内容所以说这里写的是+=
+        news.innerHTML+=strHTML;
+        //判断news中有没有class名叫More的p标签,有的话移动位置,没有的话拼接一个
+        //根据More这集合的length来判断有没有
+        if(more.length){
+            //有
+            news.appendChild(more[0]);
+        }else {
+            //没有
+            news.innerHTML+="<p class='more'>加载更多</p>";
+        }
+        //点击加载更多时候再显示十条数据
+        more[0].onclick=function () {
+            load();
+        }
+    }
+    //为了保证第一次打开页面时候页面上有内容,必须执行一次这个函数
+    load();
+
+
+
+</script>

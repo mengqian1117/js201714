@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #list{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <p>珠峰</p>
+    <p>培训</p>
+    <p>十四期</p>
+</div>
+<div id="box1"></div>
+<ul id="list"></ul>
+</body>
+</html>
+<script type="text/javascript">
+    var box=document.getElementById("box");
+    var box1=document.getElementById("box1");
+    var list=document.getElementById("list");
+
+    console.log(box.innerText);
+    console.log(box.innerHTML);
+
+
+    //innerHTML可以识别标签
+    //innerText只能识别文本
+    //以后遇到给一个元素添加内容(纯文字/有标签)都可以直接使用innerHTML即可
+
+
+    //box1.innerText="<h1>哈哈</h1>";
+    box1.innerHTML="<h1>哈哈</h1>";
+
+    list.onclick=function () {
+        //list.innerHTML=list.innerHTML+"<li>苹果</li>";
+        //上面可以写成这样的写法
+        list.innerHTML+="<li><h2>苹果</h2></li>";
+    }
+
+//    var a=1;
+//    a=a+1;
+//    a+=1;
+
+
+
+
+</script>

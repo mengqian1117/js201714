@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+</head>
+<body>
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script>
+ //Array()
+ Array.of(7) ;//[7]
+
+ //Array.from(数组/类数组) 返回值是个数组  es6中的新方法
+
+ var ary=[1,2,3,4];
+ console.log(Array.from(ary));//相当于克隆一份一样的数组
+
+    //类数组:arguments,元素集合
+    //类数组不可以使用数组中的方法
+    //我们可以将类数组变成数组之后就可以使用数组方法了
+ var lis=document.getElementById("list").getElementsByTagName("li") ;
+ //lis.pop();//lis.pop is not a function
+ lis=Array.from(lis);
+ lis.pop();
+ console.log(lis);
+</script>
+<script>
+    //es6中的
+    //扩展运算符 ...
+    //1)将非数组变成数组:有length,有索引的都可以变成数组,(字符串,类数组)
+    //2)将数组变成非数组
+
+    var str="123456";
+    console.log(str.split(""));
+    console.log([...str]);
+    function fn() {
+        console.log(Array.from(arguments));
+        console.log([...arguments]);
+    }
+    fn(1,2,3,4,5);
+
+
+    var ary1=[1,2,3,4,5];
+    var ary2=[6,7,8,9];
+    console.log(...ary);
+    console.log(ary1.concat(ary2));
+    console.log([...ary1, ...ary2]);
+    var arr=[1,2,3,1213,23,21];
+    console.log(Math.max(...arr));
+</script>
+<script>
+    //Array.isArray()判断是不是一个数组
+    console.log(Array.isArray([]));//true
+    console.log(Array.isArray({}));//false
+</script>
+
+<script>
+    //for of()遍历
+    var ary=["哈哈","嘿嘿","呵呵","嘻嘻","嗯嗯"];
+    for (var item of ary){
+        //item:数组的每一项
+        console.log(item);
+    }
+    console.log(ary);
+
+    //数组.keys() 来遍历数组的索引
+    for (var key of ary.keys()){
+        //key 就是索引
+        console.log(key);
+    }
+
+    //ary.entries() 一次性拿到索引和每一项放在一个数组中
+    for(var [key,item] of ary.entries()){
+        console.log(key,item);//[索引,当前项]
+    }
+
+
+</script>
+
+<script>
+
+    //数组的解构赋值
+    let [a,b]=[1,2];
+    //变量a,b对应1,2
+    console.log(a, b);
+
+
+    var x1=12,x2=13;
+    x1=x1+x2;//x1=25
+    x2=x1-x2;//x2=25-13=12
+    x1=x1-x2;//x1=13
+
+    //使用解构赋值交换变量的值
+    [x1,x2]=[x2,x1];
+
+
+</script>

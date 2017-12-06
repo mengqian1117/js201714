@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var obj={a:1};
+    var obj1=obj;
+    obj1.b=obj={x:1};
+    console.log(obj.b);
+    console.log(obj1.b);
+
+    //只要数引用数据类型都可以增加自定义属性
+    function fn() {
+
+    }
+
+    console.log(fn.name);//"fn"
+    console.log((function () {}).name);//""
+
+    //使用构造函数方式创建一个函数
+    new Date();
+    console.log((new Function("res", "return res")).name);//"anonymous"
+    var ff=new Function("res", "return res");
+    console.log(ff.name);//"anonymous"
+
+    //bind
+    function f1() {};
+    var f2=f1.bind(null);
+    console.log(f2.name);//"bound f1"
+
+    fn.zf="zhufeng";
+    console.dir(fn);
+</script>
+<script>
+    function fn(x=(function () {
+        console.log("我是");
+        return 10;
+    })(),y) {
+        console.log(x);
+        console.log(y);
+    }
+    fn(1);
+    //函数的length是形参的长度,形参的默认值会影响length
+    console.log(fn.length);//0
+
+
+    //关于参数默认值问题,只有赋的实参值为undefined的时候才会走默认值
+
+</script>

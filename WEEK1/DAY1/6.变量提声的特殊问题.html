@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    /*
+    //1.自执行函数没有没有变量提声
+    //console.log(fn);//fn is not defined
+    ;(function fn() {})();
+
+    //2.等号右边没有变量提声
+    //console.log(ff);//ff is not defined
+    var f=function ff() {
+
+    };
+
+    //3.不管条件是否成立都要变量提声,但是,var 和function都是只声明不定义,当条件成立第一步先给函数赋值
+    console.log(a);//undefined
+    console.log(F);//undefined
+    if(true){
+        console.log(a);//undefined
+        console.log(F);
+        var a=1;
+        function F() {}
+    }
+    /*
+    f=function () {return true;};
+    g=function () {return false};
+    (function () {
+        //变量提声 function g =undefined
+        console.log(g);
+        if(g()&&[]==![]){//g is not a function
+            f=function f() {return false};
+            function g() {return true};
+        }
+    })();
+    */
+
+    /*
+    console.log(a);//undefined
+    var a=0;
+    console.log(a);//undefined  0
+    if(a++){
+       function a() {}
+    }
+    console.log(a);//1
+    console.log(a());//报错了 undefined
+
+ */
+
+    console.log(a);//undefined
+    var a=0;
+    console.log(a);// 0
+    if(++a){//1
+        //a=xxxfff000
+        function a() {}
+    }
+    console.log(a);//
+    console.log(a());//undefined
+
+    //4.当函数当做参数的时候不进行变量提声
+    //console.log(FF);
+    window.setInterval(function FF(n,m) {
+        console.log(n,m);
+    },2000,"嘿嘿","哈哈");
+
+
+//    var ary=[1,2,3];
+//    ary.forEach(function (item,index,arr) {
+//        console.log(this);
+//    },ary)
+
+    //5.return后面的代码不执行但是需要变量提声,return出的内容执行但是不进行变量提声
+    function f4() {
+        console.log(a);
+        console.log(fn);
+        //console.log(rr);//rr is not defined
+        //return function rr() {};
+        return a++;
+        var a=1;
+        function fn() {};
+    }
+
+    console.log(f4());;
+
+</script>

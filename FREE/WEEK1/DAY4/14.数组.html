@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //数组是个有序的排列
+    //有索引,有length
+    //索引是字符串类型的
+    //ary[索引]
+    var ary=[1,2,3];
+    console.log(Array(1, 2, 3, 4));
+    console.log(Array(7));//[,,,,,,,]
+
+    //Array.of()跟Array一样用,只有一个区别就是只传一个参数的时候可以得到一个数组只有这一项
+    console.log(Array.of(7));
+
+
+    //索引 in  数组:  判断这个数组的这个索引位置是不是空位
+
+    //空位不是undefined
+
+    console.log(1 in ["哈哈", , , , , ,]);//false
+    console.log(1 in ["哈哈",undefined , , , , ,]);//true
+
+    ary[3]=4;
+    ary[ary.length]=5;
+    //删除最后一项
+    ary.length--;
+
+</script>

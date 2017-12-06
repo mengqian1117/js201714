@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        ul,li{
+            list-style: none;
+            -webkit-user-select: none;
+            /*禁止用户选中*/
+        }
+        li{
+            display: inline-block;
+            width: 130px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #ffffe2;
+            font-size: 36px;
+            font-weight: bold;
+            color: blue;
+            border: 2px solid darkcyan;
+            margin: 15px;
+            padding: 8px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .select{
+            background-color: darkblue;
+            color: gold;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+<ul id="userList"></ul>
+</body>
+</html>
+<script>
+    var ary = [{name: "陈金浩"}, {name: "董新"}, {name: "姜兴龙"}, {name: "刘国围"}, {name: "刘文文"}, {name: "雷舒雯"}, {name: "刘治兵"}, {name: "亓宏旭"}, {name: "孙世岩"}, {name: "杨燕妮"}, {name: "孙万泉"}, {name: "王充"}, {name: "王礼"}, {name: "王力民"}, {name: "王淼"}, {name: "王瑞跃"}, {name: "吴贤强"}, {name: "王宪忠"}, {name: "阳家昆"}, {name: "叶巧玲"}, {name: "张华男"}, {name: "智利学"}, {name: "周楠"}, {name: "张晓杰"}, {name: "张玉柱"}, {name: "赵志强"}, {name: "和振峰"}, {name: "孙冠群"}];
+
+    var userList=document.getElementById("userList");
+    //在这里获取的li元素集合,此时还没有任何元素,后面如果向页面上增加元素,这个集合中会自动添加元素,这就是DOM映射,一般我们会将获取元素统一放在最上面,放心写没有问题
+    var list=userList.getElementsByTagName("li");
+
+    //根据数组的长度来确定页面上有几个li,数据的动态绑定
+    //知识点:innerHTML,字符串拼接+变量==>ES6模板字符串,循环数组ary
+    //1.准备一个空字符串
+    var strHTML=``;
+    //2.循环拼接字符串,绑定数据
+    for (var i=0;i<ary.length;i++){
+        strHTML+=`<li>${ary[i].name}</li>`;
+    }
+    //3.将拼接好的字符串放到页面的userList上
+    userList.innerHTML=strHTML;
+
+
+    //给每一个li绑定点击事件
+    //思路一:判断之前有没有类名是select
+    for(var i=0;i<list.length;i++){
+        list[i].onclick=function () {
+            //this给谁绑定的事件this就是谁
+            //this.className要么是 ""->false 要么是 "select"->true
+            if(this.className){
+                //进入到这里说明 this.className是"select"
+                this.className="";
+            }else {
+                //进入到这里说明 this.className是""
+                this.className="select";
+            }
+        }
+    }
+    //思路二:使用自定义属性 isSelect的值;来判断
+</script>

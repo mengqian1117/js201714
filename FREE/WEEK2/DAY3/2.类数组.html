@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+</head>
+<body>
+<ul id="list">
+    <li>4</li>
+    <li>6</li>
+    <li>1</li>
+    <li>3</li>
+    <!--<li>32</li>-->
+    <!--<li>54</li>-->
+    <!--<li>34</li>-->
+    <!--<li>4</li>-->
+</ul>
+<button id="btn">点击排序</button>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn");
+    var oLis=document.getElementById("list").getElementsByTagName("li");
+    //array.from()
+    //准备一个空数组ary,将oLis中的每一项都移到数组ary中
+    var ary=[];
+    for(var i=0;i<oLis.length;i++){
+        ary.push(oLis[i]);
+    }
+    //当用户点击btn,所有的li的内容按照从小到大的顺序重新呈现在页面上
+    //给btn绑定点击事件,让ary重新排序
+    btn.onclick=function () {
+        ary.sort(function (a,b) {
+            //a,b 数组ary中每一项但是每一项都是一个元素
+            //我们根据的识别每一个元素的内容(innerHTML)
+            return a.innerHTML-b.innerHTML;
+        });
+        //以上内容只是将数组排好序了,但是我们的页面上还没动呢
+        //将拍好序的内容绑定到页面上
+        var str=``;
+        for (var item of ary){
+            //注意:item都是一个元素,我们需要的是元素的innerHTML
+            str+=`<li>${item.innerHTML}</li>`
+        }
+        list.innerHTML=str;
+    }
+</script>
+
+
+
+
+
+
+<script>
+    /*
+
+    var ary=[{age:1,score:99},{age:3,score:12},{age:12,score:100},{age:45,score:200},{age:15,score:30},{age:17,score:49},{age:6,score:50},{age:10,score:70},{age:100,score:80}];
+    ary.sort(function (a,b) {
+        //a,b分别表示每一项,这里的每一项都是对象,根据每一个对象的age属性的属性值来比较,这时候我们就不可以使用a-b而是使用a的age属性的值-b的age属性的值,a.age-b.age
+        //return a.age-b.age;
+        return a.score-b.score;
+    });
+    console.log(ary);
+    */
+
+    /*
+    var btn=document.getElementById("btn");
+    var oLis=document.getElementById("list").getElementsByTagName("li");
+    var ary=[];
+    for(var i=0;i<oLis.length;i++){
+        ary.push(oLis[i].innerHTML);
+    }
+    btn.onclick=function () {
+        ary.sort(function (a,b) {
+            return a-b;
+        });
+        var str=``;
+        for (var item of ary){
+            str+=`<li>${item}</li>`
+        }
+        list.innerHTML=str;
+    }
+    */
+</script>

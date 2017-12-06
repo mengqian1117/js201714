@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //思考题:
+    // 1.写一个函数判断传进来的值是不是一个普通对象 {}
+    function ss (ff) {
+        if(ff.toString()=="[object Object]"){
+            console.log(true);
+        }else {
+            console.log(false);
+        }
+    };
+    ss(22);
+    // 2.写一个方法,返回传进来的值的数据类型,使用typeof就可以
+    function fn(dd) {
+        return typeof dd;
+    }
+    var aa={};
+    console.log(fn(aa));
+
+
+
+
+</script>

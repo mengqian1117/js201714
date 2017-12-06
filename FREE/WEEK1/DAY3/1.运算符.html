@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    /*
+    //+ ,-,*,/,%模取余
+    //++  --
+    //|| &&
+    //=,==,===,!=,
+
+
+    //+ ,-,*,/,%模取余
+    //只有+遇到字符串的时候是字符串的拼接,其他都是转为数字进行数学运算
+    //既然是转为数字,我们转为数字学过3种(Number,parseInt,parseFloat),究竟用的哪一种
+    //我们可以找1个特殊的例子一试便知
+    console.log(true + 1);//2
+    //使用的是Number这个方法,
+    //有些人会叫Number为强制转换,parseInt,parseFloat是非强制转换
+    //记住:任何值跟NaN数学运算结果都是NaN
+
+    console.log(parseInt([1]) + isNaN(true) + !"" + {}.toString());
+    //1+false+true+"[object Object]"
+    //1+0+true+"[object Object]"
+    //1+true+"[object Object]"
+    //1+1+"[object Object]"
+    //2+"[object Object]"
+    //"2[object Object]"
+
+
+    //1+"1"+2
+    //"11"+2
+    //"112"
+
+    console.log(1 * "10");//10
+
+
+    console.log(10 % 3);
+    console.log(parseInt(10/3));
+    console.log(parseFloat(10/3));
+    */
+</script>
+<script>
+    //|| &&
+
+    //  ||  :如果前面是true就返回前面的内容,否则返回后面的内容
+    //  &&  :如果前面是false返回前面的内容,否则返回后面的内容
+    //注意:这里既然要判断是true还是false那就不要忘了只有 false,0,NaN,"",null,undefined是false其他都是true
+
+    //记住:判断的时候转布尔判断但是返回值的时候是原来的值
+    console.log(3 || "哈哈");//3
+    console.log(parseInt([])|| Number([]));
+    //先把表达式parseInt([])算出来在去判断
+    //console.log(NaN|| 0);//0
+
+
+    console.log(![] || []);//[]
+    //console.log(false || []);
+
+
+    //&&
+    console.log(0 && []);//0
+    console.log([] && ![]);//![]->false
+
+    console.log(isNaN([]) && parseInt([]));
+    //console.log(false && NaN); false
+
+
+    /*
+    console.log(![]);
+    console.log([]);
+
+    var a=1;
+    var a=![];
+    var a=[];
+
+    //=右边一定是个值,如果你写的不是值就是将这个表达式的值算出来赋给变量
+
+*/
+
+
+    var num;
+    var m="哈哈";
+    var n=num||m;
+    console.log(n);
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    //变量名和属性名一样的情况
+    //let{name,age}={age:10,name:"珠峰"};
+    //name,age 是变量
+
+    //变量名不跟属性名一样的时候
+    ///let {age:a,name:n}={age:10,name:"珠峰"};
+    //变量:a,n
+
+    //let {age:a,name}={age:10,name:"珠峰"};
+    //变量:a,name
+
+
+    //默认值
+
+//    let {a:a1=10,b="b",c}={b:"BB",c:"C"};
+//    console.log(a1);
+//    console.log(b);
+
+
+//    var obj={name:"zf",age:10,can:["js","css","html"]};
+//    let {name,age:a,can:[x1,x2,x3]}=obj;
+    var ary=["哈","嘿","嗨","呵","吱"];
+    for(var [index,item] of ary.entries()) {
+        console.log(index,item);
+    }
+    for(var item of ary){
+        console.log(item);
+    }
+</script>

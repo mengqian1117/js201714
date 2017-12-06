@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <style>
+        html, body, div, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        img {
+            border: none;
+        }
+
+        #banner {
+            position: relative;
+            width: 800px;
+            height: 300px;
+            margin: 50px auto;
+        }
+
+        .bannerInner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bannerInner img {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bannerInner img.select {
+            display: inline-block;
+        }
+
+        .bannerTip {
+            position: absolute;
+            z-index: 10;
+            bottom: 15px;
+            right: 50px;
+            overflow: hidden;
+        }
+
+        .bannerTip li {
+            float: left;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: gainsboro;
+            cursor: pointer;
+            font-size: 12px;
+            text-align: center;
+            line-height: 15px;
+            color: #999;
+        }
+
+        .bannerTip li.bg {
+            background-color: orangered;
+            color: white;
+        }
+
+        #banner a{
+            position: absolute;
+            width: 35px;
+            height: 45px;
+            z-index: 10;
+            top:50%;
+            margin-top: -20px;
+            opacity: .5;
+            background: url("img/pre.png");
+        }
+        #banner a.bannerLeft{
+            left: 20px;
+            background-position: 0 0;
+        }
+        #banner a.bannerRight{
+            right: 20px;
+            background-position:-50px 0 ;
+        }
+        #banner a:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="banner">
+    <div class="bannerInner">
+        <img class="select" src="img/0.jpg" alt="">
+        <img src="img/1.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+        <img src="img/3.jpg" alt="">
+        <img src="img/4.jpg" alt="">
+    </div>
+    <ul class="bannerTip">
+        <li class="bg">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <a href="javascript:;" class="bannerLeft"></a>
+    <a href="javascript:;" class="bannerRight"></a>
+</div>
+</body>
+</html>
+<script>
+    //循环所有的li绑定事件,让被点击的li加上类名bg,让对应的img显示加上类名select
+    var list=document.getElementsByClassName("bannerTip")[0];
+    var oLis=list.getElementsByTagName("li");
+    var oImg=document.getElementsByClassName("bannerInner")[0].getElementsByTagName("img");
+    var btnRight=document.getElementsByClassName("bannerRight")[0];
+    var btnLeft=document.getElementsByClassName("bannerLeft")[0];
+    //step:记录当前显示的图片的索引
+    var step=0;
+    //循环oLis给每一个li绑定点击事件
+    for(var i=0;i<oLis.length;i++){
+        //将li的索引存起来,存到自定义属性上
+        oLis[i].wangLi=i;
+        oLis[i].onclick=function () {
+            //this是当前你点击的li
+            step=this.wangLi;
+            change();
+        };
+    }
+
+    function change() {
+        //将其他的li的类名变成"",让其他的img消失
+        //循环所有的li让其类名变成"",让所有的img的类名变成""
+        for(var j=0;j<oLis.length;j++){
+            oLis[j].className="";
+            oImg[j].className="";
+        }
+        //让点击的li(this)加上类名"bg",让对应的(跟this的索引是对应的)img加上类名"select"
+        oImg[step].className="select";
+        oLis[step].className="bg";
+    }
+
+    btnRight.onclick=function () {
+        //this:btnRight
+        if(step==4){
+            step=0;
+        }else {
+            step++;
+        }
+        change();
+    };
+
+    btnLeft.onclick=function () {
+        if(step==0){
+            step=5;
+        }
+        step--;
+        change();
+    }
+</script>

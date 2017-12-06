@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //this:执行主体, this是一个对象
+    //this不是变量.所以说this是不可以赋值的
+    //全局下,this:window
+    console.log(this);
+    console.log(self);
+
+    //在私有作用域下this问题
+    //1.看函数执行的时候前面有没有点,有点,那么点前面是谁,this就是谁
+    function fn() {
+        console.log(this);
+    }
+    fn();
+    var obj={fn:fn};
+    obj.fn();
+
+    //2.给元素绑定事件时候给谁绑的this就是谁
+    //3.自行函数中的this是window
+    (function () {
+        console.log(this);
+    })();
+    //4.当一个函数当做回调函数(当做参数)的时候里面的this是window,但是有些可以修改
+    setTimeout(function () {
+        console.log(this);
+    },2000);
+
+    [1,2].forEach(function () {
+        console.log(this);
+    },obj);
+
+    /*
+    function fn() {
+        this.style.backgroundColor="red";
+    }
+
+    box.onclick=function () {
+        console.log(this);
+        fn()
+    };
+    box.onclick=fn;
+    */
+
+    var a="window";
+    obj={
+        a:"obj",
+        fn:(function () {
+            console.log(this.a);//"window"
+            return function () {
+                console.log(this.a);//"obj"  "window"
+            }
+        })()
+    };
+    obj.fn();
+    var f=obj.fn;
+    f();
+
+
+
+
+</script>

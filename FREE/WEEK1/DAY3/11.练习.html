@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<button id="btn1">1</button>
+<button id="btn2">2</button>
+<button id="btn3">3</button>
+
+<ul id="list">
+    <!--<li><img src="bd.png" alt=""></li>-->
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    //当点击btn1的时候list显示1张图
+    //当点击btn2的时候list显示2张图
+    //当点击btn3的时候list显示3张图
+
+    var btn1=document.getElementById("btn1");
+    var btn2=document.getElementById("btn2");
+    var btn3=document.getElementById("btn3");
+    var list=document.getElementById("list");
+
+
+    btn1.onclick=function () {
+        list.innerHTML='<li><img src="bd.png" alt=""></li>';
+    };
+
+
+    btn2.onclick=function () {
+        list.innerHTML='<li><img src="bd.png" alt=""></li><li><img src="bd.png" alt=""></li>'
+    };
+
+    btn3.onclick=function () {
+        list.innerHTML='<li><img src="bd.png" alt=""></li><li><img src="bd.png" alt=""></li><li><img src="bd.png" alt=""></li>'
+    };
+</script>

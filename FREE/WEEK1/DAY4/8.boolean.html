@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<!--
+1.true/false
+2.转布尔只有5个值是false:0,NaN,null,undefined,""
+3.Boolean()
+-->
+
+</body>
+</html>
+<script type="text/javascript">
+    console.log(Boolean("        "));
+    console.log(Boolean([]));//true
+
+    //! !!
+    //!  先转布尔再取反
+    //!! 转布尔
+    console.log(!![]);
+
+    //  || &&
+    //  ||  :前面是true返回前面的内容,否则返回后面的值
+    //  &&  :前面是false返回前面的内容,否则返回后面的值
+
+
+    console.log(!NaN || []);//true
+    console.log(![] && []);//false
+    console.log([] && parseInt(""));//NaN
+
+
+</script>

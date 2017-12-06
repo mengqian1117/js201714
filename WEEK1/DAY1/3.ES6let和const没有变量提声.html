@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //let :
+    // 1)没有变量提升
+    // 2)不可以重复声明
+    // 3)定义的变量不会给window增加属性
+    //console.log(a);//a is not defined
+    var a=1;
+    console.log("a" in window);
+    //let a;//'a' has already been declared
+    console.log(a);//undefined
+
+    let b=1;
+    console.log("b" in window);
+    //const:
+    // 1)没有变量提升
+    // 2)不可以重复声明
+    // 3)定义的变量不会给window增加属性
+    // 4)定义的是个常量,定义之后不可以修改
+    // 5)一旦声明必须赋值
+    //console.log(b);// b is not defined
+    //const b=2;
+
+
+    const c=2;
+    //c=1;
+</script>

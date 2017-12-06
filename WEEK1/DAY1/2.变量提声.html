@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //变量提声:在作用域形成之后代码执行之前,将所有的带var和function关键字的变量提前的声明或定义
+
+    //作用域: 代码执行的空间/环境  ===栈内存
+    // 全局作用域 :一打开浏览器就会形成全局作用域,window
+    // 私有作用域 :一个函数执行就会形成一个私有作用域
+    // 块作用域:ES6新增加,{}  eval("{a:1,b:2}")
+    console.log(eval("({a:1,b:2})"));
+    console.log(a);//undefined
+    var a;
+    console.log(fn);
+    function fn() {}
+    //var:只是提前声明
+    //function:既声明又定义
+    console.log(b);//undefined
+    var b=1;
+    ff();
+    function ff() {
+        console.log(1);
+    }
+    console.log(b);
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    typeof isNaN("1px");
+
+    typeof parseInt(null);
+
+    parseInt([]);
+
+    Number([]);
+
+    isNaN(parseInt(typeof NaN));
+    //isNaN(parseInt("number"));
+    //isNaN(NaN);
+    //true;
+
+
+    "1px"+isNaN("1px")+parseInt(NaN);
+
+    typeof (!parseInt(null) + !!isNaN(0) + Number([]));
+
+    typeof !parseInt(null) + !!isNaN(0) + Number([]);
+    //typeof !NaN + !!false + Number("");
+    //typeof true + false + 0;
+    //"boolean"+false+0
+    //"booleanfalse"+0
+    //"booleanfalse0"
+
+
+    !parseFloat("1.5p" + 2);
+
+    !!parseFloat(Number(isNaN("1" + "px")));
+    //!!parseFloat(Number(isNaN("1px")));
+    //!!parseFloat(Number(true));
+    //!!parseFloat(1);
+    //!!1;
+    //true
+
+
+    Boolean(!"parseInt(null)");
+
+    !!typeof Number(undefined);
+
+    console.log(isNaN(null) + typeof typeof Number([]));;
+    //false + "string";
+    // "falsestring";
+
+
+    !typeof parseFloat("0");
+
+    !!Number(NaN);
+
+    !Number("1px") + parseInt("px");
+
+    !(undefined) + "1px" + !parseInt("0.5");
+    //true + "1px" + !0;
+    //true + "1px" + true;
+    // "true1px" + true;
+    // "true1pxtrue"  ;
+
+    !!typeof parseInt(null);
+
+    typeof isNaN(!(Number(parseInt(undefined))));
+
+    typeof typeof (!!console.log(parseFloat(1 + "0.5px")));
+
+
+    isNaN(Number(!Number(toString(null))));
+
+    Number([5]) + parseInt(1 + '5px') + !parseFloat("1.5px" + 1) + (typeof typeof(null));
+
+    Boolean(Number("1px")) + "parseInt('1.2px')";
+
+    var demo = 10;
+    var demo1 = "10";
+    const newdemo = typeof demo + Number(demo1);
+    console.log(!parseInt(newdemo));
+</script>

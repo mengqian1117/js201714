@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+</head>
+<body>
+<p id="pp">大家好我是pp <i>嘿嘿</i></p>
+<div id="box">
+    <span id="s1">我是span1</span>
+    <span id="s2">我是span2</span>
+</div>
+</body>
+</html>
+<script>
+//关于元素的增加,删除,移动
+var box=document.getElementById("box");
+//1.创建一个元素
+//document.createElement("标签名")
+
+    var p=document.createElement("p");
+    p.className="p0";
+    p.id="pp0";
+    p.innerHTML="大家好我是p0";
+    console.log(p);
+
+    //创建一个img标签
+    var img=new Image;
+    img.src="1.jpg";
+
+//2.给父级元素增加一个元素,放到最后一个
+   //父级元素.appendChild(元素)
+
+    box.appendChild(p) ;
+    box.appendChild(img);
+
+//3.删除 移除父级元素中的一个孩子元素
+//父级元素.removeChild(元素)
+    box.removeChild(p);
+
+    //pp原来就在页面上,这时候只是将它的位置移动了
+    var pp=document.getElementById("pp");
+    box.appendChild(pp);
+
+//4.克隆一个元素
+   //元素.cloneNode():只是将标签克隆一份,内容克隆不到
+   //元素.cloneNode(true):将标签以及标签内容全部克隆
+
+console.log(pp.cloneNode(true));
+
+//5.父级元素.insertBefore(元素1,元素2)
+    //将元素1放到元素2前面
+
+    var s1=document.getElementById("s1");
+    var s2=document.getElementById("s2");
+    box.insertBefore(s2,s1);
+
+
+</script>

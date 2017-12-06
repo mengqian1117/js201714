@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //toString();必须加上括号
+    //基本数据类型
+    //number->string
+    var a=1;
+    console.log(a.toString());//"1"
+    console.log(a);//1
+
+    //boolean-->string
+    console.log(true.toString());//"true"
+    console.log(false.toString());//"false"
+
+    //注意null和undefined没有这个方法
+    //console.log(null.toString());
+    //Cannot read property 'toString' of null
+    //console.log(undefined.toString());
+    //Cannot read property 'toString' of undefined
+
+    //这样的错误就是在  YY of XX ;XX没有这个YY属性
+
+    //引用数据类型
+    //object
+    //数组->string 就相当于直接将[]变成""
+    console.log([1, 2, 3].toString());//"1,2,3"
+
+    //对象->string   "[object Object]"
+    var obj={name:"姜兴龙",age:30};
+    console.log(obj.toString());//"[object Object]"
+
+
+    //正则 ->string
+    var reg=/\d+/;
+    console.log(reg.toString());//"/\d+/"
+
+
+    //时间-->string
+    var date=new Date();
+    console.log(date.toString());
+    //'Wed Nov 22 2017 10:17:07 GMT+0800 (中国标准时间)'
+    console.log(date);
+
+
+    //function
+
+    function fn() {}
+
+    console.log(fn.toString());//'function fn() {}'
+
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body></body>
+</html>
+<script type="text/javascript">
+//    var name="张玉柱";
+//    var age=18;
+//    var sex="男";
+//    var can="js";
+
+    var person1={name:"张玉柱",age:18,sex:"男",can:"js"};
+    var person2={name:"张柱",age:24,sex:"男",can:"js+CSS"};
+
+    //对象是由键值对(属性名/键:属性值/值)组成的无序的集合,每个键值对中间使用逗号隔开
+    //1.对象的属性名不可以重复,如果重复了后面的会将前面的覆盖掉
+    var obj={a:"a",a:"A"};
+
+    //2.属性名都是字符串,虽然你在书写的时候没有加上引号,是因为可以省略引号.但是他就是一个字符串,属性值可以是任意数据类型
+
+    //3.获取对应属性名的属性值
+    //1)对象.属性名   .->的
+    console.log(obj.a);//"A"
+    console.log(person1.name);
+    console.log(person1.age);
+
+    //2)对象["属性名"]
+    console.log(obj["a"]);
+    console.log(person1["name"]);
+
+    //假如不加字符串,这时候就表示一个变量
+
+    //这个时候age就是一个变量,既然是个变量我们就看这个变量所存储和代表的值是什么
+
+
+   //console.log(person1[age]);//age is not defined
+
+   var age="珠峰";
+   console.log(person1[age]);//person1["珠峰"] undefined
+
+    //4.一个对象没有某个属性结果为undefined
+
+
+    //增加/修改属性名属性值
+    //这个对象之前有这个属性就是修改,没有就是增加
+    var obj1={};
+    //1)
+    obj1.name="刘文文";
+    console.log(obj1);
+    obj1.name="刘文";
+    console.log(obj1);
+
+    //2)
+    obj1["age"]=20;
+    console.log(obj1);
+    obj1["age"]=21;
+    console.log(obj1);
+
+    //特殊情况:属性名可以直接写一个数字,但是他也是字符串
+   //获取属性名是数字的属性值的时候不可以使用点的形式,这时候只能用中括号的形式
+    //obj.1 //这样是错误的,可以省略引号  obj[1]
+    var o={1:"哈哈",2:"嘿嘿"};
+
+
+
+    //关于点的问题,数字前后出现的.表示有效数字小数点
+    var num=1;
+console.log(num.toString());//"1"
+console.log(1..toString());
+</script>

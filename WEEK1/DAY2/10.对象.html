@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var obj={a:"AA"};
+    obj["a"];
+    "a" in obj;
+    var a="A";
+    console.log(obj[a]);//obj["A"]
+
+    var ary=[1,2];
+    var obj1={
+        [a+"name"]:"珠峰",//"Aname"
+        [ary]:"哈哈",
+        [obj]:"嘿嘿"
+    };
+
+    //对象的属性名位置可以写变量使用[]包起来,但是必须是字符串,如果不是字符串会默认调用toString方法将其转为字符串
+    console.log(obj1);
+
+    //属性值是函数的时候可以简写成这样的形式
+    var obj2={
+        fn(){},
+        get(){},
+    };
+
+
+    console.log({...obj1,...obj2})
+</script>

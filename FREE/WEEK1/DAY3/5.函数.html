@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //    function 函数名() {
+    //        //函数体
+    //    }
+
+    //函数分为两部分:函数定义,函数执行
+    //函数定义
+    function fn() {
+        console.log("我是个函数");
+    }
+
+    console.log(fn);
+    //函数执行 :函数名()  让大括号{}中的代码去执行
+    fn();
+    fn();
+    fn();
+
+    var f = fn;//将fn的地址赋值给f,也就是说f也是这个函数
+    f();
+
+    /*
+    function f1(形参) {
+        形参是一个变量,这个变量的值就是实参的值
+    }
+    f1(实参)
+    */
+
+
+    function f1(n) {
+        console.log(n);
+    }
+
+    f1(1);
+    f1(2);
+    f1(3);
+
+
+    var a = 1;
+
+    function getA(num) {
+        //num=2
+        console.log(num);
+    }
+
+    getA(++a);//getA(2)
+
+
+    function sum(x1, x2, x3, x4, x5) {
+        //x1=1,x2=2,x3=3,x4=4,x5=undefined
+        console.log(x1 + x2 + x3 + x4 + x5);
+        //10+undefined
+        //10+Number(undefined)
+        //10+NaN
+        //NaN
+    }
+
+    sum(1);
+    sum(1, 2);
+    sum(1, 2, 3);
+    sum(1, 2, 3, 4);
+    sum(1, 2, 3, 4, 5);
+
+
+    //当函数执行的时候我们不确定传了几个参数,这个时候我们想将其全部获取出来,可以使用参数集合arguments
+</script>

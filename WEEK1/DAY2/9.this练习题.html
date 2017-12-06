@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+
+</head>
+<body>
+<h1 id="h1">1</h1>
+</body>
+</html>
+<script>
+    function add() {
+        //console.log(this);
+        this.innerHTML++;
+    }
+    //h1.onclick=add;
+    //给h1加一个自定义属性叫add 值是函数add
+    h1.add=add;
+    h1.add();
+    window.setInterval(function () {
+        h1.add();
+    },1000);
+
+    var  ary=[1,2,3];
+    ary.sort(function () {console.log(this);})
+</script>
+<script>
+    /*
+    //1.
+    var a=0;
+    function fn1() {
+        var a=10;
+        this.a++;//window.a=1
+        console.log(a);//10
+        console.log(this.a);//1
+        console.log(typeof this);//"object"
+    }
+    fn1();
+    console.log(a);//1
+
+
+    //2.
+    function fn2() {
+        console.log(this.n);
+        var n="n";
+        this.n=10;
+        console.log(n);
+    }
+    var obj={
+        fn2:fn2,
+        n:1
+    };
+    fn2();
+    obj.fn2();
+    console.log(obj.n,window.n);
+   */
+</script>
+<script>
+    /*
+    console.log("我是%s,我是%s");
+
+    //1.
+    function f () {
+        console.log(this);
+    }
+    var obj={
+        fn:(function () {
+            return this.f
+        })(),
+        f:function () {
+            console.log(this);
+        }
+    };
+    f();
+    obj.f();
+    obj.fn();
+    //2.
+    var n=10;
+    var obj1={
+        n:1,
+        f:function () {
+            this.n++;
+            n=this.n++;
+        }
+    };
+    obj1.f();
+    console.log(n);
+    console.log(obj1.n);
+    window.setTimeout(obj1.f,1000);
+    //    window.setTimeout(function () {
+    //        console.log(window.n);
+    //    },2000);
+
+    //3.
+    var box=document.getElementById("box");
+    var o={
+        fn:function () {
+            console.log(this);
+        }
+    };
+    box.onclick=(function () {
+        console.log(this);
+        return o.fn
+    })();
+    box.onclick=function () {
+        console.log(this);
+        o.fn();
+    };
+
+    window.setTimeout(o.fn,2000);
+    */
+</script>

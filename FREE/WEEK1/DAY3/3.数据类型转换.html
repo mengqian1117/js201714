@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //=,==,===
+    //变量=值:  赋值
+    var a=1+2;
+    //==,比较   返回值是true/false
+    //==两边数据类型不一样的时候,需要转换数据类型
+
+    //数字 任何东西跟NaN都不相等
+    console.log(NaN == NaN);//false
+
+    //数字==布尔   使用Number方法将布尔  -转为->  数字
+    console.log(1 == true);
+
+    //数字==字符串  使用Number方法将字符串转为数字
+    console.log(0 == "");
+
+    //null和undefined跟其他的数据类型比较的时候是false,他俩是true
+    console.log(null == 0);
+    console.log(null == undefined);
+
+    //布尔==字符串
+    //布尔和字符串都是使用Number方法转为数字在进行比较
+    console.log(false == "0");
+
+    console.log(parseInt([]) == 0);//false   NaN比较问题
+    console.log("  " == true);//0==1  false
+    console.log("1" == true);//1==1  true
+    console.log("  " == false);//0==0  true
+
+
+    //引用数据类型==数字
+    //先将引用数据类型使用toString方法转为字符串,在使用Number方法转为数字,最后跟数字比较
+
+    console.log([] == 0);//[]-->""-->0==0
+    console.log( {}==0);
+    console.log([10] == 10);
+
+
+
+    //引用数据类型==字符串比较
+    //先将引用数据类型使用toString方法转为字符串,再跟字符串比较
+    console.log([] == "");
+
+
+    //引用数据类型==布尔值
+    //两边都转为数字比较
+    //先将引用数据类型使用toString方法转为字符串,在使用Number方法转为数字,布尔也是转为数字
+
+
+    console.log([1] == true);//1==1
+    console.log([] == true);//0==1
+    console.log([0] == true);//0==1
+    console.log([0] == false);//0==0
+    console.log([] == false);//0==0
+
+
+    //console.log(![] == false);
+    //console.log([] == false);
+
+    //引用数据类型比较,比较的是地址值
+    var obj1={};
+    var obj2={};
+    //obj2=obj1;
+    console.log(obj1 == obj2);
+
+
+
+    //===:绝对相等   首先数据类型必须相等,然后再看值/地址值
+
+    console.log(0 === false);
+
+    //不等于  !=
+    //不绝对相等 !==
+    //大于等于>=,小于等于<=
+
+</script>
+
+<script>
+    [0]||"0";//[0]
+    ![]||[];//[]
+    ![]&&[];//false
+</script>

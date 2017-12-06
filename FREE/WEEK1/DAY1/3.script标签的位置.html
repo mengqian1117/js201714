@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <!--<script src="js/2.js" async></script>-->
+    <!--<script src="js/1.js" ></script>-->
+    <!--<script src="js/2.js" defer></script>-->
+</head>
+<body>
+<script type="text/javascript">
+    //可以使用id名代表元素div,有兼容性,在标准浏览器中可以
+    //报错box is not defined
+    //console.log(box);
+    //通过ID名获取一个元素,将它赋值给一个变量box(自己起的名字,叫啥都可以)
+    var box=document.getElementById("box");
+    console.log(box);//null空,说明没有获取到
+    window.onload=function () {
+        //让页面上所有的静态资源(所有的HTML和css)加载完成之后再去执行这里面的代码
+       var box=document.getElementById("box");
+       console.log(box);
+    }
+</script>
+
+<div id="box">div</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    //我是孟倩
+    //可以使用id名代表元素div,有兼容性,在标准浏览器中可以
+    //console.log(box);
+//    var box=document.getElementById("box");
+    //    console.log(box);
+</script>
+<!--<script src="js/2.js"></script>-->

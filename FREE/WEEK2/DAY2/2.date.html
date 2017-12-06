@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <style>
+        #box {
+            width: 800px;
+            height: 60px;
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 60px;
+            margin: 50px auto 10px;
+            border: 1px solid salmon;
+            background: linear-gradient(to left top, red, orange, gold, green, peachpuff, darkgreen, purple,yellowgreen,teal,skyblue,darkblue,fuchsia,orangered,purple,paleturquoise);
+            /*background: linear-gradient(to left top, red 0%, red 25%,orange 25%,orange 50%, red 50%,red 75%,orange 75%, orange 100%) repeat;*/
+            /*background-size: 100px 100%;*/
+            /*background-position: 0 0;*/
+            padding: 7px 10px;
+            color: #fff9f9;
+            text-shadow: 1px 2px 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+
+    //new 构造函数方式创建一个Date的实例
+    //var time=new Date();//获取电脑的本机时间
+    //console.log(time);
+    //Wed Nov 29 2017 10:39:39 GMT+0800 (中国标准时间)
+    var ary=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+    function getTime() {
+        var time=new Date;//Date()和Date一样的
+        //获取四位的年
+        var years=time.getFullYear();
+        //获取月份 0-11 的一个数
+        var month=time.getMonth();
+        //获取星期几 0-6 星期天-星期六
+        var week=time.getDay();
+        //获取日
+        var date=time.getDate();
+        //获取小时
+        var hours=time.getHours();
+        //获取分钟
+        var minutes=time.getMinutes();
+        //获取秒
+        var seconds=time.getSeconds();
+        box.innerHTML=`${years}年${month+1}月${date}日 ${ary[week]} ${hours}:${minutes}:${seconds}`;
+    }
+    getTime();
+    window.setInterval(getTime,1000);
+</script>

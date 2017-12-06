@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<ul id="list">
+    <li class="lis"></li>
+    <li class="lis"></li>
+    <li class="lis"></li>
+    <li class="lis"></li>
+    <li class="lis"></li>
+    <li class="lis"></li>
+    <li class="lis"></li>
+    <li class="lis"></li>
+    <li class="lis"></li>
+    <li class="lis"></li>
+</ul>
+<!--ul#list>li.lis*10 +Tab键-->
+</body>
+</html>
+<script type="text/javascript">
+    var list=document.getElementById("list");
+    var oLis=list.getElementsByClassName("lis");
+    //oLis是一个类数,一个元素集合
+    for(var i=0;i<oLis.length;i++){
+        //oLis[i] 每一个元素
+        oLis[i].innerHTML="小苹果";
+        oLis[i].style.color=i%2?"green":"red";
+        oLis[i].style.fontSize="50px";
+    }
+    //i是偶数是红色,i是奇数是绿色
+
+</script>

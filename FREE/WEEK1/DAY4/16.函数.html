@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<h1 id="title">珠峰培训</h1>
+</body>
+</html>
+<script type="text/javascript">
+    //函数定义,函数执行
+    function fn() {
+        console.log(1);
+    }
+
+    //函数执行
+    //1.函数名()
+    fn();
+    //2.绑定事件,当用户触发事件的时候主动执行函数fn
+    title.onclick = fn;
+
+
+    title.onclick = function () {
+        //当用户触发事件的时候主动执行函数
+    };
+
+    //一个函数没有名,匿名函数
+    //自执行函数:定义执行一起了
+    //为了防止有些人写代码不规范,一般我们会在前面加一个;
+    ;(function (n) {
+        console.log("我是自执行函数" + n);
+    })(1);
+    //;(function(形参){})(实参);
+
+    //其他的书写方式
+    //为了防止有些人写代码不规范,一般我们会在前面加一个;
+    ;+function (n) {
+        console.log("我是自执行函数" + n);
+    }(2);
+    ;~function () {
+        console.log("我是自执行函数");
+    }();
+    ;-function () {
+        console.log("我是自执行函数");
+    }();
+    ;!function () {
+        console.log("我是自执行函数");
+    }();
+
+
+    var ff = (function (n) {
+        n++;
+        return n;
+    })(1);
+    console.log(ff);//2
+</script>

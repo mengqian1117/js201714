@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+</head>
+<body>
+<!--注释-->
+<div class="box">
+    <!--注释-->
+    div的内容
+    <p class="p1">我是孩子p1</p>
+    <p class="p1">我是孩子p1</p>
+    <p class="p1">我是孩子p1</p>
+    <p class="p1">我是孩子p1</p>
+    <span id="span1"></span>
+    <span></span>
+    <span></span>
+    <p class="p2">我是孩子p2</p>
+
+    <p class="p3">我是孩子p3</p>
+</div>
+</body>
+</html>
+<script>
+  //获取元素
+    //document.getElementById();
+    //document.getElementsByClassName();
+    //document.getElementsByTagName();
+    //document.getElementsByName();
+
+    //节点:只要是在HTML解构中出现的内容都叫做节点,元素,注释,文本,换行,属性.....
+   //一般我们最常用的是元素节点(一个标签)
+
+   var box=document.getElementsByClassName("box")[0];
+  //获取元素子节点
+  console.log(box.children);
+
+  //childNodes:获取一个元素下面的所有子节点
+  console.log(box.childNodes);
+
+  //获取一个哥哥节点
+  var span1=document.getElementById("span1");
+  console.log(span1.previousSibling);
+  //获取一个哥哥元素节点
+  console.log(span1.previousElementSibling);
+
+  //获取一个弟弟节点
+  console.log(span1.nextSibling);
+  //获取一个弟弟元素节点
+  console.log(span1.nextElementSibling);
+
+  //获取父亲元素节点
+  console.log(span1.parentNode);
+
+  //获取第一个孩子节点
+  console.log(box.firstChild);
+  //获取第一个元素孩子节点
+  console.log(box.firstElementChild);
+
+  //获取最后一个孩子节点
+  console.log(box.lastChild);
+  //获取最后一个元素孩子节点
+  console.log(box.lastElementChild);
+
+  //获取第5个孩子
+  console.log(box.children[4]);
+
+
+  //获取一个元素的所有哥哥元素,得到一个数组
+//    var ary=[];
+//    var prev=span1.previousElementSibling;
+//    ary.push(prev);
+//    prev=prev.previousElementSibling;
+//    ary.push(prev);
+//    prev=prev.previousElementSibling;
+//    ary.push(prev);
+    //...
+
+
+    var ary=[];
+    var prev=span1.previousElementSibling;
+    while (prev){
+        ary.unshift(prev);
+        prev=prev.previousElementSibling;
+    }
+    console.log(ary);
+
+
+
+</script>

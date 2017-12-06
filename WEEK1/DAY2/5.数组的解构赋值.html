@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //数组解构赋值的形式
+    //[变量,变量]=数组
+    let [x,y]=[1,2,3];
+    console.log(x, y);
+
+    //省略赋值
+    let [x1,x2,x3]=[,"嘿嘿","哈哈"];
+
+    let [,,...ary]=[1,2,3,4,5];
+    console.log(ary);
+    //默认值
+    //只有付的值是undefined的时候才会走默认值
+    var  a=[null];
+    let [n=(function () {
+        console.log("哈哈");
+        return 1;
+    })(),m]=a;
+    console.log(n);
+
+    let [[[[m1]]]]=[[[[1]]]];
+
+    var arr=[[[[[[1,2,3],[4,5,6]]]]]];
+    //"1,2,3,4,5,6"
+    console.log(arr.toString());
+    console.log(arr.join());
+    console.log("" + arr);
+
+
+    var s1=12;
+    var s2=13;
+    //交换位置
+    [s1,s2]=[s2,s1];
+    console.log(s1);
+    console.log(s2);
+</script>
