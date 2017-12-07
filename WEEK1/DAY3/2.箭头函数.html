@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<h1 id="h1">点我</h1>
+</body>
+</html>
+<script type="text/javascript">
+//    function fn(a) {
+//        var a=1;
+//        return a;
+//    }
+
+//var fn=function (a) {};
+
+    //箭头函数是匿名函数
+    //let fn=(形参)=>{函数体};
+    let fn=(a)=>{
+        a++;
+        return a;
+    };
+    console.log(fn(2));
+
+    //a=>++a;
+    //(a)=>{return ++a}
+
+    //箭头函数是没有this指向的,它里面的this是谁就看这个箭头函数所属的作用域中的this是谁就是谁
+
+    var obj={
+        fn(){
+            let a=()=>{
+                console.log(this);
+            };
+            a();
+        }
+    };
+    obj.fn();
+
+(()=>{
+    console.log(this);
+})();
+
+    var ary=[1,2,3];
+    ary.forEach((item,index,arr)=>{
+        console.log(item);
+    });
+
+    //一般给元素绑定事件的时候不会使用箭头函数,因为我们开发写业务逻辑的时候一般都是想给谁绑定的事件this就是谁
+    h1.onclick=() =>{
+        console.log(this);
+    }
+</script>
+
+<script>
+    function fn() {this.a=10;}//window.a=10
+    var obj={
+        a:1,
+        fn(){
+            //this->obj
+            var f=()=>{console.log(this.a);};//obj.a=1
+            f();
+        },
+        f:()=>{console.log(this.a);}//window.a=10
+    };
+    fn();
+    obj.fn();
+    obj.f();
+</script>

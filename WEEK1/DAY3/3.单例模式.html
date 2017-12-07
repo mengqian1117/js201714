@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        h2{
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            height: 200px;
+            line-height: 200px;
+        }
+        #page1{
+            background-color: yellowgreen;
+        }
+        #page2{
+            background-color: red;
+        }
+        #page3{
+             background-color: yellow;
+         }
+        #page4{
+              background-color: green;
+          }
+        #page5{
+               background-color:orange;
+           }
+    </style>
+</head>
+<body>
+<div id="page1">
+    <h2>0</h2>
+</div>
+<div id="page2">
+    <h2></h2>
+</div>
+<div id="page3">
+    <h2>0</h2>
+</div>
+<div id="page4">
+    <h2>0</h2>
+</div>
+<div id="page5">
+    <h2>0</h2>
+</div>
+</body>
+</html>
+<script src="js/Page1Render.js"></script>
+<script src="js/Page2Render.js"></script>
+<script src="js/Page3Render.js"></script>
+<script src="js/Page4Render.js"></script>
+<script src="js/Page5Render.js"></script>
+<script>
+    //默认显示第一个模块
+    Page1Render.init();
+    Page1Render.change();
+</script>
+<script type="text/javascript">
+//页面分为5模块,每一个人做一模块
+// 默认显示页面:第一个模块
+// 老大分配模块分别是
+// Page1Render.js,Page2Render.js,Page3Render.js,Page4Render.js,Page5Render.js
+//Page1Render.js:  显示,h1的内容从0变到10,一秒变一次,完成之后显示第二个模块,自己消失
+//Page2Render.js: 显示,h1的内容变成"大家好我是新来的同事",.5秒显示一个字,完成之后,自己消失,显示第三个模块
+//Page3Render.js: 显示,h1的背景颜色 变成红色是渐变,时长5秒钟,完成后消失,显示第四个模块
+//Page4Render.js:显示,h1的字体变成100px,时长是5秒钟,完成后消失,显示第五个模块
+//Page5Render.js:显示,h1的文字变成"谢谢观看" 停在当前模块
+
+
+</script>
