@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <!--<script src="js/1.js" async></script>-->
+    <script src="js/1.js" defer></script>
+</head>
+<body>
+<div id="box">我是好人</div>
+<a href="bom.html">跳转页面</a>
+<button id="btn">返回</button>
+</body>
+</html>
+<script type="text/javascript">
+    //history.back();回退,返回到上一页
+    //history.forward();前进一页
+    //history.go(正数n);前进n页
+    //history.go(负数m);后退m页
+    console.dir(history);
+    btn.onclick=function () {
+        history.back();
+    };
+
+    console.log(decodeURIComponent(location.href));
+</script>

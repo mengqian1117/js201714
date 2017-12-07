@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    //includes, repeat, startsWith,
+    //endsWith,  localeCompare, padStart, padEnd
+
+    //A localeCompare  B,比较字符顺序
+    //A在B的前面:-1
+    console.log("a".localeCompare("b"));//-1
+    console.log("b".localeCompare("a"));//1
+    console.log("z".localeCompare("f"));//1
+    console.log("我".localeCompare("他"));
+
+    //includes:判断字符串中有没有指定字符,true/false
+    //第二个参数(可选的,默认值是0):开始查找的索引
+    var str="zhuf";
+    console.log(str.includes("u"));//true
+    console.log(str.includes("d"));//false
+    console.log(str.includes("uf"));//true
+    console.log(str.includes("z",2));//true
+
+    //repeat()
+    //参数小数:取整
+    //参数负数:报错
+    //-0.3: 0
+    var str="abc";
+    console.log(str.repeat(2));//"abcabc"
+    console.log(str.repeat(2.9));//"abcabc"
+    console.log(str.repeat(-0.4));//""
+    //console.log(str.repeat(-2));//报错
+
+    // startsWith 字符串是不是以指定字符作为开始
+    // endsWith  字符串是不是以指定字符作为结尾
+    //第二个参数:开始查找的索引
+    var str="abc";
+    console.log(str.startsWith("a"));
+    console.log(str.startsWith("b",1));
+    console.log(str.endsWith("c"));
+
+    //padStart(length,"字符串"):得到的新字符串的length,
+    // padEnd ES7中的方法
+    var str="asd";
+    console.log(str.padStart(5, "12345"));
+    //从字符串"12345"中选出"12"放到str的前面
+    console.log(str.padStart(5, "1"));
+    //此时"1"放到str的前面还不够5个,就再放即可
+    console.log(str.padEnd(10, "bcdgh"));//"asdbcdghbc"
+
+    str.length--;
+    console.log(str);
+
+    console.log(Object.getOwnPropertyDescriptor(str, "length"));
+    console.log(Object.getOwnPropertyDescriptor([1,2], "length"));
+</script>

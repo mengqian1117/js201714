@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box" class="box1 box2 box3"> </div>
+</body>
+</html>
+<script type="text/javascript">
+    console.log(box.className);//'box1 box2 box3'
+    box.className+=" box4 box5";
+    console.log(box.classList);
+    //add(一个或者多个类名)
+    box.classList.add("box6","box7");
+    //remove(一个或者多个类名)
+    box.classList.remove("box3","box4");
+    box.classList.replace("box1","div1");
+</script>

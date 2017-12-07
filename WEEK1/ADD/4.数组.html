@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    /*
+    //  Array.from(ary)
+    // copyWithin()	every()	fill()	filter()	 find()	 findIndex()  reduce()	reduceRight()	some()  valueOf()
+    console.dir(Array);
+    //from(),of(),isArray()
+    //isArray()判断是不是一个数组 true/false
+    console.log(Array.isArray([1, 2, 3]));
+    console.log(Array.isArray("123"));
+    //Array.of() 跟Array方法一样,只是解决了一个问题,传一个数字的时候是得到一个只有这个数字这一项的数组
+    //Array(9);
+    console.log(Array.of(9));//[9]
+    console.log(Array.of(9,2,3,31));//[9, 2, 3, 31]
+
+    //Array.from(数组/类数组)返回值是个数组
+    function sum() {
+        console.log(Array.from(arguments));
+    }
+    sum(1,2,3,4,5);
+
+    var set1=new Set([1,2,3,1,2,31,21,21,21,2]);
+    console.log(Array.from(set1));
+
+    //fill("字符串",n,m);将数组从索引n到索引m(不包括m)替换成"字符串"
+    //初始化一个数组或者清空一个数组
+    var ary=[1,2,3,4,5];
+    console.log(ary.fill("嘿嘿",2,4));
+
+    //得到有7个1的数组
+    console.log(Array(7).fill(1));
+
+    //数组的空位
+    var arr=Array(7);
+    arr=[,undefined,,,,,,];
+    //索引 in 数组:判断数组的这个位置是不是空位,空位:false,不是空位:true
+    console.log(1 in arr);
+
+
+    //Es5对空位的处理不太相同,一般都是直接跳过,但是ES6中的方法都是将空位处理为undefined
+    var arr1=[1,,,2,3];
+    arr1.forEach(function (item) {
+        console.log(item);
+    });
+
+    arr1.find(function (item) {
+        console.log(item);
+    })
+    */
+</script>
+<script>
+    /*
+    // copyWithin(a,n,m) 从索引n找到索引m(不包括m),拿着这些内容从索引a的位置去覆盖,数组长度是不变,超出的内容不要
+    var ary=[1,2,3,4,5,6,7];
+    //console.log(ary.copyWithin(2, 3, 5));
+    console.log(ary.copyWithin(4, 3, 6));
+    //[1, 2, 4, 5, 5, 6, 7]
+
+
+    // filter()
+    // find()  从数组的第一项开始查找,只要函数的返回值是false就继续找,一旦函数的返回值是true就停止查找,返回数组的当前项
+    var ary=["哈哈",true,1,2,3];
+    console.log(ary.find((item, index, arr) => {
+        return typeof item=="number";
+    }));
+    // findIndex() 跟find方法一样只不过返回值是当前项的索引
+    var ary=["哈哈",true,1,2,3];
+    console.log(ary.findIndex((item, index, arr) => {
+        return typeof item=="boolean";
+    }));
+
+    // some()  只要是有一个函数的返回值为true最终结果就是true
+    var ary=[1,2,3,"哈哈"];
+    console.log(ary.some((item, index, arr) => {
+        return typeof item == "object"
+    }));
+    // every()必须每一个函数的return都是true,结果才为true
+
+    // reduce()第二个参数是给prev设置初始值的
+    var ary=[1,2,3,4,5];
+    console.log(ary.reduce((prev, cur, index, arr) => {
+        //prev:上一个函数的返回值,如果不再设置初始值,那么第一次的prev不算
+        //cur:当前项
+        //index:当前项的索引
+        return prev * cur
+    }));
+    // prev    cur     prev + cur
+    //         1       1
+    //  1      2       1+2=3
+    //  3      3       3+3=6
+    //  6      4       6+4=10
+    //  10     5       10+5=15
+
+
+
+    // reduceRight() 从右边开始
+
+    // valueOf() 当前数组本身的值
+    console.log(ary.valueOf());
+    */
+</script>
+<script>
+    /*
+    var ary=["赵","钱","孙","李"];
+    for (var item of ary){
+        //item 当前项
+        console.log(item);
+    }
+    //ary.keys() 遍历索引的接口
+    for(var index of ary.keys()){
+        console.log(index);
+    }
+    */
+    var ary=["赵","钱","孙","李"];
+    //ary.entries(); 可以将索引和当前项一起遍历出来,放在一个数组中[索引,当前项]
+    for(var [index,item] of ary.entries()){
+        //[index,item]=[0,"赵"]
+        //[index,item]=[1,"钱"]
+        //[index,item]=[2,"孙"]
+        //[index,item]=[3,"李"]
+        console.log(index,item);
+    }
+</script>
