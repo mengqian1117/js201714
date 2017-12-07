@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+    <!--构造函数:自定义类-->
+<script type="text/javascript">
+    //一般会将名字变成大写
+    /*
+    function FF() {
+        console.log(this);
+        return{
+            name:"王宪忠"
+        }
+    }
+    var f=FF();//this-->window
+    console.log(f);//{ name:"王宪忠"}
+    */
+
+    //1)当一个函数作为构造函数执行,此时函数中的this就变成当前实例(例如:var f= new FF(); 此时FF中的this就是 f);
+    //2)通过this.属性=值的形式给当前实例增加私有属性
+    //3)默认将当前实例this返回(return this)
+    //4)实例都是对象 {属性名:属性值}
+    function FF() {
+        console.log(this);
+        this.a=1;
+        this.b=10;
+        this.c=function () {
+            console.log(1);
+        }
+    }
+    //new 这个时候FF就是一个自定义类(构造函数)
+    var f= new FF();
+    var f1= new FF();
+    //此时 f 就是FF类的实例
+    console.log(f,f1);
+
+
+
+    //返回值:如果return基本数据类型不会影响实例this的结果,如果return一个引用数据类型就会影响实例的结果,此时实例就变成了你return的东西了
+    function AA() {
+        this.name="a";
+        this.age=1;
+        this.can=function () {
+            console.log("我要喝奶");
+        };
+        return {a:"哈哈"};
+    }
+    var a=new AA();
+    console.log(a);
+</script>

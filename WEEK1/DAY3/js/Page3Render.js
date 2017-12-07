@@ -5,6 +5,7 @@ var Page3Render=(function () {
     return{
         init(){
             page3.style.display="block";
+            this.change();
         },
         change(){
             h2.style.backgroundColor="red";
@@ -15,7 +16,6 @@ var Page3Render=(function () {
                     clearInterval(timer);
                     page3.style.display="none";
                     Page4Render.init();
-                    Page4Render.change();
                 }
             },50)
         },

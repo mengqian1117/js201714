@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var name="陈翔";
+    var age=30;
+    var height="1.75m";
+
+    var person1={name:"陈翔",age:30,height:"175cm"};
+    var person2={name:"陈翔大",age:30,height:"175cm"};
+
+    //一个对象我们还可以叫他叫做命名空间
+    //console.log(person1.name);
+    //console.log(person2.name);
+
+
+    //使用单利模式有一个好处:使用this来代替这个命名空间(对象)
+    //在这个命名空间中的函数之间相互调用的时候使用this.函数()
+    //有一些函数不需要返回值,此时我们会将当前命名空间返回,就是return this,这样可以实现链式写法
+    var obj1=(function () {
+        var a=1;
+        var b=2;
+        function fn() {
+            console.log(this);
+            this.get();
+            return this;
+        };
+        function get() {
+            console.log(this);
+            return this;
+        };
+        return {
+            name:"obj1",
+            fn:fn,
+            get:get
+        }
+    })();
+
+    //链式写法
+    console.log(obj1.fn().get().name);
+</script>

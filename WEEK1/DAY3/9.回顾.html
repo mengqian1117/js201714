@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    let fn=(a)=>{
+        a++;
+        console.log(this);
+        return a;
+    };
+    fn();
+
+
+    var obj={
+        fn:(function () {
+            let f=()=>{console.log(this);};//window
+            f();
+            return function () {
+                let f=()=>{console.log(this);};
+                f();
+            }
+        })()
+    };
+    obj.fn();
+
+
+    var o=(function () {
+
+        return{}
+    })();
+
+
+</script>

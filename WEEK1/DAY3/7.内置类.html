@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    Number("");//0
+    Boolean([]);//true
+
+    console.log(Array(1, 2, 3, 4));
+    //Array(一个参数并且是个数字),此时这个数字代表length
+    console.log(Array(8));//有8个空位的数组
+    console.log([, , , , , , , ,]);
+    console.log(Array("哈哈"));//["哈哈"]
+
+
+    var n=1;//字面量创建方式
+    var num= new Number(1);//构造函数创建方式
+    num.name="我是数字";
+    console.log(num);
+    console.log(n);
+    console.log(n instanceof Number);//false
+    console.log(num instanceof Number);//true
+
+    var str="";
+    var str1=new String("哈哈哈");
+    console.log(str instanceof String);//false
+    console.log(str1 instanceof String);//true
+
+
+    var ary=[1,2,3];
+    var ary1=new Array(1,2,3);
+    console.log(ary instanceof Array);
+    console.log(ary1 instanceof Array);
+
+    //对于基本数据类型使用字面量创建方式和构造函数创建方式结果不一样,字面量创建方式结果为一个值,构造函数创建方式结果将其变成一个对象,
+    //对于引用数据类型两种创建方式没有区别
+    //instanceof: 判断 是不是某个类的一个实例
+    //语法: 实例  instanceof 类
+
+
+    [1,2].forEach(function (item) {
+        console.log(this);
+    },1)
+</script>
+<script>
+    function FF() {
+        this.a="哈哈"
+    }
+    var f=new FF();
+    console.log(f instanceof FF);
+</script>

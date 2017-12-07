@@ -6,6 +6,7 @@ var Page1Render=(function () {
         //init:让当前模块显示
         init(){
             page1.style.display="block";
+            return this;
         },
         //改变h1内容
         change(){
@@ -19,9 +20,10 @@ var Page1Render=(function () {
                     page1.style.display="none";
                     //让模块2显示
                     Page2Render.init();
-                    Page2Render.change();
                 }
-            },1000)
+            },1000);
+            return this;
         }
+
     }
 })();

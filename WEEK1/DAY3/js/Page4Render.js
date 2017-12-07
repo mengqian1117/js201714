@@ -5,6 +5,7 @@ var Page4Render=(function () {
     return{
         init(){
             page4.style.display="block";
+            this.change();
         },
         change(){
             h2.style.fontSize="14px";
@@ -14,7 +15,6 @@ var Page4Render=(function () {
                     clearInterval(timer);
                     page4.style.display="none";
                     Page5Render.init();
-                    Page5Render.change();
                 }
             },100)
         },

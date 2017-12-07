@@ -6,6 +6,7 @@ var Page2Render=(function () {
         //init:让当前模块显示
         init(){
             page2.style.display="block";
+            this.change();
         },
         change(){
             var str="大家好我是新来的同事";
@@ -18,7 +19,6 @@ var Page2Render=(function () {
                     page2.style.display="none";
                     //让page3显示
                     Page3Render.init();
-                    Page3Render.change();
                 }
             },500)
         },

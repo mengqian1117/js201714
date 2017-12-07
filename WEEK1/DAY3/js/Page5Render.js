@@ -4,6 +4,7 @@ var Page5Render=(function () {
     return{
         init(){
             page5.style.display="block";
+            this.change();
         },
         change(){
             h2.innerHTML="谢谢观看";

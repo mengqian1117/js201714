@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    var str="1234";
+    var str1=new String("1234");
+
+    function fn(x,y) {
+        var m=x+y;
+        return m;
+    }
+
+    //var fn=new Function("参数","函数体");
+    //var fn=new Function("函数体");
+    var fn=new Function("x,y","var m=x+y;return m");
+    console.log(fn(1, 2));
+
+
+    var str='[1,2,3,4,5]';
+    console.log(eval(str));
+    console.log(new Function("return" + str)());
+    //console.log(new Function("return" + '[1,2,3,4,5]')());
+    //console.log(new Function("return[1,2,3,4,5]")());
+
+</script>

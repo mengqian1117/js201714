@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    function FF(x) {
+        this.a=x;
+    }
+    FF("我是谁");
+    //window.a="我是谁"
+    console.log(window.a);
+
+    //如果不需要传参数可以省略()
+     var f= new FF("为了谁");
+    console.log(f);
+</script>
+<script>
+    var a=1;
+    function AA(a) {//a=2;   a=2
+        this.a=a;//window.a=2;  aa.a=2
+        this.b=a++;//window.b=2,a=3; aa.b=2.a=3
+        console.log(a);//3;3
+    }
+    AA(++a);//AA(2)  window.a=2
+    var aa=new AA(a);//(2)
+    console.log(aa);//{a:2,b:2}
+    console.log(a);//2
+    console.log("b" in window);//true
+</script>
+<script>
+
+    function B() {
+        this.f=function () {
+            this.a=1;
+        }
+    }
+    var b=new B;
+    console.log(b);//{f:function(){}}
+    b.f();
+    console.log(b);//{f:function(){},a:1}
+</script>

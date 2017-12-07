@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+    //js中万物皆对象
+    //面向对象-->面向类的开发 (类的继承,封装,多态)
+    //JS中的类:
+    // 内置类(js中自带):Number,String,Boolean,Array,Object,Function,Date.....(每一种数据类型都是一个类)
+    //div-->HTMLDIVElement-->HTMLElement-->Element-->Node-->EventTarget-->Object
+
+    //所有的类都是函数:我们对Number,Boolean,Array,看着比较眼熟,我们一想这不就是之前学的方法嘛 Number("")->0
+    console.log(typeof Number);
+    console.log(typeof Object);
+    console.log(typeof Array);
+
+
+    //还可以自己创造类,自定义类
+    function FF() {
+
+    };
+    //普通函数
+    FF();
+    //类
+    new FF();
+
+    //[1,2]-->Array-->Object
+    console.dir(box);
+    console.dir([1,2,3]);
+    //    实例:类中一个具体的例子,例如1是Number类的一个实例
+
+
+</script>
