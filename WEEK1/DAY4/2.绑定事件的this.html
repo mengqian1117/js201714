@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<h1 id="h1">0</h1>
+</body>
+</html>
+<script type="text/javascript">
+    function fn() {
+        this.innerHTML++;
+    }
+    h1.fn=fn;
+    h1.onclick=function () {
+        this.fn();
+    };
+    //window.setInterval(h1.fn,1000);//h1.fn中的this仍然是window
+    window.setInterval(function () {
+        //this->window
+        h1.fn();//this->h1
+    },1000);
+</script>

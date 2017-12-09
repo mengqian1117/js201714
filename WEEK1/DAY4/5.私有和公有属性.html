@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<!--
+实例既可以通过构造函数中this.属性的方式得到私有属性还可以通过__proto__拿到所属类的原型上的公有属性
+
+当一个对象获取属性值的时候,遇到属性先看是不是自己的私有属性,如果私有的没有就通过__proto__往所属类的原型(prototype)上去找,没有继续通过__proto__找,一直找到Object类的原型,还没有就是undefined,这个查找过程就是原型链
+-->
+<script type="text/javascript">
+    /*
+
+    function FF() {
+        this.a="aa";
+        this.b="bb";
+    }
+    FF.prototype.a="AA";
+    FF.prototype.getA=function () {
+        console.log(this.a);
+    };
+    FF.prototype.getB=function () {
+        console.log(this.b);
+    };
+    var f1=new FF();
+    var f2=new FF();
+</script>
+<script>
+    function FF() {this.x=1;this.y=2;}
+    FF.prototype.x=10;
+    FF.prototype.getY=function () {
+        console.log(this.x + this.y);
+    };
+    Object.prototype.y=100;
+    var f=new FF;//{x:1,y:2}
+    console.log(f.x);//1
+    console.log(f.y);//2
+    console.log(FF.prototype.x);//10
+    console.log(FF.prototype.y);//100
+    //FF.prototype.__proto__-->Object.prototype-->y:100
+    f.getY();//f.x+f.y=3
+    FF.prototype.getY();
+    //this.x + this.y
+    //FF.prototype.x + FF.prototype.y
+    //10+100
+    //110
+</script>

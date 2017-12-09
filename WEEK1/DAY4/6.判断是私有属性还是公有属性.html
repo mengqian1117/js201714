@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //in :公有属性和私有属性都可以判断
+    function FF() {
+        this.a="aa";
+    }
+    FF.prototype.A="AA";
+    var f=new FF;
+
+    console.log("a" in f);
+    console.log("A" in f);
+    //hasOwnProperty判断是不是自己的私有属性
+    console.log(f.hasOwnProperty("a"));
+    console.log(f.hasOwnProperty("A"));
+
+    //判断公有属性
+    //先使用in判断是不是这个对象的一个属性,再使用hasOwnProperty判断,如果是false说明是公有属性
+
+    console.log("constructor" in f);
+    console.log("__proto__" in f);
+    console.log(f.constructor.name);//"FF"
+    //可以使用xx.constructor.name来检测xx的数据类型
+    console.log([1, 2, 3].constructor.name);//"Array"
+    var obj={a:"a"};
+    console.log(obj.constructor.name);//"Object"
+    function fn() {}
+    console.log(fn.constructor.name);//"Function"
+    var n=1;
+    var str="123";
+    var b=true;
+    console.log(n.constructor.name);
+    console.log(str.constructor.name);
+    console.log(b.constructor.name);
+
+    console.dir(Object);
+
+</script>

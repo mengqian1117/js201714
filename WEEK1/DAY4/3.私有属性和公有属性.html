@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    /*
+
+    var obj={
+        a:"哈哈"
+    };
+    var obj1={
+        a:"哈哈"
+    }
+    console.log(obj);
+    console.log(obj1);
+    */
+
+
+    function FF() {
+        this.a="aa";
+        this.b="bb";
+    }
+    FF.prototype.getA=function () {
+        console.log(this.a);
+    };
+    var f1=new FF();
+    var f2=new FF();
+    console.log(f1.getA==f2.getA);
+    console.log(f2.getA);
+</script>
