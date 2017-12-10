@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var ary=[1,2];
+    //ary.sort()
+    // ary.__proto__-->Array.prototype
+    console.log(ary);
+    console.log(ary.hasOwnProperty("length"));
+    console.log(ary.hasOwnProperty("sort"));
+
+    function sum() {
+        //  强制改变arguments的原型指向
+        arguments.__proto__=Array.prototype;
+        arguments.push(10);
+        //arguments.__proto__-->Array.prototype-->push()
+        console.log(arguments);
+    }
+    sum(1,2,3);
+
+
+    function FF() {
+        this.x=1;
+    }
+    FF.prototype.getX=function () {
+        console.log(this);
+    };
+    var f=new FF();
+    f.getX();
+
+    ary.sort()
+</script>

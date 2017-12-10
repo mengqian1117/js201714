@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    console.log(Array instanceof Object);
+    console.log(Number instanceof Object);
+    console.log(String instanceof Object);
+    console.log(Function instanceof Object);
+
+    //所有的类都是函数
+    console.log(Array instanceof Function);
+    console.log(Number instanceof Function);
+    console.log(String instanceof Function);
+    console.log(Object instanceof Function);
+
+</script>
+
+<script>
+    function FF() {
+        this.a=1;
+    }
+    FF.prototype.getA=function () {};
+    var f=new FF;
+
+    console.log(f instanceof Object);
+    console.log([1,2] instanceof Object);
+
+    console.log(Function.__proto__ == Function.prototype);
+    console.log(Function.__proto__.__proto__ == Object.prototype);
+    console.log(Function.prototype.__proto__ == Object.prototype);
+</script>

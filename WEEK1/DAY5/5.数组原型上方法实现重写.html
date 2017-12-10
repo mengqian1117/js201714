@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var ary=[1,2,3,4,5,6,7,8];
+    //pop()
+    Array.prototype.pop=function () {
+        //this :当前实例
+        var num=this[this.length-1];
+        this.length--;
+        return num;
+    };
+    console.log(ary.pop());
+    console.log(ary);
+
+    //push()
+    Array.prototype.push=function () {
+        for (var i=0;i<arguments.length;i++){
+            this[this.length]=arguments[i]
+        }
+        return this.length;
+    };
+    console.log(ary.push(1, 2, 3));
+    console.log(ary);
+
+    //3.shift()
+    //[1,2,3,4,5,6,7,8];
+    //[2,3,4,5,6,7,8,8]
+    //[2,3,4,5,6,7,8]
+    Array.prototype.shift=function () {
+        var num=this[0];
+        for(var i=1;i<this.length;i++){
+            this[i-1]=this[i];
+        }
+        this.length--;
+        return num;
+    };
+    console.log(ary.shift());
+    console.log(ary);
+
+    //unshift()
+    Array.prototype.unshift=function () {
+        var ary=[...arguments,...this];
+        this.length=ary.length;
+        for(var i=0;i<ary.length;i++){
+            this[i]=ary[i];
+        }
+        return ary.length;
+    };
+    Array.prototype.unshift=function () {
+        var str="";
+        for(var i=0;i<arguments.length;i++){
+            if(typeof arguments[i]=="string"){
+                str+="'"+arguments[i]+"',";
+            }else {
+                str+=arguments[i]+",";
+            }
+
+        }
+        for(var i=0;i<this.length;i++){
+            if(typeof this[i]=="string"){
+                str+="'"+this[i]+"',"
+            }else {
+                str+=this[i]+","
+            }
+        }
+        var ary=eval("["+str+"]");
+        this.length=ary.length;
+        for(var i=0;i<ary.length;i++){
+            this[i]=ary[i];
+        }
+        return ary.length;
+    };
+    ary.unshift("哈哈","嘿嘿");
+    console.log(ary);
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    //原型是一个对象,浏览器默认开辟的堆内存中有constructor但是如果你给prototype重新赋值一个对象,此时constructor就丢失了,我们可以手动加上constructor值为当前函数
+    //__proto__是浏览器加上,存在兼容问题,IE的问题
+    function FF() {
+        this.x="xx";
+    }
+    FF.prototype={
+        getX:function () {},
+        constructor:FF
+    };
+    var f =new FF();
+    console.log(f);
+</script>

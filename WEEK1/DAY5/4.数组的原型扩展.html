@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    console.log(Array.prototype);
+    var ary=[1,1,2,3,1,2,1,21,3,5,1,1];
+    ary.sort(function (a,b) {
+        return a-b;
+    });
+    //去重
+    //参数:无
+    //返回值:去重后的长度
+    //原数组改变
+
+    Array.prototype.removal=function () {
+        //this:当前实例   this-->ary
+        //先去重,ary就是去重后的数组
+        var ary= this.filter((item,index)=>{
+            return !this.slice(0,index).includes(item)
+        });
+        //this=ary;错误
+        //先把原数组this的length变成ary的length
+        this.length=ary.length;
+        //循环ary将原数组this中的每一项变成ary的每一项,此时this就是去重后的数组了
+        for(var i=0;i<ary.length;i++){
+            this[i]=ary[i];
+        }
+        //返回去重后数组的长度length
+        return ary.length;
+    };
+
+
+    console.log(ary.removal());
+    console.log(ary);
+    var ary1=[10,10,20,3,1,2,1,21,3,5,1,1];
+    ary1.removal();
+    console.log(ary1);
+
+</script>
