@@ -1,0 +1,11 @@
+1).通过new方式创建一个异步AJAX对象
+var xhr=new XMLHttpRequest();
+2).打开一个url地址并发送请求
+xhr.open("请求方式：GET","URL地址：数据的来源地址",是否异步：true/false)
+在以后项目中url地址（api）是后台给你的
+3).给状态改变onreadystatechange绑定事件
+xhr.onreadystatechange=function () {
+    只有满足 xhr.status===200&&xhr.readyState===4都是true的时候才是请求成功，成功可以拿到数据，数据存在xhr.responseText,而且是个JSON字符串
+};
+4).向后台发送数据
+xhr.send(数据，传就写个null即可)
