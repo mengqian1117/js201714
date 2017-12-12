@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //让.前面的函数执行
+    Function.prototype.call=function () {
+        //this:当前实例其实就是谁执行的call方法就是谁
+        //call前面的函数就是this,既然call可以让前面的函数执行在这里就是this执行
+        //第一个参数没传,null,undefined,直接让this()
+        var ary=[...arguments].slice(1);
+        if(arguments[0]==undefined){
+            this(...ary);
+            //eval("this("+ary+")");
+        }else {
+            //为了保证你传进来的参第一个数是一个引用数据类型
+            var obj=Object(arguments[0]);//将参数变成一个对象
+
+            obj.__proto__.fn=this;
+            obj.fn(...ary);
+            delete obj.__proto__.fn;
+        }
+
+    };
+    function fn(n) {
+        console.log(n);
+        console.log(this);
+    }
+    function fn1() {
+        console.log("我是fn1");
+    }
+    var o={a:1};
+    fn.call(o,1);
+</script>
+<script>
+
+   Function.prototype.call=function () {
+       var ary=[...arguments].slice(1);
+       if(arguments[0]==undefined){
+         this(...ary);
+       }else {
+           var obj=Object(arguments[0]);
+           obj.__proto__.fn=this;
+           obj.fn(...ary);
+           delete obj.__proto__.fn;
+       }
+       return this;
+   };
+    var obj={b:1};
+   function ff(x) {
+       console.log(this);
+   };
+   console.log(ff.call(obj, 1, 2).name);
+</script>

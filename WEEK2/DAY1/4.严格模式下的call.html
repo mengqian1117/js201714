@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    "use strict";
+    function fn() {
+        console.log(this);
+    }
+    //在严格模式下不传和undefined的时候 this是undefined,传一个null时候this就是null
+    //fn.call();undefined
+    //fn.call(null);//null
+    fn.call(undefined);//undefined
+
+
+
+    //箭头函数没有this所以修改不掉
+    var obj={};
+    var f=()=>{
+        console.log(this);
+    };
+    f.call(obj);
+
+
+//    box.onclick=function () {
+//        //this-->box
+//        f();//f是箭头函数,他没有this,所以说f中出现的this仍然是box
+//    }
+//    box.onclick=()=>{
+//
+//    }
+
+
+
+    function dd() {
+        console.log(this);
+    }
+    dd.call(1);
+    console.log(new Number(1));
+</script>

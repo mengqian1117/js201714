@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //apply跟call一样,唯一的区别就是参数形式不一样
+    //apply第二个参数是一个数组或者是类数组,也是用来给前面函数传参数用的
+    var obj={a:1};
+    function sum() {
+        console.log(this);
+        return [...arguments].reduce((prev,cur)=>{
+            return prev+cur
+        })
+    }
+
+    console.log(sum.call(obj, 1, 2, 3, 4, 5));
+    console.log(sum.apply(obj,[1, 2, 3, 4, 5]));
+
+    var ary=[1, 2, 3, 4, 5];
+    Math.max(...ary);
+    eval("Math.max("+ary+")");
+    console.log(Math.max.apply(null, ary));
+    console.log(Math.max(1,2,3,4,5));
+</script>

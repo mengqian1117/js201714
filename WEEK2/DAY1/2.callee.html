@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //arguments.callee就是当前函数本身
+    function fn() {
+        console.log(arguments.callee==fn);
+    }
+    fn(1,2,3);
+    console.log(fn.prototype.constructor == fn);
+
+
+    //函数自己调用自己:递归
+    //0-100的和
+    function sum(n){
+        if(n===100){
+            return n
+        }else {
+            //return n+sum(n+1)
+            //return n+arguments.callee(n+1)
+            return n+sum.prototype.constructor(n+1)
+        }
+    }
+
+    console.log(sum(0));
+    //return  0+sum(1)
+    //        0+1+sum(2)
+    //        0+1+2+sum(3)
+    //        0+1+2+3+sum(4)
+    //        0+1+2+3+4........+99+sum(100)
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box" style="font-size: 100px">0</div>
+</body>
+</html>
+<script type="text/javascript">
+    function change(n) {
+        this.innerHTML = parseInt(this.innerHTML) + n;
+    }
+
+    //1.使用call改变this
+    //    box.onclick=function () {
+    //        //this-->box
+    //        change.call(this,2);
+    //    }
+    //2.自定义属性
+    //    box.onclick=function () {
+    //        this.change=change;
+    //        this.change(2)
+    //    }
+    //3.箭头函数
+    //    var change=(n)=> {
+    //        this.innerHTML=parseInt(this.innerHTML)+n;
+    //    };
+    //    box.onclick=function () {
+    //          change(2)
+    //    }
+
+
+    //    setInterval(function () {
+    //        change.call(box,2)
+    //    },1000)
+//    setInterval(function (ele) {//ele=box
+//        change.call(ele, 2)
+//    }, 1000,box)
+
+    setInterval(function (ele) {
+        ele.change=change;
+        ele.change(2);
+    }, 1000,box);
+
+
+</script>

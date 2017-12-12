@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box">啊哈哈</div>
+</body>
+</html>
+<script type="text/javascript">
+
+    //call:Function类原型上的一个公有的方法
+    //1.任何函数都可以使用call方法
+    //2.call也是一个函数
+    console.dir(Function.prototype);
+
+    //call作用:
+    //1.改变前面函数的this
+    //2.让前面的函数执行
+    //call的参数问题
+    //call()
+    //call(null)
+    //call(undefined)
+    //以上三种情况前面函数的this是window
+    //call的第一个参数是给前面函数改this用的
+    //call从第二个参数开始就是给前面函数传参数用的
+    var obj={};
+    function fn(n,m) {
+        console.log(n,m,this);
+    }
+    fn.call(null,2,3);
+    //fn.__proto__-->Function.prototype
+</script>
+<script>
+    var obj={};
+    function A (a) {//a=undefined;  a=10
+        this.a=1;//window.a=1;     obj.a=1
+        this.b=a;//window.b=undefined; obj.b=10
+    }
+    A();//this-->window
+    A.call(obj,10);//this->obj
+    console.log(a);//1
+    console.log(b);//undefined
+    console.log(obj);//{a:1,b:10}
+
+    function change(color) {
+        this.style.backgroundColor=color
+    }
+    box.onclick=function () {
+        //this-->box
+        //change.call(box);
+        change.call(this,"green");
+    }
+</script>

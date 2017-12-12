@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //改变函数this得到一个新的函数
+    //注意bind不会让函数执行
+    var obj={};
+    function fn() {
+        console.log(this);
+    }
+    var ff=fn.bind();
+    var ff=fn.bind(obj);
+    //ff跟fn长的一样但是里面的this变成了bind改变后的
+    //bind(),bind(null),bind(undefined) 新函数的this都是window
+    //console.log(ff.name);//"bound fn"
+    ff();
+</script>
+<script>
+    var obj1={a:1};
+    function f1() {
+        console.log(this);
+    }
+    setInterval(f1.bind(obj1),2000);
+    //box.onclick=f1;
+
+</script>

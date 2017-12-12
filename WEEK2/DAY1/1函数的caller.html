@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //函数的caller二表示:当前这个函数在哪个函数中调用的
+    function fn() {
+        //fn.caller()
+    }
+//    function ff() {
+//        fn();
+//    }
+//    ff();
+    function F() {
+        fn();
+    }
+    F();
+
+
+    function get() {
+        console.log(arguments);
+    }
+    get(1,2,3);
+</script>
