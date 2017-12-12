@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    function FF() {
+        this.a="aa";
+        this.b="bb"
+    }
+    FF.prototype.getA=function () {};
+    var f1=new FF();
+    Object.prototype.zf="珠峰";
+    console.log(f1.__proto__.__proto__.zf);
+    console.log(FF.prototype);
+    // 1.for既可以遍历私有属性也可以遍历公有属性
+    // 2.只能遍历可枚举的属性
+    for (var key in f1){
+        console.log(key);
+        //console.log(f1[key]);
+    }
+    console.log(Object.getOwnPropertyDescriptor(FF.prototype, "constructor"));
+
+
+    var ary=[1,2];
+    console.log(ary);
+    console.log(Object.getOwnPropertyDescriptor(ary,"length"));
+</script>
+<script>
+
+    Object.prototype.n="哈哈";
+    var obj1={name:"珠峰",age:10};
+    var obj2={name:"珠峰",study:"js"};
+
+    for(var key in obj2){
+        //只有obj2的私有属性才加在obj1中
+        if(obj2.hasOwnProperty(key)){
+            obj1[key]=obj2[key];
+        }
+    }
+    console.log(obj1);
+</script>
+<script>
+
+    function AA() {
+        this.x=1;
+        this.y=2;
+    }
+    AA.prototype.getX=function () {};
+    AA.prototype.getY=function () {};
+    var aa=new AA;
+    //克隆一个跟aa一样的对象bb(aa的私有属性也是bb的私有属性,aa的公有属性也要加在bb所属类的原型上)
+   function BB() {};
+   var bb=new BB;
+
+   for(var key in aa){
+       if(aa.hasOwnProperty(key)){
+           bb[key]=aa[key];
+       } else {
+           bb.__proto__[key]=aa[key];
+           //BB.prototype[key]=aa[key]
+       }
+   }
+    console.dir(Object.toString());
+    console.dir(Function.prototype);
+</script>

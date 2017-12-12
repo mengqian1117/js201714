@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var str="[1,2,3,4,5]";
+    eval(str);
+    var  str1="{a:1,b:2}";
+    console.log(eval("(" + str1 + ")"));
+    var ary=[1,2,3,4,5];
+    var obj={a:1,b:2};
+
+    //JSON是一种数据格式
+    //JSON对象 属性名必须使用双引号包起来
+    var obj={"a":1,"b":2};
+    var ary=[{"a":1,"b":2},{"a":10,"b":20},{"a":100,"b":200}];
+
+    //JSON字符串:将JSON对象使用''包起来
+    var str1='{"a":1,"b":2}';
+    var str2='[{"a":1,"b":2},{"a":10,"b":20},{"a":100,"b":200}]';
+
+    //将JSON对象变成JSON字符串
+    //JSON.stringify(JSON对象)
+    console.log(JSON.stringify(obj));
+    console.log(JSON.stringify(ary));
+
+    //将JSON字符串变成JSON对象
+    //JSON.parse(JSON字符串)
+
+    console.log(JSON.parse(str1));
+    console.log(JSON.parse(str2));
+
+    console.log("1");
+</script>

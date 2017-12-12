@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<!--
+typeof  :可以详细见检测基本数据类型但是null结果为"object",但是引用数据类型不可以详细检测,只有两个结果一个"object"一个是"function"
+
+instanceof:它主要是用来检测一个实例是否属于某个类,但是对于基本数据类型来说使用字面量创建方式检测结果为false,但是构造函数创建方式没问题
+
+constructor:可以通过  想要检测的数据.constructor.name得到数据类型,
+
+Object.prototype.toString.call(想要检测的数据);//'[object 数据类型]'
+
+-->
+<script type="text/javascript">
+var obj={a:1};
+console.log(obj.toString());//"[object Object]";
+console.log(obj);
+//注意:obj.toString(),是Object原型上的公有方法toString()
+
+    var ary=[1,2,3];
+console.log(obj.toString.call(ary).slice(8,-1));//"[object Array]"
+var str="123";
+console.log(obj.toString.call(str).slice(8,-1));//"[object String]"
+var num=1;
+console.log(obj.toString.call(num).slice(8,-1));
+function fn() {};
+console.log(obj.toString.call(fn).slice(8,-1));
+var t=true;
+console.log(obj.toString.call(t).slice(8,-1));
+
+console.log(str.constructor.name);
+</script>

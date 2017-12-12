@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box">
+
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    var data=null;
+    //1.使用构造函数创建一个AJAX对象
+    var xhr=new XMLHttpRequest();
+    //2.打开一个URL地址并请求数据
+    //open("请求方式","数据的路径",是否异步)
+    xhr.open("GET","json/data.json",false);
+    //3.监听请求过程(状态的变化)事件
+    xhr.onreadystatechange=function () {
+        if(xhr.status==200&&xhr.readyState==4){
+            //获取的数据就是xhr.responseText,是一个JSON字符串
+            data=JSON.parse(xhr.responseText);
+            //将data数据绑定到页面上
+            bindHTML();
+        }
+    };
+    //4.发送数据
+    xhr.send(null);
+    function bindHTML() {
+        var str=``;
+        data.forEach((item)=>{
+            str+=`<h2>${item.name}</h2>`
+        });
+        box.innerHTML=str;
+    }
+</script>
