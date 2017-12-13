@@ -1,0 +1,166 @@
+html,body,div,ul,li,img{
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+}
+ul,li{
+    list-style: none;
+}
+#stage{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    /*视距*/
+    perspective: 1200px;
+}
+#cube1{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    /*告诉浏览器我里面放的是3D效果*/
+    transform-style: preserve-3d;
+    /*将整个魔方倾斜一下*/
+    transform: rotateX(-30deg) rotateY(20deg)  ;
+    /*加动画*/
+    /*animation: 动画名 时间 延迟时间 运动次数  运动曲线 停止位置;*/
+    /*animation:自定义动画的名字(必填) 一轮动画运动的时间(单位秒s 必填) 延迟时间(s,选填) 执行的次数(默认1次,infinite:无数次) 运动曲线(默认:ease减速,linear匀速直线,ease-in由慢变快,ease-out:由快变慢,ease-in-out由慢变快再变慢 ) both:停在最后一帧;*/
+    animation: qq 5s infinite linear both;
+}
+#cube2{
+    z-index: -1;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50px;
+    top:50px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(20deg)  ;
+    animation: QQ 2s infinite linear both;
+}
+#cube1 li{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: .4;
+}
+#cube1 li:nth-child(1){
+    /*第一个li,前面*/
+    transform: translateZ(100px);
+    /*谷歌*/
+    -webkit-transform: translateZ(100px);
+    /*火狐*/
+    -moz-transform: translateZ(100px);
+    /*IE*/
+    -ms-transform: translateZ(100px);
+    /*欧朋*/
+    -o-transform: translateZ(100px);
+}
+#cube1 li:nth-child(2){
+    /*第二个li后面*/
+    /*先绕着Y抽转180deg,再向前走100px*/
+    transform:rotateY(180deg) translateZ(100px);
+}
+#cube1 li:nth-child(3){
+    /*第三个li 右面*/
+    /*先绕着Y轴顺时针90deg,再向前走100px */
+    transform: rotateY(90deg) translateZ(100px);
+}
+#cube1 li:nth-child(4){
+    /*第四个li 左面*/
+    /*先绕着Y轴逆时针90deg,再向前走100px */
+    transform: rotateY(-90deg) translateZ(100px);
+}
+#cube1 li:nth-child(5){
+    /*第五个li 上面*/
+    /*先绕着X轴顺时针90deg,再向前走100px */
+    transform: rotateX(90deg) translateZ(100px);
+}
+#cube1 li:nth-child(6){
+    /*第六个li 下面*/
+    /*先绕着X轴逆时针90deg,再向前走100px */
+    transform: rotateX(-90deg) translateZ(100px);
+}
+#cube2 li{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#cube2 li:nth-child(1){
+    /*第一个li,前面*/
+    transform: translateZ(50px);
+    /*谷歌*/
+    -webkit-transform: translateZ(50px);
+    /*火狐*/
+    -moz-transform: translateZ(50px);
+    /*IE*/
+    -ms-transform: translateZ(50px);
+    /*欧朋*/
+    -o-transform: translateZ(50px);
+}
+#cube2 li:nth-child(2){
+    /*第二个li后面*/
+    /*先绕着Y抽转180deg,再向前走100px*/
+    transform:rotateY(180deg) translateZ(50px);
+}
+#cube2 li:nth-child(3){
+    /*第三个li 右面*/
+    /*先绕着Y轴顺时针90deg,再向前走100px */
+    transform: rotateY(90deg) translateZ(50px);
+}
+#cube2 li:nth-child(4){
+    /*第四个li 左面*/
+    /*先绕着Y轴逆时针90deg,再向前走100px */
+    transform: rotateY(-90deg) translateZ(50px);
+}
+#cube2 li:nth-child(5){
+    /*第五个li 上面*/
+    /*先绕着X轴顺时针90deg,再向前走100px */
+    transform: rotateX(90deg) translateZ(50px);
+}
+#cube2 li:nth-child(6){
+    /*第六个li 下面*/
+    /*先绕着X轴逆时针90deg,再向前走100px */
+    transform: rotateX(-90deg) translateZ(50px);
+}
+
+#cube1 li img,#cube2 li img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+@keyframes qq {
+    0%{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+@keyframes QQ {
+    0%{
+        transform:  rotateY(0deg)rotateX(0deg);
+    }
+    100%{
+        transform:  rotateY(360deg)rotateX(360deg);
+    }
+}
+
+#stage:hover #cube1 li:nth-child(1){
+    transform: translateZ(200px);
+}
+#stage:hover #cube1 li:nth-child(2){
+    transform:rotateY(180deg) translateZ(200px);
+}
+#stage:hover #cube1 li:nth-child(3){
+    transform: rotateY(90deg) translateZ(200px);
+}
+#stage:hover #cube1 li:nth-child(4){
+    transform: rotateY(-90deg) translateZ(200px);
+}
+#stage:hover #cube1 li:nth-child(5){
+    transform: rotateX(90deg) translateZ(200px);
+}
+#stage:hover #cube1 li:nth-child(6){
+    transform: rotateX(-90deg) translateZ(200px);
+}

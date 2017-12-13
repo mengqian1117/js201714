@@ -14,7 +14,6 @@ xhr.onreadystatechange=function () {
 };
 //4.发送数据
 xhr.send(null);
-
 //绑定数据到页面上
 function bindHTML(data) {
     //先准备一个空的ES6模板字符串
@@ -37,7 +36,6 @@ function bindHTML(data) {
     //将拼接好的字符串,绑定到页面
     list.innerHTML=strHTML;
 }
-
 //给三个排序的维度绑定事件
 //注意:排序只需要重新拍一下数据data就可以,然后重新执行一下bindHTML即可
 for(let i=0;i<sortList.length;i++){
@@ -54,7 +52,6 @@ for(let i=0;i<sortList.length;i++){
         clearOther.call(this);
     }
 }
-
 function sort(atr) {
     data.sort((a,b)=>{
         if(atr=="time"){
