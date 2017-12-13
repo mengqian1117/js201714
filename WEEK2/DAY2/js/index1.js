@@ -41,12 +41,17 @@ function bindHTML(data) {
 //给三个排序的维度绑定事件
 //注意:排序只需要重新拍一下数据data就可以,然后重新执行一下bindHTML即可
 for(let i=0;i<sortList.length;i++){
-    sortList[i].flag=-1;
+    sortList[i].flag=-1;//初始状态
     sortList[i].onclick=function () {
         this.flag*=-1;
         //this.getAttribute("sort-attr");
         // "time","price","hot"
         sort.call(this,this.getAttribute("sort-attr"));
+        //this当前点击的a标签
+        //实现三角的切换
+        arrowFollow.call(this);
+       //清除不被当前不被点击的a标签中俩三角的class名bg
+        clearOther.call(this);
     }
 }
 
@@ -60,4 +65,29 @@ function sort(atr) {
 
     });
     bindHTML(data);
-}
+};
+function arrowFollow() {
+    //根据this获取对应下面的俩个三角,up和down
+    var up=this.children[0];
+    var down=this.children[1];
+    //根据当前的状态flag的值判断让谁加上bg的className
+    if(this.flag>0){
+        up.classList.add("bg");
+        down.classList.remove("bg")
+    }else {
+        down.classList.add("bg");
+        up.classList.remove("bg");
+    }
+};
+function clearOther() {
+    for(var i=0;i<sortList.length;i++){
+        if(sortList[i]!=this){
+            //说明现在点击的不是你
+            //你下面的三角就不可以带bg类名
+            sortList[i].children[0].classList.remove("bg");
+            sortList[i].children[1].classList.remove("bg");
+            //将当前不被点击的a状态变成初始状态
+            sortList[i].flag=-1;
+        }
+    }
+};
