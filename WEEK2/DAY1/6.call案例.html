@@ -25,25 +25,25 @@
     //    }
     //3.箭头函数
 
-        box.onclick=function () {
-        var change=(n)=> {
-            this.innerHTML=parseInt(this.innerHTML)+n;
+    box.onclick = function () {
+        var change = (n) => {
+            this.innerHTML = parseInt(this.innerHTML) + n;
         };
-              change(2)
-        };
+        change(2)
+    };
 
 
     //    setInterval(function () {
     //        change.call(box,2)
     //    },1000)
-//    setInterval(function (ele) {//ele=box
-//        change.call(ele, 2)
-//    }, 1000,box)
+    //    setInterval(function (ele) {//ele=box
+    //        change.call(ele, 2)
+    //    }, 1000,box)
 
     setInterval(function (ele) {
-        ele.change=change;
+        ele.change = change;
         ele.change(2);
-    }, 1000,box);
+    }, 1000, box);
 
 
 </script>
