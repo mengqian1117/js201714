@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body></body>
+</html>
+<script type="text/javascript">
+    //():一个分组
+    //  \1 :第一个分组匹配的内容
+    var reg=/^1(\w)\1/;
+    reg.test("1aa");//\w匹配是字符a 所以\1就是a
+    reg.test("1ee");//\w匹配是字符e 所以\1就是e
+
+    var reg=/^12(\d{2}ab)\1/;
+    console.log(reg.test("1233ab33ab"));
+
+    //"good" ,"week" ,"feel","cool","zoom","deep","foot","book","look","food","tool","room"
+    var reg=/^[a-zA-Z]([a-zA-Z])\1[a-zA-Z]$/;
+
+    //分组捕获
+    var reg=/\w{2,4}(\d)/;
+    console.log(reg.exec("js1css2html3vue4"));
+
+    var reg=/\w(\d)\w(\d)\w(\d)/;
+    console.log(reg.exec("a1b2c3"));
+
+    //如果正则中有分组(有小括号);
+    //此时exec捕获的结果为一个数组
+    //第一项:大正则捕获的内容
+    //第二项:第一个小分组捕获的内容
+    //第三项:第二个小分组捕获的内容
+    //.....
+    //index:大正则捕获的内容首字符的索引
+    //input:原字符串
+
+    //分组嵌套时候,从外向里捕获
+
+    var str='html:1000+css:1000+js:10000+vue:3000+react:3000+node:3000';
+
+    //"html:1000"  1000
+    //"css:1000"   1000
+    //"js:10000"   10000
+
+    //如果想将某一部分单独捕获出来,那就给这一部分加一个分组(就是使用小括号括起来)
+    //如果不想捕获某个分组的内容此时可以在分组中前面加一个?:  (?:)
+    var reg=/(?:^|\+)([a-z]+:(\d+))/g;
+    console.log(reg.exec(str));
+    console.log(reg.exec(str));
+    console.log(reg.exec(str));
+    console.log(reg.exec(str));
+    console.log(reg.exec(str));
+    console.log(reg.exec(str));
+
+
+    //注意 正则加上g此时  match不会捕获分组的内容
+    //不加修饰符 g此时  match结果还是跟exec结果一样也会捕获小分组内容
+    var str="1s2d3f" ;
+    var reg=/(\d)\w/g;
+    console.log(str.match(reg));
+</script>

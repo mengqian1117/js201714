@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    console.log(RegExp.prototype);
+    //正则类  RegExp
+    //字面量创建方式
+    var reg1=/\d+/g;
+    //var reg=new RegExp("正则里面的内容","修饰符")
+    //正则中遇到\ 写成\\
+    //构造函数创建方式
+    var reg=new RegExp("\\d+","g");
+    console.log(reg.test("1234"));
+
+    var str1='html:1000+css:2000+js:8000+vue:3000+react:4000+node:5000';
+    function test(str) {
+        var reg=new RegExp(str+":(\\d+)");
+        return reg.exec(str1)[1];
+    }
+
+    console.log(test("html"));
+    console.log(test("css"));
+    test("js");
+    test("vue");
+    test("react");
+    test("node");
+</script>

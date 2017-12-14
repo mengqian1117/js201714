@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var str="a1a2b3b4";
+    //str.replace("a","哈哈").replace("a","哈哈")
+    console.log(str.replace(/[ab]/g, "哈哈"));
+//    str=str.replace(/([ab])(\d)/g, (...arg)=> {
+//        console.log(arg);
+//        return arg[1]+"="+arg[2]
+//    });
+//    console.log(str);
+
+    str=str.replace(/([ab])(\d)/g,"$1:$2,");
+    console.log(str);
+</script>

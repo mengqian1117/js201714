@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var reg=/\d+?/;
+    //贪婪性 :出现量词元字符,按照匹配的最大长度来捕获
+    //解决贪婪性,在量词元字符后面加一个?,此时再去捕获的时候就按照最小值捕获了
+    console.log(reg.exec("as12345df7890"));
+    var reg=/\d{2,7}?/g;
+    console.log(reg.exec("sd12345sd1234567"));
+    console.log(reg.exec("sd12345sd1234567"));
+</script>
