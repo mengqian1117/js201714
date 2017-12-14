@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body></body>
+</html>
+<script type="text/javascript">
+    //量词元字符不可以单独使用,加在元字符后面使用,表示前面的元字符出现的次数
+    //* 出现0次或者多次
+   var reg=/abc\d*/ ;
+    console.log(reg.test("abc"));//true
+    console.log(reg.test("abc1111"));//true
+
+    //+ 出现一次或者多次
+    var reg=/abc\d+/ ;
+    console.log(reg.test("abc"));//false
+    console.log(reg.test("abc1111"));//true
+
+    //? 出现0次或者1次
+    var reg=/abc\d?/ ;
+    console.log(reg.test("abc"));//true
+    console.log(reg.test("abc1111"));//false
+
+    //{n} 出现n次
+    var reg=/abc\d{3}/ ;
+    console.log(reg.test("abc"));//false
+    console.log(reg.test("abc123"));//true
+
+
+    //{n,}   至少出现n次 n到多次
+    //{n,m}  n到m次
+
+    //匹配手机号
+    //首字符是1即可,一共11位
+    /^1\d{10}$/
+
+
+    //匹配一个零点几的小数
+    /^0\.\d+$/
+
+
+    var reg=/\*/;
+</script>

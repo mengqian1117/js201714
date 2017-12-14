@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body></body>
+</html>
+<script type="text/javascript">
+    //有匹配的捕获出来是一个数组
+    //没有匹配的返回一个null
+    var reg=/a\d/;
+    //console.log(reg.exec("aaaaa1ba2"));
+    //["捕获出的内容",index:捕获出的内容首字符在原字符串中的索引,input:原字符串]
+    //正则捕获的懒惰性:找到一个匹配的内容捕获出来,就停止查找
+    //解决懒惰性的办法:给正则加一个全局修饰符g
+    //虽然解决懒惰性但是exec只可以一次捕获一个,想要全捕获出来,只能一次次捕获,一直到结果为null了,此时就全部获取出来了
+    var reg=/a\d/g;
+    var str="aaaaa1ba25555a3";
+//    console.log(reg.exec(str));
+//    console.log(reg.exec(str));
+//    console.log(reg.exec(str));
+//    console.log(reg.exec(str));
+    //我们自己写一个while循环捕获出来,将捕获出来的内容放到一个数组中
+    var ary=[];
+    var val=reg.exec(str);
+    while (val){
+        ary.push(val[0]);
+        val=reg.exec(str);
+    }
+    console.log(ary);
+
+</script>

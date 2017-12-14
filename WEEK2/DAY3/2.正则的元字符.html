@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //   正则的写法   /元字符/修饰符
+    // 注意:1.元字符至少要有一个,修饰符可以没有
+    //2.一个元字符只能匹配一个字符
+    var reg=/12/;
+    console.log(reg.exec("121212"));
+
+    //有特殊意义的元字符
+    var reg1=/\d/;
+
+    //  \转义
+    // 1.将特殊意义的变成普通意义的
+    // 2.将一些普通的变成特殊的
+
+    // \d :匹配任意一个数字
+    var reg=/\d/;
+    console.log(reg.test("哈哈1121哈121"));
+    console.log(reg.test("d"));
+    var reg=/\\d/;
+    console.log(reg.test("123"));
+    console.log(reg.test("\\d"));
+    var reg=/./;//任意一个非\n的字符
+    console.log(reg.test("1"));
+    console.log(reg.test("+"));
+    console.log(reg.test("."));
+    //假如我们只想让.表示点的意思
+    var reg=/\./;
+    console.log(reg.test("1"));//false
+    console.log(reg.test("+"));//false
+    console.log(reg.test("."));//true
+
+    //^ 以什么什么作为开头
+    var reg=/^1/;
+    console.log(reg.test("2341"));
+    console.log(reg.test("1珠峰"));
+
+    //$ 以什么什么作为结尾
+    var reg=/3$/;
+    console.log(reg.test("珠峰3"));
+
+    //开头结尾都要规定此时
+    var reg=/^asd$/;//此时只能匹配一个字符"asd"
+    console.log(reg.test("asd"));
+
+    // \d :匹配一个数字
+
+    var reg=/^\d$/;
+    //"1"  字符串中有且只有一个数字
+    var reg=/^\d\d$/;
+    //"12" "01" 字符串中有且只有两个数字
+
+    var reg=/\dab/;
+    //只要是字符串中出现一个数字后面跟着ab即可
+    console.log(reg.test("1234as111ab5555"));//true
+
+    // \D 匹配任意一个不是数字的字符
+    var reg=/\Da/;
+    console.log(reg.test("123adc"));//false
+    console.log(reg.test("aaa"));//true
+
+    //\w 数字字母下划线中任意一个
+    var reg=/\w1as/;
+    console.log(reg.test("111asd"));
+
+    //\W 跟\w相反
+    var reg=/\W1as/;
+    console.log(reg.test("111asd"));//false
+    console.log(reg.test("1+1+1asd"));//true
+
+    // \b 匹配一个边界
+    // 边界:开头,结尾 ,空格,换行
+    var reg=/\d\b/;
+    console.log(reg.test("sqs2 sdf"));
+    var reg=/\b666/;
+    console.log(reg.test("1666"));//false
+    console.log(reg.test("666"));//true
+    console.log(reg.test("23666 66 666666 66"));
+
+    // \B 匹配一个非边界
+    var reg=/\B12\B/;
+    reg.test("12 121212");//true
+    reg.test("12 1212");//false
+    reg.test("212121 12");//true
+
+
+    //  \s 匹配一个空白符, 常用的空格和换行
+    var reg=/\s/;
+    reg.test("123");
+    reg.test("1 2 3");
+    console.log(reg.test("12\n2"));
+    console.log("12\n2");
+    console.log(`
+ 1
+        2
+        3    `);
+
+    //  \S 不是空白符中的任意一个
+    // \n匹配一个换行
+
+
+
+</script>

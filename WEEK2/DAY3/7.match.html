@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    var reg=/\d{2}/;
+    var str="js12css34HTML56";
+    console.log(str.match(reg));
+
+    //1.正则没有修饰符g此时match和exec结果一样
+    //["12", index: 2, input: "js12css34HTML56"]
+    //2.正则加了修饰符g 此时match一次性全部捕获出来,但是没有index和 input
+
+    var reg=/\d{2}/g;
+    var str="js12css34HTML56";
+    console.log(str.match(reg));
+    //["12", "34", "56"]
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //正则就是来处理字符串的
+    //看一个字符串符不符合这个规则
+    var reg=/abcd/;
+    console.dir(reg);
+    //正则的公有方法
+    //匹配 test 返回值:true/false
+    //正则.test(字符串) 看这个字符串是否符合这个正则的要求
+    console.log(reg.test("123455"));//false
+    console.log(reg.test("abcdefg"));//true
+
+    //捕获 exec  有的话返回值是一个数组,没有的话返回值null
+    //正则.exec(字符串) 这个字符串中符合这个正则的要求的内容捕获出来
+    var reg=/12/;
+    console.log(reg.exec("哈哈12哈哈"));
+    console.log(reg.exec("哈哈"));//null
+
+</script>
