@@ -89,8 +89,11 @@
 </head>
 <body>
 <!--
+autocomplete="on" 记录之前输入的内容
+autofocus:自动获取焦点
+required:必填的
 pattern="":正则进行校验
-novalidate:不做校验
+novalidate:不做校验  给form加
 -->
 <div id="form_content">
     <form action="获取提交数据.html" autocomplete="on">
@@ -138,7 +141,50 @@ novalidate:不做校验
     </form>
 </div>
 <script>
+    //注意每一个input的name属性必须加上,只有加上了才会序列化到url上
+    let inputList=document.getElementById("form_content").getElementsByTagName("input");
+    //输入框获取焦点,显示提示用语
+    //获取焦点事件:onfocus
+    //注意:最后一个提交按钮不需要绑定焦点事件
+//    for(let i=0;i<inputList.length-1;i++){
+//        inputList[i].onfocus=function () {
+//            //谁获取焦点就让谁的弟弟(提示用语)显示
+//            this.nextElementSibling.style.display="block";
+//            //判断当前这个input有没有哥哥,如果有哥哥那就做校验
+//            //this.validity.valid:true 此时输入框中的内容没有问题,通过校验
+//            if(i!=0){//只要索引不是0都会有哥哥,哥哥的索引i-1
+//                if(inputList[i-1].validity.valid){
+//                    //inputList[i-1].validity.valid=true,说明输入框的内容校验成功
+//                    inputList[i-1].nextElementSibling.className="pc show_pass";
+//                    //让提示框的内容变成√
+//                    inputList[i-1].nextElementSibling.innerHTML="√";
+//                }else {
+//                    //校验不成功
+//                    inputList[i-1].nextElementSibling.className="pc show_warn";
+//                    inputList[i-1].nextElementSibling.innerHTML="输入的内容不合法";
+//                }
+//            }
+//        }
+//    }
 
+    //失去焦点onblur
+    //获取焦点显示提示用语,失去焦点做校验
+    for(let i=0;i<inputList.length-1;i++){
+        inputList[i].onfocus=function () {
+            this.nextElementSibling.style.display="block";
+        };
+        inputList[i].onblur=function () {
+            if(this.validity.valid){
+                this.nextElementSibling.className="pc show_pass";
+                this.nextElementSibling.innerHTML="√";
+            }else {
+                this.nextElementSibling.className="pc show_warn";
+                this.nextElementSibling.innerHTML="×";
+            }
+        }
+    }
+
+    //user.setCustomValidity("傻呀");
 </script>
 </body>
 </html>

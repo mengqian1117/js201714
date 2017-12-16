@@ -46,7 +46,7 @@
         </div>
         <div class="dc">
             <b>用户昵称</b>
-            <input type="text" name="user" disabled/>
+            <input type="text" name="user" disabled />
         </div>
         <div class="dc">
             <b>用户密码</b>
@@ -77,5 +77,22 @@
 </body>
 </html>
 <script>
+    //提交过来的数据都显示在url上
+    //1.获取当前URL地址,注意有些内容编码了所以需要解码
+    var url=window.decodeURIComponent(window.location.href);
+
+    //2.解析URL
+    //user=mengqian&pw=1223&email=2295676706@qq.com&url=&tel=1999999999&age=12&date=2017-12-07
+    function fn(url) {
+        url=url.split("?")[1];
+        return eval("({"+url.replace(/=/g,":'").replace(/&/g,"',")+"'})")
+    }
+    var objUrl=fn(url);
+    //objUrl属性名跟input的name属性值是对应的
+    //根据objUrl的属性名获取对应的input,
+    for(var key in objUrl){
+        //key: user,pw,url,.....
+        document.getElementsByName(key)[0].value=objUrl[key];
+    }
 
 </script>
