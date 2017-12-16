@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+   var reg=/^m|o.+/;//只要是有o后面不是\n的内容
+   reg.test("mq1117");
+   console.log(reg.test("12o11"));
+   console.log(reg.test("12o"));
+   console.log(reg.test("12o\n"));
+   console.log(reg.test("12o1\n"));
+   //alert([1,2,3]);//"1,2,3"
+   //alert({});//"[object Object]"
+   console.log(reg.exec("online"));
+   var ary=[123];
+   ary.zf="珠峰";
+   console.log(ary.toString());
+
+
+   var reg=/(\w+?)(\d+)/g;
+   var str="zhufeng2018peixun:js+html5" ;
+   console.log(reg.exec(str));
+
+   /[]/
+</script>

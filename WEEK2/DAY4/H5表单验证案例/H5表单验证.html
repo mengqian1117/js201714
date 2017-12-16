@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用户注册表单页</title>
+    <style>
+        #form_content {
+            width: 660px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px dashed #c9c9c9;
+        }
+
+        #form_content .dc {
+            width: 660px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        #form_content .dc h3 {
+            text-align: center;
+            font-size: 30px;
+            color: #2b7dd1;
+        }
+
+        #form_content b {
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            margin-left: 20px;
+            font-size: 20px;
+            color: #807c7f;
+        }
+
+        #form_content input {
+            display: inline-block;
+            height: 34px;
+            width: 200px;
+            border-radius: 2px;
+            margin-left: 60px;
+            padding-left: 10px;
+        }
+
+        .pc {
+            width: 200px;
+            height: 40px;
+            float: right;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 20px 0;
+            background: #333;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 8px;
+            display: none;
+        }
+
+        input#sub {
+            display: block;
+            width: 215px;
+            background: #8187ff;
+            margin: 20px auto;
+            border-radius: 5px;
+            font-size: 20px;
+            color: #fff;
+            padding: 5px 0;
+            height: 40px;
+            font-weight: bold;
+        }
+
+        .show_pass {
+            background: limegreen;
+            display: block;
+        }
+
+        .show_warn {
+            background: #e4393c;
+            display: inline-block;
+        }
+
+        #audio_bground {
+            width: 100%;
+            height: 100%;
+            background: #afa;
+            position: absolute;
+            z-index: -10;
+        }
+    </style>
+</head>
+<body>
+<!--
+pattern="":正则进行校验
+novalidate:不做校验
+-->
+<div id="form_content">
+    <form action="获取提交数据.html" autocomplete="on">
+        <div class="dc">
+            <h3>用户注册页面</h3>
+        </div>
+        <div class="dc">
+            <b>用户昵称</b>
+            <input type="text" id="user" name="user" required autofocus pattern="^[a-zA-Z]\w{5,14}$"/>
+            <p class="pc">请输入用户名</p>
+        </div>
+        <div class="dc">
+            <b>用户密码</b>
+            <input type="password" required id="pw" name="pw"/>
+            <p class="pc">请输入密码</p>
+        </div>
+        <div class="dc">
+            <b>个人邮箱</b>
+            <input type="email" id="email" name="email" required/>
+            <p class="pc">请输入邮箱</p>
+        </div>
+        <div class="dc">
+            <b>个人主页</b>
+            <input type="url" id="url" name="url"/>
+            <p class="pc">请输入个人主页(可不填)</p>
+        </div>
+        <div class="dc">
+            <b>联系电话</b>
+            <input type="tel" id="tel" name="tel"/>
+            <p class="pc">请输入联系电话</p>
+        </div>
+        <div class="dc">
+            <b>你的年龄</b>
+            <input type="number" min="12" max="65" id="age" name="age"/>
+            <p class="pc">请输入你的年龄</p>
+        </div>
+        <div class="dc">
+            <b>出生日期</b>
+            <input type="date" id="date" name="date"/>
+            <p class="pc">请选择出生日期</p>
+        </div>
+        <div class="dc">
+            <input id="sub" type="submit" value="提交注册"/>
+        </div>
+    </form>
+</div>
+<script>
+
+</script>
+</body>
+</html>
