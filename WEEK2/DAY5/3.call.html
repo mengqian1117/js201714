@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body></body>
+</html>
+<script type="text/javascript">
+    /*
+    //Function原型上的方法,call也是一个函数
+    //call作用
+    //1.让前面函数执行
+    //2.改变前面函数this
+    function fn(x,y) {
+        console.log(this);
+    }
+    //fn(1,2);
+    var obj={};
+    fn.call();
+    fn.call(null);
+    fn.call(undefined);
+    fn.call(obj,1,2);
+    fn.call(1,1,2);//this  Number的实例 {1}
+
+    //将1变成Number实例 此时就是一个对象
+    console.log(Object(1));
+    console.log(new Number(1));
+    */
+    
+</script>
+<script>
+    
+    Function.prototype.call=function () {
+        //this -->前面的函数
+        var ary=[...arguments].slice(1);
+        var r;
+        if(arguments[0]==undefined){
+            r=this(...ary);//前面的函数的this是window
+        }else {
+            var obj=Object(arguments[0]);
+            obj.this=this;
+            r=obj.this(...ary);
+        };
+        obj=null;
+        return r;
+    }
+</script>

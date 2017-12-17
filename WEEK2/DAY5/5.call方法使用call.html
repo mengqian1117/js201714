@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    //既然call是个函数那么call也可使用call
+    function fn() {
+        console.log("fn");
+    }
+    function fn1() {
+        console.log("fn1");
+    }
+    var obj={};
+//    fn.call(obj);
+//    fn1.call(obj);
+    //fn.call.call(x,y,z)
+    //第二个call让前面fn.call执行,并且改变了fn.call中的this
+    //x是改变fn.call的this的,y,z是fn.call(y,z)的参数
+    //fn.call的call的原来的this是fn,现在变成了x,call中就是让x去执行了
+    //此时的y就是给x改变this了,z就是给x传参数用的
+    //fn.call.call(x,y,z)  此时x必须是个函数,如果不是函数就报错了
+    //x.call(y,z)
+
+    //fn.call.call(fn1,obj,1);
+    //fn1.call(obj,1)
+
+    //总结:2个及2个以上的call效果是一样的
+    //fn.call.call.call(x,y,z)
+    //fn.call.call.call.call.call.call(x,y,z)
+    //x.call(y,z)
+
+
+
+
+    function A(m,n) {
+        console.log(this);
+        console.log(this.m);
+        console.log(m + n);//
+    }
+    function B() {};
+    var obj={m:1};
+//    B.call.call.call(A,obj,1);
+//    A.call(obj,1);
+    B.call.call.call.call.call.call(A,1,2,3);
+    A.call(1,2,3);
+
+
+
+
+</script>

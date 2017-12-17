@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    var ary=[1,2,"哈哈","杨洋"];
+    ary.forEach(function(item,index,arr) {},ary);
+    
+    Array.prototype.myForEach=function (fn,obj) {
+        for(var i=0;i<this.length;i++){
+            if(typeof obj=="undefined"){
+                //obj没有传
+                fn(this[i],i,this);
+            }else {
+                fn.call(obj,this[i],i,this);
+            }
+        }
+    };
+    Array.prototype.myMap=function (fn,obj) {
+        var arr=[];
+        for(var i=0;i<this.length;i++){
+            if(typeof obj=="undefined"){
+                arr.push(fn(this[i],i,this));
+            }else {
+                arr.push(fn.call(obj,this[i],i,this));
+            }
+        }
+        return arr;
+    };
+    console.log(ary.myMap(function (item, index, arr) {
+        return 1
+    }, ary));
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body></body>
+</html>
+<script type="text/javascript">
+    function fn() {//fn=xxxfff000
+        console.log(1);
+    }
+    var f=fn;//f=xxxfff000
+    f();
+    var ff=fn();//ff=undefined
+
+    //函数的三种身份
+    //1.普通函数 -->执行会形成一个私有作用域
+    //2.new方式执行就是构造函数,类 -->有原型prototype
+    //3.他是Function类的实例,也是一个对象,可以给他增加自定义属性 -->__proto__
+
+    console.dir(fn);
+
+
+    function fn1() {
+        console.log(fn1.prototype.constructor);
+        console.log(arguments.callee);
+        console.log(arguments);
+        console.log(fn1.caller);
+    };
+    function fn2() {
+        fn1()
+    }
+    fn2()
+</script>

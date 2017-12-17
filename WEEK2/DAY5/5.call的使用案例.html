@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+</body>
+</html>
+<script type="text/javascript">
+   //任何一个数据类型所属的类中都有一个toString ;
+   //只有null和undefined没有
+   //其他都是将其变成字符串但是Object原型下面的toString方法比较特殊
+   //结果为"[object 类]"
+   //此时可以利用他的特殊性检测数据类型,将this变成想要检测的数据即可
+   var ary=[1,2,3,4];
+   Object.prototype.toString.call(ary).slice(8,-1);
+   console.log(Number.prototype);
+   console.log(Boolean.prototype);
+   console.log(String.prototype);
+   console.log(Array.prototype);
+   console.log(RegExp.prototype);
+   console.log(Date.prototype);
+   console.log(Object.prototype);
+   console.log(Function.prototype);
+   //克隆一份一样的数组
+   console.log(ary.slice());
+   console.log(ary.slice(0));
+   console.log(ary.splice(0));
+   console.log(ary.concat());
+   console.log(ary.concat([]));
+   //模拟了没有参数和一个参数的情况
+   Array.prototype.slice=function (n=0) {
+       //this:使用这个slice方法的数组,其实就是slice点前面的数组
+       var arr=[],index=0;
+       for(var i=n;i<this.length;i++){
+           arr[index++]=this[i];
+       }
+       return arr;
+   };
+
+   function sum() {
+       return eval(Array.prototype.slice.call(arguments).join("+"))
+   }
+   sum(1,2,3,4,5)
+
+    //将类数组变成数组
+    //Array.prototype.slice.call(类数组)
+    //[].slice.call(类数组)
+    //[].slice.call(类数组,0)
+
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var reg=/^[[]]+/;
+    //必须是[为开头 ]出现一到多次
+    '[][][]哈哈';
+    var reg=/^[[]]+&/;
+    '[]]]]]]]]';
+    '[]';
+
+    //当分组后面出现量词,最终捕获的时候以最后一个为准
+    var reg=/^(\w)+/g;
+    var str="bbs.mengqian.com";
+    console.log(reg.exec(str));
+    ["bbs","s"];
+    var reg=/^(\w+)/g;
+    var str="bbs.mengqian.com";
+    console.log(reg.exec(str));
+    ["bbs","bbs"];
+</script>
