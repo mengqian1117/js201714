@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <script src="ejs.js"></script>
+</head>
+<body>
+<ul id="list">
+    <script type="text/template" id="temp">
+        <%tempData.forEach(function(item){%>
+           <li>
+               <span><i>种类: </i> <%=item.name%> </span>
+               <span><i>价格: </i> <%=item.price%> </span>
+               <span><i>评价: </i> <%=item.text%> </span>
+           </li>
+        <%})%>
+    </script>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    var data=[{name:"苹果",price:"20$",text:"好吃"},{name:"香蕉",price:"18$",text:"喜欢吃"},{name:"桃子",price:"10$",text:"实惠"},{name:"柚子",price:"60$",text:"不买了"}];
+
+    list.innerHTML=ejs.render(document.getElementById("temp").innerHTML,{tempData:data});
+
+</script>

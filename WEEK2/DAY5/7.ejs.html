@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <script src="ejs.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/template" id="temp">
+<ul>
+    <%tempData.forEach(function(item){%>
+      <li>姓名: <%=item.name%> 年龄:<%=item.age%></li>
+    <%})%>
+</ul>
+</script>
+</body>
+</html>
+<script type="text/javascript">
+    //数据
+    var data=[{name:"珠峰",age:"10岁"},{name:"珠峰",age:"10岁"},{name:"珠峰",age:"10岁"}];
+
+    var temp=document.getElementById("temp").innerHTML;
+    var T=ejs.render(temp,{tempData:data});
+    box.innerHTML=T;
+</script>
+<!--
+Ejs四部曲
+1.在html准备一个容器
+例如:<div id="box"></div>
+
+2.获取数据,一般都是AJAX获取数据
+data=[{name:"珠峰",age:"10岁"},{name:"珠峰",age:"10岁"},{name:"珠峰",age:"10岁"}]
+
+3.造模板 搭建一个HTML解构导入数据
+
+4.通过ejs.render(),使用数据渲染页面
+ejs.render(模板,数据);
+4-1 获取html模板
+var temp1=document.getElementById("temp1");
+4-2 ejs.render(模板,数据)套数据
+ejs.render(temp1,{在模板使用的数据名:真实数据})
+var T=ejs.render(temp1,{tmpData:data})
+4-3 将渲染好的模板放到真实页面上
+box.innerHTML=T;
+-->
