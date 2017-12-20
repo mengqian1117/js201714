@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #outer{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 10px solid red;
+            padding: 30px;
+            margin: 20px 100px;
+        }
+        #center{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 30px solid green;
+        }
+        #inter{
+            width: 100px;
+            height: 100Px;
+            margin: 40px;
+            border: 20px solid blue;
+        }
+    </style>
+</head>
+<body id="body">
+<div id="outer">
+    outer
+    <div id="center">
+        center
+        <div id="inter">
+            inter
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<!--
+offsetParent:父级参照物
+找一个元素的父级参照物:从这个元素的父级开始找,先看父级元素有没有定位,没有继续找父级的父级,还没有继续一直找到body,那么body就是父级参照物,如果能找到,这个定位元素就是这个元素的父级参照物
+
+offsetLeft:距离父级参照物左边的距离 从当前元素的外边框到父级参照物的内边框
+offsetTop:距离父级参照物上边的距离
+
+为了开发方便我们一般都是以一个参照物体为准,但是页面上肯定会有很多定位元素,会影响判断,所以我们自己得写一个方法来求元素距离body的偏移量
+-->
+<script type="text/javascript">
+
+    console.log(outer.offsetParent.id);
+    console.log(center.offsetParent.id);
+    console.log(inter.offsetParent.id);//center
+    console.log(body.offsetParent);
+
+
+    function offset(curEle) {
+        var L=curEle.offsetLeft;
+        var T=curEle.offsetTop;
+        var P=curEle.offsetParent;
+        while (P){
+            //IE8浏览器偏移量包括父级参照的边框
+            //只有不是IE8浏览器才执行下面两步
+            //window.navigator.userAgent  判断浏览器的版本,得到一个很长的字符串,只要是这个字符串中有"MSIE 8"这几个字符说明是IE8浏览器
+            if(!/MSIE 8/g.test(window.navigator.userAgent)){
+                L+=P.clientLeft;
+                T+=P.clientTop;
+            }
+            L+=P.offsetLeft;
+            T+=P.offsetTop;
+            P=P.offsetParent;
+        }
+        return{
+            left:L,
+            top:T,
+        }
+    }
+
+    console.log(offset(center).left);
+    console.log(offset(center).top);
+</script>

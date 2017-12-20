@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 500%;
+            background: linear-gradient(red,orangered,yellow,green,deepskyblue,blue,purple);
+        }
+        a{
+            display: none;
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            font-size: 30px;
+            font-weight: 800;
+            color: fuchsia;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:;" id="up">↑</a>
+</body>
+</html>
+<script src="public.js"></script>
+<script type="text/javascript">
+    //需求:当网页滚上去的距离超过一屏了此时显示up
+    var body=document.body;
+    var up=document.getElementById("up");
+    //获取一屏的高
+    var H=$.win("clientHeight");
+    var timer=null;
+    body.onscroll=function () {
+        //判断滚上去的距离是否大于等于H,一旦大于等于H,此时让up显示
+        if($.win("scrollTop")>=H){
+            up.style.display="block";
+        }else {
+            up.style.display="none";
+        }
+    };
+    //给up绑定点击事件,让 scrollTop值不断减小到0,设置定时器让其减小,当scrollTop值小于等于0时候清除定时器
+    up.onclick=function () {
+        timer=setInterval(function () {
+            //先获取scrollTop值
+            var t=$.win("scrollTop");
+            //将这个值减小再赋值给scrollTop
+            $.win("scrollTop",t-=100);
+            //判断临界值
+            if(t<=0){
+                clearInterval(timer)
+            }
+        },10)
+    }
+</script>
