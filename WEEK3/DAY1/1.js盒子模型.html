@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 100.9px;
+            padding: 100px;
+            height: 100px;
+            background: yellowgreen;
+            border: 10px solid red;
+            border-top-width: 30.0006px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">哈啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+</body>
+</html>
+<!--
+height:在css样式中设置了高度,不管内容有没有溢出.获取出来的都是你设置的高度,
+没有设置css样式height,此时获取出来的是真实内容的高度
+
+JS提供了了一系列的方法获取css盒子模型属性值,这些方法我们通常称他为JS盒子模型
+一共有十三个方法
+
+JS盒子模型获取是出的值都是数字,没有单位,浏览器默认四舍五入了,获取出来的都是整数
+client系列
+clientWidth/clientHeight:width/height+左右/上下padding
+clientLeft/clientTop:左/上边框宽度
+
+offset系列
+offsetWidth/offsetHeight:clientWidth/clientHeight+左右/上下border
+offsetLeft/offsetTop:距离父级参照物的左/上偏移量
+offsetParent:父级参照物
+
+scroll系列
+scrollWidth:如果内容没有溢出,跟clientWidth一样的,如果内容有溢出表示真实内容的宽+左padding
+scrollHeight:如果内容没有溢出,跟clientHeight一样的,如果内容有溢出表示真实内容的高+上padding
+scrollLeft:横向滚动的距离
+scrollTop:滚动条滚上去的距离
+
+
+
+注意:
+13个属性只有scrollLeft和scrollTop可以获取和设置,其他都是是只能获取不可以设置
+-->
+<script type="text/javascript">
+    console.log(box.style.width);
+    console.log(window.getComputedStyle(box).width);
+    console.log(window.getComputedStyle(box).height);
+    window.getComputedStyle(box)["width"];
+
+    console.log(box.clientWidth);
+    console.log(box.clientHeight);
+    console.log(box.clientLeft);
+    console.log(box.clientTop);
+
+
+</script>

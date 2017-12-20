@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <style>
+        html,body,div,img{
+            margin: 0;
+            padding:0;
+        }
+        .container{
+            width: 1200px;
+            height:200px ;
+            margin: 50px auto;
+            border: 1px solid saddlebrown;
+            overflow-x: hidden;
+            font-size: 0;
+        }
+        .box{
+            width: 4000px;
+            height: 200px;
+        }
+        .box-begin,.box-end{
+            display: inline-block;
+        }
+        .box img{
+            border: none;
+            width: 200px;
+            height: 200px;
+            filter: blur(3px);
+        }
+        .box img:hover{
+            position: relative;
+            box-shadow: 1px 1px 1px #554e21;
+            top:-2px;
+            filter: blur(0);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <div class="box-begin">
+            <img src="img/0.jpg" alt="">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+            <img src="img/6.jpg" alt="">
+            <img src="img/7.jpg" alt="">
+            <img src="img/8.jpg" alt="">
+            <img src="img/9.jpg" alt="">
+        </div>
+        <div class="box-end">
+            <img src="img/0.jpg" alt="">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+            <img src="img/6.jpg" alt="">
+            <img src="img/7.jpg" alt="">
+            <img src="img/8.jpg" alt="">
+            <img src="img/9.jpg" alt="">
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var container=document.getElementsByClassName("container")[0];
+    var boxBegin=document.getElementsByClassName("box-begin")[0];
+    //获取一个盒子的宽
+    var boxW=boxBegin.offsetWidth;
+    //注意:container有滚动条所有操作的是container的scrollLeft
+    function fn() {
+        //container.scrollLeft一旦大于等于boxW的时候,从0开始,其他情况正常增加即可
+        this.scrollLeft>=boxW?this.scrollLeft=0:this.scrollLeft++;
+    }
+    //设置一个定时器让container的scrollLeft不断增加
+    var timer=window.setInterval(function () {
+        fn.call(container)
+    },20);
+    //给 container绑定鼠标滑过事件,鼠标放上停止定时器
+    container.onmouseover=function () {
+        window.clearInterval(timer);
+    };
+    //鼠标移开 container,定时器继续
+    container.onmouseout=function () {
+        //this container
+        timer=window.setInterval(()=>{fn.call(this)},20);
+    }
+</script>
