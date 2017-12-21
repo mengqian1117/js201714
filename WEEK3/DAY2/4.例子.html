@@ -31,16 +31,23 @@
     //         clearInterval(timer);
     //     }
     // },15)
-    var step=5;
-    var timer=setInterval(function () {
-        var s=$.getCss(box,"left")+step;
-        $.setCss(box,"left",s);
-        if(s>=maxL||s<=0){
-            //返回
-            step*=-1;
-        }
-        // if(s<=0){
-        //     step=5;
-        // }
-    },15)
+    // var step=5;
+    // var timer=setInterval(function () {
+    //     var s=$.getCss(box,"left")+step;
+    //     $.setCss(box,"left",s);
+    //     if(s>=maxL||s<=0){
+    //         //返回
+    //         step*=-1;
+    //     }
+    //     // if(s<=0){
+    //     //     step=5;
+    //     // }
+    // },15)
+
+    $.setCss(box,"width",300);
+    $.setCss(box,"height",300);
+    $.setCss(box,"opacity",1);
+    $.setCss(box,"left",100);
+    $.setCss(box,"top",100);
+    //$.setGroupCss(box,{width:300,height:300,left:100,top:100,opacity:1})
 </script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+    function setCss(curEle,attr,value) {
+        //判断attr 是 width height left right top bottom marginLeft/Right/Top/Bottom paddingLeft/Right/Top/Bottom
+        var reg =/^(width|height|left|right|top|bottom|margin(Left|Right|Top|Bottom)|padding(Left|Right|Top|Bottom))$/;
+        if (reg.test(attr)&&!isNaN(value)){
+            curEle.style[attr]=value+"px";
+        }else {
+            curEle.style[attr]=value;
+        }
+    }
+    //给一个元素批量设置样式
+    //第二个参数是一个对象
+    function setGroupCss(curEle,objCss) {
+        //为了防止objCss.toString()报错,也就是objCss不可以是undefined和null
+        objCss=objCss||[];
+        //判断objCss是一个对象
+        if(objCss.toString()=="[object Object]"){
+            for(var key in objCss){
+                setCss(curEle,key,objCss[key]);
+            }
+        }
+    }
+
+    setGroupCss(box,{width:300,height:300,left:100,top:100,opacity:1,background:"red"});
+
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <style>
+        html,body,ul,li,img,p{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        img{
+            border: none;
+        }
+        body{
+            padding: 10px;
+            background-color: rgba(221,221,221,0.3);
+        }
+        ul{
+            float: left;
+            margin: 0 0.8%;
+            width: 18.4%;
+        }
+        ul li{
+            background-color: #fff;
+            margin: 10px 0;
+            box-shadow: 0px 1px 3px gray;
+            padding-bottom:10px ;
+        }
+        ul li img{
+            width: 100%;
+            opacity: 0;
+            height: 80%;
+        }
+        ul li p{
+            color: #ff4cd4;
+            font-size: 18px;
+            padding: 5px;
+            height: 18%;
+        }
+    </style>
+</head>
+<body>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+</body>
+</html>
+<!--
+页面上五个ul每个ul没有设置高度,让li撑开他
+1.获取5个ul放在数组中(将类数组变成数组)
+2.将数组根据高度排序,找出最矮的ul
+3.找出最矮的ul给他加一个li,这个li的高度是随机的(300-500)
+4.给这个li加一个img,图片也是随机(0-30)
+5.再给li中加一个p标签,p标签中再加点文字
+
+再重新排序,再放,再排序,再放..........
+这个是个循环,你可以来控制循环的次数,比如我们规定一次 放30个li
+-->
+<script src="js/public.js"></script>
+<script>
+    var oUl=document.getElementsByTagName("ul");
+    var imgList=document.getElementsByTagName("img");
+
+    //获取一屏的高
+    var H=$.win("clientHeight");
+    var HH=0;
+    oUl=$.toArray(oUl);
+    function bindHTML(n) {
+        for (let i=0;i<n;i++){
+            //1.按照ul的高度排序
+            oUl.sort((a,b)=>{
+                return $.css(a,"height")-$.css(b,"height");
+            });
+            //2.获取最矮的添加内容
+            oUl[0].innerHTML+=`<li style="height:${$.getRandom(250,380)}px">
+              <img src="img/${$.getRandom(0,30)}.jpg" alt="">
+              <p>喜欢我就收着吧</p></li>`;
+        }
+        //上面循环结束网页的高度就确定
+        HH=$.win("scrollHeight");
+        for(var i=0;i<imgList.length;i++){
+            fadeIn(imgList[i]);
+        }
+    }
+    bindHTML(30);
+    window.onscroll=function () {
+        //当滚上去的距离+一屏的高>=整个网页的高,就到底了,再执行一次bindHTML();
+        if($.win("scrollTop")+H+50>=HH){
+            bindHTML(20);
+        }
+    };
+
+    function fadeIn(img) {
+        var timer=setInterval(()=>{
+            var op=$.css(img,"opacity");
+            $.css(img,"opacity",op+0.01);
+            if($.css(img,"opacity")>=1){
+                clearInterval(timer);
+            }
+        },100)
+    }
+</script>

@@ -1,4 +1,19 @@
 let $=(function () {
+    function toArray(likeArray) {
+        return [].slice.call(likeArray)
+    }
+    function getRandom(n,m) {
+        n=Number(n);
+        m=Number(m);
+        if(!isNaN(n)&&!isNaN(m)){
+            if(n>m){//如果n>m交换位置
+                [n,m]=[m,n];
+            }
+            return Math.round(Math.random()*(m-n)+n)
+        }else {
+            return 0
+        }
+    }
     function win(attr,value) {
         if(arguments.length==1){
             return document.documentElement[attr]||document.body[attr];
@@ -40,10 +55,47 @@ let $=(function () {
             curEle.style[attr]=value
         }
     }
+    function setGroupCss(curEle,objCss) {
+        objCss=objCss||[];
+        if(objCss.toString()=="[object Object]"){
+            for(var key in objCss){
+                this.setCss(curEle,key,objCss[key]);
+            }
+        }
+    }
+    //css:根据参数的不同来实现不同的操作
+    //参数3个:setCss
+    //参数2个:第二个是对象:setGroupCss,不是对象:getCss
+    // function css(curEle,arg1,arg2) {
+    //     if(arguments.length==3){
+    //         this.setCss(curEle,arg1,arg2)
+    //     }else if(arguments.length==2){
+    //         if(arg1.toString()=="[object Object]"){
+    //             this.setGroupCss(curEle,arg1)
+    //         }else {
+    //             return this.getCss(curEle,arg1)
+    //         }
+    //     }
+    // }
+    function css() {
+        if(arguments.length==3){
+            setCss.apply(this,arguments)
+        }else if(arguments.length==2){
+            if(arguments[1].toString()=="[object Object]"){
+                setGroupCss.apply(this,arguments)
+            }else {
+                return getCss.apply(this,arguments)
+            }
+        }
+    }
     return{
+        toArray:toArray,
         win:win,
         offset:offset,
         getCss:getCss,
-        setCss:setCss
+        setCss:setCss,
+        setGroupCss:setGroupCss,
+        css:css,
+        getRandom:getRandom,
     }
 })();
