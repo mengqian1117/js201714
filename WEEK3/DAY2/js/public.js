@@ -25,8 +25,25 @@ let $=(function () {
             left:L
         }
     }
+    function getCss(curEle,attr) {
+        var val=window.getComputedStyle(curEle)[attr];
+        if(/^[+-]?([1-9]\d+|\d)(\.\d+)?(px|pt|pp|em|rem|deg)?$/.test(val)){
+            val=parseFloat(val);
+        }
+        return val;
+    }
+    function setCss(curEle,attr,value) {
+        var reg=/^(width|height|left|right|top|bottom|(margin|padding)(Left|Right|Top|Bottom)?)$/;
+        if(reg.test(attr)&&!isNaN(value)){
+            curEle.style[attr]=value+'px';
+        }else {
+            curEle.style[attr]=value
+        }
+    }
     return{
         win:win,
-        offset:offset
+        offset:offset,
+        getCss:getCss,
+        setCss:setCss
     }
 })();

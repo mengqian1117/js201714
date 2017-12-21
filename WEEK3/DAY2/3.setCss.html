@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 10px;
+            height: 10px;
+            background: red;
+            margin:  10px 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="js/public.js"></script>
+<script type="text/javascript">
+    var w=$.getCss(box,"width");
+    box.style.width=w+100+"px";
+
+    function setCss(curEle,attr,value) {
+        //判断attr 是 width height left right top bottom marginLeft/Right/Top/Bottom paddingLeft/Right/Top/Bottom
+        var reg =/^(width|height|left|right|top|bottom|margin(Left|Right|Top|Bottom)|padding(Left|Right|Top|Bottom))$/;
+        if (reg.test(attr)&&!isNaN(value)){
+            curEle.style[attr]=value+"px";
+        }else {
+            curEle.style[attr]=value;
+        }
+    }
+    setCss(box,"width",1000);
+    setCss(box,"height",100);
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            background: yellowgreen;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+    //left最大值 一屏的宽-box的宽
+    var maxL=$.win("clientWidth")-box.offsetWidth;
+    // var timer=setInterval(function () {
+    //     var s=$.getCss(box,"left")+5;
+    //     $.setCss(box,"left",s);
+    //     if(s>=maxL){
+    //         //清除定时器
+    //         clearInterval(timer);
+    //     }
+    // },15)
+    var step=5;
+    var timer=setInterval(function () {
+        var s=$.getCss(box,"left")+step;
+        $.setCss(box,"left",s);
+        if(s>=maxL||s<=0){
+            //返回
+            step*=-1;
+        }
+        // if(s<=0){
+        //     step=5;
+        // }
+    },15)
+</script>

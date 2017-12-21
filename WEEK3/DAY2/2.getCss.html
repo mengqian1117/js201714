@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+    var w=window.getComputedStyle(box).width;
+    w=parseFloat(w);
+    w+=100;
+    box.style.width=w+"px";
+
+    //单位: px em rem pt deg
+    function getCss(curEle,attr) {
+        var val=window.getComputedStyle(curEle)[attr];
+        //如果val是以px em rem pt deg作为结尾,将单位去掉
+        //除此之外还有只有数字没有单位的
+        if(/^[+-]?([1-9]\d+|\d)(\.\d+)?(px|em|rem|pt|deg)?$/.test(val)){
+            val=parseFloat(val);
+        }
+        return val;
+    }
+
+    console.log(getCss(box, "width"));
+    console.log(getCss(box, "height"));
+    console.log(getCss(box, "opacity"));
+
+</script>

@@ -20,6 +20,7 @@
         #box img{
             width: 100%;
             height: 100%;
+            opacity: 0;
         }
     </style>
 </head>
@@ -48,6 +49,7 @@
     var boxH=box.offsetHeight;
     //获取box的上偏移量
     var boxT=$.offset(box).top;
+    var timer=null,op=0;
     window.onscroll=function () {
         if($.win("scrollTop")+winH>=boxH+boxT){
             //此时图片完全露出来
@@ -62,6 +64,14 @@
             substitute.onload=function () {
                 //进到这里面说明图片地址可以加载出来,是正确的
                 oImg.src=photo;
+                //设置一个定时器让oImg的opacity从0变到1
+                timer=setInterval(function () {
+                    op+=0.001;
+                    oImg.style.opacity=op;
+                    if(op>=1){
+                       clearInterval(timer) ;
+                    }
+                },100)
             };
             //onerror:加载失败
             substitute.onerror=function () {
