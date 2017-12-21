@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html,body,div,img{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            background: #eee;
+        }
+        #box{
+            width: 300px;
+            height: 200px;
+            background: url("img/load.jpg") no-repeat center center;
+            margin: 1000px auto;
+        }
+        #box img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--
+为了保证页面的打开速度防止出现网速崩溃的现象,一般图片比较大,或者比较多的时候我们让部分内容加载,图片后加载,首屏的图片我们必须要展示,我们可以给他一个延迟的时间,其他屏的内容,当图片漏出来之后再加载
+<img src="" alt=""> 只要img的src有地址此时机会主动加载图片
+实现延迟加载的原理:我们不会将真实图片的地址放在img的src属性上,所以一般将真实图片的地址放在这个img的自定义属性上,等到想让这个img加载的时候再将这个真实图片的地址取出来还给src属性,这个时候图片也会自动加载
+
+注意:1.为了保证页面的美观,我们一开始给图片位置加一个占位图(背景图)
+2.地址还给img的src时候,我们需要检验一下这个地址是否正确
+-->
+<div id="box">
+    <img src="" alt="" photo="img/10.jpg">
+</div>
+</body>
+</html>
+<script src="js/public.js"></script>
+<script type="text/javascript">
+    var box=document.getElementById("box");
+    var oImg=box.getElementsByTagName("img")[0];
+    //获取一屏的高
+    var winH=$.win("clientHeight");
+    //获取box的高
+    var boxH=box.offsetHeight;
+    //获取box的上偏移量
+    var boxT=$.offset(box).top;
+    window.onscroll=function () {
+        if($.win("scrollTop")+winH>=boxH+boxT){
+            //此时图片完全露出来
+            //先将图片的真实地址从自定义属性photo中取出来
+            var photo=oImg.getAttribute("photo");
+            //将真实地址还给oImg之前先验证一下这个地址是否正确
+            //创建一个oImg的替身
+            var substitute=new Image;
+            //将地址photo先给替身试试
+            substitute.src=photo;
+            //onload:加载成功
+            substitute.onload=function () {
+                //进到这里面说明图片地址可以加载出来,是正确的
+                oImg.src=photo;
+            };
+            //onerror:加载失败
+            substitute.onerror=function () {
+                //进到这里面说明图片地址加载不出来,是错误的
+                console.log("图片地址错误");
+            };
+        }
+    }
+</script>
