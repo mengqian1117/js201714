@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body,div,ul,li{
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+        }
+        html,body{
+            width: 100%;
+            background-color: #ddd;
+        }
+        div{
+            width:95% ;
+            margin: 0 auto;
+            color: #fff;
+            font-size: 50px;
+            text-align: center;
+        }
+        ul.floor{
+            width: 80px;
+            font-size: 20px;
+            border: 1px dashed rosybrown;
+            position: fixed;
+            left: 10px;
+            top: 50%;
+            margin-top: -180px;
+        }
+        ul,li{
+           list-style: none;
+        }
+        .floor li{
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #fff;
+        }
+        .floor li:hover{
+            background-color: #ff4538;
+            color: #fff;
+        }
+        .floor li.select{
+            background-color: #ff4538;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div><img src="img/clothes.png" alt=""></div>
+<div><img src="img/appliances.png" alt=""></div>
+<div><img src="img/digital.png" alt=""></div>
+<div><img src="img/3c.png" alt=""></div>
+<div><img src="img/foods.png" alt=""></div>
+<div><img src="img/childs.png" alt=""></div>
+<div><img src="img/books.png" alt=""></div>
+<div><img src="img/games.png" alt=""></div>
+<div><img src="img/travel.png" alt=""></div>
+<ul class="floor">
+    <li id="0">服饰</li>
+    <li id="1">家电</li>
+    <li id="2">数码</li>
+    <li id="3">3C</li>
+    <li id="4">吃货</li>
+    <li id="5">母婴</li>
+    <li id="6">图书</li>
+    <li id="7">游戏</li>
+    <li id="8">旅游</li>
+    <li id="9">顶部</li>
+</ul>
+</body>
+</html>
+<script src="js/public.js"></script>
+<script src="js/floor.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<script>-->
+    <!--var divs=document.getElementsByTagName("div");-->
+    <!--var floor=document.getElementsByClassName("floor")[0];-->
+    <!--var oLis=floor.getElementsByTagName("li");-->
+    <!--var timer=null;-->
+    <!--for(var i=0;i<divs.length;i++){-->
+        <!--divs[i].style.height=Math.round(Math.random()*(600-400)+400)+"px";-->
+        <!--divs[i].style.backgroundColor="rgb("+Math.round(Math.random()*(255-0))+","+Math.round(Math.random()*(255-0))+","+Math.round(Math.random()*(255-0))+")";-->
+        <!--oLis[i].setAttribute("_h",offset(divs[i]).top);-->
+        <!--oLis[i].onclick=function(){-->
+            <!--window.clearInterval(timer);-->
+            <!--var _this=this;-->
+            <!--var _h=this.getAttribute("_h");-->
+            <!--var _H=win("scrollTop");-->
+            <!--if(_H>=_h){-->
+               <!--timer=window.setInterval(function(){-->
+                    <!--if(win("scrollTop")<=_h){-->
+                        <!--window.clearInterval(timer);-->
+                        <!--return;-->
+                    <!--}-->
+                    <!--win("scrollTop",_H-=10);-->
+                <!--},1)-->
+            <!--}else{-->
+                <!--timer=window.setInterval(function(){-->
+                    <!--if(win("scrollTop")>=_h){-->
+                        <!--window.clearInterval(timer);-->
+                        <!--return-->
+                    <!--}-->
+                    <!--win("scrollTop",_H+=10);-->
+                <!--},1)-->
+            <!--}-->
+        <!--}-->
+    <!--};-->
+    <!--window.onscroll=sel;-->
+    <!--function sel(){-->
+        <!--var _H=win("scrollTop");-->
+
+    <!--}-->
+
+    <!--function offset(curEle){-->
+        <!--//先求一次当前元素的偏移量和父级参照物-->
+        <!--var l=curEle.offsetLeft;-->
+        <!--var t=curEle.offsetTop;-->
+        <!--var p=curEle.offsetParent;-->
+        <!--while(p){-->
+            <!--//在IE8浏览器中,偏移量包含了父级 参照物的边框-->
+            <!--if(window.navigator.userAgent.indexOf("MSIE 8")===-1){-->
+                <!--l+= p.clientLeft;-->
+                <!--t+= p.clientTop;-->
+            <!--}-->
+            <!--l+= p.offsetLeft;-->
+            <!--t+= p.offsetTop;-->
+            <!--p= p.offsetParent;-->
+        <!--}-->
+        <!--return{-->
+            <!--left:l,-->
+            <!--top:t-->
+        <!--}-->
+    <!--};-->
+    <!--function win(attr,value){-->
+        <!--if(arguments.length===1){-->
+            <!--return document.documentElement[attr]||document.body[attr];-->
+        <!--}else{-->
+            <!--document.documentElement[attr]=value;-->
+            <!--document.body[attr]=value;-->
+        <!--}-->
+    <!--};-->
+
+<!--</script>-->
