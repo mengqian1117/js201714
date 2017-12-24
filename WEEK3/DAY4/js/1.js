@@ -34,6 +34,7 @@ window.onload=function () {
                 H-=50;
                 $.win("scrollTop",H);
                 if($.win("scrollTop")<=_L){
+                    $.win("scrollTop",_L);
                     clearInterval(timer)
                 }
             },20);
@@ -42,6 +43,7 @@ window.onload=function () {
                 H+=50;
                 $.win("scrollTop",H);
                 if($.win("scrollTop")>=_L){
+                    $.win("scrollTop",_L);
                     clearInterval(timer)
                 }
             },20)

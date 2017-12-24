@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box {
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">哈哈哈
+    <p>我是p标签</p>
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+</div>
+<p>我是box的弟弟</p>
+<ul id="ul">
+    <li class="list1 list">哈哈</li>
+    <li class="list">哈哈</li>
+    <li class="list1 list2">呵呵</li>
+    <li class="list-li list1">呵呵</li>
+    <li class="1list">嘿嘿</li>
+</ul>
+<span><i></i></span>
+<span>哈哈</span>
+<span></span>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script>
+    /*
+    //$在这就是当前JQuery对象
+    //这里其实就是人家自定定义了一个变量$=JQuery
+    //你自己也可以修改一个名字 例如
+    //var mq=jQuery;//mq 就代表当前JQuery
+    //原生JS获取出来的元素是原生对象,可以使用原生JS提供的方法
+    var box=document.getElementById("box");
+
+    //通过JQ选择器选择出来的是一个JQ对象,此时只可以使用JQ提供的方法
+    console.log($("#box")[0]==box);
+    //JQ对象变成原生对象
+    //JQ对象[索引]
+    console.log($(".list")[2]);
+
+    //将原生对象变成JQ对象
+    //$(原生对象)-->JQ对象
+    console.log($(box));
+    */
+
+    //基本选择器
+    //ID选择器
+    $("#box");
+    //类选择器
+    $(".list");
+    //标签选择器
+    $("div");
+    //通配符
+    $("*");
+    // 集合选择器
+    $("div,p");
+
+    //层级关系选择器
+    //后代选择的器
+    $("div p");
+    //子代选择器
+    $("ul>li");
+    //下一个弟弟选择器
+    $("div+p");
+    //所有的弟弟选择器
+    $("div~");
+
+    //基本过滤选择器
+    //:first
+    $("#ul li:first");
+    //:last
+    $("#ul li:last");
+    //:odd 奇数 索引是奇数
+    $("#ul li:odd");
+    //:even 偶数 索引是偶数
+    $("#ul li:even");
+    //:not() 非,不是的意思
+    $("#ul li:not('.list')");
+    //:eq(n) 索引
+    $("#ul li:eq(3)");
+    //:gt(n) 索引大于n的
+    $("#ul li:gt(2)");
+    //:lt(n) 索引小于n的
+    $("#ul li:lt(2)");
+    //:header 获取所有的h1-h6标签
+    $("#box :header");
+    //:animated获取所有的正在进行动画的标签(js动画,CSS3动画不行)
+
+    //内容过滤选择器
+    //:contains(内容)  选择出含有指定内容的元素
+    $("#ul li:contains('呵呵')");
+    //:has()
+    $("div:has(p)");//包含p标签的div
+    //:empty 空元素
+    $("span:empty");
+    //:parent 非空元素
+    $("span:parent");
+
+    //可见性过滤选择器
+    //:hidden 隐藏元素
+    //:visible 可见性元素
+
+    //属性过滤选择器
+    //[属性名]
+    $("li[class]");
+    //[属性名=XX] 这里不是包含是完全相等
+    $("li[class=list1]");
+    //[class!=list1]
+    //[class^=list]
+    $("li[class^=list]");//"list1"也是以list作为开头
+    //[class$=list]
+    $("li[class$=list]");//"1list"也是以list作为结尾
+    //[class*=list]
+    $("li[class*=list]");//类名中只要是有list即可
+    //[class|=list]
+    $("li[class|=list]");//类名必须是list或者是list-作为前缀
+    //[class~=list]
+    $("li[class~=list]");//li的类名必须有一个是list
+
+
+
+    //子元素过滤选择器
+    //1.  :nth-child(1)  第一个孩子
+    $("div p:nth-child(1)");
+    //2.  :nth-child(odd) 是第奇数个孩子
+    $("div span:nth-child(odd)");
+    //3.  :nth-child(even) 是第偶数个孩子
+    $("div span:nth-child(even)");
+    //4.  :nth-child(3n)  n从1开始 是第3的倍数个孩子
+    $("div span:nth-child(3n)");
+    //5.  :first-child
+    //6.  :last-child
+</script>
