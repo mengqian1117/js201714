@@ -106,15 +106,14 @@ var $ = (function () {
             }
         }
     }
-
     return {
-        toArray: toArray,
-        win: win,
-        offset: offset,
-        getRandom: getRandom,
-        getCss: getCss,
-        setCss: setCss,
-        setGroupCss: setGroupCss,
-        css: css
+        toArray,
+        win,
+        offset,
+        getRandom,
+        getCss,
+        setCss,
+        setGroupCss,
+        css
     }
 })();

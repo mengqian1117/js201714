@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: #2b7dd1;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点点</button>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+    function hasClass(curEle,className) {
+        return new RegExp("(^| )"+className+"( |$)","g").test(curEle.className)
+    }
+    function addClass(curEle,...arg) {
+        for(var i=0;i<arg.length;i++){
+            if(!hasClass(curEle,arg[i])){
+                curEle.className+=" "+arg[i];
+            }
+        }
+        curEle.className=curEle.className.replace(/^ /,"");
+    }
+    function removeClass(curEle,...arg) {
+        for(var i=0;i<arg.length;i++){
+            var reg=new RegExp("(^| )"+arg[i]+"( |$)","g");
+            curEle.className=curEle.className.replace(reg," ");
+        }
+        curEle.className=curEle.className.replace(/^ | $/g,"");
+    }
+    function toggleClass(curEle,className) {
+        if(hasClass(curEle,className)){
+            removeClass(curEle,className);
+        }else {
+            addClass(curEle,className);
+        }
+    }
+    btn.onclick=function () {
+        toggleClass(box,"box")
+    }
+</script>

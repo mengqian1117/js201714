@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box" class="box11 box22 box1 box2"></div>
+</body>
+</html>
+<script type="text/javascript">
+    //curEle:当前元素
+    //arg:要移除的类名组成的数组
+    function removeClass(curEle,...arg) {
+        for(var i=0;i<arg.length;i++){
+            //arg[i]这个类名来写正则
+            var reg=new RegExp("(^| )"+arg[i]+"( |$)","g");
+            curEle.className=curEle.className.replace(reg," ");
+        }
+        //最终清除首尾空格
+        curEle.className=curEle.className.replace(/^ | $/,"");
+    }
+    removeClass(box,"box1","box2");
+</script>

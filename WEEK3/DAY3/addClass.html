@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+    function hasClass(curEle,className) {
+        return new RegExp("(^| )"+className+"( |$)","g").test(curEle.className);
+    }
+
+    //给元素增加一个或者多个类名
+    //curEle:当前元素
+    //arguments[1....]:类名
+    function addClass(curEle,...arg) {
+        //arg:类名组成的数组
+        //循环arg给当前元素curEle增加类名
+        for(var i=0;i<arg.length;i++){
+            //增加之前先判断,如果之前有这个类名就不加.没有才加上
+            if(!hasClass(curEle,arg[i])) {
+                //注意:增加类名必须要加一个空格隔开
+                curEle.className+=" "+arg[i];
+            }
+        }
+        //如果之前没有类名最终className最前面就会多个空格
+        curEle.className=curEle.className.replace(/^ /,"");
+    }
+    addClass(box,"box1",'box2',"box3")
+</script>
