@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top:0;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<p id="p"></p>
+</body>
+</html>
+<script src="js/public.js"></script>
+<script src="js/animation.js"></script>
+<script type="text/javascript">
+/*
+    HTMLDivElement.prototype.animation=function () {
+        console.log(1);
+    };
+    console.log(box.animation);
+    console.dir(p);
+    HTMLElement.prototype.animation=function () {
+        console.log(1);
+    };
+    console.log(p.animation);
+
+    Element.prototype.animation=function () {
+        console.log(this);
+    }
+    */
+// box.animation({left:1200},function () {
+//     this.style.backgroundColor="green";
+//     this.animation({left:0},function () {
+//         this.animation({left:1200})
+//     })
+// });
+
+    function go() {
+        this.animation({left:1200},back)
+    }
+    function back() {
+        this.animation({left:0},go)
+    }
+    go.call(box);
+
+</script>

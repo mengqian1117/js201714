@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 0;
+            top:0;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="js/public.js"></script>
+<script type="text/javascript">
+    function animation(curEle,target={},duration=2000,interval=13,effect=0,callback) {
+        //curEle:当前执行动画的元素
+        //target:目标位置 对象例如{left:1000,top:400,width:300}
+        //duration:总时间
+        //interval:频率
+        //effect:运动曲线
+        //callback:动画完成之后执行的函数
+        //处理callback,没传或者是传的不是一个函数了,后面让他执行就报错了,让他等于一个空函数即可
+        if(typeof callback!="function"){
+            callback=function () {};
+        }
+        //设置其他变量
+        var time=0,timer=null,begin={};
+        //根据target给begin赋值
+        //target必须存在并且是一个对象
+        if(target&&target.toString()=="[object Object]"){
+            for(var key in target){
+                begin[key]=$.css(curEle,key);
+            }
+        };
+        //处理运动曲线
+        function linear(t, b, c, d) {
+            return c * t / d + b;
+        };
+        function QuadEaseIn(t, b, c, d) {
+            return c * (t /= d) * t + b;
+        };
+        function QuadEaseOut(t, b, c, d) {
+            return -c * (t /= d) * (t - 2) + b;
+        };
+        var effectAry=[linear,QuadEaseIn,QuadEaseOut];
+        effect=effectAry[effect];
+
+        //开启定时器执行动画
+        timer=setInterval(()=>{
+            time+=interval;
+            if(time>=duration){
+                clearInterval(timer);
+                for (var key in target){
+                    $.css(curEle,key,target[key]);
+                }
+                //让 callback中的this变成当前元素
+                callback.call(curEle);
+                return;
+            };
+            for(var key in target){
+                $.css(curEle,key,effect(time,begin[key],target[key]-begin[key],duration));
+            }
+        },interval);
+    };
+
+    animation(box,{width:150,height:150,left:1200,top:400},3000,17,1,function () {
+        this.style.backgroundColor="green";
+    });
+</script>
