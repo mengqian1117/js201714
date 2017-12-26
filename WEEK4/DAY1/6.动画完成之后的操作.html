@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box {
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            background: yellowgreen;
+            left: 0;
+            top: 50px;
+            opacity: 0;
+        }
+        #box.box{
+            border-radius: 50%;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="js/public.js"></script>
+<script type="text/javascript">
+    var duration=3000;
+    var begin={
+        width:0,
+        height:0,
+        left:0,
+        opacity:0
+    };
+    var target={
+        width:100,
+        height:100,
+        left:1000,
+        opacity:1
+    };
+    var time=0,interval=20,timer=null;
+    function linear(b,t,d,time) {
+        return b+(t-b)/d*time
+    };
+    timer=setInterval(()=>{
+        time+=interval;
+        if(time>=duration){
+            clearInterval(timer);
+            //既然想要这里完成动画if外面的代码就不可以执行了,此时加上一个return,但是加上return之后就少了一步此时我们帮他完成最后一步即可,最后一步其实就是让每一个维度到达目标值
+            for(var key in target){
+                $.css(box,key,target[key])
+            }
+            //走完最后一步,在这里动画完成,以后动画完成的操作写在这里即可
+            box.className="box";
+            return;
+        }
+        for (var key in target){
+            $.css(box,key,linear(begin[key],target[key],duration,time))
+        }
+    },interval)
+</script>

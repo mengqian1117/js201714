@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<!--
+一个动画不仅仅是想让left值变化,也想让top,height,width,opacity都有动画
+让他们同时完成动画,此时总时间是一样的
+总时间duration:2000ms
+left   的目标值target:$.win("clientWidth")-box.offsetWidth
+opacity的目标值:1
+left的总路程=目标值-起始位置=target-begin
+left步长step需要计算:每一段时间(频率,定时器的第二个参数)走的距离
+速度=总路程/总时间  单位时间走的距离 在这里就是一毫秒走的距离
+step=速度*频率=总路程/总时间 * 频率= (target-begin)/duration * interval
+
+-->
+</body>
+</html>
+<script src="js/public.js"></script>
+<script type="text/javascript">
+    //总时间
+    var duration = 2000;
+    //起始位置
+    var begin = $.css(box, "left");
+    //目标位置
+    var target = $.win("clientWidth") - box.offsetWidth;
+    //频率
+    var interval = 20;
+    //计算步长
+    var step = (target - begin) / duration * interval;
+    //设置定时器开启动画
+    var timer=setInterval(()=>{
+        var l=$.css(box,"left");
+        l+=step;
+        if(l>=target) {
+            l = target;
+            clearInterval(timer)
+        }
+        $.css(box,"left",l);
+    },interval)
+</script>

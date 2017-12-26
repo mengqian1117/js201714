@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<!--
+固定步长动画
+目标值:一屏的宽-盒子本身宽
+步长step:5px
+-->
+<script src="js/public.js"></script>
+<script type="text/javascript">
+    //设置一个定时器每隔一段时间(频率,定时器的第二个参数),走一步(步长step)
+    //到达目标值清除定时器
+
+    var maxL=$.win("clientWidth")-box.offsetWidth;
+    //设置步长
+    var step=5;
+    var timer=setInterval(()=>{
+        //先获取当前left值
+        var l=$.css(box,"left");
+        //加上步长
+        l+=step;
+        //如果最后一步不够步长,如果走了这一步就会超出最大值,所以说最后一步我们帮他走 ,到达临界值时候直接将最值赋给box即可
+        if(l>=maxL){
+            clearInterval(timer);
+            // $.css(box,"left",maxL);
+            // //加return就是不让他走最后一步
+            // return;
+            l=maxL;
+        }
+        //再给box设置加之后的left值
+        $.css(box,"left",l);
+    },20)
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            left: 0;
+            top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+    var t = 1000;
+    var b = 0;
+    var interval = 20;
+    function linear(b, t, d, time) {
+        return b + (t - b) / d * time
+    };
+    function go() {
+        var d = 1000;
+        var time = 0;
+        timer=setInterval(()=>{
+            time+=interval;
+            if(time>=d){
+                clearInterval(timer);
+                $.css(box,"left",t);
+                //当前go完成,执行back
+                back();
+                return;
+            }
+            $.css(box,"left",linear(b,t,d,time))
+        },interval);
+    }
+    function back() {
+        var d=3000;
+        var time=0;
+        timer=setInterval(()=>{
+            time+=interval;
+            if(time>=d){
+                clearInterval(timer);
+                $.css(box,"left",b);
+                //back完成,执行go
+                go();
+                return;
+            }
+            $.css(box,"left",linear(t,b,d,time))
+        },interval);
+    }
+    go();
+
+</script>

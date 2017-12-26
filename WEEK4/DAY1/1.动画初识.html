@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<h1 id="title"></h1>
+<h2 id="h2"></h2>
+</body>
+</html>
+<script type="text/javascript">
+    var str="今天是星期二,我上课没有迟到";
+    var index=0;
+    var timer=setInterval(()=>{
+        title.innerHTML+=str[index++];
+        if(index==str.length){
+            clearInterval(timer);
+        }
+    },500);
+
+    h2.innerHTML="哈哈";
+
+    //JS动画其实就是一个定时器,定时器是异步的,所以说动画也是异步的,不影响后面的代码执行,一个页面上很多动画可以一起执行
+    //动画完成之后一定要清除定时器
+</script>

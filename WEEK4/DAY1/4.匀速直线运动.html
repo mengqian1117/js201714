@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<!--
+总时间duration
+起始位置begin
+目标位置target
+例如left值,让left不断变化,那么就去求出每时每刻的left值
+
+当前left=起始位置+走过的距离
+        =begin+速度*时间
+        =begin+总距离/总时间 *时间
+        =begin+(target-begin)/duration *time
+-->
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+    //匀速直线运动公式
+    //begin+(target-begin)/duration *time
+    function linear(begin,target,duration,time) {
+        return begin+(target-begin)/duration *time
+    }
+    var duration=2000;
+    var begin=$.css(box,"left");
+    var target=$.win("clientWidth")-box.offsetWidth;
+    var interval=20, time=0;
+    var timer=setInterval(()=>{
+        //唯一的变量就是time,每一次加的时间间隔是interval
+        time+=interval;
+        //时间到了清除定时器
+        if(time>=duration){
+            clearInterval(timer);
+            time=duration;
+        }
+        //利用公式求出当前left,赋给box的left
+        $.css(box,"left",linear(begin,target,duration,time));
+    },interval)
+</script>

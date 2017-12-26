@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box {
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            background: yellowgreen;
+            left: 0;
+            top: 50px;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+    //实现width,height,top,left,opacity五个维度的动画
+    //这五个维度的起始位置和目标位置不一样,如果使用变量表示变量就太多了,不利于优化,所以将起始位置和目标位置都写成一个对象,将五个维度的值存起来
+    var duration=2000;
+    var begin={
+        width:box.offsetWidth,
+        height:box.offsetHeight,
+        top:$.css(box,"top"),
+        left:$.css(box,"left"),
+        opacity:0
+    };
+    var target={
+        width:300,
+        height:200,
+        //注意:这里最大值要减去改变后的宽和高
+        top:$.win("clientHeight")-200,
+        left:$.win("clientWidth")-300,
+        opacity:1
+    };
+    var time=0,interval=20,timer=null;
+    function linear(begin,target,duration,time) {
+        return begin+(target-begin)/duration*time;
+    }
+    timer=setInterval(()=>{
+        time+=interval;
+        //临界值判断
+        if(time>=duration){
+            clearInterval(timer);
+            time=duration;
+        }
+        //循环target求出每个维度的linear函数的值
+        for (var key in target){
+            $.css(box,key,linear(begin[key],target[key],duration,time))
+        }
+    },interval);
+
+</script>
