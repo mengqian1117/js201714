@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="banner1" class="banner">
+    <div class="bannerInner"></div>
+    <ul class="focusList"></ul>
+    <a class="left" href="javascript:;"></a>
+    <a class="right" href="javascript:;"></a>
+</div>
+<div id="banner2" class="banner">
+    <div class="bannerInner"></div>
+    <ul class="focusList"></ul>
+    <a class="left" href="javascript:;"></a>
+    <a class="right" href="javascript:;"></a>
+</div>
+<div id="banner3" class="banner">
+    <div class="bannerInner"></div>
+    <ul class="focusList"></ul>
+    <a class="left" href="javascript:;"></a>
+    <a class="right" href="javascript:;"></a>
+</div>
+</body>
+</html>
+<script src="js/public.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/Banner.js"></script>
+<script type="text/javascript">
+    //id,数据的url,duration,interval
+    var banner=Banner("banner1","json/data.json");
+    banner.autoMove().lRChange().focusChange();
+
+    Banner("banner2","json/data.json",2000,3000).lRChange();
+    Banner("banner3","json/data.json").focusChange().lRChange();
+</script>

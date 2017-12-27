@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box">
+    <p></p>
+</div>
+<div class="box"></div>
+<div class="box"></div>
+<span id="span1"></span>
+<p id="p1"></p>
+<p id="p2"></p>
+<ul id="list">
+    <li>
+        <ul>
+            <li class="li1"></li>
+            <li></li>
+        </ul>
+    </li>
+    <li></li>
+    <li id="li0"></li>
+    <li></li>
+    <li></li>
+</ul>
+<div id="box2" style="width: 100px;height: 100px;padding: 20px;margin: 30px;background: yellowgreen;border: 10px solid red"></div>
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    //JQ有一个很强大的功能就是链式写法
+    // $("#box").css({width:100,height:100,background:"red",position:"absolute"}).animate({left:1000},2000);
+    //1.文档处理
+    var p1=document.createElement("p");
+    p1.innerHTML="大家好我是p1";
+    //原生方法
+    box.appendChild(p1);
+    //JQ: 父级(JQ对象).append(元素,可以是JQ对象也可以是原生对象)
+    //$("#box").append($("#span1"))
+    //$("#box").append($("#span1")[0])
+    //JQ对象.appendTo(父级)
+    //$("#span1").appendTo($("#box"));
+
+    //父元素.prepend(子元素)   往父元素的前面加
+    //子元素.prependTo(父元素) 往父元素的前面加
+    //$("#box").prepend($("#span1"))
+
+    //原生JS  父级元素.insertBefore(元素1,元素2)将元素1加在元素2前面
+    //JQ: after/before 加在当前元素的后面/前面
+    //元素1.after(元素2)   在元素1的后面加上元素2
+    //元素1.before(元素2)  在元素1的前面加上元素2
+    //$(p1).before($("#span1"));
+
+    //JQ对象.insertBefore(指定元素)  将JQ对象加在指定元素的前面
+    //JQ对象.insertAfter(指定元素)   将JQ对象加在指定元素的后面
+    $("#span1").insertAfter($(p1));
+
+    //remove()移除元素
+    $("div").remove(".box");//将所有div中类名是box的div删除
+
+    //通过JQ方法的到的一个JQ对象
+    //next()获取下一个弟弟元素
+    //prev()获取上一个哥哥元素
+    console.log($("#p1").next());
+    //nextAll()获取所有的弟弟
+    //prevAll()获取所有的哥哥
+    //sibilings()获取所有的兄弟
+
+    //JQ方法有一个好处,获取出的是一组元素但是使用JQ方法的时候默认会给每一个元素使用
+    $("#list li").css({background:"red",margin:30});
+    $("#li0").css({background:"red"}).siblings().css({background:"green"});
+
+
+    //筛选
+    //eq(索引),first(),last()
+    $("#list li")[3];
+    $("#list li").eq(3);//获取索引为3的JQ对象
+    $("#list li").last();//获取最后一个
+    $("#list li").first();//获取第一个
+
+    //filter:同级过滤
+    $("#list li").filter("#li0");//在li中去选择ID是li0的li
+
+    //children:子级过滤
+    $("#list").children("#li0");//从#list的孩子们中找id名是li0的
+
+    //find:后代过滤
+    $("#list").find(".li1");//从#list的后代(子子孙孙中)找
+
+    //parent()一个父亲
+    //parents() 父亲们
+    console.log($("#li0").parent());
+    console.log($("#li0").parents());
+    //#li0的父亲,父亲的父亲,父亲的父亲的父亲,...html
+
+    //attr()获取/设置属性,设置的属性都会显示在标签上
+    $("#box").attr("zf","珠峰");
+    //获取
+    console.log($("#box").attr("zf"));
+    //批量设置 {}
+    $("#box").attr({zf:"zf",mq:"mq",lk:"lk"});
+
+    //prop 类似于原生JS中点的方法
+    //内置属性会显示在HTML结构上,如果是自定义属性不会显示在html结构上
+    $("#box").prop("class","box");
+    $("#box").prop("c","box");
+
+    //css()设置/获取样式
+    // 获取 有单位
+    console.log($("#box").css("width"));
+    //设置 值可以加上单位也可以直接是数字
+    $("#box").css("width","200px");
+    $("#box").css("width",400);
+    //批量设置 {}
+
+    //offset()获取偏移量
+    $("#box").offset().top;//上偏移量
+    $("#box").offset().left;//左偏移量
+
+    //scrollTop()/scrollLeft()
+    //不传参数是获取,传参数是设置
+
+    //width()/height()
+    //不传参数是获取,传参数是设置
+    console.log($("#box").width());
+
+    //innerWidth()/innerHeight() 类似于clientWidth/clientHeight
+    //但是innerWidth()/innerHeight()不传参数是获取,传参数是设置
+    //注意设置时候padding不变的改变的是width和height
+
+    //outerWidth()/outerHeight()类似于offsetWidth/offsetHeight
+    //不传参数是获取,传参数是设置
+    //注意设置时候padding和border都不变的改变的是width和height
+    //注意:如果你传一个true是获取,并且获取包括margin
+
+    //.log($("#box2").outerWidth(true));
+    $("#box2").outerWidth(400);
+</script>
