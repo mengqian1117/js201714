@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div id="banner1" class="banner">
+<div id="banner" class="banner">
     <div class="bannerInner">
         <!--图片的区域-->
         <!--<div><img src="" alt=""></div>-->
@@ -14,9 +14,20 @@
     <ul class="focusList">
         <!--焦点区域-->
     </ul>
-    <a class="left" href="javascript:void 0"></a>
+    <a class="left" href="javascript:;"></a>
     <a class="right" href="javascript:void 0"></a>
 </div>
 </body>
 </html>
-<script type="text/javascript"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/animation.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script>
+    getData();
+    bindHTML(data);
+    delayLoad();
+    timer=setInterval(move,2000);
+    mouseEvent();
+    btnEvent();
+    focusChange();
+</script>
