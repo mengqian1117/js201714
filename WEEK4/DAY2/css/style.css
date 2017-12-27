@@ -1,0 +1,78 @@
+html,body,div,ul,li,img,a{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+.banner{
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 30px auto;
+    overflow: hidden;
+    background: url("../img/default.gif") no-repeat center #fff9f9;
+}
+.banner .bannerInner{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3200px;
+    height: 400px;
+}
+.banner .bannerInner div{
+    width: 800px;
+    height: 400px;
+    float: left;
+}
+.banner .bannerInner div img{
+    width: 100%;
+    height: 100%;
+    border: none;
+    vertical-align: top;
+    opacity: 0;
+}
+.banner .focusList{
+    position: absolute;
+    right : 30px;
+    bottom: 30px;
+    background: #fff;
+    opacity: 0.7;
+    border-radius: 5px;
+}
+.banner .focusList li{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #000;
+    float: left;
+    margin: 2px 5px;
+    cursor: pointer;
+}
+.banner .focusList li.selected{
+    background: red;
+}
+.banner .left,.banner .right{
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: url("../img/pre.png") no-repeat;
+    top : 50%;
+    margin-top: -20px;
+    opacity: 0.7;
+}
+.banner .left{
+    left : 0;
+}
+.banner .right{
+    right: 0;
+    background-position: -48px 0;
+}
+.banner a:hover{
+    opacity: 1;
+}
+.banner:hover a.left,.banner:hover a.right{
+    display: block;
+}
+
