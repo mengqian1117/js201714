@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(".box").eq(0).css({width:100,height:100,border:"1px solid red"}).siblings("div").css({width:200,height:200,background:'green',margin:10,display:'inline-block'}).click(function () {
+        //this:原生对象
+        //this.style.background="red"
+        //想使用JQ方法必须变成一个JQ对象
+        $(this).css({background:"red"})
+    });
+    //JQ对象.each()
+    $(".box").each(function (index, item) {
+        //item:当前项并且是一个原生对象
+        //this:item
+        console.log(index);
+        console.log(item == this);//true
+    });
+    //$.each(想要遍历的内容,function(){});
+    var ary=[1,2,3];
+    var boxs=document.getElementsByClassName("box");
+    $.each(ary,function (index,item) {
+        console.log(index,item);
+        console.log(this==item);
+    });
+    $.each(boxs,function (index,item) {
+        console.log(item==this);
+    })
+    //区别:遍历一个JQ对象使用each()方法即可,如果遍历一个非JQ对象可以使用$.each()方法
+
+</script>

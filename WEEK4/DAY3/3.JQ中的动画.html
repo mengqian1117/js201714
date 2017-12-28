@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            position: absolute;
+            left:650px;
+            /*display: none;*/
+            width: 10px;
+            height: 10px;
+            margin: 20px auto;
+            background: yellowgreen;
+        }
+        #btn{
+            display: block;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 20px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">操作</button>
+<div id="box"></div>
+
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $("#btn").click(function () {
+        //show()/hide()
+        //$("#box").show()
+        //$("#box").hide();
+        //show/hide("快fast"/"慢slow"/时间ms)
+        //$("#box").hide("fast");
+        //$("#box").hide("slow")
+        //$("#box").hide(2000)
+
+        //slideUp()/slideDown()/slideToggle() 收起来/展开
+        //$("#box").slideUp();
+        //$("#box").slideDown(3000);
+        //$("#box").slideDown("fast");
+        //$("#box").slideDown("slow");
+        //$("#box").slideToggle()
+
+        //fadeIn()/fadeOut()
+        //$("#box").fadeIn("slow")
+        //$("#box").fadeIn(2000);
+        //$("#box").fadeToggle(2000);
+
+        //注意:执行动画之前先执行一个stop()
+        // $("#box").stop().slideToggle();
+        //delay(时间)延迟
+        //$("#box").stop().delay(2000).slideDown();
+
+        $("#box").animate({top:500,width:100,height:100},2000, function (){
+            console.log(this);//当前元素
+        })
+    })
+</script>
