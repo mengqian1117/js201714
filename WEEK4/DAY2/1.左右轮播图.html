@@ -30,4 +30,14 @@
     mouseEvent();
     btnEvent();
     focusChange();
+    document.onvisibilitychange=function () {
+        if(document.visibilityState=="hidden"){
+            clearInterval(timer);
+        }else {
+            timer=setInterval(move,2000);
+        }
+    }
+    // document.addEventListener("wekitVisibilitychange",function () {
+    //
+    // })
 </script>
