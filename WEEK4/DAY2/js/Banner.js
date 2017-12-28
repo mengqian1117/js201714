@@ -61,8 +61,9 @@ let Banner=function (id,url,duration,interval) {
     }
     function focusFollow() {
         for(let i=0;i<list.length;i++){
-            if(i==data.length)list[0].className="selected";
+            if(step==data.length) list[0].className="selected";
             list[i].className=i==step?"selected":"";
+
         }
     }
     function autoMove() {
@@ -88,7 +89,9 @@ let Banner=function (id,url,duration,interval) {
                     $.css(bannerInner,"left",-W*step);
                 }
                 step--;
-                bannerInner.animation({left:-W*step},duration);
+                bannerInner.animation({left:-W*step},duration,function () {
+                    isClick=true;
+                });
                 focusFollow();
             }
         };
