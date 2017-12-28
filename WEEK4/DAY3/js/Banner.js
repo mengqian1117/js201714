@@ -15,7 +15,7 @@ window.Banner = function (id, url, duration, interval) {
     if (duration > interval) [duration, interval] = [interval, duration];
     this.duration = duration || 1000;
     this.interval = interval || 2000;
-    document.addEventListener("visibilityChange",() =>{
+    document.addEventListener("visibilitychange",() =>{
         if(document.visibilityState=="hidden"){
             clearInterval(this.timer);
         }else {
