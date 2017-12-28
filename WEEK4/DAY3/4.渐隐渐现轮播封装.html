@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="banner1" class="banner">
+    <div class="bannerInner">
+        <!--图片的区域-->
+        <!--<div><img src="" alt=""></div>-->
+    </div>
+    <ul class="focusList">
+        <!--焦点区域-->
+    </ul>
+    <a class="left" href="javascript:void 0"></a>
+    <a class="right" href="javascript:void 0"></a>
+</div>
+<div id="banner2" class="banner">
+    <div class="bannerInner">
+        <!--图片的区域-->
+        <!--<div><img src="" alt=""></div>-->
+    </div>
+    <ul class="focusList">
+        <!--焦点区域-->
+    </ul>
+    <a class="left" href="javascript:void 0"></a>
+    <a class="right" href="javascript:void 0"></a>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/animation.js"></script>
+<script type="text/javascript" src="js/Banner.js"></script>
+<script type="text/javascript">
+   let banner1=new Banner("banner1","json/data.json",1000,2000);
+   let banner2=new Banner("banner2","json/data.json",1000,2000);
+   banner1.init().autoMove().changeArrow().focusChange();
+   banner2.init();
+   console.log(banner1);
+   console.log(banner2);
+   document.onvisibilitychange=function () {
+       if(document.visibilityState=="hidden"){
+           clearInterval(banner1.timer);
+           clearInterval(banner2.timer);
+       }else {
+           banner1.timer = setInterval(() => {
+               banner1.move()
+           }, banner1.interval);
+           banner2.timer = setInterval(() => {
+               banner2.move()
+           }, banner2.interval);
+       }
+   };
+</script>
