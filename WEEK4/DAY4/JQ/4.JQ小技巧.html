@@ -9,19 +9,58 @@
 				width: 100px;
 				height: 100px;
 				background-color: yellowgreen;
+				display: none;
 			}
 		</style>
 	</head>
 	<body>
-	<div id="box"></div>
-	<a href="javascript:;">11111</a>
-	<a href="https://www.baidu.com/">百度</a>
+
+
 	<input id="open" type="button" value="打开动画效果">
 	<input id="close" type="button" value="关闭动画效果">
-
+	<div id="box"></div>
 	</body>
 </html>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+	//$.proxy
+	//修改this,类似bind方法,修改this,得到一个新的函数,但是 不会让函数执行
+    function fn() {
+        console.log(this);
+    }
+    let f=$.proxy(fn,1);
+    new Number(1);
+    Object(1);
+    f();
 
+    //去除收尾空格$.trim(字符串)
+	/^ +| +$/g;
+	let str='  123  45  ';
+    console.log($.trim(str).length);
+    console.log(str.length);
+
+    //去重$.unique() 这个方法有很多弊端,0,NaN等去不了
+	let ary=[1,2,12,12,1,2,1,2,3,4,1];
+    console.log($.unique(ary));
+
+    //是否关闭动画效果
+	//jQuery.fx.off=true;//关闭
+	//jQuery.fx.off=false;//不关闭
+
+	$("#close").click(function () {
+        jQuery.fx.off=true;
+        $("#box").slideDown(3000);
+    });
+	$("#open").click(function () {
+        jQuery.fx.off=false;
+        $("#box").slideDown(3000);
+    });
+
+
+    //isEmptyObject(),判断是不是一个空对象{}/null也是空对象
+    //isPlainObject:判断是不是一个对象,这里null就不是一个对象了
+    console.log($.isEmptyObject({}));
+    console.log($.isEmptyObject(null));
+    console.log($.isPlainObject({a: 1}));
+    console.log($.isPlainObject(null));
 </script>

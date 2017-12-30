@@ -70,6 +70,30 @@
 </body>
 <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-
+//注意写解构的时候,为了防止鼠标放在curDetail上shopCar 的onmouseover失效我们把curDetail写在shopCar里面即可
+    /*
+    //原生JS
+    var shopCar=document.getElementsByClassName("shopCar")[0];
+    var curDetail=shopCar.getElementsByClassName("curDetail")[0];
+    shopCar.onmouseover=function () {
+        this.className+=" bg";
+        curDetail.style.display="block";
+    };
+    shopCar.onmouseout=function () {
+        this.className="shopCar";
+        curDetail.style.display="none";
+    }
+    */
+    //JQ方法
+    let $shopCar=$(".shopCar");
+    let $curDetail=$(".shopCar .curDetail");
+    //let $curDetail=$shopCar.find(".curDetail");
+    $shopCar.mouseover(function () {
+        $(this).addClass("bg");
+        $curDetail.stop().slideDown("slow");
+    }).mouseout(function () {
+        $(this).removeClass("bg");
+        $curDetail.stop().slideUp();
+    })
 </script>
 </html>

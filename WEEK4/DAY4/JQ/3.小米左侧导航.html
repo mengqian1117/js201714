@@ -631,6 +631,21 @@
 </body>
 <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
+    //给navLi下面所有的ul(.navLiDetail)统一对齐方式,按照最顶部对齐
+    //索引index=0,   top: -20
+    //索引index=1,   top: -(20+42)
+    //索引index=2,   top: -(20+42*2)
+    //                    -(20+42*index)
 
+    $(".navLiDetail").each((index,item)=>{
+        //item:原生对象
+        $(item).css("top",-(20+index*42));
+    });
+//绑定鼠标滑过事件是给每一个li(.navLi)绑定
+    $(".navLi").mouseover(function () {
+        $(this).addClass("bg").children(".navLiDetail").show();
+    }).mouseout(function () {
+        $(this).removeClass("bg").children(".navLiDetail").hide();
+    })
 </script>
 </html>
