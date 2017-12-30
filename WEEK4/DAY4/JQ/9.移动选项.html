@@ -35,7 +35,7 @@
 	</head>
 	<body>
 		<div class="centent">
-			<select name="" id="select1">
+			<select name="" id="select1" multiple>
 				<option value="1">选项一</option>
 				<option value="2">选项二</option>
 				<option value="3">选项三</option>
@@ -50,9 +50,7 @@
 			</div>
 		</div>
 		<div class="centent">
-			<select name="" id="select2">
-
-			</select>
+			<select name="" id="select2" multiple></select>
 			<div>
 				<span id="addL">选中添加到左边</span>
 				<span id="addL_all">全部添加到左边</span>
@@ -62,6 +60,25 @@
 	</body>
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-
+		//addR选中的内容添加到右边
+		$("#addR").click(function () {
+			//获取select1中选中的选项,判断一下length
+			if($("#select1 option:selected").length){
+			    //有选中的选项,将这个选中的option放到select2中,此时到select2中任然是选中的状态,我们应该将它变成正常的状态
+				//$("#select2").append($("#select1 option:selected"));
+				$("#select1 option:selected").appendTo($("#select2")).prop("selected",false);
+			}else {
+			   //length是0
+				$(this).css("backgroundColor","red").html("	请选择!");
+			}
+        });
+		//点击上面的选项将按钮状态变成原来的
+		$("#select1 option").click(function () {
+			$("#addR").css({backgroundColor:"skyblue"}).html("选中添加到右边");
+        });
+		//给addR_all绑定事件
+		$("#addR_all").click(function () {
+			$("#select1 option").appendTo($("#select2"));
+        })
 	</script>
 </html>
