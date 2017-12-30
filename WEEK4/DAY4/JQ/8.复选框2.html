@@ -26,7 +26,22 @@
 	</body>
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
+		//给所有的name属性是items 的选择框绑定事件,当所有的被选中了此时全选按钮也要被选中,否则反之
+		$("[name=items]").click(function () {
+			//选中的length==$("[name=items]")的length 此时说明全选了
+			// if($("[name=items]:checked").length==$("[name=items]").length){
+			//     $("#all").prop("checked",true);
+			// }else {
+             //    $("#all").prop("checked",false);
+			// }
+			//#all的状态就是根据条件变化的
+			$("#all").prop("checked",$("[name=items]:checked").length==$("[name=items]").length);
+        });
 
+		$("#all").click(function () {
+		    //其他的跟#all 是同步的
+			$("[name=items]").prop("checked",this.checked);
+        })
 	</script>
 
 </html>
