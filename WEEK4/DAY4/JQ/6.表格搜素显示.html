@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<input type="text" name="" id="search" value="" placeholder="输入搜索内容" />
-		<table border="" cellspacing="" cellpadding="">
+		<table border="" cellspacing="">
 			<thead>
 				<tr>
 					<th>姓名</th>
@@ -18,59 +18,79 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>王静娜</td>
+					<td>商倩倩</td>
 					<td>20</td>
 					<td>女</td>
 					<td>四</td>
 					<td>98</td>
 				</tr>
 				<tr>
-					<td>谢绍峰</td>
+					<td>王力民</td>
 					<td>21</td>
 					<td>男</td>
 					<td>一</td>
 					<td>96</td>
 				</tr>
 				<tr>
-					<td>金雨生</td>
+					<td>朱立辉</td>
 					<td>22</td>
 					<td>男</td>
 					<td>三</td>
 					<td>92</td>
 				</tr>
 				<tr>
-					<td>彭翀</td>
+					<td>靳莹莹</td>
 					<td>23</td>
 					<td>女</td>
 					<td>二</td>
 					<td>95</td>
 				</tr>
 				<tr>
-					<td>邹琳</td>
+					<td>秦梦超</td>
 					<td>26</td>
 					<td>男</td>
 					<td>六</td>
 					<td>93</td>
 				</tr>
 				<tr>
-					<td>王天舒</td>
+					<td>王礼</td>
 					<td>8</td>
 					<td>男</td>
 					<td>六</td>
-					<td>9</td>
+					<td>90</td>
 				</tr>
 				<tr>
-					<td>徐万林</td>
+					<td>董新</td>
 					<td>32</td>
 					<td>男</td>
-					<td>六</td>
+					<td>八</td>
 					<td>99</td>
+				</tr>
+				<tr>
+					<td>李子航</td>
+					<td>12</td>
+					<td>男</td>
+					<td>二</td>
+					<td>85</td>
+				</tr>
+				<tr>
+					<td>张华男</td>
+					<td>21</td>
+					<td>女</td>
+					<td>二</td>
+					<td>100</td>
 				</tr>
 			</tbody>
 		</table>
 		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-
+			//根据输入框中输入的内容去筛选tbody下面tr
+			//给输入框$("#search")绑定keyup(键盘按键抬起)事件
+			$("#search").keyup(function () {
+			    //先让所有的tr都隐藏然后让内容含有输入框中内容的tr显示
+				//输入框的内容获取 this.value  $(this).val()
+				$("table tbody tr").hide().filter(`:contains(${this.value})`).show();
+            })
 		</script>
 	</body>
 </html>
