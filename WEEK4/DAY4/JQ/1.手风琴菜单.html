@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>手风琴菜单</title>
+    <style type="text/css">
+        html, body, ul, li, h2 {
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        #menu {
+            margin: 50px auto;
+            width: 150px;
+            border: 2px dashed #ddba7e;
+            border-bottom: none;
+        }
+
+        #menu h2 {
+            padding: 0 10px;
+            height: 30px;
+            line-height: 30px;
+            background-color: antiquewhite;
+            cursor: pointer;
+            color: #ff9959;
+        }
+
+        #menu > li {
+            border-bottom: 1px solid #ff835c;
+        }
+
+        .menuList {
+            display: none;
+            padding: 5px 0px 5px 20px;
+        }
+
+        .menuList li {
+            height: 25px;
+            line-height: 25px;
+            color: burlywood;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li>
+        <h2>女装</h2>
+        <ul class="menuList" style="display: block;">
+            <li>上衣</li>
+            <li>裤子</li>
+            <li>裙子</li>
+            <li>内衣</li>
+        </ul>
+    </li>
+    <li>
+        <h2>男装</h2>
+        <ul class="menuList">
+            <li>上衣</li>
+            <li>裤子</li>
+            <li>衬衣</li>
+            <li>内衣</li>
+        </ul>
+    </li>
+    <li>
+        <h2>童装</h2>
+        <ul class="menuList">
+            <li>上衣</li>
+            <li>裤子</li>
+            <li>裙子</li>
+            <li>内衣</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+</script>

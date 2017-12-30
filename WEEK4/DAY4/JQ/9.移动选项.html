@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body,div,select,option,span{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+				font-size: 14px;
+				-webkit-user-select: none;
+			}
+			.centent{
+				float: left;
+				margin: 30px;
+				text-align: center;
+			}
+			select{
+				width: 100px;
+				height: 140px;
+			}
+			select option{
+				height: 20px;
+			}
+			.centent span{
+				display: block;
+				margin: 4px 4px;
+				padding: 4px 10px;
+				background-color: skyblue;
+				cursor: pointer;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="centent">
+			<select name="" id="select1">
+				<option value="1">选项一</option>
+				<option value="2">选项二</option>
+				<option value="3">选项三</option>
+				<option value="4">选项四</option>
+				<option value="5">选项五</option>
+				<option value="6">选项六</option>
+			</select>
+			<div>
+				<span id="addR">选中添加到右边</span>
+				<span id="addR_all">全部添加到右边</span>
+			</div>
+		</div>
+		<div class="centent">
+			<select name="" id="select2" multiple>
+				<option value="7">选项七</option>
+			</select>
+			<div>
+				<span id="addL">选中添加到左边</span>
+				<span id="addL_all">全部添加到左边</span>
+			</div>
+		</div>
+
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+	</script>
+</html>

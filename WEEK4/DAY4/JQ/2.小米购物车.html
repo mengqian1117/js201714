@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>小米购物车</title>
+    <style type="text/css">
+        html, body, div {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+            font-size: 14px;
+            -webkit-user-select: none;
+        }
+
+        .menu {
+            height: 40px;
+            background-color: #333;
+        }
+
+        .menuCon {
+            margin: 0 auto;
+            width: 1226px;
+        }
+
+        .menuCon .shopCar {
+            position: relative;
+            float: right;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #424242;
+            color: #b0b0b0;
+            cursor: pointer;
+        }
+
+        .shopCar.bg {
+            color: #ff6700;
+            background-color: #fff;
+        }
+
+        .curDetail {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            width: 316px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: #fff;
+            color: #424242;
+            box-shadow: 3px 8px 10px 0 #ccc;
+        }
+    </style>
+</head>
+
+<body>
+<div class="menu">
+    <div class="menuCon">
+        <div class="shopCar">
+            购物车（0）
+            <div class="curDetail">
+                购物车空空~ 去逛逛~~
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+</script>
+</html>

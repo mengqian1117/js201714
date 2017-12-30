@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单对象属性过滤选择器</title>
+	</head>
+	<body>
+		<form id="form1" action="" method="post">
+			<input type="text" name=""  value="输入框" disabled/>
+			<input type="submit" value="提交按钮" disabled="disabled"/>
+			<input type="checkbox" name="" value="复选框" />
+			<input type="button" name="" value="按钮" />
+			<input type="file" name="" value="获取文件" />
+			<input type="password" name="" value="" />
+			<radio></radio>
+			<select name="">
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+		</form>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#form1 :enabled");//选取form1下面的所有可用元素
+			$("#form1 :disabled");//选取form1下面的所有可用元素
+			$("#form1 :checked");//选出form1下所有被选中的元素
+			$("#form1 select option:selected");//下拉选项被选中的元素
+			$("#form1 :input");//input textarea select button
+			$(":text");//所有的单行文本框
+			$(":password");//所有的密码框
+			$(":radio");//所有的单选框
+			$(":checkbox");//所有的复选框
+			$(":submit");//所有的提交按钮
+			$(":image");//所有的图片按钮
+			$(":button");//所有的按钮
+			$(":reset");//所有的重置按钮
+			$(":file");//所有的上传域
+			$(":hidden");//所有隐藏元素
+		</script>
+	</body>
+</html>
