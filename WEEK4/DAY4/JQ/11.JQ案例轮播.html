@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial;
+            background: #C1C7D5 url(images/title.png) no-repeat top center;
+        }
+        #content {
+            margin: 150px auto 10px auto;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <div class="banner">
+        <ul id="menu">
+            <li class="li0">
+                <a href="">Portfolio</a>
+            </li>
+            <li class="li1">
+                <a href="">Services</a>
+            </li>
+            <li class="li2">
+                <a href="">Contact</a>
+            </li>
+            <li class="li3">
+                <a href="">Experiments</a>
+            </li>
+            <li class="li4">
+                <a href="">Applications</a>
+            </li>
+        </ul>
+        <div id="rot1">
+            <img width="800" height="300" class="bg"/>
+            <div class="heading">
+                <h1></h1>
+            </div>
+            <div class="description">
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The JavaScript -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
+<script>
+    /*
+    //自执行函数
+    (function(){})();
+    $(function(){});
+    //AJAX 在JQ 中的ajax
+    $.ajax({
+        //请求方式
+        type:"GET",//"POST
+        //请求地址url
+        url:"data.txt?_="+Math.random(),
+        //dataType 规定后台返回给你的数据格式,你可以直接规定返回给你的数据是个JSON对象,这样你就不用自己转换了
+        dataType:"json",//"html","text"
+        //是否异步
+        async:false,//false同步,true异步
+        //缓存
+        cache:true,
+        //你传给后台的数据data
+        data:null,
+        //请求成功后执行的函数
+        success:function(data){
+            //data,后台给你返回的数据
+            window.data=data;
+        },
+        //请求失败执行的函数
+        error:function(){
+            console.log("请求失败!")
+        }
+    });
+
+    console.log(data)
+    */
+</script>
