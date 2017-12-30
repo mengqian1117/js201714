@@ -10,5 +10,21 @@
 </html>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script>
-
+    var data = null;
+    $.ajax({
+        type: "GET",//请求方式
+        url: "json/data.json",//请求数据的路径url
+        async: false,//是否异步
+        dataType: "json",//将获取过来的数据变成json对象
+        success: function (res) {
+            //这个函数是请求成功之后执行的函数.默认将数据传给这个函数
+            data=res;
+            console.log(data);
+        },
+        error: function () {
+            //请求失败之后执行的函数,默认返回失败信息e
+            console.log("失败");
+        }
+    });
+    console.log(data);
 </script>
