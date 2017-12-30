@@ -82,5 +82,27 @@
 </html>
 <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
+    /*
+   //原生方法
+    let menu=document.getElementById("menu");
+    let h2All=menu.getElementsByTagName("h2");
+    for (let i=0;i<h2All.length;i++){
+        h2All[i].onclick=function () {
+            //先让所有h2的弟弟ul隐藏
+            for(let j=0;j<h2All.length;j++){
+                h2All[j].nextElementSibling.style.display='none';
+            }
+            //让点击的h2的弟弟ul显示
+            this.nextElementSibling.style.display="block";
+        }
+    };
+    */
 
+    //JQ方法
+    //JQ集合绑定事件不需要循环直接绑定即可,他会默认给每一个元素绑定
+    //注意:使用JQ绑定事件,函数中的this也是给谁绑的this就是谁,this是一个原生对象
+    $("#menu :header").click(function () {
+        //让当前点击的h2(this)的弟弟展开(slideDown())显示,到现在返回的是当前h2的弟弟ul,接下来就是让这个ul的父亲的兄弟们的叫ul的孩子收起来
+        $(this).next().stop().slideDown().parent().siblings().children("ul").stop().slideUp();
+    });
 </script>
