@@ -25,6 +25,29 @@
 	</body>
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-
+		//全选
+		$("#all").click(function () {
+			//让所有的name属性是items的全都被选中
+			$("[name=items]").prop("checked",true);
+        });
+		//全不选
+		$("#no").click(function () {
+            $("[name=items]").prop("checked",false);
+        });
+		//反选
+		$("#rev").click(function () {
+			//将每一个选择框状态取反
+			$("[name=items]").each(function () {
+				$(this).prop("checked",!$(this).prop("checked"));
+            })
+        });
+		//单击提交按钮弹出选择的人
+		$("#send").click(function () {
+		    let str='';
+		    $("form :checked").each((index,item)=>{
+		        str+=item.value+" "
+			});
+			alert("你喜欢的明星是:"+str);
+        })
 	</script>
 </html>
