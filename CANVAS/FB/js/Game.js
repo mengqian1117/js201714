@@ -29,29 +29,28 @@
     Game.prototype.clear=function () {
         this.draw.clearRect(0,0,this.canvas.width,this.canvas.height);
     };
+
     Game.prototype.start=function () {
         this.bg=new Background();
         this.land=new Land();
         this.bg.update();
         this.bg.render();
-        this.frame=0;
-        this.pipeArr=[];
-        this.draw.font= "14px consolas";
-        this.draw.textAlign="left";
+        this.pipeArr=[];//放管子的
+        this.f=0;
         setInterval(()=>{
+            this.f++;
             this.clear();
-            this.frame++;
             this.bg.update();
             this.bg.render();
             this.land.update();
             this.land.render();
-            for(let i=0;i<this.pipeArr.length;i++){
-                this.pipeArr[i].update();
-                this.pipeArr[i]&&this.pipeArr[i].render();
-            }
-            this.frame%250==0&&(new Pipe);
-            this.draw.fillStyle="#333";
-            this.draw.fillText(this.frame,10,20)
+            //将pipeArr 中存放的每一组管子更新渲染
+            this.pipeArr.forEach((item)=>{
+                item.update();
+                item.render();
+            });
+            //每200帧new 一个管子
+            this.f%200===0&&new Pipe();
         },20);
 
     }

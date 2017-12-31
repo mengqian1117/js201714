@@ -3,12 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>珠峰培训2017-14JS</title>
+    <style>
+        html,body,canvas{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            background: #dddddd;
+            display: block;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-<canvas></canvas>
+<canvas id="canvas" width="500" height="500"></canvas>
 </body>
 </html>
 <script type="text/javascript">
+    let img=new Image();
+    img.src="img/1.jpg";
+    let canvas=document.getElementById("canvas");
+    let draw=canvas.getContext("2d");
+    //画布的坐标,左上角0,0
+    //draw.drawImage(图片,在画布上的横坐标,在画布上的纵坐标,图片显示在画布上的宽,图片显示在画布上的高)
+    //draw.drawImage(img,0,0,canvas.width,canvas.height);
 
+    //draw.drawImage(图片,sx,sy,sw,sh,x,y,w,h)
+    //sx,sy,sw,sh这四个参数是用来切片的,在原来的图片上截取某一部分
+    //sx,sy:原来图片截取位置的坐标
+    //sw,sh:截取的宽高
 
+    //x,y,w,h:截取的内容放置在画布的过程
+    //x,y:放置在画布的位置的坐标
+    //w,h:在画布上显示的宽高
+    //draw.drawImage(img,0,0,480,450,0,0,200,200)
+    draw.drawImage(img,470,160,430,400,0,0,100,100);
+    draw.drawImage(img,470,160,430,400,100,0,100,100);
+    draw.drawImage(img,470,160,430,400,200,0,100,100);
+    draw.drawImage(img,470,160,430,400,300,0,100,100);
+    draw.drawImage(img,470,160,430,400,400,0,100,100);
+    draw.drawImage(img,470,160,430,400,0,100,100,100);
+    draw.drawImage(img,470,160,430,400,100,100,100,100);
 </script>
