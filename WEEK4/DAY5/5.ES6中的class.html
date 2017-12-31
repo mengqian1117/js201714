@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    function FF() {this.x=1;};
+    //FF.prototype.getX=function () {};
+    FF.prototype={
+        constructor:FF,
+        getX:function () {}
+    };
+
+    //class
+    class AA{
+        constructor(n,m){
+            //AA类本身,this就是AA的实例
+            this.x=n;
+            this.y=m;
+        };
+        getX(){};
+        getY(){};
+        getZ(){};
+    }
+    let a1=new AA(1,2);
+    console.log(AA.prototype);
+    console.log(a1);
+</script>

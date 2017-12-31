@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    function A() {
+        this.a=1;
+    }
+    A.prototype.getA=function () {};
+
+    function B() {
+        this.b=2;
+    }
+    B.prototype.getB=function () {};
+    let bb=new B;
+    //循环B的实例,判断如果是私有属性放在A.prototype上如果是公有属性放在 A.prototype.__proto__上
+    // for (var key in bb){
+    //     if(bb.hasOwnProperty(key)){
+    //         A.prototype[key]=bb[key];
+    //     }else {
+    //         A.prototype.__proto__[key]=bb[key];
+    //     }
+    // }
+
+
+    //Object.assign(A.prototype,new B);
+
+    console.log(new A);
+</script>

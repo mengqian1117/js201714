@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    class A{
+        constructor(){
+            this.a="aa";
+        }
+        getA(){
+            console.log(this);
+        };
+    }
+    class B extends A{
+        constructor(){
+            //这里的其实就是call继承中的写法
+            //A.call(this)
+            super();//这个super相当于A类, constructor
+        }
+        getB(){
+            super.getA();//super就是A类的原型
+        };
+    }
+
+    let b1=new B;
+    b1.getB();
+</script>

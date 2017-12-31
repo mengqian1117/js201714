@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    function A() {
+        this.a=1;
+    }
+    A.prototype.getA=function () {};
+    //A的原型=B的实例
+    A.prototype=new B();//{b:2}
+
+    A.prototype.__proto__==B.prototype;
+    function B() {
+        this.b=2;
+    }
+    B.prototype.getB=function () {};
+
+    Object.prototype.getO=function () {};
+    //Object是A这个类的一个父类,
+    let a=new A;
+    let b=new B;
+    //console.log(a.b);
+    //a.__proto__-->A.prototype  {b:2}
+    //console.log(a.getB);
+    //a.__proto__-->A.prototype.__proto__-->B.prototype-->getB
+    console.log(a);
+
+    /*
+    //a.getO();
+    //a.__proto__-->A.prototype
+    //A.prototype.__proto__-->Object.prototype
+    //A.prototype所属的类就是Object
+    //A.prototype是Object的一个实例
+    */
+</script>

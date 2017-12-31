@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+    function FF() {
+        this.x="x";
+    }
+    FF.prototype.getX=function () {};
+    new FF();
+    console.dir(box);
+    FF.prototype.__proto__==Object.prototype;
+    HTMLDivElement.prototype.__proto__=HTMLElement.prototype;
+    HTMLElement.prototype.__proto__==Element.prototype;
+
+    ary=[1,2,3];
+    arr.__proto__==Array.prototype;
+    Array.prototype.__proto__==Object.prototype;
+</script>

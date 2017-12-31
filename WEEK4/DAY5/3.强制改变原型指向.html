@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    function A() {
+        this.a=1;
+    }
+    A.prototype.getA=function () {};
+
+    function B() {
+        this.b=2;
+    }
+    B.prototype.getB=function () {};
+    A.prototype.__proto__=new B;
+    console.log(new A);
+</script>
