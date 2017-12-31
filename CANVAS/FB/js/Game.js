@@ -9,6 +9,8 @@
         this.allImg={
             "bg_day":"images/bg_day.png",
             "land":"images/land.png",
+            "pipe_down" : "images/pipe_down.png",
+            "pipe_up" : "images/pipe_up.png"
         };
         var count=0,total=Object.keys(this.allImg).length;
         for (let key in this.allImg){
@@ -32,12 +34,25 @@
         this.land=new Land();
         this.bg.update();
         this.bg.render();
-        // setInterval(()=>{
-        //     this.clear();
-        //     this.bg.update();
-        //     this.bg.render();
-        //     //this.land.update();
-        //     //this.land.render();
-        // },20)
+        this.frame=0;
+        this.pipeArr=[];
+        this.draw.font= "14px consolas";
+        this.draw.textAlign="left";
+        setInterval(()=>{
+            this.clear();
+            this.frame++;
+            this.bg.update();
+            this.bg.render();
+            this.land.update();
+            this.land.render();
+            for(let i=0;i<this.pipeArr.length;i++){
+                this.pipeArr[i].update();
+                this.pipeArr[i]&&this.pipeArr[i].render();
+            }
+            this.frame%250==0&&(new Pipe);
+            this.draw.fillStyle="#333";
+            this.draw.fillText(this.frame,10,20)
+        },20);
+
     }
 })();
