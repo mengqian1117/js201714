@@ -21,7 +21,15 @@
 	<a href="https://www.zhufengpeixun.cn/">珠峰培训</a>
 	<div id="box"></div>
 	<script type="text/javascript">
-
+		//阻止事件默认行为
+		var all=document.getElementsByTagName("a");
+        all[1].onclick=function (e) {
+			alert(1);
+			//e.preventDefault();//阻止事件的默认行为
+			//return false;这个也可以 阻止事件的默认行为
+			//preventDefault 有兼容性
+			//window.event.returnValue=false; 低版本IE下使用的
+        }
 	</script>
 	</body>
 </html>
