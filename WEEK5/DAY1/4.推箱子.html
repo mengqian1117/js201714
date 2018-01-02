@@ -29,7 +29,24 @@
 		</div>
 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-
+			document.onkeyup=document.onkeydown=function (e) {
+                //console.log(e);
+                console.log(e.keyCode);//记录当前按键的键值
+				//左37,上38,右39,下40
+				//shift 16
+				//ctrl 17
+				//alt 18
+				//enter 13
+				if(e.keyCode==37){
+				    $.css(box,"left",$.css(box,"left")-5)
+				}else if(e.keyCode==38){
+                    $.css(box,"top",$.css(box,"top")-5);
+				}else if(e.keyCode==39){
+                    $.css(box,"left",$.css(box,"left")+5)
+				}else if(e.keyCode==40){
+                    $.css(box,"top",$.css(box,"top")+5);
+				}
+            }
 		</script>
 	</body>
 </html>

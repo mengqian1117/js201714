@@ -1,304 +1,148 @@
-/**
- * Created by 银鹏 on 2017/5/11.
- */
+var $ = (function () {
+    //toArray:将类数组转数组
+    //参数likeArray:类数组
+    //返回值return:数组
+    function toArray(likeArray) {
+        return [].slice.call(likeArray);
+    };
 
-var  public=(function(){
-    var standardBrowser="getComputedStyle" in window;
-    //1.将类数组转为数组
-    function toArray(likeArray){
-        try{
-            return [].slice.call(likeArray);
-        }catch(e){
-            var ary=[];
-            for(var i=0;i<likeArray.length;i++){
-                ary.push(likeArray[i])
+    //win:求浏览器的盒子模型
+    //参数(attr):获取      有返回值
+    //参数(attr,val):设置   没有返回值
+    function win(attr,value) {
+        if(arguments.length==1){
+            return document.documentElement[attr]||document.body[attr];
+        }else if(arguments.length==2) {
+            document.documentElement[attr]=value;
+            document.body[attr]=value;
+        }
+    }
+
+    //offset:获取元素距离body的偏移量
+    //参数curEle:当前元素
+    //返回值return:{left:值,top:值,}
+    function offset(curEle) {
+        var L=curEle.offsetLeft;
+        var T=curEle.offsetTop;
+        var P=curEle.offsetParent;
+        while (P){
+            if(!/MSIE 8/.test(window.navigator.userAgent)){
+                L+=P.clientLeft;
+                T+=P.clientTop;
             }
-            return ary;
-        }
-    }
-    //2.将JSON字符串转为JSON对象
-    function toJsonObj(jsonStr){
-        return "JSON" in window?JSON.parse(jsonStr):eval("("+jsonStr+")");
-    }
-
-    //3.获取随机数
-    function getRandom(n,m){
-        n=Number(n);
-        m=Number(m);
-        if(isNaN(n)||isNaN(m)){
-            return Math.random();
-        }
-        if(n>m){
-            n=n+m;
-            m=n-m;
-            n=n-m;
-        }
-        return Math.round(Math.random()*(m-n)+n);
-    }
-    //4.获取浏览器的盒子模型(浏览器一屏幕的宽/高,浏览器滚上去的距离scrollTop,scrollLef,整个网页的高度scrollHeight,整个浏览器的宽scrollWidth)
-
-    function win(attr,val){
-        if(typeof val=="undefined"){
-            return document.documentElement[attr]||document.body[attr]
-        }else{
-            document.documentElement[attr]=val;
-            document.body[attr]=val;
-        }
-    }
-    //5.获取当前元素距离body的偏移量
-    function offset(curEle){
-        var l=curEle.offsetLeft;
-        var t=curEle.offsetTop;
-        var p=curEle.offsetParent;
-        while(p){
-            if(window.navigator.userAgent.indexOf("MSIE 8")==-1){
-                l+=p.clientLeft;
-                t+=p.clientTop;
-            }
-            l+=p.offsetLeft;
-            t+=p.offsetTop;
-            p=p.offsetParent;
+            L+=P.offsetLeft;
+            T+=P.offsetTop;
+            P=P.offsetParent;
         }
         return{
-            left:l,
-            top:t
+            top:T,
+            left:L
         }
     }
 
-    //6.获取指定元素的样式值
-    function getCss(curEle,attr){
-        var val=null;
-        if(standardBrowser){
-            val=window.getComputedStyle(curEle)[attr];
-        }else{
-            if(attr=="opacity"){
-                val=curEle.currentStyle["filter"];
-                //"alpha(opacity=30.3)"
-                var reg=/^alpha\(opacity=(\d+(?:\.\d+)?)\)$/;
-                val=reg.test(val)?RegExp.$1/100:1;
-            }else{
-                val=curEle.currentStyle[attr];
+    //getRandom:获取随机数v
+    //参数(n,m)
+    //      n>m:获取m到n的随机数
+    //      n,m:其中有一个不是一个数,返回0
+    function getRandom(n,m) {
+        n = Number(n);
+        m = Number(m);
+        if (!isNaN(n) && !isNaN(m)) {
+            if (n > m) {//如果n>m交换位置
+                [n, m] = [m, n];
+            }
+            return Math.round(Math.random() * (m - n) + n)
+        } else {
+            return 0
+        }
+    }
+    //getCss:获取样式属性值
+    //参数(curEle,attr):curEle当前元素,attr样式属性
+    //返回值:样式属性值
+    function getCss(curEle,attr) {
+        var val=window.getComputedStyle(curEle)[attr];
+        if(/^[+-]?([1-9]\d+|\d)(\.\d+)?(px|pt|pp|em|rem|deg)?$/.test(val)){
+            val=parseFloat(val);
+        }
+        return val;
+    }
+
+    //setCss:设置样式属性值
+    //参数(curEle,attr,val):curEle当前元素,attr样式属性,val属性值
+    //返回值:无
+    function setCss(curEle,attr,value) {
+        var reg=/^(width|height|left|right|top|bottom|(margin|padding)(Left|Right|Top|Bottom)?)$/;
+        if(reg.test(attr)&&!isNaN(value)){
+            curEle.style[attr]=value+'px';
+        }else {
+            curEle.style[attr]=value
+        }
+    }
+
+    //setGroupCss:批量设置CSS样式
+    //参数(curEle,cssObj)
+    //返回值:无
+    function setGroupCss(curEle,objCss) {
+        objCss=objCss||[];
+        if(objCss.toString()=="[object Object]"){
+            for(var key in objCss){
+                this.setCss(curEle,key,objCss[key]);
             }
         }
-        //"20px solid red" "13px"
-        var reg1=/^-?\d+(?:\.\d+)?(?:px|pt|pp|rem|em|deg)?$/;
-        return reg1.test(val)?parseFloat(val):val;
     }
 
-    //7.设置样式
-    function setCss(curEle,attr,val){
-        if(attr=="opacity"){
-            curEle.style["opacity"]=val;
-            curEle.style["filter"]="alpha(opacity="+val*100+")";
-            return;
-        }
-        if(attr=="float"){
-            curEle.style.cssFloat=val;
-            curEle.style.styleFloat=val;
-            return;
-        }
-        var reg=/^(width|height|left|right|top|bottom|(margin|padding)(Top|Bottom|Left|Right)?)$/;
-        if(reg.test(attr)&&!isNaN(val)){
-            val+="px";
-        }
-        curEle.style[attr]=val;
-    }
-
-    //8.批量设置样式
-    function setGroupCss(curEle,objStyle){
-        objStyle=objStyle||[];
-        if(objStyle.toString()=="[object Object]"){
-            for(var key in objStyle){
-                if(objStyle.hasOwnProperty(key)){
-                    this.setCss(curEle,key,objStyle[key])
-                }
-            }
-        }
-    }
-    //9 css 根据参数的不同选择不同的方法
-    function css(){
-        if(arguments.length===3){
-            //setCss(arguments[0],arguments[1],arguments[2])
-            //css 中this=public,setCss中的this=public
-            setCss.apply(this,arguments);
-            return;
-        }
-        if(arguments.length===2){
+    //css:获取/设置css属性
+    //三个参数:设置
+    //俩个参数: 第二个参数是个对象   --> 批量设置
+    //         第二个参数不是个对象 --> 获取 有返回值
+    function css() {
+        if(arguments.length==3){
+            setCss.apply(this,arguments)
+        }else if(arguments.length==2){
             if(arguments[1].toString()=="[object Object]"){
-                setGroupCss.apply(this,arguments);
-                return;
-            }else{
-                return getCss.apply(this,arguments);
+                setGroupCss.apply(this,arguments)
+            }else {
+                return getCss.apply(this,arguments)
             }
         }
     }
-
-    //10.prev获取上一个哥哥元素节点
-    function prev(curEle){
-        if(standardBrowser){
-            return curEle.previousElementSibling;
-        }
-        var pre=curEle.previousSibling;
-        while(pre&&pre.nodeType!==1){
-            pre=pre.previousSibling;
-        }
-        return pre
+    function hasClass(curEle,className) {
+        return new RegExp("(^| )"+className+"( |$)","g").test(curEle.className)
     }
-
-    //11.next获取下一个弟弟元素节点
-    function next(curEle){
-        if(standardBrowser){
-            return curEle.nextElementSibling;
-        }
-        var nex=curEle.nextSibling;
-        while(nex&&nex.nodeType!==1){
-            nex=nex.nextSibling;
-        }
-        return nex;
-    }
-
-    //12 prevAll获取所有的哥哥元素,返回一个数组
-    function prevAll(curEle){
-        var prevAry=[];
-        var pre=this.prev(curEle);
-        while(pre){
-            prevAry.unshift(pre);
-            pre=this.prev(pre);
-        }
-        return prevAry
-    }
-
-    //13  nextAll 获取所有的弟弟元素,返回一个数组
-    function nextAll(curEle){
-        var nextAry=[];
-        var nex=this.next(curEle);
-        while(nex){
-            nextAry.push(nex);
-            nex=this.next(nex);
-        }
-        return nextAry
-    }
-
-    //14 sibling 获取当前元素相邻的俩个兄弟 返回一个数组
-    function sibling(curEle){
-        var sibAry=[];
-        var pre=this.prev(curEle);
-        var nex=this.next(curEle);
-        pre?sibAry.push(pre):void 0;
-        nex?sibAry.push(nex):void 0;
-        return sibAry;
-    }
-    //15 siblings 获取当前元素的所有兄弟 返回一个数组
-    function siblings(curEle){
-        return this.prevAll(curEle).concat(this.nextAll(curEle));
-    }
-    //16 index 获取当前元素的索引
-    function index(curEle){
-        return this.prevAll(curEle).length;
-    }
-    //17
-    function children(curEle,tagName){
-        var kids=curEle.childNodes;
-        //所有的孩子节点
-        var kidsAry=[];
-        for(var i=0;i<kids.length;i++){
-            if(kids[i].nodeType===1){
-                if(typeof tagName!=="undefined"){
-                    if(kids[i].nodeName==tagName.toUpperCase()){
-                        kidsAry.push(kids[i]);
-                        //continue;
-                    }
-                }else{
-                    kidsAry.push(kids[i]);
-                }
+    function addClass(curEle,...arg) {
+        for(var i=0;i<arg.length;i++){
+            if(!this.hasClass(curEle,arg[i])){
+                curEle.className+=" "+arg[i];
             }
         }
-        return kidsAry
+        curEle.className=curEle.className.replace(/^ /,"");
     }
-
-    //18 获取第一个孩子元素节点
-    function firstChild(curEle){
-        if(standardBrowser){
-            return curEle.firstElementChild;
-        }
-        var firstKids=curEle.firstChild;
-        while(firstKids&&firstKids.nodeType!==1){
-            firstKids=firstKids.nextSibling;
-        }
-        return firstKids;
-    }
-
-    //19
-    function lastChild(curEle){
-        if(standardBrowser){
-            return curEle.lastElementChild;
-        }
-        var lastKids=curEle.lastChild;
-        while(lastKids&&lastKids.nodeType!==1){
-            lastKids=lastKids.previousSibling;
-        }
-        return lastKids;
-    }
-    //20 hasClass判断当前元素curEle中有没有指定class名
-    function hasClass(curEle,classStr){
-        var reg=new RegExp("(^| +)"+classStr+"( +|$)");
-        return reg.test(curEle.className);
-    }
-
-    //21 addClass(curEle,classStr)给当前元素curEle增加一个或多个class名
-    function addClass(curEle, className) {
-        var ary = className.replace(/(^ +| +$)/g, "").split(/ +/g);
-        for (var i = 0, len = ary.length; i < len; i++) {
-            var curName = ary[i];
-            if (!this.hasClass(curEle, curName)) {
-                curEle.className += " " + curName;
-            }
-        }
-        curEle.className=curEle.className.replace(/^ +| +$/g,'');
-    }
-
-    //22 removeClass(),删除当前元素的指定class名
-    function removeClass(curEle,classStr){
-        classStr=classStr.replace(/^ +| +$/g,'').split(/ +/g);
-        for(var i=0;i<classStr.length;i++){
-            var reg=new RegExp("(^| +)"+classStr[i]+"( +|$)");
+    function removeClass(curEle,...arg) {
+        for(var i=0;i<arg.length;i++){
+            var reg=new RegExp("(^| )"+arg[i]+"( |$)","g");
             curEle.className=curEle.className.replace(reg," ");
         }
-        curEle.className=curEle.className.replace(/^ +| +$/g,'');
+        curEle.className=curEle.className.replace(/^ | $/g,"");
     }
-
-
-    //23.toggleClass(curEle,classStr),有的话是删除,没有就是增加
-
-    function toggleClass(curEle,classStr){
-        classStr=classStr.replace(/^ +| +$/g,"").split(/ +/g);
-        for(var i=0;i<classStr.length;i++){
-            this.hasClass(curEle,classStr[i])?this.removeClass(curEle,classStr[i]):this.addClass(curEle,classStr[i])
+    function toggleClass(curEle,className) {
+        if(this.hasClass(curEle,className)){
+            this.removeClass(curEle,className);
+        }else {
+            this.addClass(curEle,className);
         }
     }
-    return{
-        toArray:toArray,
-        toJsonObj:toJsonObj,
-        getRandom:getRandom,
-        win:win,
-        offset:offset,
-        getCss:getCss,
-        setCss:setCss,
-        setGroupCss:setGroupCss,
-        css:css,
-        children:children,
-        prev:prev,
-        next:next,
-        prevAll:prevAll,
-        nextAll:nextAll,
-        index:index,
-        sibling:sibling,
-        siblings:siblings,
-        firstChild:firstChild,
-        lastChild:lastChild,
-        hasClass:hasClass,
-        addClass:addClass,
-        removeClass:removeClass,
-        toggleClass:toggleClass
+    return {
+        toArray,
+        win,
+        offset,
+        getRandom,
+        getCss,
+        setCss,
+        setGroupCss,
+        css,
+        hasClass,
+        addClass,
+        removeClass,
+        toggleClass
     }
 })();

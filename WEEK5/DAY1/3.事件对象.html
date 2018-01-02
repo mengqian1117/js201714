@@ -22,6 +22,44 @@
 
 </body>
 </html>
-<script>
+<!--
+给事件行为绑定一个函数，只要触发这个行为，就会主动执行这个函数，只要执行这个函数浏览器就会默认给这函数传一个参数，这个参数就是事件对象,这个事件对象记录了触发事件一瞬间的信息
+MouseEvent    鼠标事件对象
+KeyboardEvent 键盘事件对象
 
+同一个事件行为绑定的一个函数,每一次触发事件行为执行这个函数传的事件对象都是不一样的
+
+
+当点击box的时候也会同时触发body的onclick的事件行为,此时就点击了一下,只有一个鼠标,浏览器只会得到一个事件对象,只不过是将同一个事件对象分别传给了两个函数
+
+-->
+
+<script>
+    let a=null;
+box.onclick=function (e) {
+    console.log(a=e);
+    //e : MouseEvent 鼠标事件对象
+    e.clientX;//记录当前点击的那一瞬间鼠标距离屏幕左边的距离
+    e.clientY;//记录当前点击的那一瞬间鼠标距离屏幕上边的距离
+    //pageX,pageY有兼容性低版本IE没有
+    e.pageX;//记录当前点击的那一瞬间鼠标距离整个网页左边的距离
+    e.pageY;//记录当前点击的那一瞬间鼠标距离整个网页上边的距离
+    e.target;//事件源  当前触发事件的元素
+    e.type;//事件类型  DOM2级事件绑定的第一个参数
+
+    console.log(this);//box
+    //在低版本IE下浏览器不会默认传参数,他的时间对象 window.event
+    e=e||window.event;
+    // 事件源:   window.event.srcElement
+}
+
+document.body.onclick=function (e) {
+    console.log(a==e);
+    //当点击box的时候也会触发这个body的onclick但是事件源e.target是box
+    console.log(this);//body
+};
+
+text1.onkeydown=function (e) {
+    console.log(e);
+}
 </script>

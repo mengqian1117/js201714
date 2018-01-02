@@ -7,10 +7,43 @@
 <body>
 
 <div id="box">box</div>
-
-
 </body>
 </html>
+<!--
+DOM0级事件绑定
+box.onclick=function(){}
+元素.事件行为=函数
+相当于给一个元素的属性赋值,只能赋一个值,后面如果再赋值就会覆盖前面的值,所以说DOM0级事件只可以绑定一次
+
+box.onclick=fn
+DOM0级事件移除
+元素.事件行为=null;
+DOM0级事件容器任何浏览器,DOM0级事件发生在冒泡阶段
+
+DOM2级事件绑定
+addEventListener 是类EventTarget原型下的公有方法
+box.addEventListener("事件类型,事件行为去掉on",函数,布尔值)
+false:默认 冒泡阶段发生
+true:捕获阶段发生
+注意:为了移除事件好操作一般绑定事件的时候使用一个函数名来代替这个函数
+
+DOM2级事件同一个事件行为可以绑定多个函数,按照你帮定的先后顺序执行
+DOM2级事件移除 box.removeEventListener("click",fn1,布尔);
+
+在低版本IE下IE9以下没有addEventListener
+绑定:attachEvent();
+移除:detachEvent();
+-->
 <script>
 
+  box.addEventListener("click",function () {
+      console.log(1);
+  });
+
+  box.addEventListener("click",fn1);
+
+  function fn1 () {
+      console.log(2);
+  }
+  box.removeEventListener("click",fn1);
 </script>

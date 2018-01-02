@@ -17,13 +17,14 @@
 <div id="box"></div>
 <img id="img" src="img/1.jpg" alt="">
 
-<form action="2.事件绑定.html">
+<form id="form1" action="2.事件绑定.html">
     <input id="input1" type="text" name="t">
     <input id="input2" type="file" name="f">
     <input type="reset">
     <input type="submit">
     <p></p>
 </form>
+<div id="box1"></div>
 <!--
 
 
@@ -57,8 +58,53 @@ onkeypress键盘键按下再松开
 
 -->
 
+<!--
+事件分为两部分内容:事件行为+事件绑定
+事件行为:是一个元素天生自带的属性,是浏览器赋予其天生的行为
+事件绑定:就是给当前事件行为赋一个函数值.这样一来.触发事件行为的时候就会执行绑定的函数
+
+如果一个元素没有给他的onclick赋值函数,此时我们点击这个元素的时候也会触发他的onclick事件行为,只不过是null什么都没干
+-->
+
+
 </body>
 <script>
+    console.dir(box);
+    img.onload=function () {
+        //当前这个img加载完成
+        console.log("OK");
+    };
+    img.onerror=function () {
+        console.log("sorry");
+    }
+    window.onload=function () {
+        //页面上所有的静态资源加载完成之后执行
+    }
+    input2.onchange=function () {
+        console.log("change");
+    };
 
+    input1.oninput=function () {
+        box1.innerHTML=this.value;
+    }
+
+    form1.onreset=function () {
+        console.log("重置");
+    }
+
+    window.onresize=function () {
+        console.log(111);
+    }
+
+
+    input1.onkeydown=function () {
+        console.log("down");
+    };
+    input1.onkeyup=function () {
+        console.log("up");
+    };
+    input1.onkeypress=function () {
+        console.log("press");
+    };
 </script>
 </html>

@@ -91,22 +91,83 @@
     <div id="searchBox">
         <div class="logo"></div>
         <div class="inputBox">
-            <input type="text">
+            <input id="input" type="text">
             <span class="camera"></span>
             <a class="rightBtn" href="javascript: void 0">百度一下</a>
         </div>
         <ul class="searchList">
-            <li><a href="javascript:void 0">珠峰</a></li>
-            <li><a href="javascript:void 0">珠峰培训</a></li>
-            <li><a href="javascript:void 0">珠峰JS</a></li>
-            <li><a href="javascript:void 0">十四期JS班级</a></li>
-            <li><a href="javascript:void 0">好好学习</a></li>
-            <li><a href="javascript:void 0">天天向上</a></li>
+            <!--<li><a href="javascript:void 0">珠峰</a></li>-->
+            <!--<li><a href="javascript:void 0">珠峰培训</a></li>-->
+            <!--<li><a href="javascript:void 0">珠峰JS</a></li>-->
+            <!--<li><a href="javascript:void 0">十四期JS班级</a></li>-->
+            <!--<li><a href="javascript:void 0">好好学习</a></li>-->
+            <!--<li><a href="javascript:void 0">天天向上</a></li>-->
         </ul>
     </div>
 </body>
 </html>
-<script></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    let searchList=document.getElementsByClassName("searchList")[0];
+    let list=searchList.getElementsByTagName("li");
+    let index=-1;
+    let val="";
+    input.onkeyup=function (e) {
+        if(e.keyCode==40){
+            if(index+1==list.length){
+                //当选择完了之后再点一下就让他回到最初的输入的值
+                this.value=val;
+                index=-1;
+            }else {
+                index++;
+            }
+            change.call(this);
+
+        }else if(e.keyCode==38){
+            if(index-1==-1){
+                this.value=val;
+                index=list.length;
+            }else {
+                index--;
+            }
+            change.call(this);
+        }else if(e.keyCode==13){
+            window.location.href="https://www.baidu.com/s?wd="+this.value;
+        } else {
+            val=this.value;
+            $.ajax({
+                type:"get",
+                url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=fn",
+                async:false,
+                dataType:"jsonp",
+                jsonp:"fn",
+                data:{wd:this.value},
+                success:fn,
+                error:function () {
+                    console.log("sorry");
+                }
+            });
+            searchList.style.display="block";
+        }
+    };
+
+    function change() {
+        for (let i=0;i<list.length;i++){
+            list[i].style.backgroundColor="#fff";
+        }
+        list[index].style.backgroundColor="skyblue";
+        this.value=list[index].innerText;
+    }
+    function fn(res) {
+        //res:{p:,q:,s:[]}
+        //res.s是我们想要的数据 是一个数组
+        let str=``;
+        res.s.forEach((item)=>{
+            str+=`<li><a href="javascript:void 0">${item}</a></li>`
+        });
+        searchList.innerHTML=str;
+    }
+</script>
 
 
 
