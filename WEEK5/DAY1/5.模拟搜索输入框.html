@@ -120,8 +120,9 @@
                 index=-1;
             }else {
                 index++;
+                change.call(this);
             }
-            change.call(this);
+
 
         }else if(e.keyCode==38){
             if(index-1==-1){
@@ -129,8 +130,9 @@
                 index=list.length;
             }else {
                 index--;
+                change.call(this);
             }
-            change.call(this);
+
         }else if(e.keyCode==13){
             window.location.href="https://www.baidu.com/s?wd="+this.value;
         } else {
