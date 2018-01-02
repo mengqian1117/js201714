@@ -95,9 +95,11 @@
 		
 	</body>
 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/menu.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script src="js/menu.js" type="text/javascript" charset="utf-8"></script>-->
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-
+		$("em").click(function () {
+			$(this).toggleClass("open").next().next().stop().slideToggle().find("ul").css({display:"none"}).prevAll("em").removeClass("open");
+        })
 	</script>
 </html>
