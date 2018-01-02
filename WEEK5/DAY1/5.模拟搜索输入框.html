@@ -122,8 +122,6 @@
                 index++;
                 change.call(this);
             }
-
-
         }else if(e.keyCode==38){
             if(index-1==-1){
                 this.value=val;
@@ -132,7 +130,6 @@
                 index--;
                 change.call(this);
             }
-
         }else if(e.keyCode==13){
             window.location.href="https://www.baidu.com/s?wd="+this.value;
         } else {
@@ -152,7 +149,6 @@
             searchList.style.display="block";
         }
     };
-
     function change() {
         for (let i=0;i<list.length;i++){
             list[i].style.backgroundColor="#fff";

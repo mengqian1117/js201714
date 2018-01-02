@@ -120,4 +120,28 @@
 <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 
+	let tabBox=document.getElementsByClassName("tabBox");
+
+	for(let i=0;i<tabBox.length;i++){
+        tabBox[i].onclick=function (e) {
+            //根据当前tabBox获取所有的li和div
+			//this :当前tabBox
+            let list=this.getElementsByTagName("li");
+            let oDiv=this.getElementsByTagName("div");
+            //只有你点的是li的时候才会操作,判断当前事件源的tagName是"LI"
+            //一个元素的tagName是他的大写标签名
+            if(e.target.tagName=="LI"){
+                //求出事件源的索引
+                let index=$.index(e.target);
+                //让所的li没有选中样式
+                for(let i=0;i<list.length;i++){
+                    list[i].className="";
+                    oDiv[i].className="";
+                }
+                e.target.className="bg";
+                oDiv[index].className="bg";
+            }
+        }
+	}
+
 </script>

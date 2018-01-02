@@ -44,10 +44,91 @@
 				</div>
 			</div>
 		</div>
+
+
+		<ul id="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
 	</body>
 
 </html>
 
-<script type="text/javascript">
+<!--
 
+事件传播 :
+捕获阶段->目标阶段->冒泡阶段
+事件触发一定会先捕获再冒泡
+
+DOM0级事件只会在冒泡阶段发生
+在捕获阶段或者冒泡阶段如果中间某一个元素没有绑定事件,仍然会传播
+
+事件传播是可以阻止的但是只能阻止冒泡不可以阻止捕获
+-->
+<script type="text/javascript">
+	/*
+
+    body.onclick=function () {
+        console.log(this.id);
+    };
+    outer.onclick=function (e) {
+        console.log(this.id);
+        //console.log(e.target.id);//事件源是目标
+    };
+    inter.onclick=function (e) {
+        e.stopPropagation();//阻止冒泡
+		//stopPropagation 在低版本IE下没有
+		//在低版本IE下:window.event.cancelBubble
+        console.log(this.id);
+    };
+    center.onclick=function () {
+        console.log(this.id);
+    };
+
+    body.addEventListener("click",function () {
+        console.log("捕获阶段",this.id);
+    },true);
+    outer.addEventListener("click",function () {
+        console.log("捕获阶段",this.id);
+    },true);
+    inter.addEventListener("click",function () {
+        console.log("捕获阶段",this.id);
+    },true);
+    center.addEventListener("click",function () {
+        console.log("捕获阶段",this.id);
+    },true);
+
+
+	//点击center 让body变成green
+	//点击inter 让body变成blue
+	//点击outer 让body变成red
+
+	//给外面的元素绑定事件,利用事件冒泡不管触发里面的哪一个元素都会让这个事件执行,此时只需要根据事件源是谁做不同的处理即可,这种方式就是事件委托
+	//一般都是委托给当前区域的最高级
+	body.onclick=function (e) {
+
+		if(e.target.id=="outer"){
+		    this.style.backgroundColor="red";
+		}else if(e.target.id=="inter"){
+            this.style.backgroundColor="blue";
+		}else if(e.target.id="center"){
+            this.style.backgroundColor="green";
+		}
+    }
+     */
+</script>
+<script>
+	var oLis=document.getElementById("list").getElementsByTagName("li");
+	// for(var i=0;i<oLis.length;i++){
+	//     oLis[i].onclick=function () {
+     //        console.log("哈哈");
+     //    }
+	// }
+	list.onclick=function (e) {
+        console.log(e.target.innerHTML);
+    };
+
+	list.innerHTML+="<li>5</li><li>6</li><li>7</li>";
 </script>

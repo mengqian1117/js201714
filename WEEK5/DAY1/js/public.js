@@ -131,6 +131,112 @@ var $ = (function () {
             this.addClass(curEle,className);
         }
     }
+    //10.prev获取上一个哥哥元素节点
+    function prev(curEle){
+        if("getComputedStyle" in window){
+            return curEle.previousElementSibling;
+        }
+        var pre=curEle.previousSibling;
+        while(pre&&pre.nodeType!==1){
+            pre=pre.previousSibling;
+        }
+        return pre
+    }
+
+    //11.next获取下一个弟弟元素节点
+    function next(curEle){
+        if("getComputedStyle" in window){
+            return curEle.nextElementSibling;
+        }
+        var nex=curEle.nextSibling;
+        while(nex&&nex.nodeType!==1){
+            nex=nex.nextSibling;
+        }
+        return nex;
+    }
+
+    //12 prevAll获取所有的哥哥元素,返回一个数组
+    function prevAll(curEle){
+        var prevAry=[];
+        var pre=this.prev(curEle);
+        while(pre){
+            prevAry.unshift(pre);
+            pre=this.prev(pre);
+        }
+        return prevAry
+    }
+
+    //13  nextAll 获取所有的弟弟元素,返回一个数组
+    function nextAll(curEle){
+        var nextAry=[];
+        var nex=this.next(curEle);
+        while(nex){
+            nextAry.push(nex);
+            nex=this.next(nex);
+        }
+        return nextAry
+    }
+
+    //14 sibling 获取当前元素相邻的俩个兄弟 返回一个数组
+    function sibling(curEle){
+        var sibAry=[];
+        var pre=this.prev(curEle);
+        var nex=this.next(curEle);
+        pre?sibAry.push(pre):void 0;
+        nex?sibAry.push(nex):void 0;
+        return sibAry;
+    }
+    //15 siblings 获取当前元素的所有兄弟 返回一个数组
+    function siblings(curEle){
+        return this.prevAll(curEle).concat(this.nextAll(curEle));
+    }
+    //16 index 获取当前元素的索引
+    function index(curEle){
+        return this.prevAll(curEle).length;
+    }
+    //17
+    function children(curEle,tagName){
+        var kids=curEle.childNodes;
+        //所有的孩子节点
+        var kidsAry=[];
+        for(var i=0;i<kids.length;i++){
+            if(kids[i].nodeType===1){
+                if(typeof tagName!=="undefined"){
+                    if(kids[i].nodeName==tagName.toUpperCase()){
+                        kidsAry.push(kids[i]);
+                        //continue;
+                    }
+                }else{
+                    kidsAry.push(kids[i]);
+                }
+            }
+        }
+        return kidsAry
+    }
+
+    //18 获取第一个孩子元素节点
+    function firstChild(curEle){
+        if("getComputedStyle" in window){
+            return curEle.firstElementChild;
+        }
+        var firstKids=curEle.firstChild;
+        while(firstKids&&firstKids.nodeType!==1){
+            firstKids=firstKids.nextSibling;
+        }
+        return firstKids;
+    }
+
+    //19
+    function lastChild(curEle){
+        if("getComputedStyle" in window){
+            return curEle.lastElementChild;
+        }
+        var lastKids=curEle.lastChild;
+        while(lastKids&&lastKids.nodeType!==1){
+            lastKids=lastKids.previousSibling;
+        }
+        return lastKids;
+    }
     return {
         toArray,
         win,
@@ -143,6 +249,15 @@ var $ = (function () {
         hasClass,
         addClass,
         removeClass,
-        toggleClass
+        toggleClass,
+        prev,
+        next,
+        prevAll,
+        nextAll,
+        index,
+        sibling,
+        siblings,
+        firstChild,
+        lastChild,
     }
 })();
