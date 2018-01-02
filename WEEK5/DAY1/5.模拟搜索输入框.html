@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,div,ul,li,input,a{
+            margin: 0;
+            padding: 0;
+            font-family: "microsoft yahei";
+            color: #000;
+        }
+        body{
+            background: lightblue;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #searchBox{
+            width: 640px;
+            margin: 30px auto;
+        }
+        #searchBox .logo{
+            width: 200px;
+            height: 80px;
+            margin: 0 auto;
+            background: url("img/logo.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        #searchBox .inputBox{
+            width: 640px;
+            height: 40px;
+            position: relative;
+        }
+        #searchBox input{
+            width: 490px;
+            height: 40px;
+            float: left;
+            border: none;
+            padding: 0 40px 0 10px;
+            line-height: 40px;
+            font-size: 14px;
+        }
+        #searchBox .rightBtn{
+            width: 100px;
+            height: 40px;
+            float: right;
+            background: #ccc;
+            line-height: 40px;
+            text-align: center;
+        }
+        #searchBox .camera{
+            display: inline-block;
+            position: absolute;
+            right: 110px;
+            width: 20px;
+            height: 20px;
+            top: 10px;
+            cursor: pointer;
+            background: url("img/camera.png") no-repeat;
+        }
+        #searchBox .camera:hover{
+            background-position: 0 -20px;
+        }
+        #searchBox .searchList{
+            display: none;
+            position: relative;
+            top: -1px;
+            width: 540px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background: #fff;
+        }
+        #searchBox .searchList li{
+            height: 30px;
+            line-height: 30px;
+        }
+        #searchBox .searchList li a{
+            display: block;
+            padding: 0 40px 0 10px;
+        }
+        #searchBox .searchList li a:hover{
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="searchBox">
+        <div class="logo"></div>
+        <div class="inputBox">
+            <input type="text">
+            <span class="camera"></span>
+            <a class="rightBtn" href="javascript: void 0">百度一下</a>
+        </div>
+        <ul class="searchList">
+            <li><a href="javascript:void 0">珠峰</a></li>
+            <li><a href="javascript:void 0">珠峰培训</a></li>
+            <li><a href="javascript:void 0">珠峰JS</a></li>
+            <li><a href="javascript:void 0">十四期JS班级</a></li>
+            <li><a href="javascript:void 0">好好学习</a></li>
+            <li><a href="javascript:void 0">天天向上</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script></script>
+
+
+

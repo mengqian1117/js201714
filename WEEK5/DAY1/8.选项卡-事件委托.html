@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>事件委托-选项卡</title>
+		<style type="text/css">
+			html,
+			body,
+			div,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				-webkit-user-select: none;
+				font-family: "微软雅黑";
+				font-size: 14px;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			.tabBox {
+				margin: 10px auto;
+				width: 600px;
+				overflow: hidden;
+			}
+			
+			.tabBox ul {
+				position: relative;
+				top: 1px;
+				overflow: hidden;
+			}
+			
+			.tabBox ul li {
+				display: inline-block;
+				margin-right: 10px;
+				width: 80px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				border: 1px solid green;
+				cursor: pointer;
+			}
+			
+			.tabBox ul li.bg {
+				background-color: lightgreen;
+				border-bottom-color: lightgreen;
+			}
+			
+			.tabBox div {
+				display: none;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				background-color: lightgreen;
+				border: 1px solid green;
+			}
+			
+			.tabBox div.bg {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="tabBox">
+			<ul>
+				<li class="bg">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+			<div class="bg">1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+		<div class="tabBox">
+			<ul>
+				<li class="bg">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+			<div class="bg">1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+		<div class="tabBox">
+			<ul>
+				<li class="bg">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+			<div class="bg">1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+	</body>
+
+</html>
+<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+</script>

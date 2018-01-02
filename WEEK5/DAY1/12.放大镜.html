@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>放大镜</title>
+		<style type="text/css">
+			html,body,div,img{
+				margin: 0;
+				padding: 0;
+				-webkit-user-select: none;
+			}
+			img{
+				border: none;				
+			}
+
+			#box1,#box2{
+				position: absolute;
+				top:10px;
+				width: 300px;
+				height: 300px;
+				box-shadow: 4px 4px 10px 0 #616161;
+				left: 50px;
+			}
+			#box2{
+				display: none;
+				left: 360px;
+				overflow: hidden;
+			}
+			#box1 img{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+			#box2 img{
+				display: block;
+				width: 300%;
+				height: 300%;
+			}
+			#mark{
+				width: 100px;
+				height: 100px;
+				background-color: #f0f0f0;
+				opacity: 0.6;
+				cursor: move;
+				position: absolute;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+	<div id="box1">
+		<img src="img/iphone.jpg"/>
+		<div id="mark"></div>
+	</div>	
+	<div id="box2">
+		<img src="img/iphone_big.jpg"/>
+	</div>
+	</body>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+	</script>
+</html>

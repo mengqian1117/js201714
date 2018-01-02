@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>事件传播机制</title>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+			}
+
+			#outer {
+				width: 300px;
+				height: 300px;
+				border: 1px solid red;
+			}
+			
+			#inter {
+				width: 200px;
+				height: 200px;
+				border: 1px solid blue;
+			}
+			
+			#center {
+				width: 100px;
+				height: 100px;
+				border: 1px solid green;
+			}
+			
+			div {
+				cursor: pointer;
+				font-size: 20px;
+				margin-left: 50px;
+			}
+		</style>
+	</head>
+	<body id="body">
+		<div id="outer">
+			outer
+			<div id="inter">
+				inter
+				<div id="center">
+					center
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+
+<script type="text/javascript">
+
+</script>

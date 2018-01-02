@@ -1,0 +1,54 @@
+@charset "utf-8";
+html,body,ul,li,em,span{
+	margin: 0;
+	padding: 0;
+	-webkit-user-select: none;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+ul,li{
+	list-style: none;
+}
+em,span{
+	display: inline-block;
+}
+#menu{
+	margin: 30px auto;
+	width: 300px;
+	padding: 10px;
+	border: 1px dashed green;
+	border-radius:5px ;
+	background:#ffe470 ;
+	background:-webkit-linear-gradient(top left,plum,lightblue,lightgreen,lightcyan,lightpink,lightsalmon) ;
+	background:-moz-linear-gradient(top left,plum,lightblue,lightgreen,lightcyan,lightpink,lightsalmon) ;
+	background:-o-linear-gradient(top left,plum,lightblue,lightgreen,lightcyan,lightpink,lightsalmon) ;
+	background:-ms-linear-gradient(top left,plum,lightblue,lightgreen,lightcyan,lightpink,lightsalmon) ;
+	background:xslinear-gradient(top left,plum,lightblue,lightgreen,lightcyan,lightpink,lightsalmon) ;
+}
+#menu li{
+	position: relative;
+}
+#menu li em{
+	position: absolute;
+	width:16px ;
+	height: 16px;
+	top:7px;
+	left: 0;
+	background-image: url(../img/icon.png);
+	background-position:-59px -28px;
+}
+#menu li em.open{
+	background-position:-42px -28px ;
+}
+#menu li span{
+	height: 30px;
+	line-height: 30px;
+	margin-left: 20px;
+}
+.menuTwo,.menuThree,.menuFour{
+	display: none;
+	margin-left: 40px;
+}
+#menu li em.cursor,#menu li span.cursor{
+	cursor: pointer;
+}
