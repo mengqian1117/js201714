@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标跟随</title>
+		<style type="text/css">
+			html,
+			body,
+			div {
+				margin: 0;
+				padding: 0;
+				-webkit-user-select: none;
+			}
+			
+			#box {
+				position: relative;
+				width: 200px;
+				height: 200px;
+				background-color: yellowgreen;
+				margin: 50px auto;
+			}
+			
+			#mark {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 50px;
+				height: 50px;
+				background-color: #ADD8E6;
+				opacity: 0.6;
+				filter: alpha(opacity=60);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="boxCon">
+			<div id="box"></div>
+		</div>
+	</body>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+        let box=document.getElementById("box");
+        //鼠标进入box创建一个mark盒子
+        let mark=document.createElement("p");
+        mark.id="mark";
+        box.onmouseover=function () {
+            this.appendChild(mark);
+            //接下来鼠标在box中移动
+            this.onmousemove=function (e) {
+                $.css(mark,{
+                    left:e.clientX-$.offset(this).left,
+                    top:e.clientY-$.offset(this).top
+                })
+            };
+            //只要进去到mark中就会触发mark的onmoveover事件此时就会冒泡冒泡到box的onmoveover 上,又会执行一次创建过程,将小盒子mark的冒泡阻止掉
+            mark.onmouseover=function (e) {
+                e.stopPropagation();
+            };
+            mark.onmouseout=function (e) {
+                e.stopPropagation();
+            }
+        };
+        box.onmouseout=function () {
+            this.removeChild(mark);
+        };
+
+    </script>
+
+</html>

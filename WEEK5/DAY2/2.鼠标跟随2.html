@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标跟随</title>
+		<style type="text/css">
+			html,
+			body,
+			div,p {
+				margin: 0;
+				padding: 0;
+				-webkit-user-select: none;
+			}
+			
+			#box {
+				position: relative;
+				width: 200px;
+				height: 200px;
+				background-color: yellowgreen;
+				margin: 50px auto;
+			}
+			
+			#mark {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 50px;
+				height: 50px;
+				background-color: #ADD8E6;
+				opacity: 0.6;
+				filter: alpha(opacity=60);
+				cursor: move;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+	</body>
+	<script src="../DAY1/js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*
+		let box=document.getElementById("box");
+		let mark=document.createElement("p");
+		let l=$.offset(box).left;
+		let t=$.offset(box).top;
+        mark.id="mark";
+		box.onmouseenter=function () {
+			this.appendChild(mark);
+			box.onmousemove=function (e) {
+				$.css(mark,{left:e.clientX-l,top:e.clientY-t});
+            }
+        };
+		box.onmouseleave=function () {
+			this.removeChild(mark);
+        }
+        //onmouseenter  onmousleave没有事件冒泡
+        */
+
+		let box=document.getElementById("box");
+		let boxW=box.offsetWidth;
+		let boxH=box.offsetHeight;
+		let boxL=$.offset(box).left;
+		let boxT=$.offset(box).top;
+		let minL=0,minT=0,maxL=0,maxT=0;
+		let L=0,T=0;
+		let mark=document.createElement("p");
+		mark.id="mark";
+		box.onmouseenter=function () {
+			this.appendChild(mark);
+			maxL=boxW-mark.offsetWidth;
+			maxT=boxH-mark.offsetHeight;
+
+			this.onmousemove=function (e) {
+			    L=e.clientX-boxL-mark.offsetWidth/2;
+                T=e.clientY-boxT-mark.offsetHeight/2;
+                L=L<=minL?minL:L>=maxL?maxL:L;
+                T=T<=minT?minT:T>=maxT?maxT:T;
+				$.css(mark,{
+				    left:L,
+					top:T
+				})
+            }
+        };
+        box.onmouseleave=function () {
+			this.removeChild(mark);
+        };
+	</script>
+
+</html>
