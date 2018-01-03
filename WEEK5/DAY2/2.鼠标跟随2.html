@@ -71,7 +71,6 @@
 			this.appendChild(mark);
 			maxL=boxW-mark.offsetWidth;
 			maxT=boxH-mark.offsetHeight;
-
 			this.onmousemove=function (e) {
 			    L=e.clientX-boxL-mark.offsetWidth/2;
                 T=e.clientY-boxT-mark.offsetHeight/2;
@@ -86,6 +85,8 @@
         box.onmouseleave=function () {
 			this.removeChild(mark);
         };
+
+
 	</script>
 
 </html>

@@ -4,38 +4,44 @@
     <meta charset="UTF-8">
     <title>放大镜</title>
     <style type="text/css">
-        html,body,div,img{
+        html, body, div, img {
             margin: 0;
             padding: 0;
             -webkit-user-select: none;
         }
-        img{
+
+        img {
             border: none;
         }
-        #box1,#box2{
+
+        #box1, #box2 {
             position: absolute;
-            top:10px;
+            top: 10px;
             width: 300px;
             height: 300px;
             box-shadow: 4px 4px 10px 0 #616161;
             left: 50px;
         }
-        #box2{
+
+        #box2 {
             display: none;
             left: 360px;
             overflow: hidden;
         }
-        #box1 img{
+
+        #box1 img {
             position: absolute;
             width: 100%;
             height: 100%;
         }
-        #box2 img{
+
+        #box2 img {
             display: block;
             width: 300%;
             height: 300%;
         }
-        #mark{
+
+        #mark {
             width: 100px;
             height: 100px;
             background-color: #f0f0f0;
@@ -55,8 +61,29 @@
     <img src="../DAY1/img/iphone_big.jpg"/>
 </div>
 </body>
-<script src="../DAY1/js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
+    let box1L=$("#box1").offset().left;
+    let box1T=$("#box1").offset().top;
+    let minL=0,minT=0,maxL=0,maxT=0;
+    let L=0,T=0;
+    $("#box1").mouseenter(function () {
+        $("#mark").css({display: "block"});
+        $("#box2").css({display: "block"});
+        maxL=$(this).outerWidth()-$("#mark").outerWidth();
+        maxT=$(this).outerHeight()-$("#mark").outerHeight();
+        $(this).mousemove(function (e) {
+            L=e.clientX-box1L-$("#mark").outerWidth()/2;
+            T=e.clientY-box1T-$("#mark").outerHeight()/2;
+            L=L<=minL?minL:L>=maxL?maxL:L;
+            T=T<=minT?minT:T>=maxT?maxT:T;
+            $("#mark").css({left:L,top:T});
+            $("#box2 img").css({marginLeft:-3*L,marginTop:-3*T})
+        })
 
+    }).mouseleave(function () {
+        $("#mark").css({display: "none"});
+        $("#box2").css({display: "none"});
+    })
 </script>
 </html>

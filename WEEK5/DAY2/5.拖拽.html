@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <style>
+        html, body {
+            width: 100px;
+            height: 100%;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #dc6aff;
+            cursor: move;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+
+        #box img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--
+1.抓住盒子,鼠标在盒子上按下,给box绑定onmousedown
+2.抓着盒子box在页面上(document)移动,注意这里是给document绑定onmousemove事件,还要注意此时盒子一直是抓着不放的
+3.鼠标松开盒子,把绑在document上的onmousemove事件移除即可
+-->
+
+<div id="box">
+    <img src="img/1.jpg" alt="">
+</div>
+</body>
+</html>
+<script src="js/public.js"></script>
+<script>
+    let box = document.getElementById("box");
+    box.onmousedown=function (e) {
+        //鼠标按住的一瞬间记录当前鼠标距离盒子的距离,为了保证后面能拿到这里记录的值,将它放在box自定义属性上存起来
+        this.x=e.clientX-$.offset(this).left;
+        this.y=e.clientY-$.offset(this).top;
+        //必须是按住盒子移动所以说这里给document绑定onmousemove事件
+        document.onmousemove=function (e) {
+            //此时鼠标在移动只要不断给box的left和top赋值即可
+            $.css(box,{
+                left:e.clientX-box.x,
+                top:e.clientY-box.y
+            })
+        };
+        //一个盒子里面的内容默认是不可以被移动的,所以阻止默认行为
+        e.preventDefault();
+    };
+    box.onmouseup=function () {
+        //鼠标抬起移除document的onmousemove事件
+        document.onmousemove=null;
+    }
+</script>
