@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #list li{
+            margin: 20px;
+            width: 200px;
+            height: 50px;
+            background: yellowgreen;
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+</body>
+</html>
+<!--
+1.data 是一个对象,给e增加一个属性data存储这个值
+2.str 处理预留事件,事件委托,str要作为事件源
+3.str只要是传了,此时事件源必须是str才可以执行绑定的函数,并且要把函数中的this变当前事件源
+4.str没传,直接执行绑定的函数,函数中的this就给on方法中的this
+
+-->
+<script type="text/javascript">
+    EventTarget.prototype.on=function (type,...arg) {
+        let str,data,callback;
+        arg.forEach((item)=>{
+            //str要么是一个false要么是一个字符串
+            typeof item=="string"?str=item:item.toString()=="[object Object]"?data=item: typeof item=="function"?callback=item:null;
+        });
+
+        function run(e) {
+            if(data)e.data=data;
+            if(str){
+                if(e.target.tagName==str.toUpperCase()){
+                    callback&&callback.call(e.target,e)
+                }
+            }else {
+                callback&&callback.call(this,e);
+            }
+        }
+        this.addEventListener(type,run);
+    };
+
+    function fn(e) {
+        console.log(this,e.data);//事件源li
+    }
+    list.on("click","li",{name:"珠峰"},fn);
+    list.innerHTML+="<li>4</li>"
+</script>

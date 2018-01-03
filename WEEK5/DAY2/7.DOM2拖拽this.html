@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html, body {
+            width: 100px;
+            height: 100%;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #dc6aff;
+            cursor: move;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+
+        #box img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="img/1.jpg" alt="">
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    /*
+
+    let box=document.getElementById("box");
+    box.addEventListener("mousedown",function (e) {
+        //this 给谁绑定的事件this就是谁
+        this.x=e.clientX-this.offsetLeft;
+        this.y=e.clientY-this.offsetTop;
+        let _this=this;
+        this._move=function (e) {
+            //this document
+            move.call(_this,e)
+        };
+        document.addEventListener("mousemove",this._move);
+        e.preventDefault();
+    });
+    box.addEventListener("mouseup",function (e) {
+        document.removeEventListener("mousemove",this._move);
+    });
+    function move(e) {
+        //this-->box
+        this.style.left = e.clientX - this.x + "px";
+        this.style.top = e.clientY - this.y + "px";
+    }
+    */
+
+
+
+
+
+    let box=document.getElementById("box");
+    box.addEventListener("mousedown",function (e) {
+        this.move=(e)=>{
+            this.style.left=e.clientX-this.x+"px";
+            this.style.top=e.clientY-this.y+"px";
+        };
+        this.x=e.clientX-this.offsetLeft;
+        this.y=e.clientY-this.offsetTop;
+        document.addEventListener("mousemove",this.move);
+        e.preventDefault();
+    });
+    box.addEventListener("mouseup",function (e) {
+        document.removeEventListener("mousemove",this.move);
+    });
+
+
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    /*
+    $("#box").click(function (e) {
+        console.log(e);
+        //事件对象,是一个JQ对象,不用担心跟原生的事件对象一样使用
+        e.target;
+        e.clientX;
+        e.clientY;
+        //this,给谁绑的就是谁,原生对象
+        console.log(this);
+    });
+    */
+    function fn(e) {
+        console.log("fn");
+        console.log(e.data.name);
+    }
+    function fn1(e) {
+        console.log("fn1");
+    }
+    function fn2() {
+        console.log("fn2");
+    }
+    //on 绑定事件
+    //绑定事件的时候可以给事件类型后面加一个点XX,叫做命名空间,这样移除的时候可以移除所有带这个命名空间的事件
+    //$("#box").on("click",fn).on("click.f",fn1).on("click.f",fn2);
+    //off 移除事件
+    //$("#box").off("click.f");
+
+
+    //事件对象的data对象存储内容
+    $("#box").on("click",{name:"耿银鹏"},fn);
+
+
+    //预留事件,事件委托
+
+    // $("#list>li").on("click",function () {
+    //     console.log(1);
+    // });
+    // $("#list").append("<li>4</li>");
+    //
+    // $("#list").on("click","li",function (e) {
+    //     //this ->事件源
+    //     console.log(e.delegateTarget);
+    //     console.log(this==e.target);
+    // });
+    // $("#list").append("<li>4</li>");
+    // $("#list").append("<li>5</li>");
+
+    $("#list").delegate("li","click",function (e) {
+        console.log(this);
+    });
+    $("#list").append("<li>4</li>");
+    $("#list").append("<li>5</li>");
+
+
+</script>

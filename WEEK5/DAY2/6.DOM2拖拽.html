@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html, body {
+            width: 100px;
+            height: 100%;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #dc6aff;
+            cursor: move;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+
+        #box img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="img/1.jpg" alt="">
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+    let box=document.getElementById("box");
+    box.addEventListener("mousedown",function (e) {
+        //1.使用箭头函数但是必须将函数的定义写在这里,不可以写在全局下,因为只有写在这里箭头函数中出现的this才是box,写在全局下this就是window了
+        //注意2.要将变量加在window下,变成全局变量,这样后面移除的时候才可获取到,如果使用let或者var 就是私有变量,后面移除的时候就获取不到报错了
+        window.move=(e)=>{
+            //this==box
+            this.style.left=e.clientX-this.x+"px";
+            this.style.top=e.clientY-this.y+"px";
+        };
+        //this 给谁绑定的事件this就是谁
+        this.x=e.clientX-this.offsetLeft;
+        this.y=e.clientY-this.offsetTop;
+        document.addEventListener("mousemove",move);
+        e.preventDefault();
+
+    });
+    box.addEventListener("mouseup",function (e) {
+        document.removeEventListener("mousemove",move);
+    });
+    // function move(e) {
+    //     //this-->box
+    //     box.style.left=e.clientX-box.x+"px";
+    //     box.style.top=e.clientY-box.y+"px";
+    // }
+
+    //window.setInterval(obj.fn,10000);
+</script>
