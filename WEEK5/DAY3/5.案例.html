@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <style>
+        html,body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        ul>li{
+            position: absolute;
+            width: 150px;
+            margin: 20px;
+            height: 400px;
+            background:linear-gradient(to top,red,orange,yellow,green,blue,skyblue,purple);
+            filter: blur(2px);
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li style="left: 20px;top: 20px;"></li>
+    <li style="left: 190px;top: 20px;"></li>
+    <li style="display: none;left: 360px;top: 20px;"></li>
+    <li style="display: none;left: 530px;top: 20px;"></li>
+    <li style="left:700px;top: 20px;"></li>
+    <li style="left:870px;top: 20px;"></li>
+</ul>
+<button class="up">up</button>
+<button class="down">down</button>
+<button class="opacity">opacity</button>
+</body>
+</html>
+<script src="js/Callbacks.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    function up1() {
+        $("#list>li:eq(0)").stop().slideUp(4000);
+    }
+    function up2() {
+        $("#list>li:eq(1)").stop().slideUp(2000);
+    }
+    function down1() {
+        $("#list>li:eq(2)").stop().slideDown(2000);
+    }
+    function down2() {
+        $("#list>li:eq(3)").stop().slideDown(4000);
+    }
+    function opacity1() {
+        $("#list>li:eq(4)").stop().fadeOut(2000);
+    }
+    function opacity2() {
+        $("#list>li:eq(5)").stop().fadeOut(4000);
+    }
+
+    let cb=new Callbacks();
+    cb.add("up",up1,up2);
+    cb.add("down",down1,down2);
+    cb.add("opacity",opacity1,opacity2);
+    console.log(cb);
+
+    $(".up").click(function () {
+        cb.fire("up");
+    });
+    $(".down").click(function () {
+        cb.fire("down");
+    });
+    $(".opacity").click(function () {
+        cb.fire("opacity");
+    })
+
+</script>

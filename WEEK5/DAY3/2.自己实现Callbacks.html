@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Callbacks() {
+        //给每一个实例加一个私有属性,一个数组后面用来当做回调函数集合的
+        this.CB=[];
+    };
+    Callbacks.prototype.has=function (fn) {
+        //判断实例this的回调函数集合CB中有没有这个fn
+        return this.CB.includes(fn);
+    };
+    Callbacks.prototype.add=function (...arg) {
+        //循环arg判断每一项必须是个函数并且之前集合中没有才放进去
+        arg.forEach((item)=>{
+            if(typeof item=="function"&&!this.CB.includes(item)){
+                this.CB.push(item);
+            }
+        });
+        return this;
+    };
+    Callbacks.prototype.remove=function (...arg) {
+        //遍历arg判断每一项,在集合中有的就移除,没有的不需要移除
+        arg.forEach((item)=>{
+            if(this.has(item)){
+                this.CB.splice(this.CB.indexOf(item),1)
+            }
+        })
+    };
+    Callbacks.prototype.fire=function (...arg) {
+        //让当前集合中的函数依次执行
+        //我们让每一个函数执行的时候把里面的this变成当前实例
+        this.CB.forEach((item)=>{
+            item.apply(this,arg);
+        })
+    };
+    function fn1() {
+        console.log("fn1");
+    };
+    function fn2(n,m) {
+        console.log("fn2",n,m);
+    };
+    function fn3() {
+        console.log("fn3");
+    };
+    let cb=new Callbacks();
+    cb.add(fn1,fn2,fn3);
+    cb.remove(fn2);
+    cb.fire(1,2)
+</script>

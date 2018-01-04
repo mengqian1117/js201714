@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="js/Callbacks.js"></script>
+<script>
+    function person1() {
+        console.log("阳家昆");
+    }
+    function person2() {
+        console.log("靳莹莹");
+    }
+    function person3() {
+        console.log("王力民");
+    }
+    function person4() {
+        console.log("王礼");
+    }
+    function person5() {
+        console.log("朱立辉");
+    }
+    let liuZhiBing=new Callbacks();
+    liuZhiBing.add("marry",person1,person2,person3);
+    liuZhiBing.add("baby",person1,person2,person3,person4,person5);
+    liuZhiBing.remove("baby",person1);
+    liuZhiBing.add("dead",person1);
+    window.setTimeout(function () {
+        liuZhiBing.fire("marry");
+    },2000);
+    window.setTimeout(function () {
+        liuZhiBing.fire("baby")
+    },5000);
+    window.setTimeout(function () {
+        liuZhiBing.fire("dead")
+    },10000)
+
+    //add  订阅
+    //fire 发布
+</script>

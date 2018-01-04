@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="js/Callbacks.js"></script>
+<script type="text/javascript">
+    function fn1() {
+        console.log("fn1");
+    };
+    function fn2(n, m) {
+        console.log("fn2", n, m);
+    };
+    function fn3() {
+        console.log("fn3");
+    };
+    let cb1 = new Callbacks();
+    cb1.add("杨洋", fn1, fn2,fn3);
+    cb1.add("张华男", fn2, fn3);
+    cb1.add("瞿伟康", fn3);
+    cb1.has("张华男",fn2);
+    cb1.remove("杨洋",fn1);
+    console.log(cb1);
+    cb1.fire("张华男",1,2);
+
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    //回调函数集合
+    let $cb=$.Callbacks();
+    //console.log($cb);
+    //add  remove  has  empty  fire
+    //add  往这个集合中增加函数
+    //add可以执行多次,也可以一次增加多个函数
+    $cb.add(fn3);
+    $cb.add(fn2,fn1);
+
+    //fire 让集合中所有的函数执行,按照你add的加入顺序执行的
+    //可以传实参,每个函数执行的时候根据自己的形参获取对应的实参即可
+    //$cb.fire(1,2);
+
+    //remove 从集合中移除某一个函数
+    $cb.remove(fn3);
+    //$cb.fire(1,2);
+
+    //has判断集合中有没有指定函数,false/true
+    console.log($cb.has(fn1));//true
+    console.log($cb.has(fn3));//false
+
+    //empty:清空集合
+    //$cb.empty();
+    $cb.fire();
+
+
+    function fn1(n) {
+        console.log("fn1",n);
+        console.log(this==$cb);
+    }
+    function fn2(n,m) {
+        console.log("fn2",n,m);
+    }
+    function fn3() {
+        console.log("fn3");
+    }
+</script>
