@@ -73,3 +73,30 @@ Drag.prototype.removeBorder=function () {
     this.ele.children[0].style.display="block";
 };
 
+//Drag第二次扩展 加上弹跳
+Drag.prototype.jump=function () {
+    this.add("up",this.drop);
+    //给他一个初速度
+    this.speedY=1;
+    return this;
+};
+Drag.prototype.drop=function () {
+    //让速度加一个值9.8
+    this.speedY+=9.8;
+    //加上空气阻力系数
+    this.speedY*=0.93;
+    var T=this.ele.offsetTop+this.speedY;
+    //临界值判断
+    var maxT=document.documentElement.clientHeight-this.ele.offsetHeight;
+    if(T>=maxT){
+        T=maxT;
+        this.speedY*=-1;
+        this.f++;
+    }else {
+        this.f=0;
+    }
+    this.ele.style.top=T+"px";
+    if(this.f<2){
+        window.setTimeout(()=>{this.drop();},20)
+    }
+};
