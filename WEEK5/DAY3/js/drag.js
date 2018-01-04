@@ -48,12 +48,12 @@ function Drag(ele) {
         this.ele.style.left=e.clientX-this.x+"px";
         this.ele.style.top=e.clientY-this.y+"px";
         e.preventDefault();
-        this.fire("move");
+        this.fire("move",e);
     };
     let up=(e)=>{
         this.ele.style.zIndex="0";
         document.removeEventListener("mousemove",move);
-        this.fire("up");
+        this.fire("up",e);
     };
     this.ele.addEventListener("mousedown",down);
     this.ele.addEventListener("mouseup",up);
@@ -75,7 +75,8 @@ Drag.prototype.removeBorder=function () {
 
 //Drag第二次扩展 加上弹跳
 Drag.prototype.jump=function () {
-    this.add("up",this.drop);
+    this.add("up",this.drop,this.fly);
+    this.add("move",this.getSpeedX);
     //给他一个初速度
     this.speedY=1;
     return this;
@@ -98,5 +99,40 @@ Drag.prototype.drop=function () {
     this.ele.style.top=T+"px";
     if(this.f<2){
         window.setTimeout(()=>{this.drop();},20)
+    }
+};
+Drag.prototype.getSpeedX=function(e) {
+    //获取水平的速度:根据移动的快慢获取相邻两次的水平距离的差值
+    //第一次时候没有差值,我们就把当时的鼠标位置e.clientX作为初始值
+    if(!this.prevSpeedX){
+        this.prevSpeedX=e.clientX;
+    }else {
+        //鼠标先在的位置-之前prevSpeedX
+        this.speedX=e.clientX-this.prevSpeedX+10;
+        this.prevSpeedX=e.clientX;
+    }
+};
+Drag.prototype.fly=function(){
+    clearTimeout(this.flyTimer);
+    //速度不断减小
+    this.speedX*=0.93;
+    //求出left值
+    var l=this.ele.offsetLeft+this.speedX;
+    //求出最大值
+    var maxL=(document.documentElement.clientWidth||document.body.clientWidth)-this.ele.offsetWidth;
+    //临界值判断
+    if(l<=0){
+        l=0;
+        this.speedX*=-1;
+    }else if(l>=maxL){
+        l=maxL;
+        this.speedX*=-1;
+    }
+    this.ele.style.left=l+"px";
+    //速度一直在减小减小,我们使用的是this.ele.offsetLeft+this.speedX,因为this.ele.offsetLeft值浏览器默认是四舍五入的,所以所当|this.speedX|<0.5时候,直接没有作用了,这个时候就可以清掉定时器了
+    if(Math.abs(this.speedX)>=0.5){
+        this.flyTimer=setTimeout( ()=>{
+            this.fly();
+        },20);
     }
 };
