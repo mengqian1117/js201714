@@ -5,7 +5,7 @@ Callbacks.prototype.has=function (type,fn) {
 Callbacks.prototype.add=function (type,...arg) {
     if(!this[type]){
         //如果没有这个类型先给实例增加一个这个类型的数组,过滤掉arg中的非函数,将arg直接赋值给这个类型
-        this[type]=arg.filter(item=> typeof item=="function");
+        this[type]=arg.filter(item=>typeof item=="function");
     }else {
        arg.forEach((item)=>{
            if(typeof item=="function"&&!this[type].includes(item)){
