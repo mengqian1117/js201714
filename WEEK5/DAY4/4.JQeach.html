@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $("#list>li").each(function(index,item){
+        console.log(item==this);
+    });
+    let oLis=document.getElementById("list").getElementsByTagName("li");
+    $.each(oLis,function(index,item){
+        console.log(item);
+    });
+    //$.ajax();
+    //$.proxy();
+
+
+    //类和实例的区别
+    Array.from([]);
+    Array.of(1);
+    let ary=[1,2,3];
+    Array.prototype;
+    console.log($("#list>li"));
+    //一个JQ对象(JQ实例)使用的都是JQ原型上的方法
+    //给JQ类本身扩展,使用的时候 $.函数()
+    jQuery.extend({
+        f:function () {
+            return "你好"
+        },
+        f1:function (n) {
+            return ++n
+        }
+    });
+    //console.log($.f());
+    //console.log($.f1(10));
+
+    //JQ原型上扩展,JQ对象(JQ实例)使用
+    jQuery.fn.extend({
+        getName:function () {
+            return "杨洋"
+        }
+    });
+    console.log($("#list").getName());
+
+
+    $.ready(function () {
+        //只要html 结构加载完成之后就可以执行
+    })
+</script>

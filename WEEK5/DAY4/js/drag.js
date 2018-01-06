@@ -58,6 +58,7 @@ function Drag(ele) {
     this.ele.addEventListener("mousedown",down);
 }
 
+
 //第一次扩展 zIndex
 //鼠标按下层级关系变大,抬起变小
 Drag.prototype.zIndex=function () {

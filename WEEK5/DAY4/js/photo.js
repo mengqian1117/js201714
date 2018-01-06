@@ -52,15 +52,13 @@ function changePosition() {
         ary[0].style.backgroundColor="yellow";
         //让这俩元素交换位置
         ary[0].animation({left:this.ele.l,top:this.ele.t},700,17,2,function () {
-            //将自定义熟悉l和t的值变成现在的left和top
             this.l=this.offsetLeft;
             this.t=this.offsetTop;
         });
         this.ele.animation({left:ary[0].l,top:ary[0].t},700,17,2,function () {
-            //将自定义熟悉l和t的值变成现在的left和top
             this.l=this.offsetLeft;
             this.t=this.offsetTop;
-        });
+        })
     }else {
         //没有发生碰撞的回到自己的原来的位置
         this.ele.animation({left:this.ele.l,top:this.ele.t},700,17,2)
