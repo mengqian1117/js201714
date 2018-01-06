@@ -52,6 +52,7 @@ function Drag(ele) {
     };
     let up=(e)=>{
         document.removeEventListener("mousemove",move);
+        document.removeEventListener("mouseup",up);
         this.fire("up",e);
     };
     this.ele.addEventListener("mousedown",down);
