@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body id="body">
+<div id="box">box</div>
+</body>
+</html>
+<script type="text/javascript">
+    /*
+    // 事件行为
+    // 事件绑定
+    //DOM0级事件绑定
+    box.onclick=function () {
+        console.log(1);
+    };
+    box.onclick=function () {
+        console.log(2);
+    };
+    box.onclick=null;
+    //DOM2级事件绑定
+    box.addEventListener("click",function () {
+        console.log(1);
+    },false);
+    box.addEventListener("click",fn,false);
+    function fn() {
+        console.log(2);
+    }
+    box.removeEventListener("click",fn,false);
+    */
+    //事件传播
+    //事件传播都是从捕获开始的;
+    //捕获阶段->目标->冒泡阶段;
+    // function fn(f,e) {
+    //     console.log(f,this.id,e);
+    //
+    // }
+    // document.body.addEventListener("click",fn.bind(document.body,"捕获"),true);
+    // document.body.addEventListener("click",fn.bind(document.body,"冒泡"),false);
+    // box.addEventListener("click",fn.bind(box,"捕获"),true);
+    // box.addEventListener("click",fn.bind(box,"冒泡"),false);
+
+
+    function fn(e) {
+        console.log(this.id,e);
+        console.log(e.target);
+    }
+    body.addEventListener("click",fn,true);
+    body.addEventListener("click",fn,false);
+    box.addEventListener("click",fn,true);
+    box.addEventListener("click",fn,false);
+
+    //阻止事件冒泡
+    //阻止事件默认行为
+</script>

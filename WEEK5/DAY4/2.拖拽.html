@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html,body,div,img{
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            cursor: move;
+            z-index: 1;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        #box1{
+            left: 100px;
+            top: 100px;
+        }
+        #box2{
+            left: 300px;
+            top: 150px;
+        }
+        #box3{
+            left: 500px;
+            top: 200px;
+        }
+        .ab{
+            border: 2px dashed red;
+        }
+    </style>
+</head>
+<body>
+<div id="box1">
+    <img src="img/1.png" alt="">
+</div>
+<div id="box2">
+    <img src="img/2.png" alt="">
+</div>
+<div id="box3">
+    <img src="img/3.png" alt="">
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/drag.js"></script>
+<script>
+    new Drag(box1).zIndex().border().jump();
+    new Drag(box2).range({maxL:800,maxT:500,minL:0,minT:0});
+    new Drag(box3).jump();
+
+
+
+</script>
