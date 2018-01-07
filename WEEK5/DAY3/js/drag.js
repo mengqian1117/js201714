@@ -13,7 +13,7 @@ Callbacks.prototype.add=function (type,...arg) {
             }
         })
     }
-
+    return this;
 };
 Callbacks.prototype.remove=function (type,...arg) {
     //先判断有没有这个类型的数组,然后再去判断arg中每一项

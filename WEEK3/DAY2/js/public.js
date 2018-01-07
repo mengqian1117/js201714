@@ -63,20 +63,6 @@ let $=(function () {
             }
         }
     }
-    //css:根据参数的不同来实现不同的操作
-    //参数3个:setCss
-    //参数2个:第二个是对象:setGroupCss,不是对象:getCss
-    // function css(curEle,arg1,arg2) {
-    //     if(arguments.length==3){
-    //         this.setCss(curEle,arg1,arg2)
-    //     }else if(arguments.length==2){
-    //         if(arg1.toString()=="[object Object]"){
-    //             this.setGroupCss(curEle,arg1)
-    //         }else {
-    //             return this.getCss(curEle,arg1)
-    //         }
-    //     }
-    // }
     function css() {
         if(arguments.length==3){
             setCss.apply(this,arguments)
