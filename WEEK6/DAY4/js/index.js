@@ -1,3 +1,10 @@
+//给字符串的原型扩展一个方法用来解析url的
+(function (pro) {
+    //pro=String.prototype
+    pro.query=function () {
+        return eval("({"+this.split("?")[1].replace(/&/g,"',").replace(/=/g,":'")+"'})");
+    }
+})(String.prototype);
 
 function addZero(num) {
     return num =num<10?"0"+num:num
@@ -26,6 +33,8 @@ let LoadingRender=(function () {
                     $progressBox.css({width:step/total*100+"%"});
                     if(step==total){
                         //此时进度条加载完成,进入下一个场景
+                        //为了开发方便如果page==0,不进入到下一个场景,换句话说后面的代码不执行
+                        if(page==0) return;
                         //为了效果明显,给他加一个定时器,延迟一段时间再显示下一个场景
                         window.setTimeout(()=>{
                             //当前场景隐藏
@@ -68,8 +77,9 @@ let PhoneRender=(function () {
             //当音频自己播放完成,也是关闭当前phone区域显示下一个区域
             //H5属性 duration:获取音频的总时间
             if(current>=detailMusic.duration){
-                //执行关闭当前区域的函数closePhone
-                closePhone();
+                //清除定时器
+                window.clearInterval(musicTimer);
+                page==1?null:closePhone();
             }
         },1000)
     }
@@ -86,6 +96,7 @@ let PhoneRender=(function () {
             $phone.css({display:'none'});
         });
         //接下来对话窗口显示 MessageRender
+        MessageRender.init();
     }
     return{
         init(){
@@ -111,4 +122,17 @@ let PhoneRender=(function () {
         }
     }
 })();
-LoadingRender.init();
+
+//Message显示 单例模式
+let MessageRender=(function () {
+    return{
+       init(){
+
+       }
+    }
+})();
+
+let page=window.location.href.query()["page"];
+page==0||isNaN(page)?LoadingRender.init():null;
+page==1?PhoneRender.init():null;
+page==2?MessageRender.init():null;
