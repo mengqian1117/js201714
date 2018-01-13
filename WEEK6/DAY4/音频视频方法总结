@@ -1,0 +1,21 @@
+<audio id="audio" src="img/music.mp3"></audio>
+<video id="video" src="img/1.mp4" width="300" height="250" controls></video>
+src:播放文件的地址
+controls:显示控件
+autoplay:视频就绪后打开页面直接播放
+preload:页面加载完成之后播放
+loop:循环播放
+muted:静音
+poster:视频播放之前先使用一张其他的图片展示
+
+currentSrc:返回当前音频视频的url
+currentTime:获取/设置当前播放的时间
+
+ended 返回值音频视频是否播放完成
+paused 返回值音频视频是否暂
+
+video.playbackRate 设置播放的速度
+video.playbackRate=4;
+
+设置获取音量
+video.volume=0.3;

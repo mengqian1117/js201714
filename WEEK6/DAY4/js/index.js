@@ -1,3 +1,8 @@
+
+function addZero(num) {
+    return num =num<10?"0"+num:num
+}
+
 //Loading显示 单利模式
 let LoadingRender=(function () {
     //将页面上所有的图片放在一个数组中
@@ -35,11 +40,74 @@ let LoadingRender=(function () {
     }
 })();
 
-//Phone显示
+//Phone显示 单利模式
 let PhoneRender=(function () {
+    //获取当前区域需要操作的元素
+    let $phone=$("#phone"),
+        $listen=$phone.children(".listen"),
+        $listenTouch=$listen.children(".touch"),
+        $detail=$phone.children(".details"),
+        $detailTouch=$detail.children(".touch"),
+        $time=$(".time");
+    //音频标签变成原生的元素
+    let listenMusic=$("#listenMusic")[0];
+    let detailMusic=$("#detailMusic")[0];
+    let musicTimer=null;
+    //播放对话音频
+    function detailMusicPlay() {
+        //detailMusic播放 play()
+        detailMusic.play();
+        //设置定时器,每隔一秒钟获取播放进度,转化成分:秒的形式展示
+        musicTimer=window.setInterval(()=>{
+            //获取当前音频播放的时间(进度),currentTime获取播放进度单位是秒s
+            let current=detailMusic.currentTime,
+                m=Math.floor(current/60),//分钟
+                s=Math.floor(current-m*60);//秒
+            //将时间加在$time上
+            $time.html(addZero(m)+":"+addZero(s));
+            //当音频自己播放完成,也是关闭当前phone区域显示下一个区域
+            //H5属性 duration:获取音频的总时间
+            if(current>=detailMusic.duration){
+                //执行关闭当前区域的函数closePhone
+                closePhone();
+            }
+        },1000)
+    }
+    //关闭当前区域的函数
+    function closePhone() {
+        //清除定时器
+        window.clearInterval(musicTimer);
+        //让Phone消失之前先关闭音频
+        detailMusic.pause();
+        //phone隐藏,让他有一个慢慢掉下去的效果,就是给他加一个平移就好了
+        $phone.css("transform","translateY("+document.documentElement.clientHeight+"px)").on("transitionend",function () {
+            //transitionEnd过渡完成之后执行的函数
+            //此时让phone隐藏
+            $phone.css({display:'none'});
+        });
+        //接下来对话窗口显示 MessageRender
+    }
     return{
         init(){
-            console.log("phone");
+            //显示当前区域phone
+            $phone.css({display:"block"});
+            //播放接听铃声,listenMusic播放 play()H5新标签audio/video自带一个属性方法
+            listenMusic.play();
+            //给listenTouch绑定接听事件,单击事件,zepto给元素提供了一个现成单击事件 singleTap
+            $listenTouch.singleTap(function (e) {
+                //让listen消失
+                $listen.css("display",'none');
+                //让铃声停止播放  pause()暂停
+                listenMusic.pause();
+                //让detail显示,从底部上来(平移上来)
+                $detail.css("transform","translateY(0)");
+                //让时间time显示
+                $time.css({display:'block'});
+                //对话开始播放
+                detailMusicPlay();
+            });
+            //detailTouch绑定单击事件
+            $detailTouch.singleTap(closePhone);
         }
     }
 })();

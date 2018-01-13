@@ -66,3 +66,104 @@ body{
     transition: width 2s linear;
     /*过渡,all 只要有样式发生改变,width 只有width发生改变的时候才会触发过渡, 1s,过渡效果时间,linear 匀速*/
 }
+/*phone*/
+.phone{
+    /*display: block;*/
+    background: url("../img/zf_phoneBg.jpg") no-repeat;
+    background-size: cover;
+    /*cover 将图片缩小放在盒子中*/
+    z-index: -2;
+    transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+}
+.phone audio{
+    display: none;
+}
+.phone h2{
+    position: absolute;
+    width: 2.62rem;
+    height: 1.25rem;
+    top:.5rem;
+    left: 50%;
+    margin-left: -1.31rem;
+}
+.phone h2 img{
+    width: 100%;
+    height: 100%;
+}
+.phone .time{
+    display:none ;
+    position: absolute;
+    height: .3rem;
+    font-size: .3rem;
+    text-align: center;
+    letter-spacing: .05rem;
+    width: 100%;
+    line-height: .3rem;
+    color: #fff;
+    top:1.85rem;
+}
+.phone .listen{
+    position: absolute;
+    width: 5.2rem;
+    height: 3.6rem;
+    left: 50%;
+    margin-left: -2.6rem;
+    bottom: .3rem;
+    background: url("../img/zf_phoneListen.png") no-repeat;
+    background-size: 100% 100%;
+}
+.phone .listen div{
+    position: absolute;
+    width: 1.6rem;
+    height: 1.6rem;
+    right: -.07rem;
+    bottom: .47rem;
+    border-radius: 50%;
+}
+.phone .listen .move{
+    z-index: -1;
+    border: .03rem solid #4cd864;
+    animation: phoneMove 1s linear infinite both;
+    -webkit-animation: phoneMove 1s linear infinite both;
+}
+.phone .details{
+    position: absolute;
+    width: 5.2rem;
+    height: 6.59rem;
+    background: url("../img/zf_phoneDetail.png") no-repeat;
+    background-size: 100% 100%;
+    bottom: .28rem;
+    left: 50%;
+    margin-left: -2.6rem;
+    /*平移到底部*/
+    transform: translateY(7rem);
+    -webkit-transform: translateY(7rem);
+    transition: all 1s ;
+    -webkit-transition: all 1s ;
+}
+.phone .details .touch{
+    position: absolute;
+    width: 1.6rem;
+    height: 1.6rem;
+    left: 50%;
+    margin-left: -0.8rem;
+    z-index: 10;
+    bottom: 0.28rem;
+}
+
+@keyframes phoneMove {
+    0%{transform: scale(0.6);}
+    100%{transform: scale(1.2);}
+}
+@-webkit-keyframes phoneMove {
+    0%{
+        transform: scale(0.6);
+        -webkit-transform: scale(0.6);
+    }
+    100%{
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+    }
+}
+
