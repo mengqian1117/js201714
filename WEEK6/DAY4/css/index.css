@@ -1,0 +1,68 @@
+html{
+    font-size: 100px;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    -webkit-user-select: none;
+    position: relative;
+    z-index: -3;
+}
+.loading,.phone{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.loading{
+    /*display: block;*/
+    background-color: #000;
+}
+.loading .title{
+    position: absolute;
+    height: 1.4rem;
+    left: 0;
+    top: 50%;
+    margin-top: -2.2rem;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+.loading .title h1{
+    font-size: .5rem;
+    line-height: .75rem;
+    height: .75rem;
+    margin-bottom: .2rem;
+    letter-spacing: .04rem;
+}
+.loading .title h2{
+    font-size: .26rem;
+    height: .45rem;
+    line-height: .45rem;
+}
+.loading .progress{
+    position: absolute;
+    width: 4.6rem;
+    height: .3rem;
+    left: 50%;
+    top: 50%;
+    margin-left: -2.3rem;
+    margin-top: .85rem;
+    background-color: #fff;
+    border-radius: .06rem;
+}
+.progress .progressBox{
+    width: 0%;
+    height: 100%;
+    border-radius: .06rem;
+    background: linear-gradient(45deg,#5cb85c 25%,#74c274 25%,#74c274 50%,#5cb85c 50%,#5cb85c 75%,#74c274 75%);
+    -webkit-background: linear-gradient(45deg,#5cb85c 25%,#74c274 25%,#74c274 50%,#5cb85c 50%,#5cb85c 75%,#74c274 75%);
+    background-size: 0.3rem 0.3rem;
+    /*background-position: 0 0.3rem;*/
+    transition: width 2s linear;
+    /*过渡,all 只要有样式发生改变,width 只有width发生改变的时候才会触发过渡, 1s,过渡效果时间,linear 匀速*/
+}

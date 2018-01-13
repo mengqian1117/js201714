@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>珠峰培训2017-14JS</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/zepto.min.js"></script>
+</head>
+<body>
+<!--第一个区域Loading-->
+<section id="loading" class="loading">
+    <div class="title">
+        <h1>珠峰培训</h1>
+        <h2>H5场景交互简历</h2>
+    </div>
+    <div class="progress">
+        <div class="progressBox"></div>
+    </div>
+</section>
+<!--第二个区域phone-->
+<section id="phone" class="phone">
+    <h2>
+        <img src="img/zf_phoneLogo.png" alt="">
+    </h2>
+    <div class="time">00:00</div>
+    <div class="listen">
+        <div class="move"></div>
+        <div class="touch"></div>
+    </div>
+    <div class="details">
+        <div class="touch"></div>
+    </div>
+    <audio src="audio/bell.mp3" loop preload="none"></audio>
+    <audio src="audio/say.mp3" preload="none"></audio>
+    <!--loop 循环播放,preload:是否提前加载-->
+</section>
+</body>
+</html>
+<script type="text/javascript">
+    var W = document.documentElement.clientWidth || document.body.clientWidth;
+    var dW = 640;
+    document.documentElement.style.fontSize = W * 100 / dW + "px";
+</script>
+<script src="js/index.js"></script>

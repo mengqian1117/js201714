@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html{
+            font-size: 20px;
+            /*1rem=20px*/
+        }
+        #box1{
+            /*width: 10rem;*/
+            /*  20px*10  */
+            /*height:10rem ;*/
+            width:1rem ;
+            height: 1rem;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<!--
+
+px:绝对单位,不管屏幕大小怎么变化,他都一直固定
+rem:
+一个css单位,是一个相对单位(相对于html的fontSize大小设置的),
+1rem=html的fontSize大小
+
+-->
+<div id="box1"></div>
+
+
+<!--
+根据屏幕大小设置html的fontSize
+我们一般拿到设计稿默认设计稿的html的fontSize是100px(因为100px比较好计算,10不行因为fontSize最小值是12px),所以写css 样式的时候只需要将设计稿的值/100变成rem单位即可
+在js中加上
+var W=document.documentElement.clientWidth||document.body.clientWidth;
+var dW=640;
+document.documentElement.style.fontSize=W*100/dW+"px";
+这样就会根据屏幕大小自动设置html的fontSize
+
+
+
+
+           宽         html fontSize    css       box
+设计稿     640        100px            1rem      1*100px
+设备1      320        50px             1rem      1*50px
+设备2      375        375*100/640px    1rem      1*375*100/640
+设备3      414        414*100/640px    1rem
+-->
+</body>
+</html>
+<script type="text/javascript">
+    //在PC端加在 window.onresize事件中,因为PC端可以改变浏览器大小,只要浏览器窗口发生改变就可以重新计算
+    window.onresize=function () {
+        var W=document.documentElement.clientWidth||document.body.clientWidth;
+        var dW=640;//设计稿的宽
+        document.documentElement.style.fontSize=W*100/dW+"px";
+    }
+</script>
