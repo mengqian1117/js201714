@@ -125,10 +125,162 @@ let PhoneRender=(function () {
 
 //Message显示 单例模式
 let MessageRender=(function () {
+    //获取当前区域所需要的元素
+    let $message=$("#message"),
+        $messageList=$(".messageList"),
+        $messageListLi=$messageList.children("li"),
+        $keyBoard=$(".keyBoard"),
+        $textTip=$(".textTip"),
+        $submit=$(".submit");
+    let msgMusic=$("#msgMusic")[0];
+    let messageTimer=null,//打字效果的定时器
+        autoTimer=null,//消息推送的定时器
+        step=-1,//记录显示的那一条消息
+        total=$messageListLi.length,//消息的总条数
+        top=0;//往上移动的距离
+    //消息推送函数
+    function messageMove() {
+        //先播放背景音乐
+        msgMusic.play();
+        //设置定时器开始消息推送
+        autoTimer=window.setInterval(()=>{
+            step++;
+            //获取要推送的消息就是对应的li(索引是step)
+            let $curLI=$messageListLi.eq(step);
+            $curLI.css({transform:"translateY(0)",opacity:1});
+            //当推送到第三条,让keyBoard显示,暂时推送
+            if(step==2){
+                //清除定时器停止推送
+                window.clearInterval(autoTimer);
+                //让可以Board显示(从底部出来)
+                $keyBoard.css({transform:"translateY(0)"});
+                //先让textTip显示
+                $textTip.css({display:"block"});
+                //开始打字效果
+                textMove()
+            }
+            //当显示到第四条的时候,在推送的时候开始往上平移
+            if(step>2){
+                //往上平移是负值
+                top-=$curLI[0].offsetHeight+10;
+                //将ul整体往上移动top
+                $messageList.css({transform:"translateY("+top+"px)"})
+            }
+            //当消息推送完成时候
+            if(step==total-1){
+                //清除定时器
+                window.clearInterval(autoTimer);
+                //关闭音乐
+                msgMusic.pause();
+                //为了开发方便 如果page==2了,停止在这个区域,也就是下面的代码不执行了
+                if(page==2) return;
+                //当前message区域消失,下一个区域显示
+                $message.css({display:"none"});
+                CubeRender.init();
+            }
+        },1500)
+    }
+    //模拟打字效果的函数
+    function textMove() {
+        let textStr="都学会了,可还是找不到工作呀!",
+            n=-1;
+        //设置定时器.5s显示一个字
+        messageTimer=window.setInterval(()=>{
+            n++;
+            //将显示的文字加在textTip上
+            $textTip.html($textTip.html()+textStr[n]);
+            //当字打完了清除定时器
+            if(n==textStr.length-1){
+                window.clearInterval(messageTimer);
+                //显示发送按钮submit
+                $submit.css({display:"block"});
+                //给发送按钮绑定单击事件
+                $submit.singleTap(function () {
+                    //先让textTip的文字消失
+                    $textTip.html("").css("display","none");
+                    //keyBoard下去
+                    $keyBoard.css({transform:"translateY(3.7rem)"});
+                    //继续消息推送,也就是继续执行messageMove函数即可
+                    messageMove();
+                })
+            }
+        },500)
+    }
     return{
        init(){
-
+           $message.css({display:"block"});
+           messageMove();
        }
+    }
+})();
+
+//Cube显示 单利模式
+let CubeRender=(function () {
+    let $cube=$("#cube"),
+        $cubeBox=$(".cubeBox"),
+        $cubeLi=$cubeBox.children("li");
+    function start(e) {
+        //e:事件对象TouchEvent
+        //e.touches 存储着每一个手指的信息
+        //处理单手指操作即可,所以获取e.touches[0] 第一个手指信息即可
+        let point=e.touches[0];
+        //当时手指触碰一瞬间记录当前手指的偏移,记录到当前魔方上$cubeBox==this
+        //在记录两个值,就是水平变化量 changeX和垂直变化量changeY
+        $(this).attr({
+            startX:point.clientX,
+            startY:point.clientY,
+            changeX:0,
+            changeY:0
+        })
+    }
+    function move(e) {
+        //手指在屏幕上滑动,获取每时每刻的手指信息,记录每时每刻的changeX和changeY
+        let point=e.touches[0];
+        //求出changeX和changeY
+        let changeX=point.clientX-$(this).attr("startX"),
+            changeY=point.clientY-$(this).attr("startY");
+        //将changeX和changeY存到this上
+        $(this).attr({
+            changeX:changeX,
+            changeY:changeY,
+        });
+    }
+    function end(e) {
+        //手指移开屏幕,根据之前记录的changeX和changeY,让魔方旋转一定的角度
+        //获取出之前存储的changeX和changeY的值,通过attr这个方法获取出来的是字符串,如果想要+计算,需要转化为数字
+        let  changeX=parseFloat($(this).attr("changeX")),
+             changeY=parseFloat($(this).attr("changeY"));
+        //判断一下魔方是否需要滑动
+        if(!isRotate(changeX,changeY))return;
+        //只要可以执行到这里说明 符合滑动的条件
+        //在这里手指移动的距离是changeX和changeY 这个是直线距离,但是魔方转动的是角度,所以我们就把转动的角度当做是移动距离的1/3
+        //求出需要转动的角度
+        let rotateX=parseFloat($(this).attr("rotateX"))-changeY/3,
+            rotateY=parseFloat($(this).attr("rotateY"))+changeX/3;
+        //魔方旋转,还要把记录的初始角度也变一下,因为下一次转动的时候以这一次作为开始值了
+        $(this).attr({
+            rotateX:rotateX,
+            rotateY:rotateY,
+        }).css({
+            //回去css中看看原来的样式是什么不要漏了
+            transform:`scale(0.6) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+        })
+    }
+    function isRotate(x,y) {
+        return Math.abs(x)>30||Math.abs(y)>30;
+    }
+    return{
+        init(){
+            $cube.css({display:"block"});
+            //存储魔方的初始的角度
+            $cubeBox.attr({
+                rotateX:-30,
+                rotateY:45,
+            }).on("touchstart",start).on("touchmove",move).on("touchend",end)
+            //touchstart:手指刚触碰到屏幕的时候
+            //touchmove:手指在屏幕上滑动
+            //touchend:手指离开屏幕
+        }
     }
 })();
 
@@ -136,3 +288,4 @@ let page=window.location.href.query()["page"];
 page==0||isNaN(page)?LoadingRender.init():null;
 page==1?PhoneRender.init():null;
 page==2?MessageRender.init():null;
+page==3?CubeRender.init():null;
