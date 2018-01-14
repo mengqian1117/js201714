@@ -284,8 +284,67 @@ let CubeRender=(function () {
     }
 })();
 
+
+let SwiperRender=(function () {
+    let $swiper=$("#swiper"),
+        $return=$(".return"),
+        $slide=$("#swiper .swiper-slide"),
+        $makisu=$("#makisu");
+    function change(exmple) {
+        //执行这个方法默认传进来一个swiper实例
+        //exmple.activeIndex 当前显示的滑块的索引
+        //显示page1
+        console.log(exmple.activeIndex);
+        if(exmple.activeIndex==0){
+            $makisu.makisu({
+                selector:"dd",
+                overlap:0.6,
+                speed:0.8
+            });
+            //展开
+            $makisu.makisu("open");
+        }else {
+            //出去之后,显示的不是page1的时候,收起来
+            $makisu.makisu({
+                selector:"dd",
+                overlap:0.6,
+                speed:0,//瞬间收起来,不让人看见
+            });
+            //展开
+            $makisu.makisu("close");
+        }
+        $slide.each((index,item)=>{
+            if(index==exmple.activeIndex){
+                item.id="page"+(index+1)
+            }else {
+                item.id=null;
+            }
+        });
+        //给return绑定点击事件
+        $return.singleTap(function(){
+            $swiper.css({display:"none"});
+            CubeRender.init();
+        })
+    }
+    return{
+        init(){
+            //显示当前swiper区域
+            $swiper.css({display:'block'});
+            //初始化swiper 通过构造函数方式创建一个swiper实例
+            //("选择器.swiper-container",{配置信息})
+            let mySwiper=new Swiper(".swiper-container",{
+                effect:"coverflow",
+                onTransitionEnd:change
+            });
+            //onTransitionEnd:只要是滑块进来了就会触发这个事件
+            //实例.slideTo(滑块的索引,速度)
+            //mySwiper.slideTo(2,0)
+        }
+    }
+})();
 let page=window.location.href.query()["page"];
 page==0||isNaN(page)?LoadingRender.init():null;
 page==1?PhoneRender.init():null;
 page==2?MessageRender.init():null;
 page==3?CubeRender.init():null;
+page==4?SwiperRender.init():null;
