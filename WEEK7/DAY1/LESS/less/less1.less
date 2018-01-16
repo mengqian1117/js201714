@@ -1,0 +1,110 @@
+//注释
+/*注释 */
+//变量  js  var let const function class
+//@变量名:值 不用写字符串,直接按照css样式值写即可
+
+@W:100px;
+@H:200px;
+
+//除此之后变量名也可以来定义变量
+@zf:"word";
+@word:"珠峰培训";
+@c:green;
+
+#box{
+  width: @W;
+  height: @H;
+  background: rebeccapurple;
+}
+#box:after{
+  display: block;
+  //content: @word;
+  content: @@zf;
+  // @  @zf -->@word-->"珠峰培训"
+  width: 50px;
+  height: 50px;
+  background: @c;
+}
+
+//混合类
+.class1{
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+.box{
+  .class1;
+  border: 1px solid yellow;
+}
+
+//带参数的混合类
+//function sum(z,y){}
+//sum(1,2)
+
+.border(@px,@tap,@c){
+  border: @px @tap @c;
+}
+.box{
+  .border(5px,solid,red)
+}
+//参数的默认值
+//function sum(x=1,y){}
+.font(@f:16px){
+  font-size:@f ;
+}
+.box{
+  //.font()
+  .font(30px)
+}
+//参数集合 @arguments
+.border1(@px,@tap,@c){
+  border: @arguments;
+}
+.box{
+  .border1(5px,solid,red);
+}
+
+//匹配模式和引导表达式
+//定义类的时候第一个参数自己加一个名字,执行的时候根据第一个参数来选择哪一个类
+.min(l,@color){
+  background: lightblue;
+  border: 1px solid @color;
+//  .min(l,)
+}
+.min(r,@color){
+  background: red;
+  border: 1px solid @color;
+  //.min(r,)
+}
+.min(@_,@color){
+  //不管第一个参数传什么都会执行
+  font-size: 12px;
+}
+.box{
+  .min(t,green);
+}
+
+//自带了一些函数,主要是处理颜色值的函数
+/*
+1.lighten(@color,10%) 提亮颜色百分之十
+return a color which is 10% lighter than @color
+2.darken(@color,10%)
+
+3.saturate(@color,10%)   饱和度增加10%
+4.desaturate(@color,10%) 饱和度减少10%
+5.hue() 色调
+6.mix(@color1,@color2) 混合颜色
+*/
+
+#box1{
+  width: 100px;
+  height: 100px;
+  //background: lighten(red,40%)
+  //background: darken(red,10%)
+  //background: saturate(yellow,50%)
+  background: mix(red,purple);
+}
+
+
+
+

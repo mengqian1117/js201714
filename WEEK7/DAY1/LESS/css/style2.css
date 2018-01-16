@@ -1,0 +1,18 @@
+.box {
+  width: 500px;
+  height: 500px;
+}
+/*
+.min(@w) when (@w=200px){}
+
+//可以使用一些自带的JS方法来判断
+//isnumber():是不是一个数字
+//iscolor():是不是一个颜色
+//isstring()
+//isurl():是不是一个地址
+//ispixel():单位是不是px
+//isem
+*/
+.box {
+  width: 1em;
+}

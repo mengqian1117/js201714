@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript" src="js/touch-0.2.14.min.js"></script>
+<script type="text/javascript">
+    var box=document.getElementById("box");
+    //touch.on(当前元素,"事件类型",函数);
+    touch.on(box,"tap",function () {
+        this.style.webkitTransition="all 1s linear";
+        this.style.webkitTransform="rotate(360deg)";
+        //此时位置就是360deg下一次就不动了,所以当转完之后让他瞬间回到原来的位置(0deg)
+        //设置定时器1s之后执行,让他回到初始位置
+        let timer=setTimeout(()=>{
+            this.style.webkitTransition="all 0s linear";
+            this.style.webkitTransform="rotate(0deg)";
+            window.clearTimeout(timer);
+        },1000)
+    });
+
+    //双击 逆时针转360deg
+    //doubletap
+
+    
+</script>

@@ -1,0 +1,51 @@
+/*注释 */
+#box {
+  width: 100px;
+  height: 200px;
+  background: rebeccapurple;
+}
+#box:after {
+  display: block;
+  content: "珠峰培训";
+  width: 50px;
+  height: 50px;
+  background: green;
+}
+.class1 {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background: red;
+  border: 1px solid yellow;
+}
+.box {
+  border: 5px solid red;
+}
+.box {
+  font-size: 30px;
+}
+.box {
+  border: 5px solid red;
+}
+.box {
+  font-size: 12px;
+}
+/*
+1.lighten(@color,10%) 提亮颜色百分之十
+return a color which is 10% lighter than @color
+2.darken(@color,10%)
+
+3.saturate(@color,10%)   饱和度增加10%
+4.desaturate(@color,10%) 饱和度减少10%
+5.hue() 色调
+6.mix(@color1,@color2) 混合颜色
+*/
+#box1 {
+  width: 100px;
+  height: 100px;
+  background: #c00040;
+}

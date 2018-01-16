@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        html,body,div{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #box1{
+            background: yellow;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            background: gray;
+            font-size: 50px;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin-top: -100px;
+            margin-left: -100px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2">弹窗</div>
+</body>
+</html>
+<script type="text/javascript">
+    //点透事件
+    //有两个元素,同级关系
+    //点击层级关系高的事件,如果消失此元素会触发另一个元素的click事件
+    //解决:
+    // 1.给上面的阻止事件默认行为
+    // 2.直接使用click(如果不考虑延迟问题)
+    box2.addEventListener("click",function (e) {
+        this.style.display="none";
+    });
+    box1.addEventListener("click",function () {
+        this.innerHTML="我被点了";
+    })
+</script>

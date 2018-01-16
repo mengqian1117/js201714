@@ -1,0 +1,46 @@
+//嵌套
+//直接嵌套就是后代
+//&,表示当前选择器
+/*
+div
+   :before
+   p.p1
+      img
+
+*/
+div{
+  width: 100px;
+  height: 100px;
+  &:before{
+
+  }
+  .p1{
+    width: 100%;
+    height: 20px;
+    img{
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+p{
+  &.p1{}
+  .p1{}
+}
+
+
+//计算 颜色变量的计算
+@x:10%;
+@y:@x*2;
+@z:(@x+@y)/3;
+
+.box{
+  width: 100px/2;
+}
+
+//可以写一些math函数
+//round(1.8)->2
+//ceil(1.1)-->2
+//floor(1.9)-->1
+//percentage(0.5)->50%
+

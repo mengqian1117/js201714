@@ -1,0 +1,22 @@
+移动端事件:
+click 单击,load,scroll,blur,focus,change,input(代替keyup和keydown)
+touch事件(处理单手指操作)gesture(处理多手指操作)
+touch:touchstart touchmove touchend touchcancel
+gesture:gesturestart  gesturechange gestureend
+1.click :在移动端click属于单击事件,不是点击事件,因为在移动端经常区分单击和双击进行不同的操作,在一定的时长内会判断是否点击第二次,只有确定没有单击,才会执行的是单击绑定的函数,所以说单击click会有一定的延迟一般是300ms
+
+2,单击,双击,长按,滑动(上下左右),
+单击和双击(300ms)
+点击和长按(750ms)
+点击和滑动(xy轴的偏移量是大于30px是滑动)
+左右和上下滑动的区别 x轴的变化大于Y轴变化是左右滑动
+左右:偏移的差值>0 右滑反之左滑
+
+3.移动端的事件库
+FastClick.js(解决了click 的延迟问题)
+touch.js:百度云自己出的一款事件库
+
+zepto.js封装了很多事件,小型JQ
+
+
+

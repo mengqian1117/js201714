@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            background: yellow;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+    //滑动:渐变
+    //单击:旋转
+    let box=document.getElementById("box");
+    box.addEventListener("touchstart",function (e) {
+        //获取手指信息e.touches[0]
+        //注意通过这样touches获取手指信息必须保证手指还在屏幕上
+        //但是touchend时候手指已经离开屏幕了,如果此时还想获取手指信息必须使用e.changedTouches[0]获取
+        let point=e.touches[0];
+        //记录当前手指的XY轴偏移
+        this.startX=point.clientX;
+        this.startY=point.clientY;
+        this.isMove=false;
+    });
+    box.addEventListener("touchmove",function (e) {
+        let point=e.touches[0];
+        //获取当前位置
+        let curX=point.clientX,
+            curY=point.clientY;
+        //判断是否滑动,大于30px就是滑动
+        if(Math.abs(curX-this.startX)>30||Math.abs(curY-this.startY)>30){
+            this.isMove=true;
+        }
+    });
+    box.addEventListener("touchend",function (e) {
+        //根据之前记录的isMove值判断具体的操作
+        if(this.isMove){
+            //滑动
+            this.style.webkitTransition="all 2s linear";
+            if(this.style.opacity<1){
+                this.style.opacity=1;
+            }else {
+                this.style.opacity=0.2;
+            }
+        }else {
+            //单击
+            this.style.webkitTransition="all 1s linear";
+            this.style.webkitTransform="rotate(360deg)";
+            let timer=setTimeout(()=>{
+                this.style.webkitTransition="all 0s linear";
+                this.style.webkitTransform="rotate(0deg)";
+                window.clearTimeout(timer);
+            },1000)
+        }
+    })
+</script>
