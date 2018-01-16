@@ -1,0 +1,56 @@
+html,
+body,
+div,
+img,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+html {
+  font-size: 100px;
+}
+#swiper {
+  position: relative;
+  height: 3rem;
+  overflow: hidden;
+}
+#swiper #banner {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 3rem;
+}
+#swiper #banner .slide {
+  float: left;
+  height: 3rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+#swiper #banner .slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#swiper #bannerTip {
+  position: absolute;
+  left: 0;
+  bottom: .1rem;
+  width: 100%;
+  height: .16rem;
+  text-align: center;
+}
+#swiper #bannerTip li {
+  display: inline-block;
+  margin: 0.03rem;
+  width: .16rem;
+  height: .16rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50% ;
+}
+#swiper #bannerTip li.bg {
+  background: orangered;
+}
