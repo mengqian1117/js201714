@@ -1,0 +1,204 @@
+@import "reset";
+@import "public";
+html{
+  font-size: 100px;
+}
+#music,html,body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+//music  background
+#music{
+  position: relative;
+  .musicBg{
+    position: absolute;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    background: url("../img/poster.jpg") no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+  }
+  .musicBgMark{
+    .musicBg;
+    z-index: -1;
+    background: rgba(0,0,0,.5);
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+  }
+  #musicAudio{
+    display: none;
+  }
+}
+
+//header
+.header{
+  height: 1.2rem;
+  padding: .3rem;
+  position:relative;
+  background: rgba(0,0,0,0.1);
+  .posterInfo{
+    width: 4.5rem;
+    height: 1.2rem;
+    img{
+      width: 1.2rem;
+      height: 1.2rem;
+      vertical-align: top;
+    }
+    div{
+      display: inline-block;
+      vertical-align: top;
+      h1,p{
+        font-size: .36rem;
+        color: @color-white;
+        font-weight: normal;
+      }
+    }
+  }
+  .musicBtn{
+    position: absolute;
+    width: .86rem;
+    height: .86rem;
+    border: .02rem solid @color-white;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -.43rem;
+    right: .3rem;
+    &.play{
+      display: block;
+      &:after{
+        display: block;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: .2rem solid transparent;
+        border-left-color: @color-white;
+        margin-top: -.2rem;
+        margin-left:-.05rem ;
+      }
+    }
+    &.pause{
+      display: none;
+      &:after{
+        display: block;
+        content: "||";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: .3rem;
+        height: .4rem;
+        width: .4rem;
+        text-align: center;
+        line-height: .4rem;
+        letter-spacing: .04rem;
+        font-weight: bold;
+        color: @color-white;
+        margin-top: -.2rem;
+        margin-left: -.18rem;
+      }
+    }
+  }
+}
+
+//main
+.main{
+  position: relative;
+  margin: .4rem .2rem;
+  height: 5.2rem;
+  overflow: hidden;
+  .lyric{
+    position: absolute;
+    width: 100%;
+    .transition(@duration: .5s);
+    p{
+      line-height: .84rem;
+      font-size: .32rem;
+      text-align: center;
+      color: @color-gray;
+      &.bg{
+        color: @color-green;
+      }
+    }
+  }
+}
+
+//footer
+footer{
+  height: 3rem;
+  margin: 0 .2rem;
+  .like{
+    height: .8rem;
+    a{
+      display: block;
+      float: right;
+      width: .5rem;
+      height: .42rem;
+      background: url("../img/sprite_play.png") no-repeat 0 0;
+      background-size: .8rem 7rem;
+      margin-top: .2rem;
+    }
+  }
+  .progress{
+    height: .9rem;
+    line-height: .9rem;
+    .current,.duration{
+      width: .9rem;
+      height: 100%;
+      font-size: .24rem;
+      color: @color-gray;
+      text-align: center;
+      float: left;
+    }
+    .timeLine{
+      width: 4.2rem;
+      position: relative;
+      float: left;
+      height: .04rem;
+      background: @color-gray;
+      margin-top: 0.43rem;
+      span{
+        width: 0%;
+        position: absolute;
+        background: @color-green;
+        height: .04rem;
+        .transition;
+      }
+    }
+
+  }
+  .download{
+    height: .9rem;
+    a{
+      position: relative;
+      display: block;
+      width: 4.4rem;
+      height: .9rem;
+      line-height: .9rem;
+      text-align: center;
+      font-size: .4rem;
+      background: @color-green;
+      color: @color-white;
+      border-radius: .9rem;
+      margin: 0 auto;
+      letter-spacing: .04rem;
+      &:after{
+        display: block;
+        content: "";
+        position: absolute;
+        left: .15rem;
+        top:50%;
+        width: .66rem;
+        height: .66rem;
+        border-radius: 50%;
+        margin-top: -.33rem;
+        background: url("../img/sprite_play.png") no-repeat 0 -6rem;
+        background-size: .8rem 7rem;
+      }
+    }
+  }
+}
