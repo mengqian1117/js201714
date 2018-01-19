@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #canvas{
+            background: url('img/bg.png') repeat;
+            border: 2px solid red;
+            display: block;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="400" height="400" ></canvas>
+</body>
+</html>
+<script type="text/javascript">
+    let canvas=document.getElementById("canvas");
+    let draw=canvas.getContext("2d");
+    //注意平移的时候是画布在平移,相当于将原来的坐标轴进行平移了
+    draw.save();
+    draw.translate(100,100);
+    draw.fillStyle="green";
+    draw.fillRect(100,100,100,100);
+    draw.restore();//重置画布坐标位置
+    draw.fillStyle="red";
+    draw.fillRect(0,0,100,100);
+</script>

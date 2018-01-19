@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #canvas{
+            background: url('img/bg.png') repeat;
+            border: 2px solid red;
+            display: block;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="400" ></canvas>
+</body>
+</html>
+<script type="text/javascript">
+    let canvas=document.getElementById("canvas");
+    let draw=canvas.getContext("2d");
+    function Move(x,y,w,h) {
+        this.x=x;
+        this.y=y;
+        this.w=w;
+        this.h=h;
+        this.rotate=0;
+    };
+    Move.prototype.update=function () {
+        this.x++;
+        this.rotate+=0.1;
+    };
+    Move.prototype.render=function () {
+        draw.save();
+        draw.translate(this.x,150);
+        draw.rotate(this.rotate);
+        draw.fillStyle="red";
+        draw.fillRect(-this.w/2,-this.h/2,this.w,this.h);
+        draw.restore();
+    };
+
+    let move1=new Move(0,100,100,100);
+
+    //主定时器
+    setInterval(()=>{
+        draw.clearRect(0,0,canvas.width,canvas.height);
+        move1.update();
+        move1.render();
+    },20)
+</script>

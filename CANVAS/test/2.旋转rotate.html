@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+    <style>
+        #canvas{
+            background: url('img/bg.png') repeat;
+            border: 2px solid red;
+            display: block;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="400" height="400" ></canvas>
+</body>
+</html>
+<script type="text/javascript">
+    let canvas=document.getElementById("canvas");
+    let draw=canvas.getContext("2d");
+    //旋转中心默认是0,0
+    // //draw.rotate(0.5);
+    // draw.translate(150,150);
+    // draw.rotate(1);
+    // draw.fillStyle="blue";
+    // draw.fillRect(-50,-50,100,100)
+    let r=0;
+    setInterval(()=>{
+        //清屏
+        draw.clearRect(0,0,400,400);
+        r+=0.1;
+        draw.save();
+        draw.translate(150,150);
+        draw.rotate(r);
+        draw.fillRect(-50,-50,100,100);
+        draw.restore();
+    },20)
+</script>
