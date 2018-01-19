@@ -19,6 +19,15 @@
                     i--;
                 }
             }
+        };
+
+        this.x1=this.x;
+        this.x2=this.x+52;
+        this.y1=this.h1;
+        this.y2=this.h1+this.space;
+        if((game.bird.x2>this.x1&&game.bird.y1<this.y1&&game.bird.x1<this.x2)||(game.bird.x2>this.x1&&game.bird.y2>this.y2&&game.bird.x1<this.x2)){
+            //碰撞了
+            clearInterval(game.timer)
         }
     };
     Pipe.prototype.render=function () {
