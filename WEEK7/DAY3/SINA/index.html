@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>珠峰培训-新浪移动端首页</title>
+    <!--IMPORT CSS-->
+    <link rel="stylesheet/less" href="css/index.less">
+    <script src="js/less-2.5.3.min.js"></script>
+
+    <!--REM-->
+    <script>
+        ~function () {
+            var deviceW = document.documentElement.clientWidth;
+            if (deviceW > 640) return;
+            document.documentElement.style.fontSize = deviceW / 640 * 100 + 'px';
+        }();
+    </script>
+</head>
+<body>
+<div class="container">
+    <header class="headerBox clearfix">
+        <h1>新浪网<a href="" class="icon-logo"></a></h1>
+        <a href="javascript:;" class="menu icon-menu"></a>
+        <a href="" class="user icon-user"></a>
+        <a href="" class="weather"></a>
+    </header>
+
+    <nav class="navBox">
+        <ul class="clearfix">
+            <li><a href="">新闻</a></li>
+            <li><a href="">财经</a></li>
+            <li><a href="">体育</a></li>
+            <li><a href="">娱乐</a></li>
+            <li><a href="">军事</a></li>
+            <li><a href="">汽车</a></li>
+            <li><a href="">科技</a></li>
+            <li><a href="">视频</a></li>
+            <li><a href="">美图</a></li>
+            <li><a href="">NBA</a></li>
+            <li><a href="">博客</a></li>
+            <li></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="swiper-container">
+            <div class="swiper-wrapper">
+                <!--<div class="swiper-slide">-->
+                    <!--<a href="">-->
+                        <!--<img src="images/1.jpg" alt="">-->
+                        <!--<span>捕鱼者捉住近一人高的‘鱼王’</span>-->
+                    <!--</a>-->
+                <!--</div>-->
+            </div>
+            <div class="swiper-pagination"></div>
+        </section>
+
+        <aside class="asideBox">
+            <div class="flag"></div>
+            <ul class="list">
+                <!--<li>-->
+                    <!--<a href="">恭喜珠峰培训十期学生李唐菲拿下20K的offer</a>-->
+                <!--</li>-->
+            </ul>
+        </aside>
+
+        <section class="news">
+            <!--<ul class="item">-->
+                <!--<li>-->
+                    <!--<a href="">-->
+                        <!--<img src="images/news.jpg" alt="">-->
+                        <!--<div>-->
+                            <!--<p>房企再次涌入三四线市场 持续性待考</p>-->
+                            <!--<span>29万-->
+                                <!--<i class="icon-comment"></i>-->
+                            <!--</span>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="image">-->
+                <!--<p>房企再次涌入三四线市场 持续性待考</p>-->
+                <!--<div class="clearfix">-->
+                    <!--<img src="images/news.jpg" alt="">-->
+                    <!--<img src="images/news.jpg" alt="">-->
+                    <!--<img src="images/news.jpg" alt="">-->
+                <!--</div>-->
+                <!--<span>29万<i class="icon-comment"></i></span>-->
+            <!--</div>-->
+        </section>
+    </main>
+</div>
+
+<!--IMPORT JS-->
+<script src="js/zepto.min.js"></script>
+<script src="js/swiper-3.4.2.jquery.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

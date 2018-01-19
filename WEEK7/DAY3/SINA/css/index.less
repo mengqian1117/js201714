@@ -1,0 +1,265 @@
+@import "reset";
+@import "swiper";
+@import "font";
+
+.transition(@property: all,@duration: 1s,@timing-function: linear,@delay: 0s) {
+  -webkit-transition: @arguments;
+  transition: @arguments;
+}
+
+html {
+  font-size: 100px;
+}
+
+html, body {
+  background: #E1E1E1;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 640px;
+}
+main{
+   position: relative;
+   top: 1rem;
+ }
+
+/*--HEADER--*/
+.headerBox{
+  @text:#FFF;
+  position: fixed;
+  z-index: 1000;
+  padding: 0 5%;
+  width: 90%;
+  background-color: #129BF0;
+  h1{
+    float: left;
+    width: .8rem;
+    height: 1rem;
+    font-size: 0;
+    a{
+      display: block;
+      height: 100%;
+      line-height: 1rem;
+      font-size: .8rem;
+      color: @text;
+    }
+  };
+  .menu,.user,.weather{
+    float: right;
+    margin-left: .32rem;
+    width: .44rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .44rem;
+    color: @text;
+  }
+  .weather{
+    background: url("../images/cloud.gif") no-repeat center center;
+    background-size: 100%;
+  }
+}
+.navBox{
+  position: relative;
+  top: 1rem;
+  box-sizing: border-box;
+  padding: 0;
+  height: 0;
+  background-color: #fff;
+  overflow: hidden;
+  .transition(@duration: .3s);
+  ul{
+    height: 100%;
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: center;
+    align-content: center;
+  }
+  li{
+    width: 16%;
+    height: .64rem;
+    line-height: .64rem;
+    text-align: center;
+    font-size: .32rem;
+    a{
+      display: block;
+      height: 100%;
+      color: #555;
+    }
+  }
+}
+/*--SWIPER--*/
+.swiper-container{
+  position: relative;
+  height: 3.4rem;
+  overflow: hidden;
+  .swiper-slide{
+    position: relative;
+    height: 3.4rem;
+    img{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    span{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: .6rem;
+      line-height: .6rem;
+      color: #fff;
+      font-size: .28rem;
+      background: rgba(0,0,0,.5);
+      text-indent: .2rem;
+    }
+  };
+  .swiper-pagination-fraction{
+    position: absolute;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 1rem;
+    height: .6rem;
+    line-height: .6rem;
+    color: rgba(255,255,255,.7);
+    text-align: center;
+    font-size: .28rem;
+    .swiper-pagination-current{
+      color: #fff;
+      font-weight: bold;
+      font-size: .3rem;
+    }
+  }
+}
+/*--ASIDE--*/
+.asideBox{
+  @H:.8rem;
+  position: relative;
+  margin: .16rem 0;
+  height: @H;
+  background: #fff;
+  overflow: hidden;
+  .flag{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;
+    &:after{
+      padding: 0 .06rem;
+      content: "直播";
+      background: #FA4E46;
+      color: #fff;
+      font-size: .3rem;
+    }
+  }
+  .list{
+    margin-left: 1rem;
+    .transition(@duration: .3s);
+    li{
+      height: @H;
+      line-height: @H;
+      a{
+        display: block;
+        height: 100%;
+        color: #555;
+        font-size: .28rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  }
+}
+/*--NEWS--*/
+.news{
+  padding: 0 .2rem;
+  background: #fff;
+  .item{
+    li{
+      padding: .2rem 0;
+      border-bottom:.02rem solid #DDD ;
+      a{
+        display: block;
+        position: relative;
+        img{
+          position: absolute;
+          top:0;
+          left: 0;
+          width: 2rem;
+          height: 1.34rem;
+        }
+        div{
+          margin-left: 2.2rem;
+          p{
+            font-size: .34rem;
+            line-height: .48rem;
+            color: #555;
+          }
+          span{
+            display: block;
+            line-height: .3rem;
+            text-align: right;
+            color: #888;
+            font-size: .22rem;
+            vertical-align: middle;
+            i{
+              margin-left: .1rem;
+              font-size: .24rem;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  };
+  .image{
+    padding: .2rem 0;
+    border-bottom: .02rem solid #DDD;
+    a{
+      display: block;
+    }
+    p{
+      font-size: .34rem;
+      line-height: .48rem;
+      color: #555;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    div{
+      margin: .3rem 0;
+      img{
+        float: left;
+        width: 32%;
+        height: 1.24rem;
+        &:not(:nth-last-child(1)){
+          margin-right: 2%;
+        }
+      }
+    }
+    span{
+      display: block;
+      line-height: .3rem;
+      text-align: right;
+      color: #888;
+      font-size: .22rem;
+      vertical-align: middle;
+      i{
+        margin-left: .1rem;
+        font-size: .24rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+
+
+
+
+

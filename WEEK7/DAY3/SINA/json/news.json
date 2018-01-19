@@ -1,0 +1,42 @@
+{
+  "newsList": [
+    {
+      "id": 1,
+      "img": "images/news.jpg",
+      "title": "房企再次涌入三四线市场 持续性待考",
+      "count": "39万",
+      "link": ""
+    },
+    {
+      "id": 1,
+      "img": "images/news.jpg",
+      "title": "房企再次涌入三四线市场 持续性待考",
+      "count": "39万",
+      "link": ""
+    },
+    {
+      "id": 1,
+      "img": "images/news.jpg",
+      "title": "房企再次涌入三四线市场 持续性待考",
+      "count": "39万",
+      "link": ""
+    },
+    {
+      "id": 1,
+      "img": "images/news.jpg",
+      "title": "房企再次涌入三四线市场 持续性待考",
+      "count": "39万",
+      "link": ""
+    }
+  ],
+  "imgList": {
+    "title": "房企再次涌入三四线市场 持续性待考",
+    "img": [
+      "images/news.jpg",
+      "images/news.jpg",
+      "images/news.jpg"
+    ],
+    "count": "20万",
+    "link": ""
+  }
+}
