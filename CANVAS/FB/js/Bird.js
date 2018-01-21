@@ -1,7 +1,7 @@
 (function () {
     let Bird=function () {
-        this.x=100;
-        this.y=100;
+        this.x=(game.canvas.width)/2;
+        this.y=game.canvas.height*(1-0.618);
         this.changeY=0;
         this.rotate=0;
         this.img=[game.allImg["bird0_0"],game.allImg["bird0_1"],game.allImg["bird0_2"]];
@@ -35,7 +35,7 @@
         this.y2=this.y+12;
         //落地检测
         if(this.y>game.canvas.height-112-12){
-            clearInterval(game.timer)
+            game.sM.enter(3);
         }
     };
 

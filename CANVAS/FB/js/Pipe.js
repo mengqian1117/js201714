@@ -3,10 +3,11 @@
         //上管子的高度,320-100随机的高度
         this.h1=Math.round(Math.random()*220+100);
         //空隙固定140
-        this.space=140;
+        this.space=200;
         //下管子的高度=canvas的高-land的高-上管子的高-空隙
         this.h2=game.canvas.height-112-this.h1-this.space;
         this.x=game.canvas.width;
+        this.done=true;
         game.pipeArr.push(this);
     };
     Pipe.prototype.update=function () {
@@ -28,7 +29,12 @@
         //(game.bird.x2>this.x1&&game.bird.x1<this.x2)&&(game.bird.y1<this.y1||game.bird.y2>this.y2)
         if((game.bird.x2>this.x1&&game.bird.y1<this.y1&&game.bird.x1<this.x2)||(game.bird.x2>this.x1&&game.bird.y2>this.y2&&game.bird.x1<this.x2)){
             //碰撞了
-            clearInterval(game.timer)
+            game.sM.enter(3);
+        }
+        //加分检测
+        if(this.done&&game.bird.x1>this.x2){
+            game.score++;
+            this.done=false;
         }
     };
     Pipe.prototype.render=function () {
