@@ -30,10 +30,35 @@
                break;
            case 4:
                game.scene=4;
+               this.gameoverY=0;
+               this.score_panelY=game.canvas.height;
+               //获取出存储的成绩
+               let arr=JSON.parse(localStorage.getItem("FB"));
+               //排序获取前三名
+               arr.sort((a,b)=>b-a);
+               //现在的成绩game.score去跟arr[0],arr[1],arr[2];
+               //将最大记录分数存起来后面渲染到颁奖上
+               this.best=arr[0];
+               if(game.score>arr[0]){
+                   //记录得什么奖牌
+                   this.model="medals_1";
+                   this.best=game.score;
+               }else if(game.score>arr[1]){
+                   this.model="medals_2";
+               }else if(game.score>arr[2]){
+                   this.model="medals_3";
+               }else {
+                   this.model="medals_0";
+               }
+               //将分数放到数组中,注意判断数组有没相同的分数,有就不用放了.没有才放
+               if(!arr.includes(game.score)){
+                   arr.push(game.score);
+               }
+               //给浏览器存起来
+               localStorage.setItem("FB",JSON.stringify(arr));
                break;
        }
    };
-
    SceneManager.prototype.updateAndRender=function () {
        //根据此时是场景编号来判断第几个场景,然后做响应的处理
        switch (game.scene){
@@ -111,6 +136,31 @@
               scoreRender();
                break;
            case 4:
+               //停止上一个场景结束的时候
+               game.bg.render();
+               game.land.render();
+               for (let i=0;i<game.pipeArr.length;i++){
+                   game.pipeArr[i].render();
+               }
+               this.gameoverY+=5;
+               this.score_panelY-=10;
+               if(this.score_panelY<270){
+                   this.score_panelY=270;
+                   //此时给this加一个标志说明可以显示奖牌了
+                   this.isShowModel=true;
+               }
+               if(this.gameoverY>=200)this.gameoverY=200;
+               game.draw.drawImage(game.allImg["game_over"],(game.canvas.width-204)/2,this.gameoverY);
+               game.draw.drawImage(game.allImg["score_panel"],(game.canvas.width-238)/2,this.score_panelY);
+               if(this.isShowModel){
+                   game.draw.drawImage(game.allImg[this.model],game.canvas.width/2-88,this.score_panelY + 44);
+                   game.draw.fillStyle="#666";
+                   game.draw.font="20px consolas";
+                   game.draw.textAlign="right";
+                   game.draw.fillText(game.score,(game.canvas.width / 2) + 90 , this.score_panelY + 50);
+                   game.draw.fillText(this.best,(game.canvas.width / 2) + 90 , this.score_panelY + 96);
+               }
+
                break;
        }
    };

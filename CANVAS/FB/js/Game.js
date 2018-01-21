@@ -9,6 +9,14 @@
         this.scene=0;//场景编号
         this.score=0;//分数
         this.loadImg();
+        if(!localStorage.getItem("FB")){
+            localStorage.setItem("FB","[]");
+        }
+        // else {
+        //     let a=JSON.parse(localStorage.getItem("FB"));
+        //     a.push("哈哈");
+        //     localStorage.setItem("FB",JSON.stringify(a));
+        // }
     };
     Game.prototype.clear=function () {
         this.draw.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -56,6 +64,12 @@
             "baozha7" : "images/7.png",
             "baozha8" : "images/8.png",
             "baozha9" : "images/9.png",
+            "game_over":"images/text_game_over.png",
+            "score_panel":"images/score_panel.png",
+            "medals_0" : "images/medals_0.png",
+            "medals_1" : "images/medals_1.png",
+            "medals_2" : "images/medals_2.png",
+            "medals_3" : "images/medals_3.png",
         };
         var count=0,total=Object.keys(this.allImg).length;
         for (let key in this.allImg){

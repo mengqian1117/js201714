@@ -7,3 +7,5 @@
 
 game.draw.globalAlpha 透明度的修改
 但是对整个画布的操作如果相对局部影响,需要加save()和restore()包起来
+
+localStorage.setItem("属性名","属性值必须是字符串")

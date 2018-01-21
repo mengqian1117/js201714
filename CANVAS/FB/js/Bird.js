@@ -52,6 +52,8 @@
         //头上扬
         this.rotate=-1.2;
         this.changeY=8;
+        document.getElementById("wing").play();
+        //document.getElementById("wing").pause();
     };
 
     window.Bird=Bird;

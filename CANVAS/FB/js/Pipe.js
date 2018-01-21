@@ -30,11 +30,15 @@
         if((game.bird.x2>this.x1&&game.bird.y1<this.y1&&game.bird.x1<this.x2)||(game.bird.x2>this.x1&&game.bird.y2>this.y2&&game.bird.x1<this.x2)){
             //碰撞了
             game.sM.enter(3);
+            document.getElementById("die").play();
+            document.getElementById("hit").play();
         }
         //加分检测
         if(this.done&&game.bird.x1>this.x2){
             game.score++;
             this.done=false;
+            document.getElementById("point").play();
+            //document.getElementById("point").pause();
         }
     };
     Pipe.prototype.render=function () {
