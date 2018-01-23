@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+
+</head>
+<body>
+<div id="box" onclick="fn(event)">111111111111</div>
+</body>
+</html>
+<script type="text/javascript">
+/*
+    function fn(e) {
+        console.log(e);
+    }
+    //box.onclick=fn;
+    //alert(1);
+    //confirm();
+    //prompt();
+
+    console.time();
+    for(let i=0;i<1000000000;i++){
+        let a=i;
+        a++;
+        a--;
+
+    }
+    console.timeEnd();
+    console.log("我是%s,我是%s","范彦美","商倩倩",);
+
+    "use strict";
+    var c=1;
+    console.log(window.c);
+    console.log(ff);
+    function ff() {
+
+    }
+    */
+var a=1;
+function fn(){ console.log(a)};
+function ff(){
+    var f=fn;
+    var a=2;
+    return f;
+}
+var f=ff();
+f();
+</script>
+<script src="" defer></script>
+<script src="" async></script>

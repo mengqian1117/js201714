@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    let set=new Set([1,1,2,2,true,true]);
+    console.log(set);
+
+    //对象{name:"zf"}
+    //Map 键可以可以是任意数据类型的
+    //键不可以重名,后面会把前面覆盖掉
+    let obj={a:1};
+    let arr=[obj,2];
+    let map=new Map([[1,1],[true,true],[{a:1},{a:1}]]);
+    console.log(map);
+    let map1=new Map([arr,[obj,4]]);
+    console.log(map1);
+
+
+    let  map2=new Map([[1,"哈哈"],[true,"true"],[{a:1},"嘿嘿"]]);
+    for( let [ key,val]of map2){
+        console.log(key,val);
+    }
+    for( let key of map2.keys()){
+        console.log(key);
+    }
+    for( let val of map2.values()){
+        console.log(val);
+    }
+
+</script>
