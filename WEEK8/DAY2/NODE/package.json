@@ -1,0 +1,19 @@
+{
+  "name": "NODE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "z": "lessc css/less1.less > css/css1.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "less": "^2.7.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  }
+}

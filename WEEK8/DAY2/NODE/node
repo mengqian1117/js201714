@@ -1,0 +1,69 @@
+node.js
+不是一门语言是一个运行环境(跟浏览器一样是一个平台,让代码在上面运行),在node环境中运行JS
+浏览器装在电脑上当做客户端
+node装在服务器上当做服务端
+
+node优势
+1.快,使用的V8引擎来渲染
+2.基于事件驱动的I(input)/o(output)操作(读文件写文件)
+3.单线程异步开发
+4.因为使用的是JS所以前端人员上手快
+5.自带NPM包管理器(全球最大的包管理器,使用npm安装各种开发使用的安装包)
+6.模块化开发,node自带很多内置模块
+
+node中的模块
+分为三种
+1.内置模块(node自带的模块) fs,http,url
+官方中文文档:http://nodejs.cn/api/
+2.自定义模块: 你写的js呗,一个JS文件就是一个模块
+3.第三方模块:别人发布的你安装来使用(安装一般使用npm包管理器安装 npm install XX)
+
+如何使用npm安装第三方模块
+npm install less -g       将less安装在全局中
+npm install less -global  将less安装在全局中
+node环境中全局对象  global
+浏览器环境中全局对象 window
+
+npm install less 当前项目下
+只要安装了第三方模块就会在当前项目下多一个文件夹node_modules 和一个文件package-lock.json
+- NODE
+  - node_modules
+  - package-lock.json
+
+
+我们再来装一个 bootstrap
+npm install bootstrap
+
+
+在合作开发的时候一般我们自己在自己的电脑上装我需要的包,都在node_modules这里边,这个包比较大,一般我们不会上传到git上,当其他开发人员接手这个项目时候少了node_modules这个文件项目肯定跑不起来,他需要知道我之前都装了一些啥,如果我口头说肯定效果不好,记录在一个TXT中,但是他还需要一个一个装,比较麻烦,此时一个好的东西就有了
+ 在项目中 npm init -y
+ 此时就会多一个package.json文件
+ 接下来在安装包的时候
+ npm install bootstrap --save     (生产依赖)
+ npm install less --save-dev (开发依赖)
+
+在package.json文件中出现
+  "devDependencies": {
+    //记录开发依赖项项
+    "less": "^2.7.3"
+  }
+  "dependencies": {
+   //就的是生产依赖项
+     "bootstrap": "^4.0.0"
+   }
+
+
+ 只要拿到package.json文件,执行一条命令 npm install,记录的之前装的所有的包全都给你安装,这种方式就叫做"跑环境"
+
+ 开发环境:例如less 他是处理css的,在开发的时候需要,但是在项目运行在浏览器上的时候不需要less,只需要编译好的css即可,所以less包是一个开发依赖项
+ 线上(生产)环境:项目运行的时候仍然需要他就是线上依赖(生产依赖)
+
+
+ 自定义模块
+ 一个JS文件件就是一个模块
+ -js
+   - A.js  module.exports=fn;
+   - B.js  let fn=require("./A")
+
+ 单独运行A.js 1).右键run一下
+             2).在命令窗口cd 到js文件夹中 执行 node A.js
