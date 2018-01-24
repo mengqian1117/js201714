@@ -1,0 +1,16 @@
+查看电脑配置
+windows : ipconfig
+mac:      ifconfig
+详细信息  : ipconfig -all
+记录你的IP地址:192.168.0.12
+产看网速      :ping www.baidu.com -t
+终止查看      :Ctrl+C
+清屏:        windows :cls   mac:clear
+进入某个磁盘:  f:   F: 不区分大小写
+进入某一个文件夹  cd WW(文件夹名字)
+查看有什么文件夹  windows:dir   mac:ls
+创建一个文件夹  mkdir ww(文件夹名字)
+删除一个文件夹  rmdir ww(文件夹名字)
+cd ../返回上一级目录
+cd ./当前目录
+cd /当前磁盘的根目录
