@@ -24,15 +24,9 @@ http.createServer((req,res)=>{
     //根据地址获取请求的文件路径
     let {pathname}=url.parse(req.url);
     try {
-        //根据当前pathname去读取出文件
-        //"/index.html" "/list.html"
         let result=fs.readFileSync("."+pathname,"utf-8");
-        //将读取的内容返回给客户端
-        //res.end(返回的内容必须是字符串)
         res.end(result);
     }catch (e){
         res.end("I'm sorry");
     }
-}).listen(4567,()=>{
-    console.log("OK");
-});
+}).listen(4567,()=>{console.log("OK");});
