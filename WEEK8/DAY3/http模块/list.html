@@ -12,6 +12,30 @@
     <li>4</li>
     <li>5</li>
 </ul>
+<form id="form1">
+    <input type="text" id="user" name="user">
+    <input type="password" id="pw" name="pw">
+    <input type="text" id="url" name="url">
+    <button id="sub">提交</button>
+</form>
 </body>
 </html>
-<script type="text/javascript"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    sub.onclick=function () {
+        $.ajax({
+            url:"/userInfo",
+            type:"post",
+            dataType:"json",
+            data:{
+                user:$("#user").val(),
+                pw:$("#pw").val(),
+                url:$("#url").val()
+            },
+            async:false,
+            success:function (res) {
+                console.log(res.message);
+            }
+        })
+    }
+</script>
