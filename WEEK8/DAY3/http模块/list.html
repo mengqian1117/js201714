@@ -22,20 +22,21 @@
 </html>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-    sub.onclick=function () {
+    sub.onclick=function (e) {
+        e.preventDefault();
         $.ajax({
             url:"/userInfo",
             type:"post",
             dataType:"json",
-            data:{
-                user:$("#user").val(),
-                pw:$("#pw").val(),
-                url:$("#url").val()
-            },
+            data:$("#form1").serialize(),
             async:false,
             success:function (res) {
                 console.log(res.message);
             }
         })
     }
+    //$("#form1").serialize()//序列化表单
+    //'user=qq&pw=1234&url=2112'
+    //window.decodeURI()
+    //window.encodeURI()
 </script>

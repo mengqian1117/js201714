@@ -37,6 +37,7 @@ http.createServer((req,res)=>{
             data+=chunk;
         });
         req.on("end",()=>{
+            console.log(data);
             //数据传完了触发的函数
             //user=qq&pw=12345678&url=www.baidu.com
             data=eval("({"+data.replace(/&/g,"',").replace(/=/g,":'")+"'})");
