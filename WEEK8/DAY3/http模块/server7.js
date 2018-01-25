@@ -1,5 +1,4 @@
 //get请求的参数问题
-
 //只要是url请求(地址栏输入地址)肯定是get请求
 let http=require("http");
 let url=require("url");

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<form id="reg">
+    <label for="user">用户:</label>
+    <input type="text" id="user" name="user">
+    <br>
+    <label for="pw">密码:</label>
+    <input type="password" id="pw" name="pw">
+    <br>
+    <label for="sex">性别:</label>
+    <input type="text" id="sex" name="sex">
+    <br>
+    <button id="sub">注册</button>
+</form>
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    sub.onclick=function (e) {
+        e.preventDefault();
+        $.ajax({
+            url:"/addUser",
+            type:"post",
+            dataType:"json",
+            data:decodeURIComponent($("#reg").serialize()),
+            async:false,
+            success:function (res) {
+                console.log(res);
+            }
+        })
+    }
+</script>
