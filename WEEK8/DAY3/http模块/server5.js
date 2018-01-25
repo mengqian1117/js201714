@@ -31,13 +31,10 @@ http.createServer((req,res)=>{
         res.end(result);
         return;
     }
-    //没有后缀说明是ajax发的数据请求
-    if(pathname=="/dataList"){
-        //读取dataList.json文件内容
-        result=fs.readFileSync("./data/dataList.json","utf-8");
+    if(pathname=="/a"){
+        result=fs.readFileSync("./data/name.json","utf-8");
         res.end(result);
         return;
     }
-
 
 }).listen(678);
