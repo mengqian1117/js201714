@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-10JS</title>
+    <link rel="stylesheet" href="../css/userList.css">
+</head>
+<body>
+<div class="box">
+    <form id="formCheck">
+        选择查询:
+        <input type="text" list="url_list" name="check" id="check">
+        <datalist id="url_list">
+            <option label="name" value="name"></option>
+            <option label="age" value="age"></option>
+            <option label="sex" value="sex"></option>
+            <option label="tel" value="tel"></option>
+            <option label="time" value="time"></option>
+            <option label="address" value="address"></option>
+        </datalist>
+        <input type="text" placeholder="请输入查询关键字" id="key" name="key" >
+        <input type="button" id="submit" value="查询">
+    </form>
+</div>
+<div class="box" id="box">
+    <h2 class="head">
+        <span>ID编号</span>
+        <span>姓名</span>
+        <span>年龄</span>
+        <span>性别</span>
+        <span>操作</span>
+    </h2>
+    <ul id="list" class="list"></ul>
+</div>
+</body>
+</html>
+<script src="../js/jquery-3.2.1.min.js"></script>

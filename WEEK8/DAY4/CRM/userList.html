@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <link rel="stylesheet" href="css/userList.css">
+</head>
+<body>
+<h1>CRM客户管理系统</h1>
+<button>查询用户列表</button>
+<div class="box" id="box">
+    <h2 class="head">
+        <span>ID编号</span>
+        <span>姓名</span>
+        <span>年龄</span>
+        <span>性别</span>
+        <span>操作</span>
+    </h2>
+    <ul id="list" class="list"></ul>
+    <div id="page" class="page">
+        <span>首页</span>
+        <span>上一页</span>
+        <ul id="pageNum" class="pageNum"></ul>
+        <span>下一页</span>
+        <span>尾页</span>
+        <input id="pageInput" type="text" value="1">
+    </div>
+
+</div>
+<div class="box">
+    <form id="form1">
+        <label for="name">姓名</label>
+        <input type="text" id="name" name="name">
+        <label for="sex">性别</label>
+        <input type="text" id="sex" name="sex">
+        <label for="age">年龄</label>
+        <input type="text" id="age" name="age">
+        <br>
+        <label for="tel">电话</label>
+        <input type="text" id="tel" name="tel">
+        <label for="time">出生日期</label>
+        <input type="text" id="time" name="time">
+        <label for="address">地址</label>
+        <input type="text" id="address" name="address">
+        <input type="button" value="增加新用户" id="submit">
+    </form>
+</div>
+</body>
+</html>
+<script type='text/javascript' src="../js/jquery-3.2.1.min.js"></script>

@@ -1,0 +1,77 @@
+1)请求数据列表
+API : "/userList"
+METHOD: "get"
+参数:page=数字  你想要第几页的数据
+DATA:{
+   message:"",
+   code:1,
+   total:总页数
+   data:[数据]
+}
+
+2) 删除用户
+API:"/removeUser"
+METHOD:"get"
+参数:id=当前用户的ID编号
+DATA:{
+   message:"",
+   code:1,
+   data:true/false
+}
+
+3)查看用户
+API:"/checkUser"
+METHOD:"get"
+参数:id=当前用户的ID编号
+DATA:{
+   message:"",
+   code:,
+   data:{当前用户的全部信息}
+}
+
+4)修改用户信息
+API:"/changeUserInfo"
+METHOD:"POST"
+参数:{
+   id,
+   user,
+   sex,
+   age,
+   time,
+   tel,
+   address
+}
+DATA:{
+   message:"",
+   code,
+   data:true/false
+}
+
+5)增加新用户
+API:"/addUser"
+METHOD:"POST"
+参数参数:{
+     user,
+     sex,
+     age,
+     time,
+     tel,
+     address
+  }
+DATA:{
+   message:"",
+   code:,
+   data:true/false
+}
+
+
+6).查询用户
+API:"/searchUser",
+METHOD:"GET",
+参数:getFor=name&getCon="查询关键字"
+DATA:{
+   message:"",
+   code:,
+   total:,
+   data:[]
+}

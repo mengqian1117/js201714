@@ -1,0 +1,121 @@
+html,body,div,span,input,h2,ul,li{
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #555;
+    font-size: 14px;
+}
+ul,li{
+    list-style: none;
+}
+input{
+    outline: none;
+}
+h1{
+    text-align: center;
+}
+.h2{
+    margin: 0 auto;
+    background-color:aliceblue ;
+    width: 80%;
+    padding: 5px 30px;
+    border-radius: 3px;
+    color: #555215;
+}
+body>button{
+    position: relative;
+    left: 1060px;
+    color: blue;
+    display: block;
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.box{
+    margin: 20px auto;
+    width: 1200px;
+    border: 2px solid green;
+    border-radius: 5px;
+}
+.box .head{
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 16px;
+    background: green;
+    color: #fff;
+}
+.box .head span{
+    float: left;
+    width: 240px;
+}
+.box .list{
+    height: 300px;
+}
+.box .list li{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.box .list li span{
+    float: left;
+    width: 240px;
+}
+.box .list li:nth-child(even){
+    background: #EEE;
+}
+.box .list li:hover{
+    background:#FFF38F ;
+}
+.page{
+    margin-top: 10px;
+    text-align: center;
+}
+.page span,.page input,.page ul li{
+    display: inline-block;
+    width: 45px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid green;
+    font-size: 12px;
+}
+.page ul {
+    display: inline-block;
+}
+.page ul li{
+    margin: 0 3px;
+    width: 20px;
+}
+.page ul li.bg{
+    background: green;
+    color: #fff;
+}
+.box form input{
+    line-height: 30px;
+    font-size: 18px;
+}
+.box form label{
+    font-size:18px ;
+}
+#submit{
+    float: right;
+}
+#submit:hover{
+    background: cornflowerblue;
+    color: aliceblue;
+}
+form{
+    padding: 5px 30px;
+}
+form input{
+    margin: 10px;
+}
