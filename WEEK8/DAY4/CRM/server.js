@@ -89,6 +89,103 @@ http.createServer((request,response)=>{
         })
     }
 
+    //处理增加用户的API /addUser
+    if(pathname=="/addUser"){
+        //post
+        let data='';
+        request.on("data",(chunk)=>{data+=chunk});
+        request.on("end",()=>{
+            data=eval("({"+data.replace(/=/g,":'").replace(/&/g,"',")+"'})");
+            //给这条数据加一个ID编号
+            data["id"]=allUserData[allUserData.length-1].id+1;
+            //将这条数据push到数据allUserData中
+            allUserData.push(data);
+            //将修改后的数据重新写入到数据库中
+            fs.writeFile("./data/userListData.json",JSON.stringify(allUserData),"utf-8",(e)=>{
+                if(e){
+                    result={
+                        message:"error",
+                        code:0,
+                        data:false,
+                    };
+                    status=404;
+                }else {
+                    result={
+                        message:"success",
+                        code:1,
+                        data:true,
+                    };
+                    status=200;
+                }
+                response.writeHead(status,{
+                    "Content-type":"text/json;charset=utf-8"
+                });
+                response.end(JSON.stringify(result));
+            })
+        });
+        return;
+    }
+
+    //处理查看用户 API /checkUser
+    if(pathname=="/checkUser"){
+        //获取客户端传过来查看用户的ID
+        let userID=query.id;
+        //根据userID去数据库中查找相应的信息
+        let data=allUserData.find(item=>item.id==userID);
+        result={
+            message:"success",
+            code:1,
+            data:data,
+        };
+        response.writeHead(200,{
+            "Content-type":"text/json;charset=utf-8",
+        });
+        response.end(JSON.stringify(result));
+        return;
+    }
+
+    //处理修改用户信息 API /changeUserInfo
+    if(pathname=="/changeUserInfo"){
+        let data='';
+        request.on("data",(chunk)=>{
+            data+=chunk;
+        });
+        request.on("end",()=>{
+            data=eval("({"+data.replace(/=/g,":'").replace(/&/g,"',")+"'})");
+            //替换原来allUserData数组中的对应ID编号的那一项
+            let index=allUserData.findIndex(item=>item.id==data.id);
+            allUserData.splice(index,1,data);
+            fs.writeFileSync("./data/userListData.json",JSON.stringify(allUserData),"utf-8");
+            result={
+                message:"success",
+                code:1,
+                data:true
+            };
+            response.writeHead(200,{
+                "Content-type":"text/json;charset=utf-8",
+            });
+            response.end(JSON.stringify(result));
+        });
+        return;
+    };
+
+    //处理查询 API /searchUser
+    if(pathname=="/searchUser"){
+        let {getFor,getCon}=query;
+        let reg=new RegExp(getCon,"g");
+        let data=allUserData.filter(item=>reg.test(item[getFor].toString()));
+        result={
+            message:"success",
+            code:1,
+            total:data.length,
+            data:data
+        };
+        response.writeHead(200,{
+            "Content-type":"text/json;charset=utf-8",
+        });
+        response.end(JSON.stringify(result));
+        return;
+    }
 }).listen(666,()=>{
     console.log("success");
 });

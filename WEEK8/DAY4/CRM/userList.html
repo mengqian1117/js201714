@@ -48,3 +48,17 @@
 </body>
 </html>
 <script type='text/javascript' src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    $("#submit").click(function (e) {
+        $.ajax({
+            url:"/addUser",
+            type:"post",
+            data:decodeURIComponent($("#form1").serialize()),
+            dataType:"json",
+            async:false,
+            success:function (res) {
+                console.log(res.data);
+            }
+        })
+    })
+</script>
