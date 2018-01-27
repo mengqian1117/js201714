@@ -75,5 +75,35 @@
 </html>
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-
+    //获取url的参数id的值,根据这个值去请求数据
+    let userID=window.location.href.split("?")[1].split("=")[1];
+    $.ajax({
+        url:"/checkUser?id="+userID,
+        type:"get",
+        dataType:"json",
+        success:function (res) {
+            for (let key in res.data){
+                $(`#${key}`).val(res.data[key]);
+                if(key=="sex"){
+                    $(`#${key}`).val(res.data[key]==0?"男":"女");
+                }
+            }
+        }
+    });
+    $("#submit").click(function () {
+        let str=decodeURIComponent("id="+userID+"&"+$("#f").serialize());
+        //性别处理 女->1,男->0
+        //sex=女&  sex=男&
+        str=str.replace("sex=女&","sex=1&").replace("sex=男&","sex=0&");
+        $.ajax({
+            url:"/changeUserInfo",
+            type:"post",
+            dataType:"json",
+            data:str,
+            success:function (res) {
+                alert(res.message);
+                window.open("../userList.html");
+            }
+        })
+    })
 </script>

@@ -9,7 +9,7 @@
 <div class="box">
     <form id="formCheck">
         选择查询:
-        <input type="text" list="url_list" name="check" id="check">
+        <input type="text" list="url_list" name="getFor" id="getFor">
         <datalist id="url_list">
             <option label="name" value="name"></option>
             <option label="age" value="age"></option>
@@ -18,7 +18,7 @@
             <option label="time" value="time"></option>
             <option label="address" value="address"></option>
         </datalist>
-        <input type="text" placeholder="请输入查询关键字" id="key" name="key" >
+        <input type="text" placeholder="请输入查询关键字" id="getCon" name="getCon" >
         <input type="button" id="submit" value="查询">
     </form>
 </div>
@@ -35,3 +35,38 @@
 </body>
 </html>
 <script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    let $list=$("#list"),
+        $submit=$("#submit");
+    $submit.click(function () {
+        $.ajax({
+            url:"/searchUser?"+decodeURIComponent($("#formCheck").serialize()),
+            type:"GET",
+            data:null,
+            dataType:"json",
+            cache:false,
+            async:false,
+            success:bindHTML
+        })
+    });
+    function bindHTML (res) {
+        let str=``;
+        $.each(res.data,(index,item)=>{
+            str+= `<li id="li${item.id}">
+            <span>${item.id}</span>
+            <span>${item.name}</span>
+            <span>${item.age}</span>
+            <span>${item.sex==0?"男":"女"}</span>
+            <span>
+                <button class="del" data-id="${item.id}">
+                   删除
+                </button>
+                <button class="check" data-id="${item.id}">
+                   查看/修改
+                </button>
+            </span>
+        </li>`;
+        });
+        $list.html(str);
+    }
+</script>
