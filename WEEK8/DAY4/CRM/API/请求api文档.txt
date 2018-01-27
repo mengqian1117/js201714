@@ -34,7 +34,7 @@ API:"/changeUserInfo"
 METHOD:"POST"
 参数:{
    id,
-   user,
+   name,
    sex,
    age,
    time,
@@ -51,7 +51,7 @@ DATA:{
 API:"/addUser"
 METHOD:"POST"
 参数参数:{
-     user,
+     name,
      sex,
      age,
      time,
