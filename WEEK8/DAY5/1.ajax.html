@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训2017-14JS</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script type="text/javascript" src="js/封装AJAX.js"></script>
+<script>
+    ajax({
+        url:"data/data.json",
+        method:"get",
+        data:{name:"zf"},
+        dataType:"json",
+        cache:false,
+        async:false,
+        success:function (res) {
+            console.log(res);
+        }
+    })
+</script>
