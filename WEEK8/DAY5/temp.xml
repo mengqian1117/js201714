@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <student>
+        <name>王小二</name>
+        <age>12</age>
+        <sex>男</sex>
+    </student>
+</root>
